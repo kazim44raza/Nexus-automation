@@ -1,5 +1,12 @@
 import type { Metadata } from 'next';
+import dynamic from 'next/dynamic';
+
 import './globals.css';
+
+// Dynamically import ChatbotWidget with no SSR to prevent hydration errors
+const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://nexusautomation.ai'),
@@ -64,6 +71,7 @@ export default function RootLayout({
       <body className="antialiased">
         <div className="noise-overlay" aria-hidden="true" />
         {children}
+        <ChatbotWidget />
       </body>
     </html>
   );
