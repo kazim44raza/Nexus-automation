@@ -39,12 +39,12 @@ const scaleIn = {
 
 const particles = Array.from({ length: 18 }, (_, i) => ({
   id: i,
-  left: `${5 + Math.random() * 90}%`,
-  top: `${5 + Math.random() * 90}%`,
-  size: 2 + Math.random() * 3,
-  duration: 4 + Math.random() * 6,
-  delay: Math.random() * 4,
-  opacity: 0.15 + Math.random() * 0.35,
+  left: `${5 + (i * 17) % 90}%`,
+  top: `${5 + (i * 23) % 90}%`,
+  size: 2 + (i % 3),
+  duration: 4 + (i % 6),
+  delay: (i % 4),
+  opacity: 0.15 + ((i % 5) * 0.05),
 }));
 
 /* ------------------------------------------------------------------ */

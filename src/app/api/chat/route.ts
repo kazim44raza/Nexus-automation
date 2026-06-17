@@ -1,10 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { groq } from '@ai-sdk/groq';
+import { streamText } from 'ai';
 
-const GROQ_API_KEY = process.env.GROQ_API_KEY;
-const GROQ_MODEL = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
-const GROQ_API_URL = 'https://api.groq.com/openai/v1/chat/completions';
+// Allow streaming responses up to 30 seconds
+export const maxDuration = 30;
 
-const SYSTEM_PROMPT = `You are Nexus AI Assistant, a knowledgeable and friendly chatbot representing Nexus Automation - a cutting-edge AI automation platform that transforms how businesses operate.
+export async function POST(req: Request) {
+  try {
+    const { messages } = await req.json();
+
+    const systemPrompt = `You are Nexus AI Assistant, a knowledgeable and friendly chatbot representing Nexus Automation - a cutting-edge AI automation platform that transforms how businesses operate.
 
 ## About Nexus Automation
 Nexus Automation provides six core services:
@@ -79,116 +83,40 @@ If the customer asks about:
 
 ...offer to connect them with our specialized team who can provide comprehensive answers.
 
-Remember: You're here to educate, engage, and guide visitors toward choosing Nexus Automation. Be helpful without being pushy. Focus on understanding THEIR needs first, then show how Nexus solves those needs.`;
+Remember: You're here to educate, engage, and guide visitors toward choosing Nexus Automation. Be helpful without being pushy. Focus on understanding THEIR needs first, then show how Nexus solves those needs.
 
-interface Message {
-  role: 'user' | 'assistant';
-  content: string;
-}
+CRITICAL INSTRUCTION FOR TONE AND LENGTH:
+You MUST dynamically adapt your answers based on what the client wants. If the client asks for a detailed answer, provide a detailed answer. If the client wants a simple or brief answer, answer briefly. If you (the AI) believe you can convince the client to use our services based on the context, provide a moderate or detailed answer structured specifically to persuade and convince them, using a very natural, real humanized tone. ALWAYS try to collect their name and email address naturally so our team can follow up!`;
 
-export async function POST(request: NextRequest) {
-  try {
-    const { message, conversationHistory } = await request.json();
-
-    if (!message || typeof message !== 'string') {
-      return NextResponse.json(
-        { error: 'Invalid message format' },
-        { status: 400 }
+    // Ensure the key exists
+    if (!process.env.GROQ_API_KEY) {
+      return new Response(
+        JSON.stringify({ 
+          error: "API Key not configured. Please add GROQ_API_KEY to your .env.local file." 
+        }), 
+        { status: 500, headers: { 'Content-Type': 'application/json' } }
       );
     }
 
-    if (!GROQ_API_KEY) {
-      return NextResponse.json(
-        { error: 'Groq API key not configured' },
-        { status: 500 }
-      );
-    }
+    const modelName = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
 
-    // Format conversation history for OpenAI
-    const formattedHistory: Message[] = conversationHistory
-      ?.filter(
-        (msg: any) =>
-          msg.role === 'user' || msg.role === 'assistant'
-      )
-      .map((msg: any) => ({
-        role: msg.role,
-        content: msg.content,
-      })) || [];
-
-    // Build messages array for API call
-    const messages: Message[] = [
-      ...formattedHistory,
-      {
-        role: 'user',
-        content: message,
-      },
-    ];
-
-    // Debug logging
-    console.log('Sending chat request to Groq API...');
-    console.log('API Key present:', !!GROQ_API_KEY);
-    console.log('API Key length:', GROQ_API_KEY?.length);
-    console.log('Model:', GROQ_MODEL);
-    console.log('Message count:', messages.length);
-
-    // Call Groq API
-    const response = await fetch(GROQ_API_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        Authorization: `Bearer ${GROQ_API_KEY}`,
-      },
-      body: JSON.stringify({
-        model: GROQ_MODEL,
-        messages: [
-          {
-            role: 'system',
-            content: SYSTEM_PROMPT,
-          },
-          ...messages,
-        ],
-        temperature: 0.7,
-        max_tokens: 500,
-      }),
+    const result = await streamText({
+      model: groq(modelName),
+      system: systemPrompt,
+      messages,
     });
 
-    if (!response.ok) {
-      const errorText = await response.text();
-
-      console.error('Groq API error status:', response.status);
-      console.error('Groq API error response:', errorText);
-
-      try {
-        const error = JSON.parse(errorText);
-        console.error('Parsed error:', error);
-      } catch (e) {
-        // Response wasn't JSON
-      }
-
-      return NextResponse.json(
-        {
-          error: `Failed to get response from AI service (Status: ${response.status})`,
-        },
-        {
-          status: response.status,
-        }
-      );
-    }
-
-    const data = await response.json();
-    const assistantMessage =
-      data.choices?.[0]?.message?.content ||
-      'I apologize, but I was unable to generate a response. Please try again.';
-
-    return NextResponse.json({
-      message: assistantMessage,
+    return new Response(result.textStream, {
+      headers: {
+        'Content-Type': 'text/plain; charset=utf-8',
+        'Cache-Control': 'no-cache',
+      },
     });
   } catch (error) {
-    console.error('Chat API error:', error);
-    console.error('Error details:', error instanceof Error ? error.message : String(error));
-    return NextResponse.json(
-      { error: 'Internal server error' },
-      { status: 500 }
+    console.error('API Route Error:', error);
+    return new Response(
+      JSON.stringify({ error: "An error occurred while processing the request." }), 
+      { status: 500, headers: { 'Content-Type': 'application/json' } }
     );
   }
 }

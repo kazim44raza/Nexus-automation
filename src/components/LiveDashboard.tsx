@@ -25,13 +25,16 @@ function useAnimatedNumber(
   intervalMs: number,
   isFloat = false
 ) {
-  const [value, setValue] = useState(
-    isFloat
-      ? parseFloat((Math.random() * (max - min) + min).toFixed(1))
-      : Math.floor(Math.random() * (max - min + 1)) + min
-  );
+  const [value, setValue] = useState(min);
 
   useEffect(() => {
+    // Hydration fix: Set random value only after mount
+    setValue(
+      isFloat
+        ? parseFloat((Math.random() * (max - min) + min).toFixed(1))
+        : Math.floor(Math.random() * (max - min + 1)) + min
+    );
+
     const id = setInterval(() => {
       setValue(
         isFloat
