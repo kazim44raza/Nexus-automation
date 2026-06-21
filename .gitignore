@@ -25,8 +25,14 @@ yarn-debug.log*
 yarn-error.log*
 .pnpm-debug.log*
 
-# local env files
+# local env files — never commit secrets
+.env
+.env.local
 .env*.local
+.env.production
+
+# Claude Code local tooling (skills, local settings) — not project code
+.claude/
 
 # vercel
 .vercel

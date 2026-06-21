@@ -1,27 +1,25 @@
-import type { Metadata } from 'next';
-import dynamic from 'next/dynamic';
-
-// Dynamically import the ChatbotWidget to completely prevent hydration errors
-const ChatbotWidget = dynamic(() => import('@/components/ChatbotWidget'), {
-  ssr: false,
-});
-
-import './globals.css';
+import type { Metadata } from 'next'
+import './globals.css'
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://nexusautomation.ai'),
-  title: 'Nexus Automation | AI Chatbots, Voice Agents & Business Automation',
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai'),
+  title: {
+    default: 'Nexus Automation — AI Automation Agency',
+    template: '%s | Nexus Automation',
+  },
   description:
-    'Nexus Automation provides AI chatbot services, AI voice agents, and business automation to help businesses capture leads 24/7, respond instantly, and grow revenue through intelligent automation.',
+    'Nexus Automation helps businesses capture more leads, book more appointments, and scale without hiring through AI chatbots, voice agents, and intelligent workflow automation.',
   keywords: [
+    'AI automation agency',
     'AI chatbot',
     'AI voice agent',
-    'business automation',
-    'lead generation',
-    'appointment booking',
+    'business process automation',
+    'lead qualification',
+    'appointment booking automation',
     'missed call recovery',
-    'AI automation agency',
-    '24/7 customer service',
+    'CRM automation',
+    'workflow automation',
+    'customer support automation',
   ],
   authors: [{ name: 'Nexus Automation' }],
   creator: 'Nexus Automation',
@@ -30,49 +28,32 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://nexusautomation.ai',
     siteName: 'Nexus Automation',
-    title: 'Nexus Automation | AI-Powered Business Automation',
+    title: 'Nexus Automation — AI Automation Agency',
     description:
-      'Stop losing leads after business hours. AI chatbots, voice agents, and automation systems that respond instantly, qualify leads, and book appointments 24/7.',
-    images: [
-      {
-        url: '/og-image.png',
-        width: 1200,
-        height: 630,
-        alt: 'Nexus Automation - AI-Powered Business Automation',
-      },
-    ],
+      'AI chatbots, voice agents, and business automation that respond instantly, qualify leads, and book appointments 24/7.',
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Nexus Automation' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexus Automation | AI-Powered Business Automation',
-    description:
-      'Stop losing leads after business hours. AI chatbots, voice agents, and automation systems that respond instantly and book appointments 24/7.',
+    title: 'Nexus Automation — AI Automation Agency',
+    description: 'AI-powered automation that grows your business 24/7.',
   },
   robots: {
     index: true,
     follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      'max-video-preview': -1,
-      'max-image-preview': 'large',
-      'max-snippet': -1,
-    },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
   },
-};
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION,
+  },
+}
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode;
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth">
-      <body className="antialiased">
-        <div className="noise-overlay" aria-hidden="true" />
+      <body className="antialiased bg-bg-base text-text-primary">
         {children}
-        <ChatbotWidget />
       </body>
     </html>
-  );
+  )
 }

@@ -1,0 +1,264 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ─── Enums ────────────────────────────────────────────────
+
+enum Role {
+  ADMIN
+  AGENT
+}
+
+enum LeadStatus {
+  NEW
+  CONTACTED
+  QUALIFIED
+  CONVERTED
+  LOST
+}
+
+enum LeadSource {
+  WEBSITE
+  CHATBOT
+  REFERRAL
+  SOCIAL
+  PAID_AD
+  OTHER
+}
+
+enum ServiceInterest {
+  CHATBOTS
+  VOICE_AGENTS
+  BUSINESS_AUTOMATION
+  LEAD_QUALIFICATION
+  APPOINTMENT_BOOKING
+  CUSTOMER_SUPPORT
+  CRM_AUTOMATION
+  WORKFLOW_AUTOMATION
+  MISSED_CALL_RECOVERY
+  MULTIPLE
+  UNSURE
+}
+
+enum Industry {
+  HEALTHCARE
+  DENTAL
+  REAL_ESTATE
+  LEGAL
+  FITNESS
+  AUTOMOTIVE
+  HOME_SERVICES
+  ECOMMERCE
+  PROFESSIONAL_SERVICES
+  OTHER
+}
+
+enum MessageRole {
+  USER
+  ASSISTANT
+  SYSTEM
+}
+
+enum AppointmentStatus {
+  PENDING
+  CONFIRMED
+  CANCELLED
+  COMPLETED
+  NO_SHOW
+}
+
+enum SubmissionStatus {
+  NEW
+  REVIEWED
+  REPLIED
+  ARCHIVED
+}
+
+// ─── Auth / Users ─────────────────────────────────────────
+
+model User {
+  id            String    @id @default(cuid())
+  email         String    @unique
+  password      String
+  name          String
+  role          Role      @default(AGENT)
+  avatar        String?
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  sessions      AuthSession[]
+  blogPosts     BlogPost[]
+
+  @@map("users")
+}
+
+model AuthSession {
+  id           String   @id @default(cuid())
+  sessionToken String   @unique
+  userId       String
+  expires      DateTime
+  user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@map("auth_sessions")
+}
+
+// ─── CRM / Leads ──────────────────────────────────────────
+
+model Lead {
+  id              String          @id @default(cuid())
+  name            String
+  email           String          @unique
+  phone           String?
+  businessName    String?
+  industry        Industry?
+  serviceInterest ServiceInterest?
+  status          LeadStatus      @default(NEW)
+  source          LeadSource      @default(WEBSITE)
+  challenges      String?
+  message         String?
+  score           Int             @default(0)
+  notes           String?
+  createdAt       DateTime        @default(now())
+  updatedAt       DateTime        @updatedAt
+
+  chatSessions    ChatSession[]
+  appointments    Appointment[]
+  contactForms    ContactSubmission[]
+
+  @@map("leads")
+}
+
+// ─── Chat / Chatbot ───────────────────────────────────────
+
+model ChatSession {
+  id          String    @id @default(cuid())
+  visitorId   String
+  leadId      String?
+  startedAt   DateTime  @default(now())
+  endedAt     DateTime?
+  metadata    Json?
+
+  lead        Lead?         @relation(fields: [leadId], references: [id])
+  messages    ChatMessage[]
+
+  @@map("chat_sessions")
+}
+
+model ChatMessage {
+  id          String      @id @default(cuid())
+  sessionId   String
+  role        MessageRole
+  content     String      @db.Text
+  createdAt   DateTime    @default(now())
+  metadata    Json?
+
+  session     ChatSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+
+  @@map("chat_messages")
+}
+
+// ─── Knowledge Base ───────────────────────────────────────
+
+model KnowledgeEntry {
+  id          String   @id @default(cuid())
+  title       String
+  content     String   @db.Text
+  category    String
+  tags        String[]
+  active      Boolean  @default(true)
+  priority    Int      @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("knowledge_entries")
+}
+
+model FAQ {
+  id          String   @id @default(cuid())
+  question    String
+  answer      String   @db.Text
+  category    String   @default("general")
+  sortOrder   Int      @default(0)
+  published   Boolean  @default(true)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  @@map("faqs")
+}
+
+// ─── Blog / CMS ───────────────────────────────────────────
+
+model BlogPost {
+  id             String    @id @default(cuid())
+  title          String
+  slug           String    @unique
+  content        String    @db.Text
+  excerpt        String?
+  coverImage     String?
+  authorId       String
+  published      Boolean   @default(false)
+  publishedAt    DateTime?
+  seoTitle       String?
+  seoDescription String?
+  tags           String[]
+  readingTime    Int?
+  views          Int       @default(0)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  author         User      @relation(fields: [authorId], references: [id])
+
+  @@map("blog_posts")
+}
+
+// ─── Appointments ─────────────────────────────────────────
+
+model Appointment {
+  id               String            @id @default(cuid())
+  leadId           String?
+  name             String
+  email            String
+  phone            String?
+  service          ServiceInterest?
+  scheduledAt      DateTime
+  duration         Int               @default(30)
+  status           AppointmentStatus @default(PENDING)
+  notes            String?
+  calendarEventId  String?
+  meetingUrl       String?
+  reminderSentAt   DateTime?
+  createdAt        DateTime          @default(now())
+  updatedAt        DateTime          @updatedAt
+
+  lead             Lead?             @relation(fields: [leadId], references: [id])
+
+  @@map("appointments")
+}
+
+// ─── Contact Form ─────────────────────────────────────────
+
+model ContactSubmission {
+  id              String           @id @default(cuid())
+  leadId          String?
+  name            String
+  email           String
+  phone           String?
+  businessName    String?
+  industry        Industry?
+  serviceInterest ServiceInterest?
+  challenges      String?
+  message         String           @db.Text
+  status          SubmissionStatus @default(NEW)
+  ipAddress       String?
+  createdAt       DateTime         @default(now())
+  updatedAt       DateTime         @updatedAt
+
+  lead            Lead?            @relation(fields: [leadId], references: [id])
+
+  @@map("contact_submissions")
+}

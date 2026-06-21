@@ -1,122 +1,102 @@
-import { groq } from '@ai-sdk/groq';
-import { streamText } from 'ai';
+import { streamText } from 'ai'
+import { NextRequest } from 'next/server'
+import { getAIModel } from '@/lib/ai'
+import { buildSystemPrompt } from '@/lib/ai/system-prompt'
+import { prisma } from '@/lib/prisma'
+import { rateLimit, getClientIp, tooManyRequests } from '@/lib/rate-limit'
 
-// Allow streaming responses up to 30 seconds
-export const maxDuration = 30;
+export const maxDuration = 30
 
-export async function POST(req: Request) {
+const MAX_MESSAGE_LENGTH = 2000
+const MAX_MESSAGES = 20
+
+/** Strip control chars and clamp length to limit prompt-injection / cost abuse. */
+function sanitizeContent(raw: unknown): string {
+  if (typeof raw !== 'string') return ''
+  // eslint-disable-next-line no-control-regex
+  return raw.replace(/[\x00-\x1F\x7F]/g, ' ').trim().slice(0, MAX_MESSAGE_LENGTH)
+}
+
+export async function POST(req: NextRequest) {
   try {
-    const { messages } = await req.json();
+    // Rate limit: 10 LLM requests / minute per IP (cost-attack protection)
+    const ip = getClientIp(req)
+    const rl = rateLimit(`chat:${ip}`, 10, 60_000)
+    if (!rl.success) return tooManyRequests(rl.retryAfter)
 
-    const systemPrompt = `You are Nexus AI Assistant, a knowledgeable and friendly chatbot representing Nexus Automation - a cutting-edge AI automation platform that transforms how businesses operate.
+    const body = await req.json()
+    const { messages: rawMessages, sessionId } = body
 
-## About Nexus Automation
-Nexus Automation provides six core services:
-
-1. **AI Chatbots** - Intelligent, conversational chatbots that engage website visitors, answer questions in real-time, qualify leads intelligently, and guide prospects toward conversion without requiring human intervention. Perfect for 24/7 customer support.
-
-2. **AI Voice Agents** - Sophisticated voice-based AI agents that handle both inbound and outbound calls automatically. They qualify leads, schedule appointments, handle inquiries, and ensure customers are never put on hold. Available for phone, WhatsApp, and other channels.
-
-3. **Business Automation** - End-to-end workflow automation that intelligently connects your CRM, calendar systems, email platforms, messaging channels, and other business tools into one seamless, integrated ecosystem. Eliminate manual data entry and repetitive tasks.
-
-4. **Lead Qualification** - Automated lead scoring and qualification engine that evaluates every incoming lead against your custom criteria, ensuring your sales team focuses only on high-value prospects with genuine buying intent.
-
-5. **Appointment Booking** - Intelligent scheduling system that syncs with your calendar in real-time, sends automated confirmations and reminders, and reduces no-shows by up to 60%. Handles timezone conversions and availability management automatically.
-
-6. **Missed Call Recovery** - Never lose a potential customer due to a missed call. Our AI instantly follows up through SMS, WhatsApp, or callback offers, recovering up to 80% of missed opportunities that would otherwise be lost forever.
-
-## Key Features & Benefits
-- **24/7 Availability**: AI agents work round-the-clock without fatigue
-- **Instant Response Times**: No more waiting on hold or delayed email responses
-- **Lead Conversion**: Qualify, engage, and convert leads while they're hot
-- **Cost Reduction**: Automate repetitive tasks, reduce human workload by up to 70%
-- **Scalability**: Handle 1000+ simultaneous conversations without additional staff
-- **Integration Ready**: Works seamlessly with all major CRMs, calendars, and business tools
-- **Multi-Channel**: Operate across web, phone, SMS, WhatsApp, and more
-- **Data-Driven**: Analytics and insights on every customer interaction
-
-## Common Use Cases
-- E-commerce: Product recommendations, cart recovery, customer support
-- Real Estate: Lead qualification, property inquiries, appointment scheduling
-- Healthcare: Appointment booking, patient inquiries, follow-ups
-- Financial Services: Loan inquiries, appointment booking, lead qualification
-- Hospitality: Reservations, customer support, special requests
-- B2B Services: Demo requests, consultation scheduling, lead qualification
-- Education: Enrollment inquiries, course information, appointment scheduling
-
-## How to Talk About Solutions
-When customers ask about specific problems or industries:
-- Listen carefully to their pain points
-- Suggest the most relevant Nexus services (often it's a combination)
-- Explain how automation will solve their specific problem
-- Mention expected improvements (response time, conversion rate, cost savings)
-- Offer to help them book a demo or consultation with our team
-
-## Demo & Consultation Process
-- Demos are typically 15-30 minutes
-- We customize demos based on their industry and use case
-- Free consultation to understand their needs
-- No obligation - just a chance to see what Nexus can do
-
-## Your Personality & Tone
-- Be helpful, professional, and enthusiastic
-- Use examples and specific outcomes when relevant
-- Ask clarifying questions to understand customer needs better
-- Be honest about capabilities - don't oversell
-- If you don't know something specific, offer to connect them with our team
-- Use conversational language, avoid overly technical jargon
-- Show genuine interest in helping their business succeed
-
-## Contact & Resources
-- For general inquiries: support@nexusautomation.com
-- To book a demo: Visit our Services pages or ask me to help schedule
-- Technical questions: Our technical team can provide detailed information
-- Enterprise solutions: We have custom packages for large organizations
-
-## When to Escalate
-If the customer asks about:
-- Specific pricing details or custom quotes
-- Technical implementation details
-- Enterprise or custom solutions
-- Integration with specific systems not mentioned
-- Legal or compliance matters
-
-...offer to connect them with our specialized team who can provide comprehensive answers.
-
-Remember: You're here to educate, engage, and guide visitors toward choosing Nexus Automation. Be helpful without being pushy. Focus on understanding THEIR needs first, then show how Nexus solves those needs.
-
-CRITICAL INSTRUCTION FOR TONE AND LENGTH:
-You MUST dynamically adapt your answers based on what the client wants. If the client asks for a detailed answer, provide a detailed answer. If the client wants a simple or brief answer, answer briefly. If you (the AI) believe you can convince the client to use our services based on the context, provide a moderate or detailed answer structured specifically to persuade and convince them, using a very natural, real humanized tone. ALWAYS try to collect their name and email address naturally so our team can follow up!`;
-
-    // Ensure the key exists
-    if (!process.env.GROQ_API_KEY) {
-      return new Response(
-        JSON.stringify({ 
-          error: "API Key not configured. Please add GROQ_API_KEY to your .env.local file." 
-        }), 
-        { status: 500, headers: { 'Content-Type': 'application/json' } }
-      );
+    if (!rawMessages || !Array.isArray(rawMessages)) {
+      return new Response(JSON.stringify({ error: 'Messages required' }), { status: 400 })
     }
 
-    const modelName = process.env.GROQ_MODEL || 'llama-3.3-70b-versatile';
+    // Sanitize + validate every message before it ever reaches the model
+    const messages = rawMessages
+      .slice(-MAX_MESSAGES)
+      .filter((m: any) => m && (m.role === 'user' || m.role === 'assistant'))
+      .map((m: any) => ({ role: m.role as 'user' | 'assistant', content: sanitizeContent(m.content) }))
+      .filter((m) => m.content.length > 0)
+
+    if (messages.length === 0) {
+      return new Response(JSON.stringify({ error: 'No valid messages' }), { status: 400 })
+    }
+
+    // Fetch active knowledge base entries to augment the system prompt
+    let knowledgeContext: string | undefined
+    try {
+      const entries = await prisma.knowledgeEntry.findMany({
+        where: { active: true },
+        orderBy: { priority: 'desc' },
+        take: 20,
+        select: { title: true, content: true, category: true },
+      })
+      const faqs = await prisma.fAQ.findMany({
+        where: { published: true },
+        orderBy: { sortOrder: 'asc' },
+        take: 30,
+        select: { question: true, answer: true },
+      })
+
+      if (entries.length || faqs.length) {
+        knowledgeContext = [
+          entries.length ? `### Knowledge Entries\n${entries.map(e => `**${e.title}** (${e.category})\n${e.content}`).join('\n\n')}` : '',
+          faqs.length ? `### FAQs\n${faqs.map(f => `Q: ${f.question}\nA: ${f.answer}`).join('\n\n')}` : '',
+        ].filter(Boolean).join('\n\n')
+      }
+    } catch {
+      // DB not connected — continue without KB augmentation
+    }
+
+    const model = getAIModel()
+    const systemPrompt = buildSystemPrompt(knowledgeContext)
 
     const result = await streamText({
-      model: groq(modelName),
+      model,
       system: systemPrompt,
       messages,
-    });
+      temperature: 0.7,
+      maxOutputTokens: 600,
+    })
+
+    // Persist the latest user message asynchronously (already sanitized)
+    if (sessionId && typeof sessionId === 'string') {
+      const lastUserMessage = [...messages].reverse().find((m) => m.role === 'user')
+      if (lastUserMessage) {
+        prisma.chatMessage.create({
+          data: { sessionId, role: 'USER', content: lastUserMessage.content },
+        }).catch(() => {})
+      }
+    }
 
     return new Response(result.textStream, {
-      headers: {
-        'Content-Type': 'text/plain; charset=utf-8',
-        'Cache-Control': 'no-cache',
-      },
-    });
+      headers: { 'Content-Type': 'text/plain; charset=utf-8', 'Cache-Control': 'no-cache' },
+    })
   } catch (error) {
-    console.error('API Route Error:', error);
+    console.error('[Chat API]', error)
     return new Response(
-      JSON.stringify({ error: "An error occurred while processing the request." }), 
+      JSON.stringify({ error: 'Chat service unavailable. Please try again.' }),
       { status: 500, headers: { 'Content-Type': 'application/json' } }
-    );
+    )
   }
 }
