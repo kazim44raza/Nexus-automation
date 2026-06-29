@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect, useRef, useState } from 'react'
+import { useRef, useState } from 'react'
 import { cn } from '@/lib/utils'
 
 interface LogoProps {
@@ -58,12 +58,18 @@ function RobotMark({ size }: { size: number }) {
 export function Logo({ variant = 'dark', size = 36, showWordmark = true, className }: LogoProps) {
   const [useFallback, setUseFallback] = useState(false)
   const imgRef = useRef<HTMLImageElement>(null)
+  const retried = useRef(false)
 
-  // Catch failures that happened before React attached the onError handler.
-  useEffect(() => {
-    const img = imgRef.current
-    if (img && img.complete && img.naturalWidth === 0) setUseFallback(true)
-  }, [])
+  function handleError() {
+    // A just-added static file can momentarily 404 in dev. Retry once with a
+    // cache-bust before giving up to the inline fallback.
+    if (!retried.current && imgRef.current) {
+      retried.current = true
+      imgRef.current.src = `/logo.png?v=${Date.now()}`
+      return
+    }
+    setUseFallback(true)
+  }
 
   return (
     <span className={cn('flex items-center gap-2.5', className)}>
@@ -77,12 +83,15 @@ export function Logo({ variant = 'dark', size = 36, showWordmark = true, classNa
           alt="Nexus Automation logo"
           width={size}
           height={size}
-          onError={() => setUseFallback(true)}
+          onError={handleError}
+          onLoad={() => setUseFallback(false)}
           className="rounded-full object-cover ring-1 ring-primary/40 shadow-primary-sm flex-shrink-0"
           style={{ width: size, height: size }}
         />
       )}
-      {showWordmark && (
+      {/* The real logo already contains the "NEXUS AUTOMATION" wordmark, so the
+          separate text is only shown alongside the inline SVG fallback. */}
+      {showWordmark && useFallback && (
         <span
           className={cn(
             'font-display font-extrabold tracking-tight leading-none',

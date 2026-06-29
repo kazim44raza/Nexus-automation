@@ -54,7 +54,7 @@ export function Navbar() {
           <Link href="/" className="group">
             <Logo
               variant={scrolled ? 'dark' : 'light'}
-              size={36}
+              size={44}
               className="transition-transform duration-200 group-hover:scale-[1.03]"
             />
           </Link>

@@ -37,7 +37,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex mb-4">
-              <Logo variant="light" size={40} />
+              <Logo variant="light" size={52} />
             </Link>
             <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
               AI automation solutions that help businesses capture more leads, book more appointments, and scale without hiring.
