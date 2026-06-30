@@ -21,7 +21,7 @@ export default function AboutPage() {
       {/* Hero */}
       <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% -10%, rgba(13,148,136,0.3), transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
         <div className="relative page-container text-center max-w-3xl mx-auto">
           <AnimatedSection>
             <span className="badge-primary mb-6 inline-flex">Our Story</span>

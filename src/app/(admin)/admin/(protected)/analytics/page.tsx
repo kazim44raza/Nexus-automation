@@ -23,7 +23,7 @@ export default async function AnalyticsPage() {
 
   const cards = [
     { label: 'Total Leads', value: stats.totalLeads, icon: Users, color: 'text-primary bg-primary/10' },
-    { label: 'Chat Sessions', value: stats.chatSessions, icon: MessageSquare, color: 'text-teal-600 bg-teal-100' },
+    { label: 'Chat Sessions', value: stats.chatSessions, icon: MessageSquare, color: 'text-sky-600 bg-sky-100' },
     { label: 'Form Submissions', value: stats.submissions, icon: TrendingUp, color: 'text-accent bg-accent/10' },
     { label: 'Conversion Est.', value: stats.totalLeads > 0 ? `${Math.round((stats.submissions / stats.totalLeads) * 100)}%` : '—', icon: BarChart3, color: 'text-warm bg-warm/10' },
   ]

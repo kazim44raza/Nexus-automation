@@ -224,7 +224,7 @@ export default function Hero() {
             <div className="flex items-center gap-2 px-5 py-3 border-b border-white/[0.06]">
               <div className="w-3 h-3 rounded-full bg-red-500/70" />
               <div className="w-3 h-3 rounded-full bg-yellow-500/70" />
-              <div className="w-3 h-3 rounded-full bg-green-500/70" />
+              <div className="w-3 h-3 rounded-full bg-sky-500/70" />
               <span className="ml-3 text-xs text-slate-500 font-medium">
                 Nexus AI Assistant — Live Chat
               </span>
@@ -297,7 +297,7 @@ export default function Hero() {
                 </p>
                 <div className="flex items-center gap-2">
                   <span className="text-lg font-bold text-white">1,247</span>
-                  <span className="text-xs font-semibold text-emerald-400">
+                  <span className="text-xs font-semibold text-cyan-400">
                     +34%
                   </span>
                 </div>

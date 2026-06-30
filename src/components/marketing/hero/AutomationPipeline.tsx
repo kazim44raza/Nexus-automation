@@ -10,7 +10,7 @@ const nodes = [
     icon: Phone,
     label: 'Missed Call',
     sublabel: '+1 (555) 094-2841',
-    color: '#14B8A6',
+    color: '#0EA5E9',
     bg: 'bg-primary/10 border-primary/20',
     iconColor: 'text-primary',
     count: '847',
@@ -21,7 +21,7 @@ const nodes = [
     icon: Bot,
     label: 'AI Responds',
     sublabel: 'In < 1 second',
-    color: '#0D9488',
+    color: '#0284C7',
     bg: 'bg-primary/10 border-primary/20',
     iconColor: 'text-primary-dark',
     count: '< 1s',
@@ -32,7 +32,7 @@ const nodes = [
     icon: CheckCircle,
     label: 'Lead Qualified',
     sublabel: 'Budget · Need · Timeline',
-    color: '#10B981',
+    color: '#06B6D4',
     bg: 'bg-accent/10 border-accent/20',
     iconColor: 'text-accent',
     count: '73%',
@@ -54,7 +54,7 @@ const nodes = [
     icon: TrendingUp,
     label: 'New Customer',
     sublabel: 'Deal closed',
-    color: '#059669',
+    color: '#0891B2',
     bg: 'bg-accent-dark/10 border-accent-dark/20',
     iconColor: 'text-accent-dark',
     count: '$4.2k',
@@ -71,7 +71,7 @@ function PipelineConnector({ delay }: { delay: number }) {
         initial={{ scaleX: 0, opacity: 0 }}
         animate={inView ? { scaleX: 1, opacity: 1 } : {}}
         transition={{ duration: 0.6, delay, ease: [0.16, 1, 0.3, 1] }}
-        style={{ transformOrigin: 'left center', background: 'linear-gradient(90deg, rgba(20,184,166,0.5), rgba(16,185,129,0.5))', width: '100%', height: '2px', borderRadius: '9999px' }}
+        style={{ transformOrigin: 'left center', background: 'linear-gradient(90deg, rgba(14,165,233,0.5), rgba(6,182,212,0.5))', width: '100%', height: '2px', borderRadius: '9999px' }}
       />
     </div>
   )

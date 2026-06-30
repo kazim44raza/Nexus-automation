@@ -146,9 +146,9 @@ export function WaveField() {
       uniforms: {
         uTime: { value: 0 },
         uMouse: { value: new THREE.Vector2(0, 0) },
-        uColorA: { value: new THREE.Color('#0F766E') }, // deep cyan
-        uColorB: { value: new THREE.Color('#14B8A6') }, // cyan
-        uColorC: { value: new THREE.Color('#10B981') }, // emerald
+        uColorA: { value: new THREE.Color('#0369A1') }, // deep cyan
+        uColorB: { value: new THREE.Color('#0EA5E9') }, // cyan
+        uColorC: { value: new THREE.Color('#06B6D4') }, // emerald
       },
     })
     const wave = new THREE.Mesh(geometry, material)
@@ -168,7 +168,7 @@ export function WaveField() {
     particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3))
     const particleMat = new THREE.PointsMaterial({
       size: 0.045,
-      color: new THREE.Color('#5eead4'),
+      color: new THREE.Color('#7dd3fc'),
       transparent: true,
       opacity: 0.55,
       sizeAttenuation: true,

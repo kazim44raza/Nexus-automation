@@ -17,7 +17,7 @@ export function HeroSection() {
     <section className="relative min-h-screen bg-bg-dark overflow-hidden flex flex-col justify-center pt-16">
       {/* Static gradient fallback — always visible, also the backdrop if WebGL is unavailable */}
       <div className="absolute inset-0" style={{
-        background: 'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(13,148,136,0.26), transparent)',
+        background: 'radial-gradient(ellipse 80% 50% at 50% -5%, rgba(2,132,199,0.26), transparent)',
       }} />
       <div className="absolute inset-0 bg-dot-pattern opacity-15" />
 
@@ -52,7 +52,7 @@ export function HeroSection() {
             className="heading-display text-white mb-6 leading-[1.08]"
           >
             Your Business,{' '}
-            <span className="bg-gradient-to-r from-primary-light via-teal-300 to-accent-light bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary-light via-sky-300 to-accent-light bg-clip-text text-transparent">
               Running on Autopilot
             </span>
           </motion.h1>

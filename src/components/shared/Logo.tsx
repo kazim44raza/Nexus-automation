@@ -23,29 +23,29 @@ function RobotMark({ size }: { size: number }) {
           <stop offset="100%" stopColor="#0B1220" />
         </radialGradient>
         <linearGradient id="logoRing" x1="0" y1="0" x2="48" y2="48">
-          <stop offset="0%" stopColor="#14B8A6" />
-          <stop offset="100%" stopColor="#10B981" />
+          <stop offset="0%" stopColor="#0EA5E9" />
+          <stop offset="100%" stopColor="#06B6D4" />
         </linearGradient>
       </defs>
       {/* Badge + ring */}
       <circle cx="24" cy="24" r="22.5" fill="url(#logoBg)" stroke="url(#logoRing)" strokeWidth="2" />
       {/* Antenna */}
-      <line x1="24" y1="9" x2="24" y2="13.5" stroke="#5EEAD4" strokeWidth="1.6" strokeLinecap="round" />
-      <circle cx="24" cy="8" r="1.7" fill="#5EEAD4" />
+      <line x1="24" y1="9" x2="24" y2="13.5" stroke="#7dd3fc" strokeWidth="1.6" strokeLinecap="round" />
+      <circle cx="24" cy="8" r="1.7" fill="#7dd3fc" />
       {/* Head */}
       <rect x="13" y="13.5" width="22" height="17" rx="7" fill="#F8FAFC" />
       {/* Ears */}
       <rect x="10.5" y="18.5" width="3" height="7" rx="1.5" fill="#CBD5E1" />
       <rect x="34.5" y="18.5" width="3" height="7" rx="1.5" fill="#CBD5E1" />
       {/* Eyes (glowing teal) */}
-      <circle cx="19.5" cy="22" r="2.6" fill="#0D9488" />
-      <circle cx="28.5" cy="22" r="2.6" fill="#0D9488" />
-      <circle cx="19.5" cy="22" r="1.1" fill="#5EEAD4" />
-      <circle cx="28.5" cy="22" r="1.1" fill="#5EEAD4" />
+      <circle cx="19.5" cy="22" r="2.6" fill="#0284C7" />
+      <circle cx="28.5" cy="22" r="2.6" fill="#0284C7" />
+      <circle cx="19.5" cy="22" r="1.1" fill="#7dd3fc" />
+      <circle cx="28.5" cy="22" r="1.1" fill="#7dd3fc" />
       {/* Laptop hint */}
       <rect x="15" y="32" width="18" height="6" rx="1.5" fill="#334155" />
       <rect x="17" y="33.5" width="14" height="3" rx="1" fill="#1E293B" />
-      <circle cx="24" cy="35" r="0.9" fill="#14B8A6" />
+      <circle cx="24" cy="35" r="0.9" fill="#0EA5E9" />
     </svg>
   )
 }

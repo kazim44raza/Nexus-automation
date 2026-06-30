@@ -19,7 +19,7 @@ export default function BusinessAutomationPage() {
             <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">Live Automation Flow</p>
             {[
               { from: 'New Lead in CRM', to: 'HubSpot', color: 'bg-primary/20 text-primary-light', icon: '📊' },
-              { from: 'Email Sequence Triggered', to: 'Resend', color: 'bg-teal-500/20 text-teal-300', icon: '📧' },
+              { from: 'Email Sequence Triggered', to: 'Resend', color: 'bg-sky-500/20 text-sky-300', icon: '📧' },
               { from: 'Calendar Invite Sent', to: 'Calendly', color: 'bg-accent/20 text-accent-light', icon: '📅' },
               { from: 'Slack Notification', to: 'Sales Team', color: 'bg-warm/20 text-warm-light', icon: '💬' },
               { from: 'CRM Status Updated', to: 'Salesforce', color: 'bg-sky-500/20 text-sky-300', icon: '✅' },

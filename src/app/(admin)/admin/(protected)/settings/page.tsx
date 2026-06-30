@@ -118,8 +118,8 @@ export default function SettingsPage() {
         {/* Security */}
         <div className="card p-6">
           <div className="flex items-center gap-2 mb-4">
-            <div className="w-8 h-8 bg-teal-100 rounded-lg flex items-center justify-center">
-              <Shield className="w-4 h-4 text-teal-600" />
+            <div className="w-8 h-8 bg-sky-100 rounded-lg flex items-center justify-center">
+              <Shield className="w-4 h-4 text-sky-600" />
             </div>
             <h3 className="font-bold text-text-primary">Security</h3>
           </div>

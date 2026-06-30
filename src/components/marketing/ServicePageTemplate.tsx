@@ -26,7 +26,7 @@ export function ServicePageTemplate({ data }: { data: ServicePageData }) {
       <section className="relative bg-bg-dark pt-32 pb-20 overflow-hidden">
         <FloatingObjects count={7} className="opacity-50" />
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(13,148,136,0.3), transparent)' }} />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
         <div className="relative z-10 page-container">
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div>

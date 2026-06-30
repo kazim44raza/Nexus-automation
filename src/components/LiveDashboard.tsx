@@ -103,7 +103,7 @@ function MetricCard({ icon, label, value, accent, trend }: MetricCardProps) {
           >
             <div style={{ color: accent }}>{icon}</div>
           </div>
-          <div className="flex items-center gap-1 rounded-full bg-emerald-500/10 px-2 py-0.5 text-[11px] font-medium text-emerald-400">
+          <div className="flex items-center gap-1 rounded-full bg-cyan-500/10 px-2 py-0.5 text-[11px] font-medium text-cyan-400">
             <TrendingUp className="h-3 w-3" />
             {trend}
           </div>
@@ -180,8 +180,8 @@ export default function LiveDashboard() {
         <div className="flex items-center justify-between border-b border-white/[0.06] px-6 py-3.5">
           <div className="flex items-center gap-2.5">
             <span className="relative flex h-2.5 w-2.5">
-              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75" />
-              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-emerald-500" />
+              <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-cyan-400 opacity-75" />
+              <span className="relative inline-flex h-2.5 w-2.5 rounded-full bg-cyan-500" />
             </span>
             <span className="text-sm font-medium text-white">
               Live Dashboard

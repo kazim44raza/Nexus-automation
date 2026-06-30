@@ -48,10 +48,10 @@ export function FloatingObjects({ className = '', count = 9 }: FloatingObjectsPr
 
     // Lighting — soft fill + two coloured rim lights
     scene.add(new THREE.AmbientLight(0xffffff, 0.45))
-    const cyanLight = new THREE.PointLight(0x14b8a6, 20, 60)
+    const cyanLight = new THREE.PointLight(0x0ea5e9, 20, 60)
     cyanLight.position.set(-6, 5, 6)
     scene.add(cyanLight)
-    const emeraldLight = new THREE.PointLight(0x10b981, 16, 60)
+    const emeraldLight = new THREE.PointLight(0x06b6d4, 16, 60)
     emeraldLight.position.set(7, -4, 5)
     scene.add(emeraldLight)
 
@@ -63,7 +63,7 @@ export function FloatingObjects({ className = '', count = 9 }: FloatingObjectsPr
       new THREE.DodecahedronGeometry(1, 0),
       new THREE.TetrahedronGeometry(1.1, 0),
     ]
-    const colors = [0x14b8a6, 0x0d9488, 0x10b981, 0x2dd4bf, 0x34d399]
+    const colors = [0x0ea5e9, 0x0284c7, 0x06b6d4, 0x38bdf8, 0x22d3ee]
 
     const group = new THREE.Group()
     scene.add(group)

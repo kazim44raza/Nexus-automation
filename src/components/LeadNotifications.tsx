@@ -35,7 +35,7 @@ const notifications: LeadNotification[] = [
     title: 'Appointment Booked',
     icon: CalendarCheck,
     accentColor: '#22C55E',
-    dotColor: 'bg-green-400',
+    dotColor: 'bg-sky-400',
     glowColor: 'rgba(34, 197, 94, 0.15)',
   },
   {

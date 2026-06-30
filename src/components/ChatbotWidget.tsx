@@ -148,8 +148,8 @@ export default function ChatbotWidget() {
                 <div>
                   <h3 className="text-sm font-semibold text-white">Nexus AI Agent</h3>
                   <div className="flex items-center gap-1.5">
-                    <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-                    <span className="text-xs text-emerald-400">Online & Ready</span>
+                    <span className="h-2 w-2 rounded-full bg-cyan-500 animate-pulse" />
+                    <span className="text-xs text-cyan-400">Online & Ready</span>
                   </div>
                 </div>
               </div>

@@ -36,7 +36,7 @@ export default async function AdminDashboard() {
   const cards = [
     { label: 'Total Leads', value: stats.totalLeads, icon: Users, color: 'text-primary bg-primary/10', href: '/admin/leads' },
     { label: 'New (Uncontacted)', value: stats.newLeads, icon: TrendingUp, color: 'text-accent bg-accent/10', href: '/admin/leads?status=NEW' },
-    { label: 'Chat Sessions', value: stats.sessions, icon: MessageSquare, color: 'text-teal-600 bg-teal-100', href: '/admin/conversations' },
+    { label: 'Chat Sessions', value: stats.sessions, icon: MessageSquare, color: 'text-sky-600 bg-sky-100', href: '/admin/conversations' },
     { label: 'Pending Submissions', value: stats.submissions, icon: FileText, color: 'text-warm bg-warm/10', href: '/admin/leads' },
   ]
 

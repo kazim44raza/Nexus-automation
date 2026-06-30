@@ -11,7 +11,7 @@ export function CTASection() {
 
       {/* Glows + readability scrim */}
       <div className="absolute inset-0 bg-dot-pattern opacity-10" />
-      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(13,148,136,0.28), transparent 70%)' }} />
+      <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 60% at 50% 50%, rgba(2,132,199,0.28), transparent 70%)' }} />
       <div className="absolute inset-0 pointer-events-none" style={{ background: 'radial-gradient(ellipse 55% 45% at 50% 50%, rgba(11,18,32,0.72) 0%, rgba(11,18,32,0.25) 55%, transparent 78%)' }} />
 
       <div className="relative z-10 page-container text-center">
