@@ -50,8 +50,11 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className="scroll-smooth">
-      <body className="antialiased bg-bg-base text-text-primary">
+    // suppressHydrationWarning: browser extensions (autofill, etc.) inject
+    // attributes like `crxlauncher`/`fdprocessedid` before React hydrates.
+    // This silences those harmless extension-caused mismatches.
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <body className="antialiased bg-bg-base text-text-primary" suppressHydrationWarning>
         {children}
       </body>
     </html>
