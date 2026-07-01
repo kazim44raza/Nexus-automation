@@ -5,7 +5,6 @@ import { ServicesGrid } from '@/components/marketing/ServicesGrid'
 import { StatsBar } from '@/components/marketing/StatsBar'
 import { ProcessSection } from '@/components/marketing/ProcessSection'
 import { IndustriesSection } from '@/components/marketing/IndustriesSection'
-import { TestimonialsCarousel } from '@/components/marketing/TestimonialsCarousel'
 import { CTASection } from '@/components/marketing/CTASection'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
@@ -49,7 +48,6 @@ export default function HomePage() {
       <StatsBar />
       <ProcessSection />
       <IndustriesSection />
-      <TestimonialsCarousel />
       <CTASection />
       <FAQSection />
 
