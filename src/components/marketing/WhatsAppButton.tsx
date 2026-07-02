@@ -3,9 +3,9 @@
 import { useState } from 'react'
 
 /* ──────────────────────────────────────────────────────────────
-   Floating WhatsApp button. Clicking it opens a WhatsApp chat with
-   the business number (pre-filled message). Sits bottom-left so it
-   doesn't overlap the AI chat bubble (bottom-right).
+  Floating WhatsApp button. Clicking it opens a WhatsApp chat with
+  the business number (pre-filled message). Sits above the AI chat
+  bubble so it doesn't overlap the bottom-right widget.
 
    ╔═══════════════════════════════════════════════════════════════╗
    ║  TO LINK YOUR WHATSAPP — pick EITHER way, no coding needed:    ║
@@ -39,7 +39,7 @@ export function WhatsAppButton() {
       aria-label="Chat with us on WhatsApp"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="fixed bottom-6 left-6 z-50 flex items-center gap-2.5 group"
+      className="fixed bottom-24 right-6 z-50 flex items-center gap-2.5 group"
     >
       {/* Tooltip */}
       <span
