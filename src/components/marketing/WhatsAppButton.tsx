@@ -19,7 +19,7 @@ import { useState } from 'react'
    ║                                                               ║
    ║  Until a number is set, the button stays hidden.              ║
    ╚═══════════════════════════════════════════════════════════════╝ */
-const FALLBACK_NUMBER = '' // e.g. '923001234567'
+const FALLBACK_NUMBER = '923303579530' // 0330 3579530 (PK) in international format
 const WHATSAPP_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || FALLBACK_NUMBER).replace(/[^0-9]/g, '')
 const PREFILLED_MESSAGE = "Hi Nexus Automation! I'd like to know more about your AI automation services."
 
