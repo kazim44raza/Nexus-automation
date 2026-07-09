@@ -16,7 +16,7 @@ export default function ContactPage() {
         <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
         <div className="relative page-container text-center max-w-2xl mx-auto">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">Let's talk about your automation</h1>
+            <h1 className="heading-display text-white mb-4">Let&apos;s talk about your automation</h1>
             <p className="text-lg text-white/55">Fill out the form below or book a call directly. We typically respond within 4 hours.</p>
           </AnimatedSection>
         </div>

@@ -17,7 +17,7 @@ export default function AppointmentBookingPage() {
         heroVisual: (
           <div className="card-dark p-5 max-w-sm ml-auto">
             <div className="flex items-center justify-between mb-4">
-              <p className="text-white font-semibold text-sm">Today's Schedule</p>
+              <p className="text-white font-semibold text-sm">Today&apos;s Schedule</p>
               <span className="badge bg-accent/20 text-accent-light text-xs">4 confirmed</span>
             </div>
             <div className="space-y-2.5">

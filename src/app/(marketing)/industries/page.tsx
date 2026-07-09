@@ -31,7 +31,7 @@ export default function IndustriesPage() {
         <div className="relative z-10 page-container text-center max-w-2xl mx-auto">
           <AnimatedSection>
             <h1 className="heading-display text-white mb-4">Built for your industry</h1>
-            <p className="text-lg text-white/55">Generic automation doesn't work. We build systems that understand the specific workflows and customer journeys in your industry.</p>
+            <p className="text-lg text-white/55">Generic automation doesn&apos;t work. We build systems that understand the specific workflows and customer journeys in your industry.</p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />

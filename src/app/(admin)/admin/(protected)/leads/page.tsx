@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { formatDateShort } from '@/lib/utils'
 import { Search, Filter, RefreshCw } from 'lucide-react'
 
@@ -20,7 +20,7 @@ export default function LeadsPage() {
   const [statusFilter, setStatusFilter] = useState('ALL')
   const [search, setSearch] = useState('')
 
-  async function load() {
+  const load = useCallback(async () => {
     setLoading(true)
     try {
       const res = await fetch(`/api/leads?${statusFilter !== 'ALL' ? `status=${statusFilter}` : ''}`)
@@ -31,9 +31,9 @@ export default function LeadsPage() {
     } finally {
       setLoading(false)
     }
-  }
+  }, [statusFilter])
 
-  useEffect(() => { load() }, [statusFilter])
+  useEffect(() => { load() }, [load])
 
   const filtered = leads.filter(l =>
     search ? [l.name, l.email, l.businessName].some(v => v?.toLowerCase().includes(search.toLowerCase())) : true

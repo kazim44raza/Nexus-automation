@@ -58,10 +58,10 @@ export default function HomePage() {
             <AnimatedSection direction="left">
               <span className="section-eyebrow">Get In Touch</span>
               <h2 className="section-title mt-3 max-w-md">
-                Let's talk about your automation strategy
+                Let&apos;s talk about your automation strategy
               </h2>
               <p className="section-desc mt-4">
-                Fill out the form and we'll reach out within 1 business day. No spam, no obligation — just a genuine conversation about how we can help.
+                Fill out the form and we&apos;ll reach out within 1 business day. No spam, no obligation — just a genuine conversation about how we can help.
               </p>
               <div className="mt-8 space-y-4">
                 <div className="flex items-center gap-3">

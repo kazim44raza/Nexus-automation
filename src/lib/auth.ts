@@ -5,14 +5,11 @@ import bcrypt from 'bcryptjs'
 import { prisma } from '@/lib/prisma'
 import { Role } from '@prisma/client'
 import { rateLimit, getClientIp } from '@/lib/rate-limit'
+import { authConfig } from '@/lib/auth.config'
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+  ...authConfig,
   adapter: PrismaAdapter(prisma) as any,
-  session: { strategy: 'jwt' },
-  pages: {
-    signIn: '/admin/login',
-    error: '/admin/login',
-  },
   providers: [
     CredentialsProvider({
       name: 'credentials',
@@ -51,20 +48,4 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
       },
     }),
   ],
-  callbacks: {
-    async jwt({ token, user }) {
-      if (user) {
-        token.id = user.id
-        token.role = (user as any).role as Role
-      }
-      return token
-    },
-    async session({ session, token }) {
-      if (token) {
-        session.user.id = token.id as string
-        session.user.role = token.role as Role
-      }
-      return session
-    },
-  },
 })

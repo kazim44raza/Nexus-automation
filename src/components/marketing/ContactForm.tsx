@@ -48,7 +48,7 @@ export function ContactForm() {
           <CheckCircle2 className="w-8 h-8 text-accent" />
         </div>
         <h3 className="heading-md text-text-primary mb-2">Message received!</h3>
-        <p className="text-text-secondary">We'll get back to you within 1 business day. Check your email for a confirmation.</p>
+        <p className="text-text-secondary">We&apos;ll get back to you within 1 business day. Check your email for a confirmation.</p>
       </div>
     )
   }

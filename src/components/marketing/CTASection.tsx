@@ -23,7 +23,7 @@ export function CTASection() {
             See how much revenue automation can recover for your business
           </h2>
           <p className="text-lg text-white/60 mb-10 max-w-xl mx-auto">
-            In 30 minutes, we'll map your biggest automation opportunities and show you exactly what we'd build for you — with a clear ROI estimate.
+            In 30 minutes, we&apos;ll map your biggest automation opportunities and show you exactly what we&apos;d build for you — with a clear ROI estimate.
           </p>
           <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
             <Link href="/contact" className="btn bg-white text-primary-dark font-bold px-8 py-4 text-base rounded-xl hover:bg-white/90 hover:-translate-y-0.5 shadow-lg transition-all duration-200">

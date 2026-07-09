@@ -10,9 +10,9 @@ export const metadata: Metadata = {
 
 const values = [
   { icon: <Target className="w-5 h-5" />, title: 'Results First', description: 'We measure success by your business outcomes, not by the technology we deploy. Every system is built with a clear ROI target.' },
-  { icon: <Heart className="w-5 h-5" />, title: 'Long-Term Partnership', description: 'We\'re not a one-time vendor. We\'re your automation partner — monitoring, optimizing, and improving your systems as your business grows.' },
-  { icon: <Zap className="w-5 h-5" />, title: 'Move Fast', description: 'Most clients are live within 10 business days. Speed matters in business — we don\'t drag out implementations that could go live this week.' },
-  { icon: <Globe className="w-5 h-5" />, title: 'Honest Advice', description: 'If automation won\'t help you, we\'ll tell you. We\'d rather walk away from a sale than deploy something that doesn\'t deliver.' },
+  { icon: <Heart className="w-5 h-5" />, title: 'Long-Term Partnership', description: 'We&apos;re not a one-time vendor. We&apos;re your automation partner — monitoring, optimizing, and improving your systems as your business grows.' },
+  { icon: <Zap className="w-5 h-5" />, title: 'Move Fast', description: 'Most clients are live within 10 business days. Speed matters in business — we don&apos;t drag out implementations that could go live this week.' },
+  { icon: <Globe className="w-5 h-5" />, title: 'Honest Advice', description: 'If automation won&apos;t help you, we&apos;ll tell you. We&apos;d rather walk away from a sale than deploy something that doesn&apos;t deliver.' },
 ]
 
 export default function AboutPage() {
@@ -26,7 +26,7 @@ export default function AboutPage() {
           <AnimatedSection>
             <span className="badge-primary mb-6 inline-flex">Our Story</span>
             <h1 className="heading-display text-white mb-6">We help businesses run without manual work</h1>
-            <p className="text-lg text-white/55 leading-relaxed">
+              <p className="text-lg text-white/55 leading-relaxed">
               Nexus Automation was founded on a simple observation: businesses spend enormous amounts of time and money on work that could — and should — be automated. We exist to fix that.
             </p>
           </AnimatedSection>
@@ -45,7 +45,7 @@ export default function AboutPage() {
                 Large enterprises have had access to sophisticated automation for years. Smaller businesses — dental practices, real estate agencies, legal firms, healthcare providers — were left behind.
               </p>
               <p className="text-text-secondary mt-3 leading-relaxed">
-                We're changing that. We build the same caliber of AI systems for SMBs that Fortune 500 companies use — at a fraction of the cost, deployed in days, not months.
+                We&apos;re changing that. We build the same caliber of AI systems for SMBs that Fortune 500 companies use — at a fraction of the cost, deployed in days, not months.
               </p>
             </AnimatedSection>
             <AnimatedSection direction="right" delay={0.1}>
@@ -92,8 +92,8 @@ export default function AboutPage() {
       <section className="section-py bg-bg-base">
         <div className="page-container text-center">
           <AnimatedSection>
-            <h2 className="heading-lg text-text-primary mb-4">Ready to work with us?</h2>
-            <p className="text-text-secondary mb-8">Book a free discovery call and let's talk about your business.</p>
+              <h2 className="heading-lg text-text-primary mb-4">Ready to work with us?</h2>
+            <p className="text-text-secondary mb-8">Book a free discovery call and let&apos;s talk about your business.</p>
             <Link href="/contact" className="btn-primary-lg">
               Book a Free Call <ArrowRight className="w-5 h-5" />
             </Link>
