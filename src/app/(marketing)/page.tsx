@@ -13,7 +13,7 @@ import { Mail, Phone, Clock } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Nexus Automation — AI Automation Agency | Chatbots, Voice Agents & Workflow Automation',
-  description: 'We build AI chatbots, voice agents, and automation systems that capture leads, book appointments, and follow up 24/7. Trusted by 120+ businesses. Book a free demo.',
+  description: 'We build AI chatbots, voice agents, and automation systems that capture leads, book appointments, and follow up 24/7. Book a free demo.',
 }
 
 const organizationSchema = {

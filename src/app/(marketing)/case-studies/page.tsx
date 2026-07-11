@@ -3,7 +3,7 @@ import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { Tilt3D } from '@/components/shared/Tilt3D'
 import { FloatingObjects } from '@/components/shared/FloatingObjects'
-import { ArrowRight, TrendingUp } from 'lucide-react'
+import { ArrowRight, TrendingUp, HeartPulse, Home, Smile, Scale, ShoppingCart, Dumbbell } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Case Studies — Real Results from Real Businesses | Nexus Automation',
@@ -11,12 +11,12 @@ export const metadata: Metadata = {
 }
 
 const cases = [
-  { slug: 'chen-family-medical', emoji: '🏥', title: 'How Dr. Chen Added 23 New Patients in Month 1', company: 'Chen Family Medical', industry: 'Healthcare', results: ['+23 new patients in 30 days', '100% of after-hours calls answered', 'No-shows down from 24% to 9%'], solution: 'AI Voice Agent + Appointment Booking', color: 'from-blue-500/10 to-accent/10' },
-  { slug: 'homeedge-realty', emoji: '🏡', title: 'HomeEdge Realty Closed 8 Extra Deals With AI Lead Qualification', company: 'HomeEdge Realty', industry: 'Real Estate', results: ['8 additional closings in Q3', '73% of leads auto-qualified', 'Agents save 8+ hours/week'], solution: 'AI Lead Qualification + CRM Automation', color: 'from-warm/10 to-primary/10' },
-  { slug: 'bright-smile-dental', emoji: '🦷', title: 'Bright Smile Dental Recovered $12k/Month With Missed Call AI', company: 'Bright Smile Dental', industry: 'Dental', results: ['$12,000/month recovered', 'No-shows from 22% to 7%', 'Cancellations filled in under 5min'], solution: 'Voice Agent + Appointment Automation', color: 'from-sky-500/10 to-cyan-500/10' },
-  { slug: 'foster-law', emoji: '⚖️', title: 'Foster Law Increased Consultations by 45% Without New Staff', company: 'Foster & Associates', industry: 'Legal', results: ['45% more consultations booked', 'Intake calls handled 24/7', 'Conversion rate: 28% → 61%'], solution: 'AI Voice Intake + Lead Qualification', color: 'from-accent/10 to-cyan-500/10' },
-  { slug: 'shopnova', emoji: '🛒', title: 'ShopNova Reduced Support Costs 65% With AI Customer Support', company: 'ShopNova', industry: 'E-Commerce', results: ['65% support cost reduction', '79% ticket auto-resolution', 'CSAT improved from 3.8 to 4.7/5'], solution: 'AI Customer Support Agent', color: 'from-sky-500/10 to-primary/10' },
-  { slug: 'fitlife-studio', emoji: '💪', title: 'FitLife Studio Doubled Trial-to-Member Conversion With AI', company: 'FitLife Studio Network', industry: 'Fitness', results: ['2x trial-to-member conversion', 'Zero manual follow-up needed', '+$34k MRR in 60 days'], solution: 'AI Chatbot + Lead Nurture Automation', color: 'from-warm/10 to-red-500/10' },
+  { slug: 'chen-family-medical', icon: HeartPulse, title: 'How Dr. Chen Added 23 New Patients in Month 1', company: 'Chen Family Medical', industry: 'Healthcare', results: ['+23 new patients in 30 days', '100% of after-hours calls answered', 'No-shows down from 24% to 9%'], solution: 'AI Voice Agent + Appointment Booking', color: 'from-blue-500/10 to-accent/10' },
+  { slug: 'homeedge-realty', icon: Home, title: 'HomeEdge Realty Closed 8 Extra Deals With AI Lead Qualification', company: 'HomeEdge Realty', industry: 'Real Estate', results: ['8 additional closings in Q3', '73% of leads auto-qualified', 'Agents save 8+ hours/week'], solution: 'AI Lead Qualification + CRM Automation', color: 'from-warm/10 to-primary/10' },
+  { slug: 'bright-smile-dental', icon: Smile, title: 'Bright Smile Dental Recovered $12k/Month With Missed Call AI', company: 'Bright Smile Dental', industry: 'Dental', results: ['$12,000/month recovered', 'No-shows from 22% to 7%', 'Cancellations filled in under 5min'], solution: 'Voice Agent + Appointment Automation', color: 'from-sky-500/10 to-cyan-500/10' },
+  { slug: 'foster-law', icon: Scale, title: 'Foster Law Increased Consultations by 45% Without New Staff', company: 'Foster & Associates', industry: 'Legal', results: ['45% more consultations booked', 'Intake calls handled 24/7', 'Conversion rate: 28% → 61%'], solution: 'AI Voice Intake + Lead Qualification', color: 'from-accent/10 to-cyan-500/10' },
+  { slug: 'shopnova', icon: ShoppingCart, title: 'ShopNova Reduced Support Costs 65% With AI Customer Support', company: 'ShopNova', industry: 'E-Commerce', results: ['65% support cost reduction', '79% ticket auto-resolution', 'CSAT improved from 3.8 to 4.7/5'], solution: 'AI Customer Support Agent', color: 'from-sky-500/10 to-primary/10' },
+  { slug: 'fitlife-studio', icon: Dumbbell, title: 'FitLife Studio Doubled Trial-to-Member Conversion With AI', company: 'FitLife Studio Network', industry: 'Fitness', results: ['2x trial-to-member conversion', 'Zero manual follow-up needed', '+$34k MRR in 60 days'], solution: 'AI Chatbot + Lead Nurture Automation', color: 'from-warm/10 to-red-500/10' },
 ]
 
 export default function CaseStudiesPage() {
@@ -42,7 +42,9 @@ export default function CaseStudiesPage() {
                 <Tilt3D className="h-full rounded-2xl" max={7}>
                   <div className="card-hover p-0 overflow-hidden h-full flex flex-col">
                     <div className={`h-32 bg-gradient-to-br ${cs.color} flex items-center justify-center`}>
-                      <span className="text-4xl" style={{ transform: 'translateZ(34px)' }}>{cs.emoji}</span>
+                      <div className="w-16 h-16 bg-surface/80 backdrop-blur-sm rounded-2xl border border-border flex items-center justify-center text-primary shadow-card" style={{ transform: 'translateZ(34px)' }}>
+                        <cs.icon className="w-8 h-8" />
+                      </div>
                     </div>
                     <div className="p-6 flex flex-col flex-1">
                       <div className="flex items-center gap-2 mb-3">

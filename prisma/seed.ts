@@ -1,11 +1,15 @@
 import { PrismaClient } from '@prisma/client'
 import { hash } from 'bcryptjs'
+import { randomBytes } from 'crypto'
 
 const prisma = new PrismaClient()
 
 async function main() {
   const email = process.env.ADMIN_EMAIL ?? 'admin@nexusautomation.ai'
-  const password = process.env.ADMIN_PASSWORD ?? 'NexusAdmin2024!'
+  // SECURITY: never ship a hardcoded default password — this repo is public.
+  // If ADMIN_PASSWORD isn't set, generate a random one and print it once.
+  const generated = !process.env.ADMIN_PASSWORD
+  const password = process.env.ADMIN_PASSWORD ?? randomBytes(12).toString('base64url')
 
   const hashed = await hash(password, 12)
 
@@ -21,7 +25,11 @@ async function main() {
   })
 
   console.log(`✓ Admin user: ${user.email}`)
-  console.log(`  Password: ${password}`)
+  if (generated) {
+    console.log(`  Generated password (save it now — it is not stored anywhere else): ${password}`)
+  } else {
+    console.log('  Password: (from ADMIN_PASSWORD env var)')
+  }
   console.log(`  Login at: http://localhost:3000/admin/login`)
 
   // Seed some knowledge entries

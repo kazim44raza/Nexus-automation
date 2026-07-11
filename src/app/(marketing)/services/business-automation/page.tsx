@@ -1,6 +1,6 @@
 import type { Metadata } from 'next'
 import { ServicePageTemplate } from '@/components/marketing/ServicePageTemplate'
-import { Workflow, Zap, Clock, BarChart3, Link2, Shield, RefreshCw, Database } from 'lucide-react'
+import { Workflow, Clock, BarChart3, Link2, Shield, RefreshCw, Database, Mail, Calendar, MessageSquare, CheckCircle2 } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: 'Business Process Automation — Eliminate Manual Work | Nexus Automation',
@@ -18,15 +18,15 @@ export default function BusinessAutomationPage() {
           <div className="card-dark p-5 max-w-sm ml-auto space-y-3">
             <p className="text-white/50 text-xs font-semibold uppercase tracking-wider mb-3">Live Automation Flow</p>
             {[
-              { from: 'New Lead in CRM', to: 'HubSpot', color: 'bg-primary/20 text-primary-light', icon: '📊' },
-              { from: 'Email Sequence Triggered', to: 'Resend', color: 'bg-sky-500/20 text-sky-300', icon: '📧' },
-              { from: 'Calendar Invite Sent', to: 'Calendly', color: 'bg-accent/20 text-accent-light', icon: '📅' },
-              { from: 'Slack Notification', to: 'Sales Team', color: 'bg-warm/20 text-warm-light', icon: '💬' },
-              { from: 'CRM Status Updated', to: 'Salesforce', color: 'bg-sky-500/20 text-sky-300', icon: '✅' },
+              { from: 'New Lead in CRM', to: 'HubSpot', color: 'bg-primary/20 text-primary-light', icon: Database },
+              { from: 'Email Sequence Triggered', to: 'Resend', color: 'bg-sky-500/20 text-sky-300', icon: Mail },
+              { from: 'Calendar Invite Sent', to: 'Calendly', color: 'bg-accent/20 text-accent-light', icon: Calendar },
+              { from: 'Slack Notification', to: 'Sales Team', color: 'bg-warm/20 text-warm-light', icon: MessageSquare },
+              { from: 'CRM Status Updated', to: 'Salesforce', color: 'bg-sky-500/20 text-sky-300', icon: CheckCircle2 },
             ].map((step, i) => (
               <div key={i} className="flex items-center gap-2.5">
-                <div className={`text-sm px-2.5 py-1.5 rounded-lg text-xs font-medium ${step.color} flex items-center gap-1.5 flex-1`}>
-                  <span>{step.icon}</span>{step.from}
+                <div className={`px-2.5 py-1.5 rounded-lg text-xs font-medium ${step.color} flex items-center gap-1.5 flex-1`}>
+                  <step.icon className="w-3.5 h-3.5 flex-shrink-0" />{step.from}
                 </div>
                 <span className="text-white/20 text-xs">→</span>
                 <span className="text-white/40 text-xs">{step.to}</span>

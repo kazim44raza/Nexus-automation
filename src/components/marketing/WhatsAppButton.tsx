@@ -39,7 +39,7 @@ export function WhatsAppButton() {
       aria-label="Chat with us on WhatsApp"
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
-      className="fixed bottom-24 right-6 z-50 flex items-center gap-2.5 group"
+      className="fixed bottom-28 right-6 z-50 flex items-center gap-2.5 group"
     >
       {/* Tooltip */}
       <span

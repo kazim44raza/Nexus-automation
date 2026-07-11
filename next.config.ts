@@ -41,6 +41,10 @@ const nextConfig: NextConfig = {
   async headers() {
     return [{ source: '/:path*', headers: securityHeaders }]
   },
+  async redirects() {
+    // /services has no index page — send visitors to the solutions overview
+    return [{ source: '/services', destination: '/solutions', permanent: false }]
+  },
 }
 
 export default nextConfig

@@ -19,6 +19,6 @@ Next.js 15 (App Router) · TypeScript · Prisma/PostgreSQL · NextAuth v5 · Tai
 13. **AI / LLM** — Never send raw user input to the model — sanitize first (`src/app/api/chat/route.ts` strips control chars + clamps length). Always set `maxOutputTokens`. Keep the key server-side; all LLM calls route through our backend. Per-IP rate limit on the chat endpoint. Render LLM output as text, never raw HTML.
 
 ## Conventions
-- Design tokens in `tailwind.config.ts` + `globals.css`. Palette: teal primary (`#0D9488`) + emerald accent on navy darks (`#0B1220`). No purple.
+- Design tokens in `tailwind.config.ts` + `globals.css`. Palette: sky-blue primary (`#0284C7`) + cyan accent (`#06B6D4`) on navy darks (`#0B1220`) — matches the logo. No purple, no green.
 - 3D via raw three.js (no React-Three-Fiber — it conflicts with Next 15's React). See `WaveField.tsx` / `FloatingObjects.tsx`.
 - All DB calls in API routes wrapped in try/catch so the site works without a live DB in local dev.

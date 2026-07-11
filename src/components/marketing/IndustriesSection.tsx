@@ -3,12 +3,12 @@
 import { useState } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
-import { CheckCircle2 } from 'lucide-react'
+import { CheckCircle2, HeartPulse, Home, Scale, Smile, Dumbbell, ShoppingCart } from 'lucide-react'
 
 const industries = [
   {
     label: 'Healthcare',
-    emoji: '🏥',
+    icon: HeartPulse,
     headline: 'Fill your appointment calendar automatically',
     description: "Healthcare providers miss 30–40% of new patient calls. Our AI answers every call, qualifies the patient, and books them directly into your schedule — 24/7.",
     wins: ['Answer 100% of patient calls', 'Reduce no-shows by 60%', 'Automate insurance pre-screening', 'HIPAA-compliant workflows'],
@@ -16,7 +16,7 @@ const industries = [
   },
   {
     label: 'Real Estate',
-    emoji: '🏡',
+    icon: Home,
     headline: 'Qualify leads before your agents pick up the phone',
     description: "Real estate is a volume game. Our AI instantly qualifies every inquiry, filters out tire-kickers, and books showings directly for your agents.",
     wins: ['Qualify leads at 2AM', 'Auto-schedule viewings', 'CRM auto-update on every call', 'Instant follow-up texts'],
@@ -24,7 +24,7 @@ const industries = [
   },
   {
     label: 'Legal',
-    emoji: '⚖️',
+    icon: Scale,
     headline: 'Never miss a high-value consultation request',
     description: "Legal clients expect immediate responses. Our AI handles intake calls, screens for case fit, and schedules consultations — freeing your attorneys for billable work.",
     wins: ['24/7 intake qualification', 'Conflict-check screening', 'Automated consultation booking', 'CRM sync & follow-up'],
@@ -32,7 +32,7 @@ const industries = [
   },
   {
     label: 'Dental',
-    emoji: '🦷',
+    icon: Smile,
     headline: 'A full appointment book, managed by AI',
     description: "Dental practices lose thousands per week to unanswered phones and no-shows. Our system fills cancellations automatically and reminds patients before they forget.",
     wins: ['Auto-fill cancellations', '3x reminder sequences', 'New patient onboarding flow', 'Insurance verification automation'],
@@ -40,7 +40,7 @@ const industries = [
   },
   {
     label: 'Fitness',
-    emoji: '💪',
+    icon: Dumbbell,
     headline: 'Convert more gym inquiries into paying members',
     description: "Fitness businesses get hundreds of inquiries but convert a fraction. Our AI follows up instantly, handles objections, and books free trials automatically.",
     wins: ['Instant lead follow-up', 'Free trial booking flow', 'Membership renewal sequences', 'Class waitlist automation'],
@@ -48,7 +48,7 @@ const industries = [
   },
   {
     label: 'E-Commerce',
-    emoji: '🛒',
+    icon: ShoppingCart,
     headline: 'Support thousands of customers without growing your team',
     description: "E-commerce support is relentless. Our AI handles order tracking, returns, FAQs, and complaints — resolving 80% of tickets without a human.",
     wins: ['Order status automation', 'Returns & refund handling', 'Product recommendation AI', 'Abandoned cart recovery'],
@@ -73,20 +73,23 @@ export function IndustriesSection() {
         <div className="grid lg:grid-cols-[280px,1fr] gap-6">
           {/* Tab list */}
           <div className="flex lg:flex-col gap-2 overflow-x-auto lg:overflow-visible pb-2 lg:pb-0 no-scrollbar">
-            {industries.map((ind, i) => (
-              <button
-                key={i}
-                onClick={() => setActive(i)}
-                className={`flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-150 ${
-                  active === i
-                    ? 'bg-primary text-white shadow-primary-sm'
-                    : 'bg-surface border border-border text-text-secondary hover:text-text-primary hover:border-primary/30'
-                }`}
-              >
-                <span>{ind.emoji}</span>
-                {ind.label}
-              </button>
-            ))}
+            {industries.map((item, i) => {
+              const TabIcon = item.icon
+              return (
+                <button
+                  key={i}
+                  onClick={() => setActive(i)}
+                  className={`flex items-center gap-2.5 px-4 py-3 rounded-xl text-sm font-semibold whitespace-nowrap transition-all duration-150 cursor-pointer ${
+                    active === i
+                      ? 'bg-primary text-white shadow-primary-sm'
+                      : 'bg-surface border border-border text-text-secondary hover:text-text-primary hover:border-primary/30'
+                  }`}
+                >
+                  <TabIcon className="w-4 h-4 flex-shrink-0" />
+                  {item.label}
+                </button>
+              )
+            })}
           </div>
 
           {/* Content panel */}
@@ -99,7 +102,9 @@ export function IndustriesSection() {
               transition={{ duration: 0.25, ease: 'easeOut' }}
               className="card p-8"
             >
-              <span className="text-3xl mb-4 block">{ind.emoji}</span>
+              <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary">
+                <ind.icon className="w-6 h-6" />
+              </div>
               <h3 className="heading-lg text-text-primary mb-3">{ind.headline}</h3>
               <p className="text-text-secondary leading-relaxed mb-6">{ind.description}</p>
 
@@ -113,7 +118,7 @@ export function IndustriesSection() {
               </div>
 
               <div className="bg-accent/8 border border-accent/20 rounded-xl px-5 py-4">
-                <p className="text-sm font-semibold text-accent-dark">✓ Real result: {ind.result}</p>
+                <p className="text-sm font-semibold text-accent-dark">Typical result: {ind.result}</p>
               </div>
             </motion.div>
           </AnimatePresence>

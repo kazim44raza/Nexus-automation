@@ -41,7 +41,7 @@ export function HeroSection() {
             className="inline-flex items-center gap-2 bg-primary/20 border border-primary/30 rounded-full px-4 py-1.5 mb-8"
           >
             <span className="w-1.5 h-1.5 bg-accent-light rounded-full animate-pulse" />
-            <span className="text-primary-light text-xs font-semibold tracking-wide">AI Automation Agency · Trusted by 120+ Businesses</span>
+            <span className="text-primary-light text-xs font-semibold tracking-wide">AI Automation Agency · Built for Service Businesses</span>
           </motion.div>
 
           {/* Headline */}

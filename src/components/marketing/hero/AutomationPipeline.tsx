@@ -66,7 +66,7 @@ function PipelineConnector({ delay }: { delay: number }) {
   const ref = useRef(null)
   const inView = useInView(ref, { once: true, amount: 0.5 })
   return (
-    <div ref={ref} className="flex-1 flex items-center px-1 min-w-[24px]">
+    <div ref={ref} className="hidden md:flex flex-1 items-center px-1 min-w-[24px]">
       <motion.div
         initial={{ scaleX: 0, opacity: 0 }}
         animate={inView ? { scaleX: 1, opacity: 1 } : {}}
@@ -105,13 +105,13 @@ export function AutomationPipeline() {
         Live Automation Flow
       </motion.p>
 
-      {/* Pipeline nodes */}
-      <div className="flex items-center gap-0">
+      {/* Pipeline nodes — wraps into a 3+2 grid on mobile, single row with connectors on md+ */}
+      <div className="flex flex-wrap justify-center gap-y-8 md:flex-nowrap md:items-center">
         {nodes.map((node, i) => {
           const Icon = node.icon
           const isActive = activeNode === node.id
           return (
-            <div key={node.id} className="flex items-center flex-1 min-w-0">
+            <div key={node.id} className="flex items-center justify-center basis-1/3 md:basis-auto md:flex-1 min-w-0">
               <motion.div
                 className="flex flex-col items-center gap-2.5 flex-shrink-0"
                 initial={{ opacity: 0, y: 24 }}
@@ -148,23 +148,29 @@ export function AutomationPipeline() {
       </div>
 
       {/* Floating activity cards */}
-      <div className="mt-10 grid grid-cols-3 gap-3 sm:gap-4">
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-3 gap-3 sm:gap-4">
         {[
-          { text: '📞 New call from +1 (555) 091-xxxx', time: 'Just now', type: 'call' },
-          { text: '🤖 Lead qualified — Healthcare · $5k budget', time: '2s ago', type: 'qualify' },
-          { text: '📅 Appointment booked for tomorrow 2PM', time: '4s ago', type: 'book' },
-        ].map((item, i) => (
-          <motion.div
-            key={i}
-            initial={{ opacity: 0, y: 16 }}
-            animate={inView ? { opacity: 1, y: 0 } : {}}
-            transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
-            className="glass-dark rounded-xl p-3 border border-white/10"
-          >
-            <p className="text-white/80 text-[11px] leading-relaxed">{item.text}</p>
-            <p className="text-white/25 text-[10px] mt-1">{item.time}</p>
-          </motion.div>
-        ))}
+          { icon: Phone, iconColor: 'text-primary-light', text: 'New call from +1 (555) 091-xxxx', time: 'Just now' },
+          { icon: Bot, iconColor: 'text-accent-light', text: 'Lead qualified — Healthcare · $5k budget', time: '2s ago' },
+          { icon: Calendar, iconColor: 'text-warm-light', text: 'Appointment booked for tomorrow 2PM', time: '4s ago' },
+        ].map((item, i) => {
+          const ItemIcon = item.icon
+          return (
+            <motion.div
+              key={i}
+              initial={{ opacity: 0, y: 16 }}
+              animate={inView ? { opacity: 1, y: 0 } : {}}
+              transition={{ duration: 0.5, delay: 0.8 + i * 0.15 }}
+              className="glass-dark rounded-xl p-3 border border-white/10 flex items-start gap-2.5"
+            >
+              <ItemIcon className={`w-3.5 h-3.5 mt-0.5 flex-shrink-0 ${item.iconColor}`} />
+              <div className="min-w-0">
+                <p className="text-white/80 text-[11px] leading-relaxed">{item.text}</p>
+                <p className="text-white/25 text-[10px] mt-1">{item.time}</p>
+              </div>
+            </motion.div>
+          )
+        })}
       </div>
     </div>
   )

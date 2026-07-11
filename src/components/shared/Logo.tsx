@@ -89,9 +89,9 @@ export function Logo({ variant = 'dark', size = 36, showWordmark = true, classNa
           style={{ width: size, height: size }}
         />
       )}
-      {/* The real logo already contains the "NEXUS AUTOMATION" wordmark, so the
-          separate text is only shown alongside the inline SVG fallback. */}
-      {showWordmark && useFallback && (
+      {/* At navbar sizes the text inside the circular badge is too small to
+          read, so always pair the mark with a clear text wordmark. */}
+      {showWordmark && (
         <span
           className={cn(
             'font-display font-extrabold tracking-tight leading-none',

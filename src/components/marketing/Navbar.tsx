@@ -99,7 +99,7 @@ export function Navbar() {
                         ))}
                       </div>
                       <div className="border-t border-border mt-2 pt-2 px-2">
-                        <Link href="/services" className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-dark transition-colors">
+                        <Link href="/solutions" className="flex items-center gap-1.5 text-xs font-semibold text-primary hover:text-primary-dark transition-colors">
                           View all services <ArrowRight className="w-3 h-3" />
                         </Link>
                       </div>
