@@ -3,12 +3,18 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { ContactForm } from '@/components/marketing/ContactForm'
 import { Mail, Clock, Globe, Calendar } from 'lucide-react'
 
+const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
+
 export const metadata: Metadata = {
   title: 'Contact Nexus Automation — Book a Free Demo',
   description: 'Get in touch with Nexus Automation. Book a free discovery call or send us a message. We respond within 1 business day.',
 }
 
 export default function ContactPage() {
+  const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
+  const hasCalendlyBookingLink = Boolean(calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL)
+  const bookingHref = hasCalendlyBookingLink ? calendlyUrl : '#contact-form'
+
   return (
     <>
       <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
@@ -27,7 +33,7 @@ export default function ContactPage() {
         <div className="page-container">
           <div className="grid lg:grid-cols-[1fr,480px] gap-12 items-start">
             <AnimatedSection direction="left">
-              <div className="card p-8">
+              <div id="contact-form" className="card p-8">
                 <h2 className="heading-md text-text-primary mb-6">Send us a message</h2>
                 <ContactForm />
               </div>
@@ -37,15 +43,18 @@ export default function ContactPage() {
               <div className="card p-6">
                 <h3 className="font-bold text-text-primary mb-4">Or book directly</h3>
                 <a
-                  href={process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/nexus-automation'}
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href={bookingHref}
+                  {...(hasCalendlyBookingLink ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                   className="btn-primary w-full"
                 >
                   <Calendar className="w-4 h-4" />
-                  Book a Free 30-Min Call
+                  {hasCalendlyBookingLink ? 'Book a Free 30-Min Call' : 'Request a Free Call'}
                 </a>
-                <p className="text-xs text-text-muted text-center mt-3">No commitment · Strategy call · Real advice</p>
+                <p className="text-xs text-text-muted text-center mt-3">
+                  {hasCalendlyBookingLink
+                    ? 'No commitment · Strategy call · Real advice'
+                    : 'Calendar link is being updated · Use the form below instead'}
+                </p>
               </div>
 
               <div className="card p-6 space-y-4">
