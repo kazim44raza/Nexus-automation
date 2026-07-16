@@ -7,7 +7,7 @@ const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
   ? calendlyUrl
   : absoluteUrl('/contact#contact-form')
 
-function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') }
+function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') } 
 const FROM = process.env.FROM_EMAIL ?? 'Nexus Automation <hello@nexusautomation.ai>'
 const ADMIN = process.env.ADMIN_EMAIL ?? 'admin@nexusautomation.ai'
 
