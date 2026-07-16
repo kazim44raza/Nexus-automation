@@ -1,4 +1,11 @@
 import { Resend } from 'resend'
+import { absoluteUrl } from './utils'
+
+const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
+const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
+  ? calendlyUrl
+  : absoluteUrl('/contact#contact-form')
 
 function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') }
 const FROM = process.env.FROM_EMAIL ?? 'Nexus Automation <hello@nexusautomation.ai>'
@@ -59,7 +66,7 @@ export async function sendLeadWelcome(data: { name: string; email: string }) {
           <h2 style="color: #111827; font-size: 20px; margin: 0 0 16px;">We got your message, ${data.name.split(' ')[0]}!</h2>
           <p style="color: #6B7280; line-height: 1.6; margin: 0 0 16px;">Our team will review your inquiry and get back to you within <strong style="color: #111827;">1 business day</strong>.</p>
           <p style="color: #6B7280; line-height: 1.6; margin: 0 0 24px;">In the meantime, you can book a free discovery call directly on our calendar.</p>
-          <a href="${process.env.NEXT_PUBLIC_CALENDLY_URL}" style="background: #0284C7; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-block;">Book a Free Call →</a>
+          <a href="${bookingUrl}" style="background: #0284C7; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-block;">Book a Free Call →</a>
           <p style="color: #9CA3AF; font-size: 12px; margin-top: 32px;">Nexus Automation · AI Automation Agency</p>
         </div>
       </div>
