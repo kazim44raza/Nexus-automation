@@ -1,3 +1,11 @@
+import { absoluteUrl } from '../utils'
+
+const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
+const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
+const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
+  ? calendlyUrl
+  : absoluteUrl('/contact#contact-form')
+
 export const BASE_SYSTEM_PROMPT = `You are an AI assistant for Nexus Automation, a premium AI automation agency. Your role is to help website visitors understand our services, answer their questions, qualify them as leads, and encourage them to book a discovery call.
 
 ## Company Overview
@@ -39,7 +47,7 @@ Healthcare, Dental Clinics, Medical Clinics, Real Estate, Legal Firms, Fitness C
 
 ## Call to Action
 Always end conversations by encouraging the visitor to:
-- Book a free discovery call at: ${process.env.NEXT_PUBLIC_CALENDLY_URL ?? 'https://calendly.com/nexus-automation'}
+- Book a free discovery call at: ${bookingUrl}
 - Or fill out the contact form on the website
 
 ## Important Rules
