@@ -1,8 +1,13 @@
 import type { Metadata } from 'next'
 import './globals.css'
 
+const getSiteUrl = () => {
+  const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai';
+  return url.startsWith('http') ? url : `https://${url}`;
+};
+
 export const metadata: Metadata = {
-  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai'),
+  metadataBase: new URL(getSiteUrl()),
   title: {
     default: 'Nexus Automation — AI Automation Agency',
     template: '%s | Nexus Automation',
