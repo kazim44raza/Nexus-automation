@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { Mail, Phone, MapPin, Twitter, Linkedin, Youtube } from 'lucide-react'
+import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react'
 import { Logo } from '@/components/shared/Logo'
 
 const services = [
@@ -53,14 +53,11 @@ export function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-3 mt-6">
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
-                <Twitter className="w-4 h-4" />
-              </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
+              <a href="https://www.linkedin.com/in/nexus-automation-2139b540a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bqfr3Tu93S5%2BC0HcjyvFXOg%3D%3D" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
                 <Linkedin className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
-                <Youtube className="w-4 h-4" />
+              <a href="https://www.instagram.com/nexus.automation_?igsh=ZjY1dmRmMGRtZXVl" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
+                <Instagram className="w-4 h-4" />
               </a>
             </div>
           </div>
