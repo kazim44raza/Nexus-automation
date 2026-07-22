@@ -43,9 +43,9 @@ export function Footer() {
               AI automation solutions that help businesses capture more leads, book more appointments, and scale without hiring.
             </p>
             <div className="space-y-2.5">
-              <a href="mailto:hello@nexusautomation.ai" className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white transition-colors">
+              <a href="mailto:info@nexus-automation.tech" className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white transition-colors">
                 <Mail className="w-4 h-4 text-primary-light" />
-                hello@nexusautomation.ai
+                info@nexus-automation.tech
               </a>
               <div className="flex items-center gap-2.5 text-sm text-white/50">
                 <MapPin className="w-4 h-4 text-primary-light" />

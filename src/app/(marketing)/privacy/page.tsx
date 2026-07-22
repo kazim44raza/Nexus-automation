@@ -42,7 +42,7 @@ const sections = [
     title: '5. Data Retention & Your Rights',
     body: [
       'We keep your information only as long as needed to serve you or as required by law.',
-      'You can request a copy of your data, ask us to correct it, or ask us to delete it at any time by emailing hello@nexusautomation.ai.',
+      'You can request a copy of your data, ask us to correct it, or ask us to delete it at any time by emailing info@nexus-automation.tech.',
     ],
   },
   {
@@ -78,7 +78,7 @@ export default function PrivacyPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about this policy? Email us at hello@nexusautomation.ai.
+            Questions about this policy? Email us at info@nexus-automation.tech.
           </p>
         </div>
       </section>

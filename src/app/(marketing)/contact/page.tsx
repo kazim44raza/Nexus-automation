@@ -60,7 +60,7 @@ export default function ContactPage() {
               <div className="card p-6 space-y-4">
                 <h3 className="font-bold text-text-primary mb-2">Contact info</h3>
                 {[
-                  { icon: <Mail className="w-4 h-4 text-primary" />, label: 'Email', value: 'hello@nexusautomation.ai' },
+                  { icon: <Mail className="w-4 h-4 text-primary" />, label: 'Email', value: 'info@nexus-automation.tech' },
                   { icon: <Clock className="w-4 h-4 text-accent" />, label: 'Response time', value: 'Within 1 business day' },
                   { icon: <Globe className="w-4 h-4 text-warm" />, label: 'Location', value: 'Remote-first · Worldwide' },
                 ].map((item, i) => (

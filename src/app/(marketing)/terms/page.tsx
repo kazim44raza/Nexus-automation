@@ -82,7 +82,7 @@ export default function TermsPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about these terms? Email us at hello@nexusautomation.ai.
+            Questions about these terms? Email us at info@nexus-automation.tech.
           </p>
         </div>
       </section>

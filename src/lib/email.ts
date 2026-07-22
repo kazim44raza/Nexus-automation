@@ -8,7 +8,7 @@ const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
   : absoluteUrl('/contact#contact-form')
 
 function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') } 
-const FROM = process.env.FROM_EMAIL ?? 'Nexus Automation <hello@nexusautomation.ai>'
+const FROM = process.env.FROM_EMAIL ?? 'Nexus Automation <info@nexus-automation.tech>'
 const ADMIN = process.env.ADMIN_EMAIL ?? 'admin@nexusautomation.ai'
 
 export async function sendLeadNotification(data: {

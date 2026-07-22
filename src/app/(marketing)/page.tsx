@@ -25,7 +25,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    email: 'hello@nexusautomation.ai',
+    email: 'info@nexus-automation.tech',
   },
   sameAs: [],
   service: [
@@ -70,7 +70,7 @@ export default function HomePage() {
                   </div>
                   <div>
                     <p className="text-xs text-text-muted">Email us</p>
-                    <p className="text-sm font-semibold text-text-primary">hello@nexusautomation.ai</p>
+                    <p className="text-sm font-semibold text-text-primary">info@nexus-automation.tech</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
