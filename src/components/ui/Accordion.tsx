@@ -1,7 +1,7 @@
 'use client'
 
 import { useState } from 'react'
-import { ChevronDown } from 'lucide-react'
+import { Plus, Minus } from 'lucide-react'
 import { cn } from '@/lib/utils'
 import { motion, AnimatePresence } from 'framer-motion'
 
@@ -13,58 +13,59 @@ interface AccordionItem {
 interface AccordionProps {
   items: AccordionItem[]
   className?: string
-  dark?: boolean
 }
 
-export function Accordion({ items, className, dark }: AccordionProps) {
-  const [open, setOpen] = useState<number | null>(null)
+export function Accordion({ items, className }: AccordionProps) {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
 
   return (
-    <div className={cn('space-y-3', className)}>
-      {items.map((item, i) => (
-        <div
-          key={i}
-          className={cn(
-            'rounded-2xl border overflow-hidden transition-colors duration-200',
-            dark
-              ? open === i ? 'border-white/20 bg-white/10' : 'border-white/10 bg-white/5'
-              : open === i ? 'border-primary/30 bg-primary/5' : 'border-border bg-surface'
-          )}
-        >
-          <button
-            onClick={() => setOpen(open === i ? null : i)}
-            className="w-full flex items-center justify-between px-6 py-5 text-left"
+    <div className={cn('w-full', className)}>
+      {items.map((item, i) => {
+        const isOpen = openIndex === i
+        const headerId = `accordion-header-${i}`
+        const panelId = `accordion-panel-${i}`
+
+        return (
+          <div
+            key={i}
+            className="border-b border-gray-200 last:border-0"
           >
-            <span className={cn('font-semibold text-sm', dark ? 'text-white' : 'text-text-primary')}>
-              {item.question}
-            </span>
-            <ChevronDown
-              className={cn(
-                'w-4 h-4 flex-shrink-0 transition-transform duration-300 ml-4',
-                dark ? 'text-white/50' : 'text-text-muted',
-                open === i && 'rotate-180'
+            <button
+              id={headerId}
+              aria-expanded={isOpen}
+              aria-controls={panelId}
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              className="w-full flex items-center justify-between py-5 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded"
+            >
+              <span className="font-semibold text-gray-900 group-hover:text-primary transition-colors text-lg pr-8">
+                {item.question}
+              </span>
+              <span className="flex-shrink-0 text-gray-400 group-hover:text-primary transition-colors relative w-5 h-5 flex items-center justify-center">
+                <Minus className={cn("absolute inset-0 w-5 h-5 transition-transform duration-300", isOpen ? "rotate-0 scale-100" : "rotate-90 scale-0")} />
+                <Plus className={cn("absolute inset-0 w-5 h-5 transition-transform duration-300", isOpen ? "rotate-90 scale-0" : "rotate-0 scale-100")} />
+              </span>
+            </button>
+            <AnimatePresence>
+              {isOpen && (
+                <motion.div
+                  id={panelId}
+                  role="region"
+                  aria-labelledby={headerId}
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: 'auto', opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
+                  className="overflow-hidden"
+                >
+                  <p className="pb-5 text-gray-600 leading-relaxed">
+                    {item.answer}
+                  </p>
+                </motion.div>
               )}
-            />
-          </button>
-          <AnimatePresence>
-            {open === i && (
-              <motion.div
-                initial={{ height: 0, opacity: 0 }}
-                animate={{ height: 'auto', opacity: 1 }}
-                exit={{ height: 0, opacity: 0 }}
-                transition={{ duration: 0.25, ease: 'easeInOut' }}
-              >
-                <p className={cn(
-                  'px-6 pb-5 text-sm leading-relaxed',
-                  dark ? 'text-white/60' : 'text-text-secondary'
-                )}>
-                  {item.answer}
-                </p>
-              </motion.div>
-            )}
-          </AnimatePresence>
-        </div>
-      ))}
+            </AnimatePresence>
+          </div>
+        )
+      })}
     </div>
   )
 }

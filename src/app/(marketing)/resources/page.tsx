@@ -18,29 +18,28 @@ const resources = [
 export default function ResourcesPage() {
   return (
     <>
-      <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
+      <section className="bg-bg-base pt-32 pb-20 relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
         <div className="relative page-container text-center max-w-2xl mx-auto">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">Free Automation Resources</h1>
-            <p className="text-lg text-white/55">Guides, calculators, and tools to help you understand how AI automation can grow your business — no sales pitch required.</p>
+            <h1 className="heading-display text-text-primary mb-4">Free Automation Resources</h1>
+            <p className="text-lg text-text-secondary">Guides, calculators, and tools to help you understand how AI automation can grow your business — no sales pitch required.</p>
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
-      <section className="section-py bg-bg-base">
+      <section className="section-py bg-white">
         <div className="page-container">
-          <StaggerContainer className="grid sm:grid-cols-2 gap-5 max-w-3xl mx-auto">
+          <StaggerContainer className="grid sm:grid-cols-2 gap-6 max-w-3xl mx-auto">
             {resources.map((r, i) => (
               <StaggerItem key={i}>
-                <div className="card-hover p-6 h-full flex flex-col">
+                <div className="card card-hover p-6 h-full flex flex-col bg-white">
                   <div className={`w-11 h-11 rounded-xl flex items-center justify-center mb-4 ${r.color}`}>{r.icon}</div>
                   <span className="text-xs font-semibold text-text-muted uppercase tracking-wider mb-2">{r.type}</span>
-                  <h2 className="font-bold text-text-primary mb-2">{r.title}</h2>
+                  <h2 className="heading-md text-text-primary mb-2">{r.title}</h2>
                   <p className="text-sm text-text-secondary flex-1 mb-5">{r.desc}</p>
                   <Link href="/contact" className="btn-secondary text-sm">
-                    {r.cta} <ArrowRight className="w-4 h-4" />
+                    {r.cta} <ArrowRight className="w-4 h-4 ml-1" />
                   </Link>
                 </div>
               </StaggerItem>

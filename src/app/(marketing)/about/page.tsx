@@ -1,86 +1,68 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
-import { ArrowRight, Zap, Target, Heart, Globe } from 'lucide-react'
+import { ArrowRight, Wrench, BarChart, Users, Repeat, Globe, CheckCircle } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Nexus Automation — Our Story, Mission & Team',
-  description: 'Learn about Nexus Automation — the AI automation agency helping 120+ businesses capture more leads, book more appointments, and scale without hiring.',
+  title: 'About Nexus Automation | AI Automation Agency',
+  description: 'We help businesses run without manual work by building practical AI automation systems.',
 }
 
-const values = [
-  { icon: <Target className="w-5 h-5" />, title: 'Results First', description: 'We measure success by your business outcomes, not by the technology we deploy. Every system is built with a clear ROI target.' },
-  { icon: <Heart className="w-5 h-5" />, title: 'Long-Term Partnership', description: 'We&apos;re not a one-time vendor. We&apos;re your automation partner — monitoring, optimizing, and improving your systems as your business grows.' },
-  { icon: <Zap className="w-5 h-5" />, title: 'Move Fast', description: 'Most clients are live within 10 business days. Speed matters in business — we don&apos;t drag out implementations that could go live this week.' },
-  { icon: <Globe className="w-5 h-5" />, title: 'Honest Advice', description: 'If automation won&apos;t help you, we&apos;ll tell you. We&apos;d rather walk away from a sale than deploy something that doesn&apos;t deliver.' },
+const principles = [
+  { icon: Wrench, title: 'Practical Automation', description: 'We build systems that solve real problems, not technology for technology\'s sake. Every automation is tied to a core business workflow.' },
+  { icon: BarChart, title: 'Measurable Impact', description: 'Every system we build targets specific, trackable operational improvements. We want you to see the ROI clearly.' },
+  { icon: Users, title: 'Human Escalation', description: 'AI handles routine work. Humans handle what matters. We design clear handoff points so your team is always in the loop when needed.' },
+  { icon: Repeat, title: 'Ongoing Optimization', description: 'We don\'t launch and leave. We monitor, refine, and expand your automation systems as your business grows and changes.' },
 ]
 
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
       <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
         <div className="relative page-container text-center max-w-3xl mx-auto">
           <AnimatedSection>
-            <span className="badge-primary mb-6 inline-flex">Our Story</span>
             <h1 className="heading-display text-white mb-6">We help businesses run without manual work</h1>
-              <p className="text-lg text-white/55 leading-relaxed">
-              Nexus Automation was founded on a simple observation: businesses spend enormous amounts of time and money on work that could — and should — be automated. We exist to fix that.
+            <p className="text-lg text-white/55 leading-relaxed">
+              We observed that businesses spend enormous amounts of time and money on repetitive communication and data tasks. We exist to build automation systems that fix this.
             </p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
-      {/* Mission */}
       <section className="section-py bg-bg-base">
-        <div className="page-container">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <AnimatedSection direction="left">
-              <span className="section-eyebrow">Our Mission</span>
-              <h2 className="section-title mt-3">Every business deserves enterprise-grade automation</h2>
-              <p className="text-text-secondary mt-4 leading-relaxed">
-                Large enterprises have had access to sophisticated automation for years. Smaller businesses — dental practices, real estate agencies, legal firms, healthcare providers — were left behind.
+        <div className="page-container max-w-4xl mx-auto">
+          <AnimatedSection>
+            <h2 className="heading-lg text-text-primary mb-6">Why we exist</h2>
+            <div className="prose prose-lg prose-neutral dark:prose-invert">
+              <p className="text-text-secondary leading-relaxed mb-4">
+                <strong>The problem:</strong> Most businesses are bottlenecked by manual processes. Teams spend hours every week answering routine questions, copying data between tools, chasing leads, and managing schedules. This leads to burned-out employees, dropped balls, and lost revenue.
               </p>
-              <p className="text-text-secondary mt-3 leading-relaxed">
-                We&apos;re changing that. We build the same caliber of AI systems for SMBs that Fortune 500 companies use — at a fraction of the cost, deployed in days, not months.
+              <p className="text-text-secondary leading-relaxed">
+                <strong>The solution:</strong> We build practical AI automation systems designed around your specific workflows. We connect your tools, train AI to handle the repetitive tasks, and set up reliable systems that work 24/7 without taking a break.
               </p>
-            </AnimatedSection>
-            <AnimatedSection direction="right" delay={0.1}>
-              <div className="grid grid-cols-2 gap-4">
-                {[
-                  { value: '120+', label: 'Businesses Served' },
-                  { value: '$2.4M+', label: 'Revenue Recovered' },
-                  { value: '98%', label: 'Client Retention' },
-                  { value: '< 10 days', label: 'Avg Time to Live' },
-                ].map((stat, i) => (
-                  <div key={i} className="card p-5 text-center">
-                    <div className="stat-value gradient-text-primary">{stat.value}</div>
-                    <p className="text-xs text-text-muted mt-1">{stat.label}</p>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-          </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 
-      {/* Values */}
       <section className="section-py bg-bg-alt">
-        <div className="page-container">
+        <div className="page-container max-w-6xl mx-auto">
           <AnimatedSection className="text-center mb-12">
-            <span className="section-eyebrow">Our Values</span>
-            <h2 className="section-title max-w-xl mx-auto mt-3">How we think and work</h2>
+            <h2 className="heading-lg text-text-primary">Our approach</h2>
           </AnimatedSection>
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
-            {values.map((v, i) => (
+          <StaggerContainer className="grid md:grid-cols-2 gap-6">
+            {principles.map((p, i) => (
               <StaggerItem key={i}>
-                <div className="card p-6 h-full">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary mb-4">{v.icon}</div>
-                  <h3 className="font-bold text-text-primary mb-2">{v.title}</h3>
-                  <p className="text-sm text-text-secondary leading-relaxed">{v.description}</p>
+                <div className="card p-8 h-full bg-bg-base border border-border flex gap-6">
+                  <div className="w-12 h-12 bg-primary/10 rounded-xl flex-shrink-0 flex items-center justify-center text-primary">
+                    <p.icon className="w-6 h-6" />
+                  </div>
+                  <div>
+                    <h3 className="heading-sm text-text-primary mb-3">{p.title}</h3>
+                    <p className="text-text-secondary leading-relaxed">{p.description}</p>
+                  </div>
                 </div>
               </StaggerItem>
             ))}
@@ -88,14 +70,33 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* CTA */}
       <section className="section-py bg-bg-base">
-        <div className="page-container text-center">
+        <div className="page-container max-w-4xl mx-auto">
           <AnimatedSection>
-              <h2 className="heading-lg text-text-primary mb-4">Ready to work with us?</h2>
-            <p className="text-text-secondary mb-8">Book a free discovery call and let&apos;s talk about your business.</p>
+            <h2 className="heading-lg text-text-primary mb-8 text-center">How we work</h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              <div className="card p-6 border border-border">
+                <Globe className="w-8 h-8 text-primary mb-4" />
+                <h3 className="heading-sm text-text-primary mb-2">Remote-first & Worldwide</h3>
+                <p className="text-text-secondary">We are a remote agency working with clients globally. Our processes are designed for seamless asynchronous communication and clear deliverables.</p>
+              </div>
+              <div className="card p-6 border border-border">
+                <CheckCircle className="w-8 h-8 text-primary mb-4" />
+                <h3 className="heading-sm text-text-primary mb-2">Technology-Agnostic</h3>
+                <p className="text-text-secondary">We don't force you into a specific software stack. We evaluate your current setup and use the right tools that fit your business needs best.</p>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="section-py bg-bg-alt">
+        <div className="page-container text-center max-w-2xl mx-auto">
+          <AnimatedSection>
+            <h2 className="heading-lg text-text-primary mb-6">Ready to automate?</h2>
+            <p className="text-text-secondary mb-8 text-lg">Let's talk about the operational bottlenecks in your business and see if we can help.</p>
             <Link href="/contact" className="btn-primary-lg">
-              Book a Free Call <ArrowRight className="w-5 h-5" />
+              Let's talk <ArrowRight className="w-5 h-5" />
             </Link>
           </AnimatedSection>
         </div>

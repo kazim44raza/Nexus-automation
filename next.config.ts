@@ -42,8 +42,11 @@ const nextConfig: NextConfig = {
     return [{ source: '/:path*', headers: securityHeaders }]
   },
   async redirects() {
-    // /services has no index page — send visitors to the solutions overview
-    return [{ source: '/services', destination: '/solutions', permanent: false }]
+    return [
+      // /services has no index page — send visitors to the solutions overview
+      { source: '/services', destination: '/solutions', permanent: false },
+      { source: '/services/whatsapp', destination: '/services/whatsapp-automation', permanent: true },
+    ]
   },
 }
 

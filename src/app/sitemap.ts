@@ -11,6 +11,7 @@ const staticRoutes: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/services/lead-qualification`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   { url: `${BASE_URL}/services/appointment-booking`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
   { url: `${BASE_URL}/services/customer-support`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/whatsapp-automation`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/solutions`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/industries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/case-studies`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },

@@ -147,19 +147,19 @@ export default async function BlogPostPage({ params }: Props) {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
 
       {/* Hero */}
-      <section className="section-py bg-bg-base border-b border-border">
+      <section className="bg-bg-base pt-32 pb-12 border-b border-border">
         <div className="page-container max-w-3xl">
-          <Link href="/blog" className="inline-flex items-center gap-2 text-text-muted hover:text-primary text-sm font-medium transition-colors mb-8">
+          <Link href="/blog" className="inline-flex items-center gap-2 text-text-muted hover:text-accent text-sm font-medium transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>
 
           <div className="mb-4 flex gap-2 flex-wrap">
             {(post.tags as string[])?.map(tag => (
-              <span key={tag} className="badge-neutral text-xs">{tag}</span>
+              <span key={tag} className="badge-accent text-xs">{tag}</span>
             ))}
           </div>
 
-          <h1 className="heading-xl text-text-primary mb-4">{post.title}</h1>
+          <h1 className="heading-display text-text-primary mb-4 leading-tight">{post.title}</h1>
 
           {post.excerpt && <p className="text-lg text-text-secondary mb-6 leading-relaxed">{post.excerpt}</p>}
 
@@ -182,16 +182,16 @@ export default async function BlogPostPage({ params }: Props) {
 
       {post.coverImage && (
         <div className="page-container max-w-3xl py-8">
-          <Image src={post.coverImage} alt={post.title} width={1200} height={630} className="w-full rounded-2xl object-cover max-h-80" />
+          <Image src={post.coverImage} alt={post.title} width={1200} height={630} className="w-full rounded-2xl object-cover max-h-80 shadow-sm" />
         </div>
       )}
 
       {/* Content */}
       <article className="page-container max-w-3xl py-8 pb-20">
-        <div className="prose prose-gray max-w-none prose-headings:font-display prose-headings:text-text-primary prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-primary prose-strong:text-text-primary">
+        <div className="prose prose-slate max-w-none prose-headings:font-display prose-headings:text-text-primary prose-p:text-text-secondary prose-p:leading-relaxed prose-a:text-accent hover:prose-a:text-accent/80 prose-strong:text-text-primary">
           {post.content.split('\n').map((line, i) => {
-            if (line.startsWith('## ')) return <h2 key={i} className="heading-md text-text-primary mt-10 mb-4">{line.slice(3)}</h2>
-            if (line.startsWith('### ')) return <h3 key={i} className="text-xl font-bold text-text-primary mt-8 mb-3">{line.slice(4)}</h3>
+            if (line.startsWith('## ')) return <h2 key={i} className="heading-lg text-text-primary mt-10 mb-4">{line.slice(3)}</h2>
+            if (line.startsWith('### ')) return <h3 key={i} className="heading-md text-text-primary mt-8 mb-3">{line.slice(4)}</h3>
             if (line.startsWith('- ')) return <li key={i} className="text-text-secondary ml-4 mb-1">{line.slice(2)}</li>
             if (line.trim() === '') return <br key={i} />
             return <p key={i} className="text-text-secondary leading-relaxed mb-4">{line}</p>
@@ -199,9 +199,9 @@ export default async function BlogPostPage({ params }: Props) {
         </div>
 
         {/* CTA */}
-        <div className="mt-16 p-8 bg-primary/5 border border-primary/20 rounded-2xl text-center">
-          <h3 className="heading-sm text-text-primary mb-2">Ready to automate your business?</h3>
-          <p className="text-text-secondary text-sm mb-5">Book a free 30-minute strategy call with our automation experts.</p>
+        <div className="mt-16 p-8 bg-bg-alt border border-border rounded-2xl text-center shadow-sm">
+          <h3 className="heading-md text-text-primary mb-2">Ready to automate your business?</h3>
+          <p className="text-text-secondary mb-6">Book a free 30-minute strategy call with our automation experts.</p>
           <Link href="/contact" className="btn-primary">Book a Free Demo</Link>
         </div>
       </article>

@@ -21,33 +21,32 @@ const posts = [
 export default function BlogPage() {
   return (
     <>
-      <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
+      <section className="bg-bg-base pt-32 pb-20 relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
         <div className="relative page-container text-center max-w-2xl mx-auto">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">AI Automation Insights</h1>
-            <p className="text-lg text-white/55">Practical guides and case studies for business owners who want to grow without hiring more people.</p>
+            <h1 className="heading-display text-text-primary mb-4">AI Automation Insights</h1>
+            <p className="text-lg text-text-secondary">Practical guides and case studies for business owners who want to grow without hiring more people.</p>
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
-      <section className="section-py bg-bg-base">
+      <section className="section-py bg-white">
         <div className="page-container">
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map(post => (
               <StaggerItem key={post.slug}>
-                <Link href={`/blog/${post.slug}`} className="card-hover p-0 overflow-hidden h-full flex flex-col group block">
-                  <div className="h-40 bg-gradient-to-br from-primary/10 to-accent/10 flex items-center justify-center">
-                    <div className="w-12 h-12 bg-primary/20 rounded-2xl flex items-center justify-center">
+                <Link href={`/blog/${post.slug}`} className="card card-hover p-0 overflow-hidden h-full flex flex-col group block bg-white">
+                  <div className="h-40 bg-bg-alt flex items-center justify-center border-b border-border">
+                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                       <span className="text-2xl">📝</span>
                     </div>
                   </div>
                   <div className="p-6 flex flex-col flex-1">
                     <div className="flex flex-wrap gap-1.5 mb-3">
-                      {post.tags.map(t => <span key={t} className="badge-primary text-xs">{t}</span>)}
+                      {post.tags.map(t => <span key={t} className="badge-accent text-xs">{t}</span>)}
                     </div>
-                    <h2 className="font-bold text-text-primary leading-tight mb-3 group-hover:text-primary transition-colors">{post.title}</h2>
+                    <h2 className="heading-md text-text-primary leading-tight mb-3 group-hover:text-accent transition-colors">{post.title}</h2>
                     <p className="text-sm text-text-secondary leading-relaxed flex-1">{post.excerpt}</p>
                     <div className="flex items-center gap-4 mt-4 pt-4 border-t border-border">
                       <div className="flex items-center gap-1.5 text-xs text-text-muted">

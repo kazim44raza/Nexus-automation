@@ -38,17 +38,29 @@ const faqs = [
 
 export function FAQSection() {
   return (
-    <section className="section-py bg-bg-base">
-      <div className="page-container max-w-3xl">
-        <AnimatedSection className="text-center mb-12">
-          <span className="section-eyebrow">FAQ</span>
-          <h2 className="section-title max-w-xl mx-auto mt-3">
-            Common questions, honest answers
-          </h2>
-        </AnimatedSection>
-        <AnimatedSection delay={0.1}>
-          <Accordion items={faqs} />
-        </AnimatedSection>
+    <section className="py-24 bg-gray-50 border-t border-gray-100">
+      <div className="page-container max-w-6xl">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8">
+          
+          <div className="lg:col-span-4">
+            <AnimatedSection className="sticky top-28">
+              <span className="text-accent font-semibold tracking-wider uppercase text-sm mb-3 block">FAQ</span>
+              <h2 className="font-geist text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+                Common questions, honest answers
+              </h2>
+              <p className="text-gray-500 text-lg">
+                Everything you need to know about our automation services, pricing, and timelines.
+              </p>
+            </AnimatedSection>
+          </div>
+
+          <div className="lg:col-span-8 bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-gray-100">
+            <AnimatedSection delay={0.1}>
+              <Accordion items={faqs} />
+            </AnimatedSection>
+          </div>
+          
+        </div>
       </div>
     </section>
   )

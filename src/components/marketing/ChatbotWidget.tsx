@@ -2,7 +2,7 @@
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { MessageCircle, X, Minimize2, Send, Loader2, Bot, Zap } from 'lucide-react'
+import { MessageCircle, X, Minimize2, Send, Loader2, Bot } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
 interface Message {
@@ -92,11 +92,11 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[360px] bg-white rounded-2xl shadow-card-lg border border-border overflow-hidden flex flex-col"
+            className="w-[360px] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col"
             style={{ maxHeight: '520px', height: '520px' }}
           >
             {/* Header */}
-            <div className="bg-primary p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-accent to-primary p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center">
                   <Bot className="w-4 h-4 text-white" />
@@ -104,23 +104,23 @@ export function ChatbotWidget() {
                 <div>
                   <p className="text-white font-semibold text-sm">Nexus AI Assistant</p>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-accent-light rounded-full animate-pulse" />
-                    <span className="text-white/60 text-xs">Online now</span>
+                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    <span className="text-white/80 text-xs">Online now</span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <button onClick={() => setMinimized(true)} className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+                <button onClick={() => setMinimized(true)} className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/20 transition-colors">
                   <Minimize2 className="w-3.5 h-3.5" />
                 </button>
-                <button onClick={() => setOpen(false)} className="p-1.5 rounded-lg text-white/60 hover:text-white hover:bg-white/10 transition-colors">
+                <button onClick={() => setOpen(false)} className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/20 transition-colors">
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-bg-base">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
               {messages.map(msg => (
                 <div
                   key={msg.id}
@@ -134,14 +134,14 @@ export function ChatbotWidget() {
                   <div className={cn(
                     'max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed',
                     msg.role === 'user'
-                      ? 'bg-primary text-white rounded-tr-sm'
-                      : 'bg-white text-text-primary border border-border rounded-tl-sm shadow-card'
+                      ? 'bg-gradient-to-r from-accent to-primary text-white rounded-tr-sm shadow-sm'
+                      : 'bg-gray-100 text-gray-900 rounded-tl-sm'
                   )}>
                     {msg.content || (
-                      <span className="flex items-center gap-1 text-text-muted">
-                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:0ms]" />
-                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:150ms]" />
-                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:300ms]" />
+                      <span className="flex items-center gap-1 text-gray-400">
+                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0ms]" />
+                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:150ms]" />
+                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:300ms]" />
                       </span>
                     )}
                   </div>
@@ -151,7 +151,7 @@ export function ChatbotWidget() {
             </div>
 
             {/* Input */}
-            <div className="p-3 border-t border-border bg-white">
+            <div className="p-3 border-t border-gray-100 bg-white">
               <form
                 onSubmit={e => { e.preventDefault(); sendMessage() }}
                 className="flex items-center gap-2"
@@ -162,13 +162,13 @@ export function ChatbotWidget() {
                   value={input}
                   onChange={e => setInput(e.target.value)}
                   placeholder="Ask me anything…"
-                  className="input py-2.5 text-sm flex-1"
+                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all text-gray-900 placeholder:text-gray-400"
                   disabled={loading}
                 />
                 <button
                   type="submit"
                   disabled={!input.trim() || loading}
-                  className="w-10 h-10 bg-primary text-white rounded-xl flex items-center justify-center hover:bg-primary-light transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0"
+                  className="w-11 h-11 bg-accent text-white rounded-xl flex items-center justify-center hover:bg-accent/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 shadow-sm"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 </button>
@@ -186,11 +186,11 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={() => setMinimized(false)}
-            className="flex items-center gap-3 bg-primary text-white px-4 py-3 rounded-2xl shadow-primary cursor-pointer hover:bg-primary-light transition-colors"
+            className="flex items-center gap-3 bg-gradient-to-r from-accent to-primary text-white px-5 py-3.5 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all"
           >
-            <Bot className="w-4 h-4" />
+            <Bot className="w-5 h-5" />
             <span className="text-sm font-semibold">Nexus AI Assistant</span>
-            <span className="w-1.5 h-1.5 bg-accent-light rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           </motion.button>
         )}
       </AnimatePresence>
@@ -200,13 +200,13 @@ export function ChatbotWidget() {
         onClick={() => { setOpen(!open); setMinimized(false) }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 bg-primary text-white rounded-2xl shadow-primary-lg flex items-center justify-center relative"
+        className="w-14 h-14 bg-gradient-to-r from-accent to-primary text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center relative transition-shadow"
         aria-label="Open chat"
       >
         <AnimatePresence mode="wait">
           {open ? (
             <motion.div key="close" initial={{ rotate: -90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: 90, opacity: 0 }} transition={{ duration: 0.15 }}>
-              <X className="w-6 h-6" />
+               <X className="w-6 h-6" />
             </motion.div>
           ) : (
             <motion.div key="open" initial={{ rotate: 90, opacity: 0 }} animate={{ rotate: 0, opacity: 1 }} exit={{ rotate: -90, opacity: 0 }} transition={{ duration: 0.15 }}>
@@ -215,7 +215,7 @@ export function ChatbotWidget() {
           )}
         </AnimatePresence>
         {!open && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-accent rounded-full border-2 border-white" />
+          <span className="absolute -top-1 -right-1 w-4 h-4 bg-red-500 rounded-full border-2 border-white" />
         )}
       </motion.button>
     </div>

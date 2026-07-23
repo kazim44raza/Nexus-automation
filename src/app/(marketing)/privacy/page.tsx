@@ -56,16 +56,15 @@ const sections = [
 export default function PrivacyPage() {
   return (
     <>
-      <section className="bg-bg-dark pt-32 pb-16 relative overflow-hidden">
-        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
+      <section className="bg-bg-base pt-32 pb-16 relative overflow-hidden border-b border-border">
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
         <div className="relative page-container max-w-3xl">
-          <h1 className="heading-display text-white mb-3">Privacy Policy</h1>
-          <p className="text-white/55">How we collect, use, and protect your information.</p>
+          <h1 className="heading-display text-text-primary mb-3">Privacy Policy</h1>
+          <p className="text-lg text-text-secondary">How we collect, use, and protect your information.</p>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-16 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
-      <section className="section-py-sm bg-bg-base">
+      <section className="section-py-sm bg-white">
         <div className="page-container max-w-3xl space-y-10 pb-12">
           {sections.map((s) => (
             <div key={s.title}>
@@ -78,7 +77,7 @@ export default function PrivacyPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about this policy? Email us at info@nexus-automation.tech.
+            Questions about this policy? Email us at <a href="mailto:info@nexus-automation.tech" className="text-accent hover:underline">info@nexus-automation.tech</a>.
           </p>
         </div>
       </section>

@@ -1,13 +1,13 @@
 import type { Metadata } from 'next'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
-import { ContactForm } from '@/components/marketing/ContactForm'
+import { MultiStepContactForm } from '@/components/marketing/MultiStepContactForm'
 import { Mail, Clock, Globe, Calendar } from 'lucide-react'
 
 const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
 
 export const metadata: Metadata = {
   title: 'Contact Nexus Automation — Book a Free Demo',
-  description: 'Get in touch with Nexus Automation. Book a free discovery call or send us a message. We respond within 1 business day.',
+  description: 'Book a free strategy call or request an audit to map out the automation opportunities for your business.',
 }
 
 export default function ContactPage() {
@@ -19,55 +19,55 @@ export default function ContactPage() {
     <>
       <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 60% 40% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
-        <div className="relative page-container text-center max-w-2xl mx-auto">
+        <div className="relative page-container text-center max-w-2xl mx-auto z-10">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">Let&apos;s talk about your automation</h1>
-            <p className="text-lg text-white/55">Fill out the form below or book a call directly. We typically respond within 4 hours.</p>
+            <h1 className="heading-display text-white mb-4">Let's map your automation opportunities</h1>
+            <p className="text-lg text-white/55">Get a free strategy audit. We'll identify where you're losing time and how AI can fix it.</p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
       <section className="section-py bg-bg-base">
-        <div className="page-container">
-          <div className="grid lg:grid-cols-[1fr,480px] gap-12 items-start">
+        <div className="page-container max-w-6xl mx-auto">
+          <div className="grid lg:grid-cols-[1fr,400px] gap-12 items-start">
             <AnimatedSection direction="left">
-              <div id="contact-form" className="card p-8">
-                <h2 className="heading-md text-text-primary mb-6">Send us a message</h2>
-                <ContactForm />
+              <div id="contact-form" className="card p-8 border border-border">
+                <MultiStepContactForm />
               </div>
             </AnimatedSection>
 
-            <AnimatedSection direction="right" delay={0.1} className="space-y-5">
-              <div className="card p-6">
-                <h3 className="font-bold text-text-primary mb-4">Or book directly</h3>
+            <AnimatedSection direction="right" delay={0.1} className="space-y-6">
+              <div className="card p-6 border border-border bg-bg-alt">
+                <h3 className="heading-sm text-text-primary mb-4">Book directly</h3>
                 <a
                   href={bookingHref}
                   {...(hasCalendlyBookingLink ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
-                  className="btn-primary w-full"
+                  className="btn-primary w-full justify-center"
                 >
-                  <Calendar className="w-4 h-4" />
+                  <Calendar className="w-4 h-4 mr-2" />
                   {hasCalendlyBookingLink ? 'Book a Free 30-Min Call' : 'Request a Free Call'}
                 </a>
-                <p className="text-xs text-text-muted text-center mt-3">
+                <p className="text-xs text-text-muted text-center mt-4">
                   {hasCalendlyBookingLink
-                    ? 'No commitment · Strategy call · Real advice'
-                    : 'Calendar link is being updated · Use the form below instead'}
+                    ? 'No commitment · Strategy call'
+                    : 'Calendar link is being updated'}
                 </p>
               </div>
 
-              <div className="card p-6 space-y-4">
-                <h3 className="font-bold text-text-primary mb-2">Contact info</h3>
+              <div className="card p-6 border border-border space-y-5">
+                <h3 className="heading-sm text-text-primary mb-2">Contact details</h3>
                 {[
-                  { icon: <Mail className="w-4 h-4 text-primary" />, label: 'Email', value: 'info@nexus-automation.tech' },
-                  { icon: <Clock className="w-4 h-4 text-accent" />, label: 'Response time', value: 'Within 1 business day' },
-                  { icon: <Globe className="w-4 h-4 text-warm" />, label: 'Location', value: 'Remote-first · Worldwide' },
+                  { icon: Mail, label: 'Email', value: 'info@nexus-automation.tech' },
+                  { icon: Clock, label: 'Response time', value: 'Within 1 business day' },
+                  { icon: Globe, label: 'Location', value: 'Remote-first, Worldwide' },
                 ].map((item, i) => (
-                  <div key={i} className="flex items-center gap-3">
-                    <div className="w-8 h-8 bg-bg-alt rounded-lg flex items-center justify-center">{item.icon}</div>
+                  <div key={i} className="flex items-center gap-4">
+                    <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center flex-shrink-0">
+                      <item.icon className="w-5 h-5 text-primary" />
+                    </div>
                     <div>
-                      <p className="text-xs text-text-muted">{item.label}</p>
+                      <p className="text-xs text-text-muted font-medium uppercase tracking-wider mb-0.5">{item.label}</p>
                       <p className="text-sm font-semibold text-text-primary">{item.value}</p>
                     </div>
                   </div>

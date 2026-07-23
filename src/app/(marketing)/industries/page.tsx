@@ -1,25 +1,23 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
-import { Tilt3D } from '@/components/shared/Tilt3D'
 import { FloatingObjects } from '@/components/shared/FloatingObjects'
-import { ArrowRight, HeartPulse, Smile, Home, Scale, Dumbbell, Car, Wrench, ShoppingCart, Briefcase } from 'lucide-react'
+import { ArrowRight, Heart, Stethoscope, Scale, Building, Wrench, Dumbbell, ShoppingCart, Briefcase } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Industries We Serve — Nexus Automation',
-  description: 'AI automation solutions purpose-built for healthcare, dental, real estate, legal, fitness, automotive, home services, and e-commerce.',
+  title: 'Industry Solutions | Nexus Automation',
+  description: 'AI automation solutions purpose-built for healthcare, dental, real estate, legal, fitness, home services, and e-commerce.',
 }
 
 const industries = [
-  { slug: 'healthcare', icon: HeartPulse, title: 'Healthcare', desc: 'Fill your schedule, reduce no-shows, automate patient communication.', wins: ['Answer 100% of patient calls', 'Cut no-shows by 60%', 'Automate pre-screening'] },
-  { slug: 'dental', icon: Smile, title: 'Dental Clinics', desc: 'Recover missed calls, auto-fill cancellations, automate appointment reminders.', wins: ['Fill every cancellation slot', 'Multi-step reminder sequences', 'New patient onboarding'] },
-  { slug: 'real-estate', icon: Home, title: 'Real Estate', desc: 'Qualify leads instantly, schedule showings, automate follow-up sequences.', wins: ['24/7 lead qualification', 'Auto-schedule viewings', 'CRM auto-update'] },
-  { slug: 'legal', icon: Scale, title: 'Legal Firms', desc: 'Automate intake calls, screen for case fit, schedule consultations.', wins: ['24/7 intake qualification', 'Conflict pre-screening', 'Consultation booking'] },
-  { slug: 'fitness', icon: Dumbbell, title: 'Fitness Centers', desc: 'Instant lead follow-up, trial booking automation, membership renewal.', wins: ['Instant inquiry follow-up', 'Free trial scheduling', 'Retention sequences'] },
-  { slug: 'automotive', icon: Car, title: 'Automotive', desc: 'Handle service scheduling, lead qualification, and follow-up sequences.', wins: ['Service appointment booking', 'Lead qualification', 'Trade-in inquiry handling'] },
-  { slug: 'home-services', icon: Wrench, title: 'Home Services', desc: 'Capture every quote request, schedule jobs, and send follow-up messages.', wins: ['24/7 quote capture', 'Job scheduling automation', 'Review request sequences'] },
-  { slug: 'ecommerce', icon: ShoppingCart, title: 'E-Commerce', desc: 'Handle support, recover abandoned carts, and automate post-purchase flows.', wins: ['80% ticket auto-resolution', 'Abandoned cart recovery', 'Post-purchase upsells'] },
-  { slug: 'professional-services', icon: Briefcase, title: 'Professional Services', desc: 'Qualify inbound leads, book discovery calls, and automate client onboarding.', wins: ['Lead qualification', 'Discovery call booking', 'Client onboarding flow'] },
+  { slug: 'dental', icon: Stethoscope, title: 'Dental', desc: 'Recover missed calls, auto-fill cancellations, and automate patient reminders.', color: 'text-cyan-500', bg: 'bg-cyan-500/10', border: 'hover:border-cyan-500/50' },
+  { slug: 'healthcare', icon: Heart, title: 'Healthcare', desc: 'Fill your schedule, reduce no-shows, and automate patient communication.', color: 'text-blue-500', bg: 'bg-blue-500/10', border: 'hover:border-blue-500/50' },
+  { slug: 'legal', icon: Scale, title: 'Legal', desc: 'Automate intake calls, screen for case fit, and schedule consultations.', color: 'text-violet-500', bg: 'bg-violet-500/10', border: 'hover:border-violet-500/50' },
+  { slug: 'real-estate', icon: Building, title: 'Real Estate', desc: 'Qualify leads instantly, schedule showings, and automate follow-up sequences.', color: 'text-amber-500', bg: 'bg-amber-500/10', border: 'hover:border-amber-500/50' },
+  { slug: 'home-services', icon: Wrench, title: 'Home Services', desc: 'Capture every quote request, schedule jobs, and send follow-up messages.', color: 'text-orange-500', bg: 'bg-orange-500/10', border: 'hover:border-orange-500/50' },
+  { slug: 'fitness', icon: Dumbbell, title: 'Fitness', desc: 'Instant lead follow-up, trial booking automation, and membership renewal.', color: 'text-green-500', bg: 'bg-green-500/10', border: 'hover:border-green-500/50' },
+  { slug: 'ecommerce', icon: ShoppingCart, title: 'E-commerce', desc: 'Handle support, recover abandoned carts, and automate post-purchase flows.', color: 'text-pink-500', bg: 'bg-pink-500/10', border: 'hover:border-pink-500/50' },
+  { slug: 'professional-services', icon: Briefcase, title: 'Professional Services', desc: 'Qualify inbound leads, book discovery calls, and automate client onboarding.', color: 'text-indigo-500', bg: 'bg-indigo-500/10', border: 'hover:border-indigo-500/50' },
 ]
 
 export default function IndustriesPage() {
@@ -31,35 +29,38 @@ export default function IndustriesPage() {
         <div className="relative z-10 page-container text-center max-w-2xl mx-auto">
           <AnimatedSection>
             <h1 className="heading-display text-white mb-4">Built for your industry</h1>
-            <p className="text-lg text-white/55">Generic automation doesn&apos;t work. We build systems that understand the specific workflows and customer journeys in your industry.</p>
+            <p className="text-lg text-white/55">Generic automation doesn&apos;t work. We build custom-tailored automation solutions that fit the specific workflows of your industry.</p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
       <section className="section-py bg-bg-base">
-        <div className="page-container">
-          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
-            {industries.map(ind => (
+        <div className="page-container max-w-5xl mx-auto">
+          <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {industries.map((ind) => (
               <StaggerItem key={ind.slug}>
-                <Tilt3D className="h-full rounded-2xl" max={7}>
-                  <Link href={`/industries/${ind.slug}`} className="card-hover p-6 h-full flex flex-col group">
-                    <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mb-4 text-primary" style={{ transform: 'translateZ(30px)' }}>
-                      <ind.icon className="w-6 h-6" />
-                    </div>
-                    <h2 className="font-bold text-text-primary mb-2 group-hover:text-primary transition-colors">{ind.title}</h2>
-                    <p className="text-sm text-text-secondary mb-4 flex-1">{ind.desc}</p>
-                    <ul className="space-y-1.5 mb-4">
-                      {ind.wins.map((w, i) => <li key={i} className="text-xs text-text-muted flex items-center gap-1.5"><span className="text-accent">✓</span>{w}</li>)}
-                    </ul>
-                    <div className="flex items-center gap-1 text-primary text-sm font-semibold">
-                      See solutions <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </div>
-                  </Link>
-                </Tilt3D>
+                <Link href={`/industries/${ind.slug}`} className={`card block p-6 h-full transition-all duration-300 hover:-translate-y-1 border border-border ${ind.border} group`}>
+                  <div className={`w-12 h-12 rounded-full flex items-center justify-center mb-5 ${ind.bg} ${ind.color}`}>
+                    <ind.icon className="w-6 h-6" />
+                  </div>
+                  <h2 className="heading-sm text-text-primary mb-3">{ind.title}</h2>
+                  <p className="text-sm text-text-secondary mb-6">{ind.desc}</p>
+                  <div className={`flex items-center gap-2 text-sm font-semibold transition-colors ${ind.color} opacity-80 group-hover:opacity-100`}>
+                    View solutions <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                  </div>
+                </Link>
               </StaggerItem>
             ))}
           </StaggerContainer>
+
+          <AnimatedSection className="mt-20 text-center max-w-xl mx-auto p-8 rounded-2xl bg-bg-alt border border-border">
+            <h3 className="heading-md text-text-primary mb-3">Don&apos;t see your industry?</h3>
+            <p className="text-text-secondary mb-6">We build custom solutions tailored to your unique operational needs.</p>
+            <Link href="/contact" className="btn-primary">
+              Let&apos;s talk about your business
+            </Link>
+          </AnimatedSection>
         </div>
       </section>
     </>

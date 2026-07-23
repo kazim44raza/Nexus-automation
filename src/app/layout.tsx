@@ -1,5 +1,16 @@
 import type { Metadata } from 'next'
+import { Inter, Geist } from 'next/font/google'
 import './globals.css'
+
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-body',
+})
+
+const geist = Geist({
+  subsets: ['latin'],
+  variable: '--font-display',
+})
 
 const getSiteUrl = () => {
   const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai';
@@ -55,11 +66,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    // suppressHydrationWarning: browser extensions (autofill, etc.) inject
-    // attributes like `crxlauncher`/`fdprocessedid` before React hydrates.
-    // This silences those harmless extension-caused mismatches.
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className="antialiased bg-bg-base text-text-primary" suppressHydrationWarning>
+      <body className={`${inter.variable} ${geist.variable} antialiased bg-bg-base text-text-primary`} suppressHydrationWarning>
         {children}
       </body>
     </html>

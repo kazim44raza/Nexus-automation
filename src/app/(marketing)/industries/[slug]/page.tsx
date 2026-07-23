@@ -316,36 +316,35 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
   return (
     <>
-      <section className="relative bg-bg-dark pt-32 pb-20 overflow-hidden">
+      <section className="relative bg-bg-base pt-32 pb-20 overflow-hidden border-b border-border">
         <FloatingObjects count={6} className="opacity-40" />
-        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(2,132,199,0.3), transparent)' }} />
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
+        <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse 70% 50% at 50% -10%, rgba(6,182,212,0.1), transparent)' }} />
         <div className="relative z-10 page-container">
           <div className="max-w-3xl">
             <AnimatedSection>
-              <span className="badge-primary mb-5 inline-flex">{industry.tag}</span>
-              <h1 className="heading-display text-white mb-5 leading-tight">{industry.headline}</h1>
-              <p className="text-lg text-white/55 leading-relaxed max-w-2xl">{industry.description}</p>
+              <span className="badge-accent mb-5 inline-flex">{industry.tag}</span>
+              <h1 className="heading-display text-text-primary mb-5 leading-tight">{industry.headline}</h1>
+              <p className="text-lg text-text-secondary leading-relaxed max-w-2xl">{industry.description}</p>
               <div className="mt-8 flex flex-col sm:flex-row gap-4">
-                <Link href="/contact" className="btn-primary-lg">
+                <Link href="/contact" className="btn-primary">
                   Book a Free Demo <Calendar className="w-5 h-5" />
                 </Link>
-                <Link href="/industries" className="btn-dark">
+                <Link href="/industries" className="btn-secondary">
                   View All Industries
                 </Link>
               </div>
             </AnimatedSection>
           </div>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
       </section>
 
-      <section className="section-py-sm bg-bg-alt border-b border-border">
+      <section className="section-py-sm bg-white border-b border-border">
         <div className="page-container">
           <div className="grid grid-cols-3 gap-6">
             {industry.stats.map((stat, index) => (
               <AnimatedSection key={index} delay={index * 0.1} className="text-center px-4">
-                <div className="stat-value gradient-text-primary">{stat.value}</div>
+                <div className="text-gradient font-bold text-3xl md:text-4xl">{stat.value}</div>
                 <p className="font-semibold text-text-primary text-sm mt-1">{stat.label}</p>
                 <p className="text-xs text-text-muted mt-0.5">{stat.context}</p>
               </AnimatedSection>
@@ -358,15 +357,15 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <AnimatedSection direction="left">
-              <span className="section-eyebrow">Why it works</span>
-              <h2 className="section-title mt-3">Built around the workflows that matter most</h2>
-              <p className="section-desc mt-4">
+              <span className="badge-accent mb-3 inline-flex">Why it works</span>
+              <h2 className="heading-lg text-text-primary mt-3">Built around the workflows that matter most</h2>
+              <p className="text-lg text-text-secondary mt-4">
                 This setup is designed to remove repetitive work, speed up response time, and keep qualified prospects from slipping away.
               </p>
               <div className="mt-8 space-y-3">
                 {industry.benefits.map((item, index) => (
                   <div key={index} className="flex items-center gap-3">
-                    <CheckCircle2 className="w-4 h-4 text-accent shrink-0" />
+                    <CheckCircle2 className="w-5 h-5 text-accent shrink-0" />
                     <span className="text-sm text-text-secondary">{item}</span>
                   </div>
                 ))}
@@ -374,9 +373,9 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
             </AnimatedSection>
 
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="card p-7">
+              <div className="card p-7 shadow-sm">
                 <div className="flex items-center gap-3 mb-5">
-                  <div className="w-10 h-10 bg-primary/10 rounded-xl flex items-center justify-center text-primary">
+                  <div className="w-10 h-10 bg-accent/10 rounded-xl flex items-center justify-center text-accent">
                     <Sparkles className="w-4 h-4" />
                   </div>
                   <div>
@@ -387,25 +386,25 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <StaggerContainer className="grid sm:grid-cols-2 gap-3">
                   {industry.useCases.map((item, index) => (
                     <StaggerItem key={index}>
-                      <div className="rounded-xl border border-border bg-bg-alt px-4 py-3 text-sm text-text-primary">{item}</div>
+                      <div className="rounded-xl border border-border bg-white px-4 py-3 text-sm text-text-primary shadow-sm">{item}</div>
                     </StaggerItem>
                   ))}
                 </StaggerContainer>
                 <div className="mt-6 grid grid-cols-2 gap-3 text-sm text-text-secondary">
-                  <div className="rounded-xl bg-bg-alt p-3">
-                    <Clock className="w-4 h-4 text-primary mb-2" />
+                  <div className="rounded-xl bg-white border border-border shadow-sm p-3">
+                    <Clock className="w-4 h-4 text-accent mb-2" />
                     Faster response times
                   </div>
-                  <div className="rounded-xl bg-bg-alt p-3">
+                  <div className="rounded-xl bg-white border border-border shadow-sm p-3">
                     <Users className="w-4 h-4 text-accent mb-2" />
                     Better lead qualification
                   </div>
-                  <div className="rounded-xl bg-bg-alt p-3">
-                    <Target className="w-4 h-4 text-warm mb-2" />
+                  <div className="rounded-xl bg-white border border-border shadow-sm p-3">
+                    <Target className="w-4 h-4 text-accent mb-2" />
                     Clear handoff rules
                   </div>
-                  <div className="rounded-xl bg-bg-alt p-3">
-                    <Globe className="w-4 h-4 text-primary mb-2" />
+                  <div className="rounded-xl bg-white border border-border shadow-sm p-3">
+                    <Globe className="w-4 h-4 text-accent mb-2" />
                     24/7 availability
                   </div>
                 </div>
@@ -415,16 +414,16 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="section-py bg-bg-alt">
+      <section className="section-py bg-white border-t border-border">
         <div className="page-container max-w-3xl">
           <AnimatedSection className="text-center mb-10">
-            <span className="section-eyebrow">FAQ</span>
-            <h2 className="section-title mt-3">Common questions</h2>
+            <span className="badge-accent mb-3 inline-flex">FAQ</span>
+            <h2 className="heading-lg text-text-primary mt-3">Common questions</h2>
           </AnimatedSection>
           <AnimatedSection delay={0.1}>
             <div className="space-y-4">
               {industry.faq.map((item, index) => (
-                <div key={index} className="card p-5">
+                <div key={index} className="card p-5 shadow-sm border border-border">
                   <h3 className="font-bold text-text-primary mb-2">{item.question}</h3>
                   <p className="text-sm text-text-secondary leading-relaxed">{item.answer}</p>
                 </div>
@@ -434,24 +433,24 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      <section className="section-py bg-bg-base">
+      <section className="section-py bg-bg-base border-t border-border">
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-12 items-start">
             <AnimatedSection direction="left">
-              <span className="section-eyebrow">Get Started</span>
-              <h2 className="section-title mt-3 max-w-md">Let&apos;s map out the best automation flow for your team</h2>
-              <p className="section-desc mt-4">Book a short call and we&apos;ll show you the most practical ways to automate this workflow.</p>
+              <span className="badge-accent mb-3 inline-flex">Get Started</span>
+              <h2 className="heading-lg text-text-primary mt-3 max-w-md">Let&apos;s map out the best automation flow for your team</h2>
+              <p className="text-lg text-text-secondary mt-4">Book a short call and we&apos;ll show you the most practical ways to automate this workflow.</p>
               <div className="mt-6 space-y-3">
                 {['Free discovery call', 'Industry-specific workflow review', 'Clear implementation path'].map((item, index) => (
                   <div key={index} className="flex items-center gap-2.5">
-                    <CheckCircle2 className="w-4 h-4 text-accent" />
+                    <CheckCircle2 className="w-5 h-5 text-accent" />
                     <span className="text-sm text-text-secondary">{item}</span>
                   </div>
                 ))}
               </div>
             </AnimatedSection>
             <AnimatedSection direction="right" delay={0.1}>
-              <div className="card p-8">
+              <div className="card p-8 shadow-sm">
                 <ContactForm />
               </div>
             </AnimatedSection>

@@ -3,11 +3,12 @@ import { Mail, Phone, MapPin, Linkedin, Instagram } from 'lucide-react'
 import { Logo } from '@/components/shared/Logo'
 
 const services = [
-  { label: 'AI Chatbots', href: '/services/chatbots' },
   { label: 'AI Voice Agents', href: '/services/voice-agents' },
+  { label: 'AI Chatbots', href: '/services/chatbots' },
+  { label: 'WhatsApp Automation', href: '/services/whatsapp-automation' },
   { label: 'Business Automation', href: '/services/business-automation' },
-  { label: 'Lead Qualification', href: '/services/lead-qualification' },
   { label: 'Appointment Booking', href: '/services/appointment-booking' },
+  { label: 'Lead Qualification', href: '/services/lead-qualification' },
   { label: 'Customer Support', href: '/services/customer-support' },
 ]
 
@@ -16,7 +17,6 @@ const company = [
   { label: 'Case Studies', href: '/case-studies' },
   { label: 'Blog', href: '/blog' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Careers', href: '/about#careers' },
 ]
 
 const industries = [
@@ -30,45 +30,48 @@ const industries = [
 
 export function Footer() {
   return (
-    <footer className="bg-bg-dark text-white">
+    <footer className="bg-gray-50 relative overflow-hidden text-gray-600">
+      {/* Animated dot pattern background */}
+      <div className="absolute inset-0 z-0 opacity-40 mix-blend-multiply" style={{ backgroundImage: 'radial-gradient(#CBD5E1 1px, transparent 1px)', backgroundSize: '32px 32px' }} />
+      
       {/* Main footer */}
-      <div className="page-container py-16 lg:py-20">
+      <div className="page-container relative z-10 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-10">
           {/* Brand */}
           <div className="lg:col-span-2">
-            <Link href="/" className="inline-flex mb-4">
-              <Logo variant="light" size={52} />
+            <Link href="/" className="inline-flex mb-6">
+              <Logo variant="dark" size={52} />
             </Link>
-            <p className="text-white/50 text-sm leading-relaxed mb-6 max-w-xs">
+            <p className="text-gray-500 text-sm leading-relaxed mb-8 max-w-xs">
               AI automation solutions that help businesses capture more leads, book more appointments, and scale without hiring.
             </p>
-            <div className="space-y-2.5">
-              <a href="mailto:info@nexus-automation.tech" className="flex items-center gap-2.5 text-sm text-white/50 hover:text-white transition-colors">
-                <Mail className="w-4 h-4 text-primary-light" />
+            <div className="space-y-4">
+              <a href="mailto:info@nexus-automation.tech" className="flex items-center gap-3 text-sm text-gray-500 hover:text-accent transition-colors font-medium">
+                <Mail className="w-5 h-5 text-accent" />
                 info@nexus-automation.tech
               </a>
-              <div className="flex items-center gap-2.5 text-sm text-white/50">
-                <MapPin className="w-4 h-4 text-primary-light" />
+              <div className="flex items-center gap-3 text-sm text-gray-500 font-medium">
+                <MapPin className="w-5 h-5 text-accent" />
                 Available Worldwide · Remote-First
               </div>
             </div>
-            <div className="flex items-center gap-3 mt-6">
-              <a href="https://www.linkedin.com/in/nexus-automation-2139b540a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bqfr3Tu93S5%2BC0HcjyvFXOg%3D%3D" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
-                <Linkedin className="w-4 h-4" />
+            <div className="flex items-center gap-4 mt-8">
+              <a href="https://www.linkedin.com/in/nexus-automation-2139b540a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bqfr3Tu93S5%2BC0HcjyvFXOg%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
+                <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/nexus.automation_?igsh=ZjY1dmRmMGRtZXVl" target="_blank" rel="noopener noreferrer" className="w-8 h-8 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center text-white/50 hover:text-white hover:border-white/20 transition-colors">
-                <Instagram className="w-4 h-4" />
+              <a href="https://www.instagram.com/nexus.automation_?igsh=ZjY1dmRmMGRtZXVl" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
+                <Instagram className="w-5 h-5" />
               </a>
             </div>
           </div>
 
           {/* Services */}
           <div>
-            <h4 className="font-semibold text-white text-sm mb-4">Services</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-gray-900 text-sm mb-6 uppercase tracking-wider">Services</h4>
+            <ul className="space-y-3">
               {services.map(s => (
                 <li key={s.href}>
-                  <Link href={s.href} className="text-sm text-white/50 hover:text-white transition-colors">
+                  <Link href={s.href} className="text-sm text-gray-500 hover:text-accent transition-colors">
                     {s.label}
                   </Link>
                 </li>
@@ -78,11 +81,11 @@ export function Footer() {
 
           {/* Industries */}
           <div>
-            <h4 className="font-semibold text-white text-sm mb-4">Industries</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-gray-900 text-sm mb-6 uppercase tracking-wider">Industries</h4>
+            <ul className="space-y-3">
               {industries.map(i => (
                 <li key={i.href}>
-                  <Link href={i.href} className="text-sm text-white/50 hover:text-white transition-colors">
+                  <Link href={i.href} className="text-sm text-gray-500 hover:text-accent transition-colors">
                     {i.label}
                   </Link>
                 </li>
@@ -92,11 +95,11 @@ export function Footer() {
 
           {/* Company */}
           <div>
-            <h4 className="font-semibold text-white text-sm mb-4">Company</h4>
-            <ul className="space-y-2.5">
+            <h4 className="font-semibold text-gray-900 text-sm mb-6 uppercase tracking-wider">Company</h4>
+            <ul className="space-y-3">
               {company.map(c => (
                 <li key={c.href}>
-                  <Link href={c.href} className="text-sm text-white/50 hover:text-white transition-colors">
+                  <Link href={c.href} className="text-sm text-gray-500 hover:text-accent transition-colors">
                     {c.label}
                   </Link>
                 </li>
@@ -107,15 +110,15 @@ export function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/10">
-        <div className="page-container py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-white/30 text-xs">
+      <div className="border-t border-gray-200 relative z-10 bg-white/50">
+        <div className="page-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
+          <p className="text-gray-400 text-sm">
             © {new Date().getFullYear()} Nexus Automation. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <Link href="/privacy" className="text-xs text-white/30 hover:text-white/60 transition-colors">Privacy</Link>
-            <Link href="/terms" className="text-xs text-white/30 hover:text-white/60 transition-colors">Terms</Link>
-            <Link href="/sitemap.xml" className="text-xs text-white/30 hover:text-white/60 transition-colors">Sitemap</Link>
+          <div className="flex items-center gap-6">
+            <Link href="/privacy" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">Privacy</Link>
+            <Link href="/terms" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">Terms</Link>
+            <Link href="/sitemap.xml" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">Sitemap</Link>
           </div>
         </div>
       </div>

@@ -4,41 +4,56 @@ import { forwardRef } from 'react'
 import { Loader2 } from 'lucide-react'
 import { cn } from '@/lib/utils'
 
-type Variant = 'primary' | 'secondary' | 'ghost' | 'dark' | 'danger'
+type Variant = 'primary' | 'secondary' | 'ghost' | 'dark'
 type Size = 'sm' | 'md' | 'lg'
 
 interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: Variant
   size?: Size
   loading?: boolean
-  icon?: React.ReactNode
-  iconPosition?: 'left' | 'right'
+  leftIcon?: React.ReactNode
+  rightIcon?: React.ReactNode
   fullWidth?: boolean
   as?: 'button' | 'a'
   href?: string
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'btn-primary',
-  secondary: 'btn-secondary',
-  ghost: 'btn-ghost',
-  dark: 'btn-dark',
-  danger: 'btn bg-red-500 text-white hover:bg-red-600 hover:-translate-y-0.5 px-6 py-3 text-sm shadow-sm',
+  primary: 'bg-gradient-to-r from-accent to-primary text-white shadow-md hover:shadow-lg hover:scale-[1.02]',
+  secondary: 'bg-transparent border-2 border-gray-200 text-gray-700 hover:border-accent hover:bg-accent/5 hover:text-accent',
+  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900',
+  dark: 'bg-gray-900 text-white hover:bg-gray-800 shadow-sm',
 }
 
 const sizeClasses: Record<Size, string> = {
-  sm: '!px-4 !py-2 !text-xs',
-  md: '',
-  lg: '!px-8 !py-4 !text-base',
+  sm: 'px-4 py-2 text-sm',
+  md: 'px-6 py-3 text-base',
+  lg: 'px-8 py-4 text-lg font-medium',
 }
 
-export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ variant = 'primary', size = 'md', loading, icon, iconPosition = 'left', fullWidth, className, children, disabled, ...props }, ref) => {
+export const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
+  ({ 
+    variant = 'primary', 
+    size = 'md', 
+    loading, 
+    leftIcon,
+    rightIcon,
+    fullWidth, 
+    className, 
+    children, 
+    disabled, 
+    as = 'button',
+    ...props 
+  }, ref) => {
+    
+    const Component = as as any
+    
     return (
-      <button
+      <Component
         ref={ref}
-        disabled={disabled || loading}
+        disabled={as === 'button' ? (disabled || loading) : undefined}
         className={cn(
+          'inline-flex items-center justify-center rounded-xl transition-all duration-200 font-medium disabled:opacity-50 disabled:pointer-events-none',
           variantClasses[variant],
           sizeClasses[size],
           fullWidth && 'w-full',
@@ -46,11 +61,11 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         )}
         {...props}
       >
-        {loading && <Loader2 className="w-4 h-4 animate-spin" />}
-        {!loading && icon && iconPosition === 'left' && icon}
+        {loading && <Loader2 className="w-5 h-5 mr-2 animate-spin" />}
+        {!loading && leftIcon && <span className="mr-2 flex items-center">{leftIcon}</span>}
         {children}
-        {!loading && icon && iconPosition === 'right' && icon}
-      </button>
+        {!loading && rightIcon && <span className="ml-2 flex items-center">{rightIcon}</span>}
+      </Component>
     )
   }
 )
