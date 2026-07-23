@@ -33,8 +33,8 @@ const config: Config = {
         'border-dark': 'var(--color-border-dark)',
       },
       fontFamily: {
-        display: ['Geist', 'sans-serif'],
-        body: ['Inter', 'sans-serif'],
+        display: ['var(--font-display)', 'Manrope', 'sans-serif'],
+        body: ['var(--font-body)', 'Inter', 'sans-serif'],
         code: ['JetBrains Mono', 'monospace'],
       },
       borderRadius: {

@@ -4,23 +4,23 @@
 
 @layer base {
   :root {
-    --color-bg-base: #FAFBFC;
-    --color-bg-alt: #F1F4F8;
+    --color-bg-base: #F6F7FA;
+    --color-bg-alt: #EEF2F7;
     --color-bg-surface: #FFFFFF;
-    --color-bg-dark: #0F1729;
-    --color-bg-dark-alt: #1A2332;
-    --color-text-primary: #111827;
-    --color-text-secondary: #4B5563;
-    --color-text-muted: #9CA3AF;
-    --color-text-on-dark: #F9FAFB;
-    --color-primary: #0284C7;
-    --color-primary-light: #0EA5E9;
-    --color-accent: #06B6D4;
-    --color-accent-light: #22D3EE;
-    --color-violet: #7C3AED;
-    --color-mint: #10B981;
-    --color-warm: #D97706;
-    --color-border: #E5E7EB;
+    --color-bg-dark: #07111F;
+    --color-bg-dark-alt: #101B2E;
+    --color-text-primary: #0B1220;
+    --color-text-secondary: #5F6B7A;
+    --color-text-muted: #8F9BA8;
+    --color-text-on-dark: #F6F7FA;
+    --color-primary: #2563EB;
+    --color-primary-light: #3B82F6;
+    --color-accent: #22C7F2;
+    --color-accent-light: #67E8F9;
+    --color-violet: #7657F5;
+    --color-mint: #35CFA5;
+    --color-warm: #F59E0B;
+    --color-border: rgba(11,18,32,0.10);
     --color-border-dark: rgba(255, 255, 255, 0.1);
     --radius-sm: 8px;
     --radius-md: 12px;

@@ -2,6 +2,7 @@ import type { Metadata } from 'next'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { FloatingObjects } from '@/components/shared/FloatingObjects'
 import { SolutionsGrid } from '@/components/marketing/SolutionsGrid'
+import { InteractiveSystemMap } from './client'
 
 export const metadata: Metadata = {
   title: 'AI Automation Solutions | Nexus Automation',
@@ -11,20 +12,28 @@ export const metadata: Metadata = {
 export default function SolutionsPage() {
   return (
     <>
-      <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
-        <FloatingObjects count={8} className="opacity-50" />
-        <div className="absolute inset-0 bg-dot-pattern opacity-20" />
-        <div className="relative z-10 page-container text-center max-w-2xl mx-auto">
+      <section className="bg-bg-base pt-32 pb-20 relative overflow-hidden border-b border-border">
+        <FloatingObjects count={5} className="opacity-40" />
+        <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
+        <div className="relative z-10 page-container text-center max-w-3xl mx-auto">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">Solutions for every business challenge</h1>
-            <p className="text-lg text-white/55">Explore our Automation System Library to find the right AI systems to solve your specific operational bottlenecks.</p>
+            <span className="badge-accent mb-5 inline-flex">Interactive Library</span>
+            <h1 className="heading-display text-text-primary mb-4">Design your ideal workflow</h1>
+            <p className="text-lg text-text-secondary mb-8">Select your primary operational goal to see how our AI systems map to your specific bottlenecks.</p>
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
+        
+        <div className="page-container relative z-10">
+           <InteractiveSystemMap />
+        </div>
       </section>
 
-      <section className="section-py bg-bg-base">
+      <section className="section-py bg-white">
         <div className="page-container max-w-7xl mx-auto">
+          <div className="text-center mb-16">
+            <h2 className="heading-lg text-text-primary mb-4">Detailed Solutions Library</h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">Deep dive into specific implementations and capabilities of each automation module.</p>
+          </div>
           <SolutionsGrid />
         </div>
       </section>

@@ -1,162 +1,206 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Send, MoreHorizontal, User, Sparkles } from 'lucide-react';
+import { motion } from "framer-motion";
+import { 
+  MessageCircle, 
+  Search, 
+  UserPlus, 
+  TrendingUp, 
+  Calendar, 
+  Database,
+  ArrowRight,
+  Maximize2
+} from "lucide-react";
+import { useState, useEffect } from "react";
 
-export function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
+export function ChatbotsClient() {
+  const [activeNode, setActiveNode] = useState(0);
 
-export function ChatbotHeroVisual() {
-  const [messages, setMessages] = useState<{role: string, text: string}[]>([]);
-  const [score, setScore] = useState(45);
-  
-  const conversation = [
-    { role: 'bot', text: 'Hi! How can I help you today?' },
-    { role: 'user', text: "I'm looking for appointment booking automation" },
-    { role: 'bot', text: 'Great choice! We can automate your entire booking flow. What industry are you in?' },
-    { role: 'user', text: 'Dental clinic' },
-    { role: 'bot', text: 'Perfect! For dental clinics, we automate patient intake, scheduling, reminders, and follow-ups. Would you like to see a demo?' }
+  const nodes = [
+    { id: 0, label: "Visitor Enters", icon: Maximize2 },
+    { id: 1, label: "Chat Starts", icon: MessageCircle },
+    { id: 2, label: "Intent Recognized", icon: Search },
+    { id: 3, label: "KB Searched", icon: Database },
+    { id: 4, label: "Lead Captured", icon: UserPlus },
+    { id: 5, label: "Score +10", icon: TrendingUp },
+    { id: 6, label: "Consult Booked", icon: Calendar },
   ];
 
   useEffect(() => {
-    let currentIndex = 0;
-    
-    const showNextMessage = () => {
-      if (currentIndex < conversation.length) {
-        setMessages(conversation.slice(0, currentIndex + 1));
-        
-        // Update score based on progression
-        if (currentIndex === 2) setScore(72);
-        if (currentIndex === 4) setScore(89);
-        
-        currentIndex++;
-        setTimeout(showNextMessage, currentIndex % 2 === 0 ? 1500 : 2500); // Users type slower
-      }
-    };
-    
-    const timeout = setTimeout(showNextMessage, 1000);
-    return () => clearTimeout(timeout);
-  }, []);
+    const timer = setInterval(() => {
+      setActiveNode((prev) => (prev + 1) % nodes.length);
+    }, 2500);
+    return () => clearInterval(timer);
+  }, [nodes.length]);
 
   return (
-    <div className="relative w-full max-w-lg mx-auto transform hover:-translate-y-2 transition-transform duration-500">
-      {/* Decorative glows */}
-      <div className="absolute -inset-4 bg-purple-500/20 blur-3xl rounded-full" />
+    <section className="relative min-h-[90vh] bg-slate-50 text-slate-900 flex items-center overflow-hidden font-sans pt-20">
+      <div className="absolute inset-0 pointer-events-none bg-[radial-gradient(circle_at_top_right,_var(--tw-gradient-stops))] from-blue-100/50 via-transparent to-transparent" />
       
-      {/* Browser Window Card */}
-      <div className="relative card glass border border-white/10 rounded-2xl shadow-2xl bg-white/90 dark:bg-[#0A0A0A]/90 backdrop-blur-xl overflow-hidden flex flex-col h-[500px]">
+      <div className="relative w-full max-w-7xl mx-auto px-6 grid lg:grid-cols-12 gap-12 items-center">
         
-        {/* Browser Chrome */}
-        <div className="bg-gray-100 dark:bg-white/5 border-b border-gray-200 dark:border-white/10 p-3 flex items-center justify-between">
-          <div className="flex gap-2">
-            <div className="w-3 h-3 rounded-full bg-red-400" />
-            <div className="w-3 h-3 rounded-full bg-yellow-400" />
-            <div className="w-3 h-3 rounded-full bg-green-400" />
-          </div>
-          <div className="bg-white dark:bg-black/50 border border-gray-200 dark:border-white/10 rounded-md px-3 py-1 text-xs text-gray-500 flex-1 mx-4 text-center truncate">
-            nexusautomation.ai
-          </div>
-          <MoreHorizontal className="w-4 h-4 text-gray-400" />
-        </div>
+        {/* Left Content */}
+        <div className="lg:col-span-5 space-y-8 font-inter relative z-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.7 }}
+          >
+            <h1 className="text-5xl md:text-6xl font-semibold tracking-tight font-manrope mb-6 text-slate-900">
+              Intelligent Chat <br />
+              <span className="text-blue-600">Spatial Workflows</span>
+            </h1>
+            <p className="text-xl text-slate-600 max-w-lg">
+              Automate customer journeys with context-aware chatbots that search knowledge bases, score leads, and update your CRM instantly.
+            </p>
+          </motion.div>
 
-        {/* Lead Score Widget (Floating) */}
-        <motion.div 
-          initial={{ opacity: 0, x: 20 }}
-          animate={{ opacity: 1, x: 0 }}
-          className="absolute top-16 right-4 bg-white dark:bg-gray-800 border border-gray-200 dark:border-white/10 shadow-lg rounded-xl p-3 flex items-center gap-3 z-10"
-        >
-          <div className="flex flex-col">
-            <span className="text-[10px] text-gray-500 dark:text-gray-400 font-medium uppercase tracking-wider">Lead Score</span>
-            <span className="text-xl font-bold text-purple-600 dark:text-purple-400 leading-none">{score}</span>
-          </div>
-          <div className="h-10 w-10 rounded-full border-2 border-purple-500/20 flex items-center justify-center relative">
-            <svg className="absolute inset-0 w-full h-full -rotate-90">
-              <circle cx="18" cy="18" r="16" fill="none" stroke="currentColor" strokeWidth="2" className="text-purple-500/20" />
-              <motion.circle 
-                cx="18" cy="18" r="16" 
-                fill="none" stroke="currentColor" strokeWidth="2" 
-                className="text-purple-500"
-                strokeDasharray="100"
-                animate={{ strokeDashoffset: 100 - score }}
-                transition={{ duration: 1 }}
-              />
-            </svg>
-            <Sparkles className="w-4 h-4 text-purple-500" />
-          </div>
-        </motion.div>
-
-        {/* Chat Area */}
-        <div className="flex-1 p-4 overflow-y-auto space-y-4 pt-12">
-          {messages.map((msg, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              className={`flex gap-3 max-w-[85%] ${msg.role === 'user' ? 'ml-auto flex-row-reverse' : ''}`}
-            >
-              {msg.role === 'bot' && (
-                <div className="w-8 h-8 rounded-full bg-purple-500/10 flex items-center justify-center flex-shrink-0">
-                  <div className="w-5 h-5 bg-purple-500 rounded-full flex items-center justify-center">
-                    <Sparkles className="w-3 h-3 text-white" />
-                  </div>
-                </div>
-              )}
+          <div className="space-y-6">
+            <div className="flex flex-col gap-3 relative">
+              {/* Connecting line */}
+              <div className="absolute left-6 top-6 bottom-6 w-0.5 bg-slate-200 -z-10" />
               
-              <div className={`p-3 rounded-2xl text-sm ${
-                msg.role === 'user' 
-                  ? 'bg-purple-600 text-white rounded-tr-sm' 
-                  : 'bg-gray-100 dark:bg-white/5 text-gray-800 dark:text-gray-200 rounded-tl-sm border border-gray-200 dark:border-white/5'
-              }`}>
-                {msg.text}
-              </div>
-            </motion.div>
-          ))}
-          
-          {/* Quick Replies (show at end) */}
-          {messages.length === conversation.length && (
-            <motion.div 
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              transition={{ delay: 0.5 }}
-              className="flex flex-wrap gap-2 ml-11 pt-2"
-            >
-              <button className="text-xs px-3 py-1.5 bg-purple-50 dark:bg-purple-500/10 text-purple-600 dark:text-purple-400 border border-purple-200 dark:border-purple-500/20 rounded-full hover:bg-purple-100 dark:hover:bg-purple-500/20 transition-colors">
-                Book a Demo
-              </button>
-              <button className="text-xs px-3 py-1.5 bg-gray-50 dark:bg-white/5 text-gray-600 dark:text-gray-300 border border-gray-200 dark:border-white/10 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 transition-colors">
-                See Pricing
-              </button>
-            </motion.div>
-          )}
-        </div>
-
-        {/* Input Area */}
-        <div className="p-3 border-t border-gray-100 dark:border-white/10 bg-gray-50 dark:bg-black/20">
-          <div className="relative">
-            <input 
-              type="text" 
-              placeholder="Type your message..." 
-              className="w-full bg-white dark:bg-white/5 border border-gray-200 dark:border-white/10 rounded-full py-2 pl-4 pr-10 text-sm focus:outline-none focus:border-purple-500"
-              disabled
-            />
-            <div className="absolute right-2 top-1/2 -translate-y-1/2 w-7 h-7 bg-purple-500 rounded-full flex items-center justify-center">
-              <Send className="w-3 h-3 text-white ml-0.5" />
+              {nodes.map((node, i) => (
+                <motion.div 
+                  key={node.id}
+                  className="flex items-center space-x-4"
+                  animate={{
+                    opacity: activeNode >= i ? 1 : 0.4,
+                    x: activeNode === i ? 10 : 0
+                  }}
+                  transition={{ duration: 0.3 }}
+                >
+                  <div className={`w-12 h-12 rounded-xl flex items-center justify-center border shadow-sm transition-colors duration-300 ${activeNode === i ? 'bg-blue-600 border-blue-500 text-white' : activeNode > i ? 'bg-white border-slate-200 text-slate-700' : 'bg-slate-100 border-slate-200 text-slate-400'}`}>
+                    <node.icon size={20} />
+                  </div>
+                  <span className={`font-medium ${activeNode === i ? 'text-blue-700' : 'text-slate-600'}`}>
+                    {node.label}
+                  </span>
+                </motion.div>
+              ))}
             </div>
           </div>
         </div>
+
+        {/* Right Spatial Environment */}
+        <div className="lg:col-span-7 relative h-[600px] perspective-[1200px]">
+          <motion.div 
+            className="absolute inset-0 flex items-center justify-center transform-style-3d"
+            initial={{ rotateX: 10, rotateY: -15 }}
+            animate={{ rotateX: 5, rotateY: -5 }}
+            transition={{ duration: 6, repeat: Infinity, repeatType: "reverse", ease: "easeInOut" }}
+          >
+            
+            {/* Background Browser Window */}
+            <div className="absolute w-[500px] h-[400px] bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden transform -translate-z-20 -translate-y-10 translate-x-10 opacity-60">
+              <div className="h-10 bg-slate-100 border-b border-slate-200 flex items-center px-4 space-x-2">
+                <div className="w-3 h-3 rounded-full bg-red-400" />
+                <div className="w-3 h-3 rounded-full bg-yellow-400" />
+                <div className="w-3 h-3 rounded-full bg-green-400" />
+              </div>
+              <div className="p-8 opacity-20">
+                <div className="h-4 bg-slate-200 rounded w-1/3 mb-4" />
+                <div className="h-4 bg-slate-200 rounded w-full mb-2" />
+                <div className="h-4 bg-slate-200 rounded w-5/6 mb-8" />
+                <div className="grid grid-cols-3 gap-4">
+                  <div className="h-24 bg-slate-200 rounded" />
+                  <div className="h-24 bg-slate-200 rounded" />
+                  <div className="h-24 bg-slate-200 rounded" />
+                </div>
+              </div>
+            </div>
+
+            {/* Foreground Chat Interface */}
+            <div className="absolute w-[400px] bg-white/90 backdrop-blur-md rounded-2xl shadow-2xl border border-slate-200/60 overflow-hidden transform translate-z-20 flex flex-col h-[500px]">
+              <div className="p-4 bg-blue-600 text-white flex justify-between items-center shadow-sm">
+                <div className="flex items-center space-x-3">
+                  <div className="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
+                    <MessageCircle size={20} />
+                  </div>
+                  <div>
+                    <h3 className="font-semibold text-sm">Nexus Support</h3>
+                    <p className="text-xs text-blue-200">Online</p>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="flex-1 p-6 space-y-6 overflow-hidden relative">
+                {/* Simulated Chat Messages based on activeNode */}
+                <div className="space-y-4">
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: activeNode >= 1 ? 1 : 0, y: activeNode >= 1 ? 0 : 10 }}
+                    className="flex space-x-2"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0" />
+                    <div className="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
+                      Hi there! How can I help you optimize your workflows today?
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: activeNode >= 2 ? 1 : 0, y: activeNode >= 2 ? 0 : 10 }}
+                    className="flex justify-end space-x-2"
+                  >
+                    <div className="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm">
+                      I need help integrating my CRM.
+                    </div>
+                  </motion.div>
+
+                  <motion.div 
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: activeNode >= 3 ? 1 : 0, y: activeNode >= 3 ? 0 : 10 }}
+                    className="flex space-x-2"
+                  >
+                    <div className="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0" />
+                    <div className="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
+                      <div className="flex items-center space-x-2 mb-2 text-xs text-slate-500 font-medium">
+                        <Database size={12} />
+                        <span>Searching Knowledge Base...</span>
+                      </div>
+                      I can help with that. We support Salesforce and HubSpot natively. Which one do you use?
+                    </div>
+                  </motion.div>
+                  
+                  <motion.div 
+                    initial={{ opacity: 0, scale: 0.9 }}
+                    animate={{ opacity: activeNode >= 6 ? 1 : 0, scale: activeNode >= 6 ? 1 : 0.9 }}
+                    className="mt-4 bg-white border border-slate-200 p-4 rounded-xl shadow-sm text-center"
+                  >
+                    <Calendar className="mx-auto text-blue-600 mb-2" size={24} />
+                    <p className="text-sm font-semibold text-slate-900">Consultation Booked</p>
+                    <p className="text-xs text-slate-500">Tomorrow at 10:00 AM</p>
+                  </motion.div>
+                </div>
+              </div>
+              
+              <div className="p-4 bg-slate-50 border-t border-slate-100">
+                <div className="bg-white border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-400 flex justify-between items-center">
+                  <span>Type a message...</span>
+                  <ArrowRight size={16} className="text-slate-400" />
+                </div>
+              </div>
+            </div>
+            
+            {/* Floating UI Elements */}
+            <motion.div 
+              className="absolute top-10 -right-10 bg-white p-3 rounded-xl shadow-lg border border-slate-100 transform translate-z-40 flex items-center space-x-3"
+              animate={{ y: [0, -10, 0] }}
+              transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <div className="bg-green-100 text-green-600 p-2 rounded-lg">
+                <TrendingUp size={16} />
+              </div>
+              <div>
+                <p className="text-xs text-slate-500 font-medium">Lead Score</p>
+                <p className="text-sm font-bold text-slate-900">+10 Points</p>
+              </div>
+            </motion.div>
+
+          </motion.div>
+        </div>
       </div>
-    </div>
+    </section>
   );
 }

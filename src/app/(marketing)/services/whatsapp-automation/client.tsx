@@ -1,150 +1,241 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { useState, useEffect } from 'react';
-import { Phone, Video, MoreVertical, Send, Check, CheckCheck, Smile } from 'lucide-react';
+import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import { MessageCircle, CheckCircle2, Users, Calendar, Database, ArrowRight, Share2, Phone } from "lucide-react";
+import React, { useRef, useEffect } from "react";
 
-export function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
-  return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function WhatsAppHeroVisual() {
-  const [messages, setMessages] = useState<{role: string, text: string, time: string, status?: 'sent'|'delivered'|'read'}[]>([]);
+export default function WhatsAppAutomationClient() {
+  const containerRef = useRef<HTMLDivElement>(null);
   
-  const conversation = [
-    { role: 'user', text: "Hi, I'd like to book a service appointment", time: "10:42 AM", status: 'read' as const },
-    { role: 'bot', text: "Welcome to AutoFix! 🚗 I'd be happy to help. What service do you need?", time: "10:42 AM" },
-    { role: 'user', text: "Oil change for my Honda Civic", time: "10:43 AM", status: 'read' as const },
-    { role: 'bot', text: "Great! I have availability tomorrow at 10:00 AM or 2:00 PM. Which works best for you?", time: "10:43 AM" },
-    { role: 'user', text: "10 AM please", time: "10:44 AM", status: 'read' as const },
-    { role: 'bot', text: "✅ Booked! Oil change for Honda Civic, tomorrow at 10 AM. You'll receive a reminder here 1 hour before.", time: "10:44 AM" }
-  ];
+  const mouseX = useMotionValue(0);
+  const mouseY = useMotionValue(0);
+  
+  const springConfig = { damping: 30, stiffness: 100, mass: 1 };
+  const smoothMouseX = useSpring(mouseX, springConfig);
+  const smoothMouseY = useSpring(mouseY, springConfig);
+  
+  const rotateX = useTransform(smoothMouseY, [-0.5, 0.5], [5, -5]);
+  const rotateY = useTransform(smoothMouseX, [-0.5, 0.5], [-5, 5]);
 
   useEffect(() => {
-    let currentIndex = 0;
-    
-    const showNextMessage = () => {
-      if (currentIndex < conversation.length) {
-        setMessages(conversation.slice(0, currentIndex + 1));
-        currentIndex++;
-        setTimeout(showNextMessage, currentIndex % 2 === 0 ? 1200 : 2000);
-      }
+    const handleMouseMove = (e: MouseEvent) => {
+      if (!containerRef.current) return;
+      const rect = containerRef.current.getBoundingClientRect();
+      const x = (e.clientX - rect.left) / rect.width - 0.5;
+      const y = (e.clientY - rect.top) / rect.height - 0.5;
+      mouseX.set(x);
+      mouseY.set(y);
     };
-    
-    const timeout = setTimeout(showNextMessage, 1000);
-    return () => clearTimeout(timeout);
-  }, []);
+
+    const container = containerRef.current;
+    if (container) {
+      container.addEventListener("mousemove", handleMouseMove);
+    }
+    return () => {
+      if (container) container.removeEventListener("mousemove", handleMouseMove);
+    };
+  }, [mouseX, mouseY]);
 
   return (
-    <div className="relative w-full max-w-[320px] mx-auto">
-      {/* Decorative glows */}
-      <div className="absolute -inset-10 bg-[#25D366]/20 blur-3xl rounded-full" />
-      
-      {/* Phone Mockup Card */}
-      <div className="relative bg-gray-900 border-[8px] border-gray-800 rounded-[3rem] shadow-2xl overflow-hidden h-[600px] flex flex-col">
-        {/* Dynamic Island / Notch area */}
-        <div className="absolute top-0 inset-x-0 h-6 flex justify-center z-20">
-          <div className="w-32 h-6 bg-gray-800 rounded-b-2xl" />
+    <div className="min-h-screen bg-[#FDFDFD] text-slate-900 overflow-hidden font-inter selection:bg-mint-200 selection:text-mint-900 pt-24 pb-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-20">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-emerald-50 text-emerald-700 text-sm font-medium mb-6 border border-emerald-100"
+          >
+            <MessageCircle className="w-4 h-4" />
+            <span>WhatsApp Automation</span>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-semibold tracking-tight font-manrope mb-6"
+          >
+            Always-on conversations that convert.
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-slate-600"
+          >
+            Turn inquiries into bookings, sync leads to your CRM, and provide instant support without lifting a finger. Built for the world's most popular messaging app.
+          </motion.p>
         </div>
 
-        {/* WhatsApp Header */}
-        <div className="bg-[#075E54] text-white pt-10 pb-3 px-4 flex items-center justify-between z-10 shadow-md">
-          <div className="flex items-center gap-3">
-            <div className="flex items-center gap-1">
-              <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" className="opacity-80">
-                <line x1="19" y1="12" x2="5" y2="12"></line>
-                <polyline points="12 19 5 12 12 5"></polyline>
-              </svg>
-            </div>
-            <div className="relative">
-              <div className="w-10 h-10 rounded-full bg-gray-300 overflow-hidden">
-                <img src="https://ui-avatars.com/api/?name=Auto+Fix&background=25D366&color=fff" alt="Avatar" className="w-full h-full object-cover" />
+        {/* Spatial Hero */}
+        <div 
+          ref={containerRef}
+          className="relative h-[600px] md:h-[800px] rounded-[32px] bg-slate-50 border border-slate-200 flex items-center justify-center overflow-hidden mb-32"
+          style={{ perspective: 1200 }}
+        >
+          {/* Radial gradient background */}
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(16,185,129,0.05)_0%,transparent_60%)]" />
+
+          {/* Central Phone */}
+          <motion.div
+            style={{ rotateX, rotateY }}
+            className="relative z-10 w-64 md:w-80 h-[500px] md:h-[600px] bg-white rounded-[40px] shadow-2xl border-[8px] border-slate-900 p-4 flex flex-col"
+          >
+            {/* Notch */}
+            <div className="absolute top-0 left-1/2 -translate-x-1/2 w-32 h-6 bg-slate-900 rounded-b-3xl" />
+            
+            {/* Header */}
+            <div className="flex items-center gap-3 pt-6 pb-4 border-b border-slate-100">
+              <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center">
+                <MessageCircle className="w-5 h-5 text-emerald-600" />
+              </div>
+              <div>
+                <h3 className="text-sm font-semibold text-slate-900">Nexus AI</h3>
+                <p className="text-xs text-emerald-600">Online</p>
               </div>
             </div>
-            <div className="flex flex-col">
-              <span className="font-semibold text-[15px]">AutoFix Service</span>
-              <span className="text-[11px] text-white/80">bot • always available</span>
+
+            {/* Chat Body */}
+            <div className="flex-1 overflow-hidden py-4 flex flex-col gap-3 relative">
+               <motion.div 
+                 initial={{ opacity: 0, x: -10 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 0.5 }}
+                 className="self-start max-w-[80%] bg-slate-100 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-800"
+               >
+                 Hi! I'd like to book a consultation for next week.
+               </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, x: 10 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 1 }}
+                 className="self-end max-w-[80%] bg-emerald-500 text-white rounded-2xl rounded-tr-sm px-4 py-2 text-sm"
+               >
+                 Hello! I can help with that. Are you looking for a morning or afternoon slot?
+               </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, x: -10 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 1.5 }}
+                 className="self-start max-w-[80%] bg-slate-100 rounded-2xl rounded-tl-sm px-4 py-2 text-sm text-slate-800"
+               >
+                 Afternoon please.
+               </motion.div>
+
+               <motion.div 
+                 initial={{ opacity: 0, x: 10 }}
+                 animate={{ opacity: 1, x: 0 }}
+                 transition={{ delay: 2 }}
+                 className="self-end max-w-[80%] bg-emerald-500 text-white rounded-2xl rounded-tr-sm px-4 py-2 text-sm"
+               >
+                 Great. I've found an opening on Thursday at 2:00 PM. I'll reserve it for you!
+               </motion.div>
             </div>
-          </div>
-          <div className="flex items-center gap-4">
-            <Video className="w-5 h-5 opacity-80" />
-            <Phone className="w-5 h-5 opacity-80" />
-            <MoreVertical className="w-5 h-5 opacity-80" />
-          </div>
+            
+            {/* Input area */}
+            <div className="pt-3 border-t border-slate-100 flex items-center gap-2">
+              <div className="flex-1 h-9 bg-slate-100 rounded-full flex items-center px-4">
+                <span className="text-xs text-slate-400">Message...</span>
+              </div>
+              <div className="w-9 h-9 rounded-full bg-emerald-500 flex items-center justify-center">
+                <ArrowRight className="w-4 h-4 text-white" />
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Connected Nodes */}
+          <motion.div 
+             style={{ x: useTransform(mouseX, [-0.5, 0.5], [10, -10]), y: useTransform(mouseY, [-0.5, 0.5], [10, -10]) }}
+             className="absolute left-8 md:left-32 top-1/4 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3 z-20"
+          >
+            <div className="p-2 bg-blue-50 rounded-lg">
+              <Database className="w-5 h-5 text-blue-600" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-slate-900">Sync to CRM</p>
+              <p className="text-[10px] text-slate-500">Lead captured automatically</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+             style={{ x: useTransform(mouseX, [-0.5, 0.5], [-15, 15]), y: useTransform(mouseY, [-0.5, 0.5], [15, -15]) }}
+             className="absolute right-8 md:right-32 top-1/3 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3 z-20"
+          >
+            <div className="p-2 bg-purple-50 rounded-lg">
+              <Calendar className="w-5 h-5 text-purple-600" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-slate-900">Book Appointment</p>
+              <p className="text-[10px] text-slate-500">Thursday, 2:00 PM Confirmed</p>
+            </div>
+          </motion.div>
+
+          <motion.div 
+             style={{ x: useTransform(mouseX, [-0.5, 0.5], [5, -5]), y: useTransform(mouseY, [-0.5, 0.5], [-20, 20]) }}
+             className="absolute left-1/2 -translate-x-1/2 bottom-12 bg-white p-4 rounded-2xl shadow-lg border border-slate-100 flex items-center gap-3 z-20"
+          >
+            <div className="p-2 bg-amber-50 rounded-lg">
+              <Users className="w-5 h-5 text-amber-600" />
+            </div>
+            <div>
+              <p className="text-xs font-semibold text-slate-900">Human Handoff</p>
+              <p className="text-[10px] text-slate-500">Routing complex queries to staff</p>
+            </div>
+          </motion.div>
+
+          {/* Connection Lines (SVG) */}
+          <svg className="absolute inset-0 w-full h-full pointer-events-none opacity-30 z-0" xmlns="http://www.w3.org/2000/svg">
+            <path d="M 300 300 Q 400 300 500 400" stroke="url(#lineGrad)" strokeWidth="2" fill="none" strokeDasharray="4 4" className="animate-pulse" />
+            <defs>
+              <linearGradient id="lineGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="#10B981" stopOpacity="0" />
+                <stop offset="50%" stopColor="#10B981" />
+                <stop offset="100%" stopColor="#10B981" stopOpacity="0" />
+              </linearGradient>
+            </defs>
+          </svg>
         </div>
 
-        {/* Chat Background */}
-        <div className="flex-1 overflow-y-auto bg-[#efeae2] dark:bg-[#0b141a] p-4 space-y-3 relative z-0">
-          {/* WA Background Pattern (Simplified) */}
-          <div className="absolute inset-0 opacity-[0.06] dark:opacity-[0.03] pointer-events-none" 
-               style={{backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M54.627 0l.83.83-2.69 2.69a23.957 23.957 0 0 0-4.043-2.029L54.627 0zm-5.1 0l-3.3 3.3a24.038 24.038 0 0 0-4.25-1.5L44.8 0h4.727zm-5.727 0l-1.92 1.92a23.952 23.952 0 0 0-4.64-.78L38.455 0h5.346zM32.8 0l-.82.82a23.952 23.952 0 0 0-4.64.78L29.273 0h3.527zm-4.727 0l-3.3-3.3a24.038 24.038 0 0 0-4.25 1.5L23.345 0h4.728zm-5.727 0l-2.69-2.69a23.957 23.957 0 0 0-4.043 2.029L21.4 0h.945zm-6.173 0L.98 15.193A24.008 24.008 0 0 0 0 19.347V0h16.173zM0 20.327l12.18 12.18a23.952 23.952 0 0 0-.78 4.64L0 25.673v-5.346zm0 6.327l9.46 9.46a24.038 24.038 0 0 0 1.5 4.25L0 29.418v-2.764zm0 4.218l6.76 6.76a23.957 23.957 0 0 0 2.029 4.043L0 31.854v-1.02zm0 2.19l3.89 3.89a23.952 23.952 0 0 0 2.47 3.52L0 34.02v-1.02zm0 2.155l.98.98a24.008 24.008 0 0 0 4.154 3.193L0 36.327v-1.02zm0 2.154l2.18 2.18a24.008 24.008 0 0 0 3.193-4.154L0 38.481v-1.02z' fill='%23000000' fill-opacity='1' fill-rule='evenodd'/%3E%3C/svg%3E")`}}>
-          </div>
-
-          <div className="flex justify-center mb-4">
-            <span className="bg-[#E1F3FB] dark:bg-[#182229] text-[#54656f] dark:text-gray-300 text-[11px] py-1 px-3 rounded-lg shadow-sm">
-              Today
-            </span>
-          </div>
-
-          {messages.map((msg, i) => (
-            <motion.div
+        {/* Features Grid */}
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              icon: Share2,
+              title: "Omnichannel Routing",
+              desc: "Intelligently route WhatsApp conversations to the right team member when human intervention is needed."
+            },
+            {
+              icon: CheckCircle2,
+              title: "Automated Confirmations",
+              desc: "Send instant booking confirmations, reminders, and follow-ups directly through WhatsApp."
+            },
+            {
+              icon: Phone,
+              title: "Lead Qualification",
+              desc: "Engage prospects 24/7, qualify leads using natural language, and seamlessly update your sales pipeline."
+            }
+          ].map((feature, i) => (
+            <motion.div 
               key={i}
-              initial={{ opacity: 0, y: 10, scale: 0.95 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: i * 0.1, duration: 0.5 }}
+              className="p-6 rounded-3xl bg-white border border-slate-100 shadow-sm"
             >
-              <div className={`relative max-w-[85%] rounded-lg px-2 pt-2 pb-1 text-[14.5px] shadow-sm ${
-                msg.role === 'user' 
-                  ? 'bg-[#d9fdd3] dark:bg-[#005c4b] rounded-tr-none text-gray-900 dark:text-[#e9edef]' 
-                  : 'bg-white dark:bg-[#202c33] rounded-tl-none text-gray-900 dark:text-[#e9edef]'
-              }`}>
-                {/* Tail */}
-                <svg viewBox="0 0 8 13" width="8" height="13" className={`absolute top-0 ${msg.role === 'user' ? '-right-2 text-[#d9fdd3] dark:text-[#005c4b]' : '-left-2 text-white dark:text-[#202c33]'}`}>
-                  <path opacity="1" fill="currentColor" d={msg.role === 'user' ? "M5.188 1H0v11.193l6.467-8.625C7.526 2.156 6.958 1 5.188 1z" : "M1.533 3.568L8 12.193V1H2.812C1.042 1 .474 2.156 1.533 3.568z"}></path>
-                </svg>
-                
-                <div className="leading-snug pr-2 pb-3">{msg.text}</div>
-                
-                <div className="absolute right-2 bottom-1 flex items-center gap-1">
-                  <span className="text-[10px] text-gray-500 dark:text-gray-400 leading-none">{msg.time}</span>
-                  {msg.role === 'user' && (
-                    <span className={`text-[14px] ${msg.status === 'read' ? 'text-[#53bdeb]' : 'text-gray-500'}`}>
-                      <CheckCheck className="w-3.5 h-3.5" />
-                    </span>
-                  )}
-                </div>
+              <div className="w-12 h-12 rounded-xl bg-slate-50 flex items-center justify-center mb-6">
+                <feature.icon className="w-6 h-6 text-slate-700" />
               </div>
+              <h3 className="text-lg font-semibold font-manrope text-slate-900 mb-2">{feature.title}</h3>
+              <p className="text-slate-600 text-sm leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
         </div>
 
-        {/* WA Input Area */}
-        <div className="bg-[#f0f2f5] dark:bg-[#202c33] p-2 flex items-center gap-2">
-          <Smile className="w-6 h-6 text-gray-500 mx-1 flex-shrink-0" />
-          <div className="flex-1 bg-white dark:bg-[#2a3942] rounded-full py-2 px-4 shadow-sm text-[15px] text-gray-400">
-            Message
-          </div>
-          <div className="w-10 h-10 rounded-full bg-[#00a884] flex items-center justify-center flex-shrink-0">
-            <svg viewBox="0 0 24 24" width="20" height="20" fill="currentColor" className="text-white transform translate-x-[2px]">
-              <path d="M1.101 21.757L23.8 12.028 1.101 2.3l.011 7.912 13.623 1.816-13.623 1.817-.011 7.912z"></path>
-            </svg>
-          </div>
-        </div>
-        
-        {/* Home indicator */}
-        <div className="h-1 bg-[#f0f2f5] dark:bg-[#202c33] pb-2 flex justify-center">
-          <div className="w-1/3 h-1 bg-gray-400/50 rounded-full mt-1"></div>
-        </div>
       </div>
     </div>
   );

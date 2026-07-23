@@ -1,120 +1,134 @@
-'use client';
+"use client";
 
-import { motion } from 'framer-motion';
-import { FormInput, MessageSquare, Database, Mail, Calendar, Slack, ArrowRight, Activity } from 'lucide-react';
-import { useEffect, useState } from 'react';
+import { motion } from "framer-motion";
+import { Workflow, Mail, Calendar, Database, CheckSquare, MessageSquare, Zap, AlertCircle } from "lucide-react";
+import React, { useState } from "react";
 
-export function AnimatedSection({ children, className = '', delay = 0 }: { children: React.ReactNode, className?: string, delay?: number }) {
+const nodes = [
+  { id: 'trigger', type: 'trigger', icon: Zap, label: 'New Lead Form', x: 10, y: 50, connections: ['ai-decision'] },
+  { id: 'ai-decision', type: 'ai', icon: Workflow, label: 'AI Qualifier', x: 35, y: 50, connections: ['crm', 'email'] },
+  { id: 'crm', type: 'action', icon: Database, label: 'Update CRM', x: 65, y: 20, connections: ['human'] },
+  { id: 'email', type: 'action', icon: Mail, label: 'Send Follow-up', x: 65, y: 80, connections: ['whatsapp'] },
+  { id: 'human', type: 'action', icon: CheckSquare, label: 'Manager Approval', x: 90, y: 20, connections: [] },
+  { id: 'whatsapp', type: 'action', icon: MessageSquare, label: 'WhatsApp Alert', x: 90, y: 80, connections: [] },
+];
+
+export default function BusinessAutomationClient() {
+  const [hoveredNode, setHoveredNode] = useState<string | null>(null);
+
+  // Helper to determine if a node is active in the current path
+  const isNodeActive = (id: string) => {
+    if (!hoveredNode) return false;
+    if (id === hoveredNode) return true;
+    
+    // Simple path tracing
+    if (hoveredNode === 'human') return ['trigger', 'ai-decision', 'crm', 'human'].includes(id);
+    if (hoveredNode === 'whatsapp') return ['trigger', 'ai-decision', 'email', 'whatsapp'].includes(id);
+    if (hoveredNode === 'crm') return ['trigger', 'ai-decision', 'crm'].includes(id);
+    if (hoveredNode === 'email') return ['trigger', 'ai-decision', 'email'].includes(id);
+    if (hoveredNode === 'ai-decision') return ['trigger', 'ai-decision'].includes(id);
+    if (hoveredNode === 'trigger') return ['trigger'].includes(id);
+    
+    return false;
+  };
+
+  const isConnectionActive = (source: string, target: string) => {
+    if (!hoveredNode) return false;
+    return isNodeActive(source) && isNodeActive(target);
+  };
+
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, margin: "-100px" }}
-      transition={{ duration: 0.5, delay }}
-      className={className}
-    >
-      {children}
-    </motion.div>
-  );
-}
-
-export function BusinessHeroVisual() {
-  const [activeNode, setActiveNode] = useState(0);
-  
-  const nodes = [
-    { icon: FormInput, label: 'Form Submit', color: 'text-blue-500', bg: 'bg-blue-500/10' },
-    { icon: Database, label: 'HubSpot CRM', color: 'text-orange-500', bg: 'bg-orange-500/10' },
-    { icon: Mail, label: 'Email Sequence', color: 'text-purple-500', bg: 'bg-purple-500/10' },
-    { icon: Calendar, label: 'Booking', color: 'text-cyan-500', bg: 'bg-cyan-500/10' },
-    { icon: Slack, label: 'Team Alert', color: 'text-red-500', bg: 'bg-red-500/10' },
-  ];
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveNode((prev) => (prev + 1) % nodes.length);
-    }, 1500);
-    return () => clearInterval(interval);
-  }, [nodes.length]);
-
-  return (
-    <div className="relative w-full max-w-2xl mx-auto h-[400px]">
-      {/* Grid Background */}
-      <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] dark:bg-[linear-gradient(rgba(255,255,255,0.05)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.05)_1px,transparent_1px)] bg-[size:20px_20px]" />
-      
-      <div className="relative h-full w-full flex items-center justify-center">
-        <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ zIndex: 0 }}>
-          {/* Connecting lines */}
-          <path d="M 120 200 L 220 120 L 320 200 L 420 120 L 520 200" fill="none" stroke="currentColor" strokeWidth="2" className="text-gray-300 dark:text-gray-700 stroke-dasharray-[4,4]" />
-          
-          {/* Animated dot following path */}
-          <motion.circle 
-            r="4" 
-            fill="#3b82f6" 
-            animate={{
-              cx: [120, 220, 320, 420, 520],
-              cy: [200, 120, 200, 120, 200],
-            }}
-            transition={{
-              duration: 7.5, // 1.5s per segment
-              ease: "linear",
-              repeat: Infinity
-            }}
-          />
-        </svg>
-
-        {/* Nodes */}
-        <div className="absolute inset-0" style={{ zIndex: 10 }}>
-          {[
-            { x: '10%', y: '50%' },
-            { x: '35%', y: '30%' },
-            { x: '60%', y: '50%' },
-            { x: '85%', y: '30%' },
-            { x: '110%', y: '50%', labelOffset: '-10px' } // Adjust last one
-          ].map((pos, i) => {
-            const NodeIcon = nodes[i].icon;
-            const isActive = activeNode === i;
-            const hasPassed = activeNode > i;
-            
-            return (
-              <div 
-                key={i} 
-                className="absolute transform -translate-x-1/2 -translate-y-1/2"
-                style={{ left: pos.x, top: pos.y }}
-              >
-                <div className="relative">
-                  <motion.div 
-                    className={`w-14 h-14 rounded-2xl flex items-center justify-center border-2 shadow-lg backdrop-blur-sm transition-colors duration-500 ${
-                      isActive 
-                        ? `bg-white dark:bg-gray-800 ${nodes[i].color.replace('text', 'border')}` 
-                        : hasPassed 
-                          ? 'bg-gray-50 dark:bg-gray-900 border-gray-300 dark:border-gray-600'
-                          : 'bg-white/50 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700'
-                    }`}
-                    animate={isActive ? { scale: 1.1 } : { scale: 1 }}
-                  >
-                    <NodeIcon className={`w-6 h-6 ${isActive ? nodes[i].color : 'text-gray-400'}`} />
-                  </motion.div>
-                  
-                  {/* Data Label */}
-                  {isActive && i < nodes.length - 1 && (
-                    <motion.div 
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      className="absolute -right-24 top-1/2 -translate-y-1/2 bg-white dark:bg-gray-800 text-xs px-2 py-1 rounded shadow border border-gray-100 dark:border-gray-700 whitespace-nowrap"
-                    >
-                      <Activity className="w-3 h-3 inline mr-1 text-blue-500" />
-                      Processing...
-                    </motion.div>
-                  )}
-                  
-                  <div className="absolute top-16 left-1/2 -translate-x-1/2 whitespace-nowrap text-xs font-medium text-gray-600 dark:text-gray-300">
-                    {nodes[i].label}
-                  </div>
-                </div>
-              </div>
-            );
-          })}
+    <div className="min-h-screen bg-[#111] text-slate-200 overflow-hidden font-inter selection:bg-indigo-500/30 pt-24 pb-32">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        
+        {/* Header */}
+        <div className="text-center max-w-3xl mx-auto mb-16">
+          <motion.div
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-indigo-500/10 text-indigo-300 text-sm font-medium mb-6 border border-indigo-500/20"
+          >
+            <Workflow className="w-4 h-4" />
+            <span>Business Automation</span>
+          </motion.div>
+          <motion.h1 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="text-4xl md:text-5xl font-semibold tracking-tight font-manrope mb-6 text-white"
+          >
+            Orchestrate your entire business visually.
+          </motion.h1>
+          <motion.p 
+            initial={{ opacity: 0, y: 10 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6, delay: 0.2 }}
+            className="text-lg text-slate-400"
+          >
+            Connect triggers to AI decisions and automated actions. Hover over any node in the canvas below to trace its data route.
+          </motion.p>
         </div>
+
+        {/* Node Canvas Hero */}
+        <div className="relative w-full h-[600px] bg-[#161616] rounded-[32px] border border-slate-800 overflow-hidden flex items-center justify-center p-8 mb-24">
+           {/* Background Grid */}
+           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+           
+           <div className="relative w-full h-full max-w-4xl mx-auto">
+             {/* Lines */}
+             <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
+               <defs>
+                 <linearGradient id="activeLine" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" stopColor="#6366f1" />
+                    <stop offset="100%" stopColor="#a855f7" />
+                 </linearGradient>
+               </defs>
+               
+               {/* Trigger -> AI */}
+               <path d="M 10% 50% L 35% 50%" stroke={isConnectionActive('trigger', 'ai-decision') ? 'url(#activeLine)' : '#333'} strokeWidth={isConnectionActive('trigger', 'ai-decision') ? 3 : 2} fill="none" className="transition-all duration-300" />
+               
+               {/* AI -> CRM */}
+               <path d="M 35% 50% C 50% 50%, 50% 20%, 65% 20%" stroke={isConnectionActive('ai-decision', 'crm') ? 'url(#activeLine)' : '#333'} strokeWidth={isConnectionActive('ai-decision', 'crm') ? 3 : 2} fill="none" className="transition-all duration-300" />
+               
+               {/* AI -> Email */}
+               <path d="M 35% 50% C 50% 50%, 50% 80%, 65% 80%" stroke={isConnectionActive('ai-decision', 'email') ? 'url(#activeLine)' : '#333'} strokeWidth={isConnectionActive('ai-decision', 'email') ? 3 : 2} fill="none" className="transition-all duration-300" />
+
+               {/* CRM -> Human */}
+               <path d="M 65% 20% L 90% 20%" stroke={isConnectionActive('crm', 'human') ? 'url(#activeLine)' : '#333'} strokeWidth={isConnectionActive('crm', 'human') ? 3 : 2} fill="none" className="transition-all duration-300" />
+
+               {/* Email -> WhatsApp */}
+               <path d="M 65% 80% L 90% 80%" stroke={isConnectionActive('email', 'whatsapp') ? 'url(#activeLine)' : '#333'} strokeWidth={isConnectionActive('email', 'whatsapp') ? 3 : 2} fill="none" className="transition-all duration-300" />
+             </svg>
+
+             {/* Nodes */}
+             {nodes.map(node => {
+               const active = isNodeActive(node.id);
+               
+               return (
+                 <motion.div
+                   key={node.id}
+                   onMouseEnter={() => setHoveredNode(node.id)}
+                   onMouseLeave={() => setHoveredNode(null)}
+                   style={{ left: `${node.x}%`, top: `${node.y}%`, x: '-50%', y: '-50%' }}
+                   className={`absolute cursor-pointer transition-all duration-300 ${active ? 'scale-110 z-10' : 'scale-100 z-0 opacity-70'}`}
+                 >
+                   <div className={`p-4 rounded-xl flex items-center gap-3 backdrop-blur-md border ${
+                     active 
+                       ? 'bg-slate-900 border-indigo-500 shadow-[0_0_20px_rgba(99,102,241,0.3)]' 
+                       : 'bg-[#1a1a1a] border-slate-800'
+                   }`}>
+                     <div className={`p-2 rounded-lg ${active ? 'bg-indigo-500/20 text-indigo-400' : 'bg-slate-800 text-slate-400'}`}>
+                       <node.icon className="w-5 h-5" />
+                     </div>
+                     <span className={`text-sm font-medium ${active ? 'text-white' : 'text-slate-400'}`}>{node.label}</span>
+                   </div>
+                 </motion.div>
+               );
+             })}
+           </div>
+        </div>
+
       </div>
     </div>
   );

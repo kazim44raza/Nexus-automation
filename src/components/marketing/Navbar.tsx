@@ -50,13 +50,13 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-white/95 backdrop-blur-xl border-b border-gray-200/50 shadow-sm'
-            : 'bg-white/70 backdrop-blur-xl border-b border-transparent'
+            ? 'bg-bg-base/90 backdrop-blur-xl border-b border-border shadow-sm py-2'
+            : 'bg-bg-base/50 backdrop-blur-md border-b border-transparent py-4'
         )}
       >
-        <nav className="page-container flex items-center justify-between h-20">
+        <nav className="page-container flex items-center justify-between h-14">
           {/* Logo */}
-          <Link href="/" className="group">
+          <Link href="/" className="group flex-shrink-0">
             <Logo
               variant="dark"
               size={44}
