@@ -65,10 +65,10 @@ export function VoiceAgentsClient() {
           >
             <h1 className="text-5xl md:text-6xl font-semibold tracking-tight text-white font-manrope mb-6">
               Voice Agents that <br />
-              <span className="text-blue-400">Speak Human</span>
+              <span className="text-blue-400">Answer Incoming Calls</span>
             </h1>
             <p className="text-xl text-slate-400 max-w-xl">
-              Cinematic, conversational AI that answers calls, qualifies leads, and books appointments with zero latency.
+              Practical voice solutions that capture caller information, route urgent requests, and book appointments with zero latency.
             </p>
           </motion.div>
           

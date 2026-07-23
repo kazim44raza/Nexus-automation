@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
@@ -10,6 +11,7 @@ const industries = {
   healthcare: {
     title: 'Healthcare',
     tag: 'Healthcare Automation',
+    image: '/images/healthcare_industry.jpg',
     headline: 'Keep patient communication moving without adding front-desk load',
     description: 'Automate appointment reminders, intake, follow-ups, and missed-call recovery so your team spends less time on repetitive admin and more time with patients.',
     stats: [
@@ -44,6 +46,7 @@ const industries = {
   'real-estate': {
     title: 'Real Estate',
     tag: 'Real Estate Automation',
+    image: '/images/realestate_industry.jpg',
     headline: 'Qualify leads fast and book showings before competitors reply',
     description: 'Capture listing inquiries, qualify prospects, and schedule viewings automatically so agents respond in minutes instead of hours.',
     stats: [
@@ -237,18 +240,32 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
               </div>
             </AnimatedSection>
 
-            <AnimatedSection direction="right" delay={0.2} className="relative">
+             <AnimatedSection direction="right" delay={0.2} className="relative">
                <div className="absolute inset-0 bg-radial-gradient from-accent/10 to-transparent opacity-50 blur-3xl" />
-               <div className="grid grid-cols-1 gap-6 relative z-10">
-                 {industry.stats.map((stat, index) => (
+               <div className="flex flex-col gap-6 relative z-10">
+                 {/* Optional Human Context Image */}
+                 {/* @ts-ignore */}
+                 {('image' in industry) && (industry as any).image && (
+                   <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-border">
+                     <Image 
+                       src={(industry as any).image as string} 
+                       alt={`${industry.title} workflow context`}
+                       fill
+                       className="object-cover"
+                     />
+                   </div>
+                 )}
+                 <div className="grid grid-cols-1 gap-6">
+                   {industry.stats.map((stat, index) => (
                    <div key={index} className="bg-white border border-border p-8 rounded-3xl shadow-sm text-center">
                      <div className="text-gradient font-bold text-5xl mb-2">{stat.value}</div>
                      <p className="font-bold text-text-primary text-lg mb-1">{stat.label}</p>
                      <p className="text-text-secondary">{stat.context}</p>
                    </div>
                  ))}
+                 </div>
                </div>
-            </AnimatedSection>
+             </AnimatedSection>
           </div>
         </div>
       </section>

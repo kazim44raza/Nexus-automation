@@ -129,6 +129,45 @@ export default function BusinessAutomationClient() {
            </div>
         </div>
 
+        {/* Supporting Scene */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center mb-24">
+          <div className="order-2 lg:order-1 relative rounded-2xl overflow-hidden border border-slate-800 shadow-2xl">
+            <img 
+              src="/images/business_automation_scene.jpg" 
+              alt="Professional reviewing automated workflows" 
+              className="w-full h-auto object-cover opacity-90"
+            />
+            <div className="absolute inset-0 border border-white/10 rounded-2xl pointer-events-none"></div>
+          </div>
+          <div className="order-1 lg:order-2">
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <h2 className="text-3xl font-semibold tracking-tight font-manrope mb-6 text-white">
+                Review work, don't just do data entry.
+              </h2>
+              <p className="text-lg text-slate-400 mb-6">
+                Instead of manually copying data between systems, let automation handle the repetitive tasks. Your team can focus on reviewing completed workflows, making strategic decisions, and handling exceptions that require human judgment.
+              </p>
+              <ul className="space-y-4">
+                {[
+                  "Captures incoming lead information automatically.",
+                  "Routes data to the correct CRM fields without manual entry.",
+                  "Notifies your team only when human approval is needed."
+                ].map((item, idx) => (
+                  <li key={idx} className="flex items-start gap-3 text-slate-300">
+                    <CheckSquare className="w-5 h-5 text-indigo-400 mt-0.5 shrink-0" />
+                    <span>{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </motion.div>
+          </div>
+        </div>
+
       </div>
     </div>
   );

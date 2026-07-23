@@ -125,9 +125,9 @@ export default function CustomerSupportClient() {
 
             {[
               { title: "Request Received", desc: "Omnichannel ingestion from Chat, Email, or Social.", icon: MessageSquare, align: "right" },
-              { title: "Knowledge Search", desc: "AI instantly scans internal KB and historical tickets.", icon: Server, align: "left" },
-              { title: "Confidence Calculated", desc: "System evaluates if it can safely answer without hallucinating.", icon: Zap, align: "right" },
-              { title: "Response Generated", desc: "Context-aware reply formulated in brand voice.", icon: CheckCircle, align: "left" },
+              { title: "Knowledge Search", desc: "Searches approved internal KB articles and historical tickets.", icon: Server, align: "left" },
+              { title: "Confidence Calculated", desc: "Checks routing rules and calculates confidence score before responding.", icon: Zap, align: "right" },
+              { title: "Response Generated", desc: "Drafts a helpful reply based strictly on source materials.", icon: CheckCircle, align: "left" },
               { title: "Ticket Resolved or Escalated", desc: "Issue closed automatically, or handed off with full summary.", icon: ShieldAlert, align: "right" },
             ].map((step, i) => (
               <motion.div 
@@ -153,6 +153,86 @@ export default function CustomerSupportClient() {
                 </div>
               </motion.div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Human Escalation Scene */}
+      <section className="py-24 bg-white relative overflow-hidden">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center max-w-3xl mx-auto mb-16">
+            <h2 className="font-manrope text-3xl md:text-5xl font-bold mb-6 text-[#1A1A1A]">Smooth Handoffs, Full Context</h2>
+            <p className="text-lg text-gray-600 font-light">
+              When an inquiry requires human judgment, the system transfers the conversation seamlessly. Your agents receive all the details they need to take action immediately.
+            </p>
+          </div>
+
+          <div className="relative rounded-3xl overflow-hidden aspect-video md:aspect-[21/9] bg-gray-100 shadow-2xl group border border-gray-200">
+            {/* Background Image */}
+            <img 
+              src="/images/support_agent_scene.jpg" 
+              alt="Support agent reviewing escalated case" 
+              className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+            />
+            {/* Overlay Gradient */}
+            <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/40 to-transparent" />
+
+            {/* UI Overlay */}
+            <div className="absolute inset-0 p-6 md:p-12 flex flex-col justify-center">
+              <div className="max-w-md bg-white/95 backdrop-blur-md p-6 rounded-2xl shadow-xl border border-white/20 relative z-10">
+                <div className="flex items-center gap-3 mb-4 border-b border-gray-100 pb-4">
+                  <div className="w-10 h-10 rounded-full bg-amber-100 text-amber-600 flex items-center justify-center shrink-0">
+                    <ShieldAlert className="w-5 h-5" />
+                  </div>
+                  <div>
+                    <div className="text-sm text-gray-500 font-medium">Escalated Request</div>
+                    <div className="font-semibold text-gray-900">High Priority • Tier 2</div>
+                  </div>
+                </div>
+                
+                <div className="space-y-4">
+                  <div>
+                    <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">Customer Details</div>
+                    <div className="text-sm font-medium text-gray-900">Sarah Jenkins • Enterprise Plan</div>
+                    <div className="text-xs text-gray-600">ID: #8492-B</div>
+                  </div>
+
+                  <div>
+                    <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">Conversation Summary</div>
+                    <div className="text-xs sm:text-sm text-gray-700 bg-gray-50 p-3 rounded-lg border border-gray-100">
+                      Customer is trying to integrate the billing API but keeps receiving a 403 Forbidden error.
+                    </div>
+                  </div>
+
+                  <div className="grid grid-cols-2 gap-4">
+                    <div>
+                      <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">Previous Actions</div>
+                      <div className="text-xs text-gray-700">Verified API key format, checked endpoint URL.</div>
+                    </div>
+                    <div>
+                      <div className="text-[10px] sm:text-xs text-gray-500 uppercase tracking-wider mb-1 font-semibold">Reason for Escalation</div>
+                      <div className="text-[10px] sm:text-xs text-amber-800 bg-amber-100 px-2 py-1 rounded inline-block font-medium">Requires backend logs access</div>
+                    </div>
+                  </div>
+
+                  <div className="pt-2 border-t border-gray-100">
+                    <div className="text-[10px] sm:text-xs text-emerald-600 uppercase tracking-wider mb-1 font-bold">Recommended Next Step</div>
+                    <div className="text-xs sm:text-sm text-gray-900 flex items-center gap-2 font-medium bg-emerald-50 p-2 rounded-lg border border-emerald-100">
+                      <Zap className="w-4 h-4 text-emerald-500 shrink-0" /> Verify IP whitelist in admin dashboard.
+                    </div>
+                  </div>
+                </div>
+
+                <div className="mt-6 flex gap-3">
+                  <button className="flex-1 bg-[#1A1A1A] text-white py-2.5 rounded-lg text-sm font-medium hover:bg-gray-800 transition-colors">
+                    Accept Ticket
+                  </button>
+                  <button className="flex-1 bg-white border border-gray-200 text-gray-700 py-2.5 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors">
+                    Re-route
+                  </button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>

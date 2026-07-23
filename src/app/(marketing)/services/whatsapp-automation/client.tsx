@@ -67,6 +67,14 @@ export default function WhatsAppAutomationClient() {
           >
             Turn inquiries into bookings, sync leads to your CRM, and provide instant support without lifting a finger. Built for the world's most popular messaging app.
           </motion.p>
+          <motion.p
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.6, delay: 0.3 }}
+            className="text-xs text-slate-400 mt-6"
+          >
+            *Not affiliated with, sponsored, or endorsed by Meta Platforms, Inc. or WhatsApp LLC.
+          </motion.p>
         </div>
 
         {/* Spatial Hero */}
@@ -198,6 +206,55 @@ export default function WhatsAppAutomationClient() {
               </linearGradient>
             </defs>
           </svg>
+        </div>
+
+        {/* Split Composition Section */}
+        <div className="grid lg:grid-cols-2 gap-16 items-center mb-32">
+          {/* Left: Customer Message */}
+          <div className="relative">
+            <div className="absolute -inset-4 bg-emerald-50 rounded-3xl -z-10" />
+            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-8">
+              <h3 className="text-2xl font-semibold mb-6">Frictionless Customer Experience</h3>
+              <p className="text-slate-600 mb-8 leading-relaxed">
+                Your customers interact naturally on an app they already use daily. Our system handles the rest—updating records and managing schedules behind the scenes.
+              </p>
+              <div className="flex flex-col gap-4">
+                <div className="bg-slate-100 rounded-2xl rounded-tl-sm px-5 py-3 text-sm text-slate-800 w-fit">
+                  Hi, I need to reschedule my Friday appointment.
+                </div>
+                <div className="bg-emerald-500 text-white rounded-2xl rounded-tr-sm px-5 py-3 text-sm w-fit self-end shadow-sm">
+                  No problem! Would you prefer next Monday or Tuesday?
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          {/* Right: CRM Updating */}
+          <div className="relative">
+            <div className="aspect-[4/3] rounded-3xl overflow-hidden shadow-xl border border-slate-100 relative group">
+              <img 
+                src="/images/crm_workflow.jpg" 
+                alt="Professional working with CRM" 
+                className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 via-slate-900/20 to-transparent flex items-end p-8">
+                <motion.div 
+                  initial={{ opacity: 0, y: 10 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  className="bg-white/95 backdrop-blur-sm rounded-xl p-4 shadow-lg w-full flex items-center gap-4"
+                >
+                  <div className="w-10 h-10 rounded-full bg-emerald-100 flex items-center justify-center shrink-0">
+                    <CheckCircle2 className="w-5 h-5 text-emerald-600" />
+                  </div>
+                  <div>
+                    <p className="text-sm font-semibold text-slate-900">CRM Automatically Updated</p>
+                    <p className="text-xs text-slate-600">Appointment moved to Monday</p>
+                  </div>
+                </motion.div>
+              </div>
+            </div>
+          </div>
         </div>
 
         {/* Features Grid */}

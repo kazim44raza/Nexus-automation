@@ -4,7 +4,7 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/sha
 import { Download, BookOpen, Video, Calculator, ArrowRight, Lightbulb } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'Resources — Automation Guides & Tools | Nexus Automation',
+  title: 'Resources — Automation Guides & Tools',
   description: 'Free guides, calculators, and resources to help you understand AI automation for your business.',
 }
 

@@ -23,71 +23,38 @@ type BlogFallbackPost = {
 }
 
 const fallbackPosts: Record<string, BlogFallbackPost> = {
-  'how-ai-chatbots-recover-lost-leads': {
-    slug: 'how-ai-chatbots-recover-lost-leads',
-    title: "How AI Chatbots Recover the Leads You're Losing After Hours",
-    excerpt: 'Most businesses lose 35-40% of their potential leads simply because no one answered the phone or chat after 5PM. Here is how AI fixes that.',
+  'how-we-build-reliable-voice-agents': {
+    slug: 'how-we-build-reliable-voice-agents',
+    title: 'How We Build Voice Agents That Don\'t Hallucinate',
+    excerpt: 'The problem with most AI voice agents is they are given too much freedom. Here is our exact framework for scoping voice workflows to prevent errors.',
     content:
-      '## The real cost of missed responses\n\nEvery unanswered call, chat, or form submission is a lead that may never come back.\n\n## What the chatbot does\n\nAn AI chatbot responds instantly, answers common questions, qualifies the visitor, and moves them toward booking or a sales handoff.\n\n## Why it works\n\nSpeed matters. When your prospect gets a useful answer immediately, you keep the conversation alive and reduce drop-off.\n\n- Instant response\n- Lead qualification\n- Appointment booking\n- 24/7 coverage\n\n## Bottom line\n\nA well-built chatbot turns after-hours traffic into a measurable revenue stream instead of a missed opportunity.',
-    tags: ['AI Chatbots', 'Lead Generation'],
-    readingTime: 5,
+      '## The Hallucination Problem\n\nMost voice agents are built by connecting a language model to a telephony provider and saying "you are a helpful assistant." This is dangerous. Without boundaries, the AI will confidently provide wrong answers or invent policies.\n\n## Constraining the Model\n\nWe build voice agents using strict routing architectures. The LLM is constrained to a specific knowledge base (RAG) and is given exact scripts for certain workflows.\n\n## Clear Escalation Paths\n\nWhen a voice agent does not know the answer with 95% confidence, it does not guess. It says, "Let me get someone from our team to help with that specific question," and routes the call to a human.\n\n## The Result\n\nYou get an agent that sounds natural but operates within the strict boundaries of a traditional IVR system.',
+    tags: ['Engineering', 'Voice AI'],
+    readingTime: 6,
     publishedAt: new Date('2025-06-01'),
     updatedAt: new Date('2025-06-01'),
   },
-  'ai-voice-agents-vs-traditional-receptionist': {
-    slug: 'ai-voice-agents-vs-traditional-receptionist',
-    title: 'AI Voice Agents vs. Traditional Receptionists: What the Numbers Say',
-    excerpt: 'A detailed cost comparison between hiring a receptionist and deploying an AI voice agent, including hidden costs most businesses miss.',
+  'why-we-prefer-n8n': {
+    slug: 'why-we-prefer-n8n',
+    title: 'Why We Prefer n8n over Zapier for Core Business Workflows',
+    excerpt: 'Zapier is great for simple triggers, but when you are managing multi-step AI logic and complex data routing, n8n offers the control engineers need.',
     content:
-      '## The staffing math\n\nA receptionist is valuable, but the real cost is more than salary. You are also paying for benefits, time off, training, turnover, and coverage gaps.\n\n## What AI voice agents change\n\nAI voice agents answer every call, qualify the caller, route the conversation, and schedule the next step without downtime.\n\n## Where the savings come from\n\nThe biggest savings are not just in payroll. They come from missed calls recovered, faster response time, and consistent coverage outside business hours.\n\n- Lower operating cost\n- 24/7 availability\n- No missed lunch breaks or sick days\n- Consistent intake every time\n\n## Best use case\n\nThe strongest setup is often a hybrid one: AI handles first response and qualification, then routes high-value calls to a human team member.',
-    tags: ['Voice Agents', 'ROI'],
-    readingTime: 7,
+      '## The Limits of Linear Automation\n\nZapier is fantastic for "If A happens, do B." But modern AI automation often looks like "If A happens, check B, then prompt C, and depending on the result, do D or E."\n\n## Enter n8n\n\nWe build heavily on n8n (and Make) because they allow for complex, code-level control of workflows. We can write custom JavaScript inside nodes to handle data transformations that would require 15 steps in Zapier.\n\n## Webhooks and APIs\n\nn8n gives us bare-metal access to APIs. If an integration doesn\'t exist, we just build an HTTP node and handle the authentication ourselves.\n\n## Scalability\n\nBecause n8n allows for branching logic and robust error handling, the systems we build don\'t break when an edge case occurs. They gracefully fail and notify your team.',
+    tags: ['Technical', 'Plumbing'],
+    readingTime: 8,
     publishedAt: new Date('2025-05-22'),
     updatedAt: new Date('2025-05-22'),
   },
-  'appointment-booking-automation-healthcare': {
-    slug: 'appointment-booking-automation-healthcare',
-    title: 'How Healthcare Practices Are Cutting No-Shows by 60% With AI',
-    excerpt: 'Patient no-shows cost the average medical practice $150,000 per year. Here is the exact automation system that changes that.',
+  'automation-is-data-not-chat': {
+    slug: 'automation-is-data-not-chat',
+    title: 'Automation is About Moving Data, Not Just Chatting',
+    excerpt: 'A chatbot that can talk is a toy. A chatbot that can query your database, update a CRM record, and trigger a calendar invite is a business system.',
     content:
-      '## Why no-shows happen\n\nPatients forget, get busy, or never complete the booking flow. Automation closes those gaps before they turn into lost revenue.\n\n## The system\n\nThe booking flow confirms appointments, sends reminders, and fills cancellations from a waitlist.\n\n## What changes operationally\n\nYour front desk spends less time chasing confirmations and more time supporting patients who actually need help.\n\n- Appointment reminders\n- Waitlist auto-fill\n- Intake collection\n- Reschedule handling\n\n## Result\n\nPractices get a fuller calendar, fewer gaps, and a much smoother patient experience.',
-    tags: ['Healthcare', 'Appointments'],
-    readingTime: 6,
+      '## Beyond the Chat Window\n\nHaving an LLM answer FAQs on your website is easy. But that doesn\'t actually save your team much time. True automation happens when the AI is connected to your core business systems.\n\n## Building the Plumbing\n\nWe spend 20% of our time designing the conversational experience, and 80% of our time building the API connections that let the AI take action. \n\n## A Real Example\n\nWhen a prospect says they want to book a showing, our system doesn\'t just say "Great, I can help." It makes an API call to the agent\'s calendar, finds the next 3 available slots, presents them, and when the user picks one, it creates the calendar event and updates the CRM record.\n\n## Conclusion\n\nDon\'t invest in AI that can only talk. Invest in AI that can do.',
+    tags: ['Systems', 'Strategy'],
+    readingTime: 5,
     publishedAt: new Date('2025-05-15'),
     updatedAt: new Date('2025-05-15'),
-  },
-  'lead-qualification-small-business': {
-    slug: 'lead-qualification-small-business',
-    title: '5 Lead Qualification Mistakes That Cost Small Businesses Fortune',
-    excerpt: 'Most small businesses burn sales time on leads that were never going to close. These five automation fixes change everything.',
-    content:
-      '## Mistake 1: responding too slowly\n\nIf you wait hours to reply, the prospect is already talking to someone else.\n\n## Mistake 2: asking too little\n\nQualification should filter fit, budget, urgency, and service need.\n\n## Mistake 3: no routing rules\n\nHot leads should reach the right person immediately.\n\n## Mistake 4: manual follow-up\n\nAutomated sequences keep leads warm without depending on memory.\n\n## Mistake 5: no visibility\n\nIf you cannot measure conversion by source, you cannot improve the system.\n\n## The fix\n\nA simple AI qualification flow can remove waste and focus your team on better opportunities.',
-    tags: ['Lead Qualification', 'Sales'],
-    readingTime: 5,
-    publishedAt: new Date('2025-05-08'),
-    updatedAt: new Date('2025-05-08'),
-  },
-  'workflow-automation-real-estate': {
-    slug: 'workflow-automation-real-estate',
-    title: 'The Complete Real Estate Automation Playbook for 2025',
-    excerpt: 'How top-performing real estate teams are using AI to qualify every lead, schedule every showing, and follow up automatically.',
-    content:
-      '## The modern real estate workflow\n\nWinning teams respond fast, route inquiries properly, and keep follow-up consistent across every listing.\n\n## Where automation helps\n\nAutomation can qualify leads, book showings, send property details, and keep the CRM updated without manual effort.\n\n## Why it matters\n\nReal estate is competitive. The team that replies first and follows up best often wins the client.\n\n- Instant lead response\n- Showing coordination\n- Open house follow-up\n- CRM syncing\n\n## Takeaway\n\nA few well-designed automations can make a small team feel much larger.',
-    tags: ['Real Estate', 'Automation'],
-    readingTime: 8,
-    publishedAt: new Date('2025-04-30'),
-    updatedAt: new Date('2025-04-30'),
-  },
-  'crm-automation-integration': {
-    slug: 'crm-automation-integration',
-    title: 'Why Your CRM Is Worthless Without Automation',
-    excerpt: 'A CRM is only as good as the data in it. Most CRMs become graveyards of leads no one followed up with. Automation changes the equation.',
-    content:
-      '## The CRM problem\n\nA CRM does not create revenue by itself. It only works when the right actions happen at the right time.\n\n## What automation adds\n\nAutomation keeps records clean, updates fields, triggers follow-up, and nudges your team when something needs attention.\n\n## The upside\n\nWhen the CRM and the workflow engine work together, you get better visibility and fewer dropped leads.\n\n- Better data\n- Better follow-up\n- Better handoffs\n- Better reporting\n\n## Bottom line\n\nThe CRM becomes useful when it is part of a system, not just a database.',
-    tags: ['CRM', 'Automation'],
-    readingTime: 6,
-    publishedAt: new Date('2025-04-22'),
-    updatedAt: new Date('2025-04-22'),
   },
 }
 

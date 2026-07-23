@@ -5,7 +5,7 @@ import { FloatingObjects } from '@/components/shared/FloatingObjects'
 import { IndustryShowcase } from './client'
 
 export const metadata: Metadata = {
-  title: 'Industry Solutions | Nexus Automation',
+  title: 'Industry Solutions',
   description: 'AI automation solutions purpose-built for healthcare, dental, real estate, legal, fitness, home services, and e-commerce.',
 }
 

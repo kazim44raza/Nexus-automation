@@ -11,8 +11,8 @@ const industries = [
     icon: HeartPulse,
     headline: 'Fill your appointment calendar automatically',
     description: "Healthcare providers miss 30–40% of new patient calls. Our AI answers every call, qualifies the patient, and books them directly into your schedule — 24/7.",
-    wins: ['Answer 100% of patient calls', 'Reduce no-shows by 60%', 'Automate insurance pre-screening', 'HIPAA-compliant workflows'],
-    result: 'Dr. Sarah Chen added 23 new patients in month one',
+    wins: ['Answer 100% of patient calls', 'Automate appointment reminders', 'Automate insurance pre-screening', 'HIPAA-compliant workflows'],
+    result: 'Increased patient intake volume',
   },
   {
     label: 'Real Estate',
@@ -20,7 +20,7 @@ const industries = [
     headline: 'Qualify leads before your agents pick up the phone',
     description: "Real estate is a volume game. Our AI instantly qualifies every inquiry, filters out tire-kickers, and books showings directly for your agents.",
     wins: ['Qualify leads at 2AM', 'Auto-schedule viewings', 'CRM auto-update on every call', 'Instant follow-up texts'],
-    result: 'HomeEdge Realty closed 8 extra deals in Q3',
+    result: 'Decreased lead response time to seconds',
   },
   {
     label: 'Legal',
@@ -28,7 +28,7 @@ const industries = [
     headline: 'Never miss a high-value consultation request',
     description: "Legal clients expect immediate responses. Our AI handles intake calls, screens for case fit, and schedules consultations — freeing your attorneys for billable work.",
     wins: ['24/7 intake qualification', 'Conflict-check screening', 'Automated consultation booking', 'CRM sync & follow-up'],
-    result: 'Foster Law increased consults by 45% without new hires',
+    result: 'Consistent 24/7 intake process',
   },
   {
     label: 'Dental',
@@ -36,7 +36,7 @@ const industries = [
     headline: 'A full appointment book, managed by AI',
     description: "Dental practices lose thousands per week to unanswered phones and no-shows. Our system fills cancellations automatically and reminds patients before they forget.",
     wins: ['Auto-fill cancellations', '3x reminder sequences', 'New patient onboarding flow', 'Insurance verification automation'],
-    result: 'Bright Smile Dental added $12k/month in recovered revenue',
+    result: 'Automated cancellation recovery',
   },
   {
     label: 'Fitness',
@@ -44,15 +44,15 @@ const industries = [
     headline: 'Convert more gym inquiries into paying members',
     description: "Fitness businesses get hundreds of inquiries but convert a fraction. Our AI follows up instantly, handles objections, and books free trials automatically.",
     wins: ['Instant lead follow-up', 'Free trial booking flow', 'Membership renewal sequences', 'Class waitlist automation'],
-    result: 'FitLife Studio doubled their trial-to-member conversion',
+    result: 'Automated lead follow-up sequence',
   },
   {
     label: 'E-Commerce',
     icon: ShoppingCart,
     headline: 'Support thousands of customers without growing your team',
-    description: "E-commerce support is relentless. Our AI handles order tracking, returns, FAQs, and complaints — resolving 80% of tickets without a human.",
+    description: "E-commerce support is relentless. Our AI handles order tracking, returns, FAQs, and complaints — resolving routine tickets without a human.",
     wins: ['Order status automation', 'Returns & refund handling', 'Product recommendation AI', 'Abandoned cart recovery'],
-    result: 'ShopNova reduced support costs by 65%',
+    result: 'Faster ticket resolution time',
   },
 ]
 

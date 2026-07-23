@@ -6,7 +6,7 @@ import { ArrowRight, CheckCircle2, TrendingUp, Zap, Clock, UserCheck } from 'luc
 import { DemoDisclaimer } from '@/components/ui/DemoDisclaimer'
 
 export const metadata: Metadata = {
-  title: 'Portfolio & Demo Implementations | Nexus Automation',
+  title: 'Portfolio & Demo Implementations',
   description: 'Explore example automation systems and projected outcomes across different industries. These demonstrate the types of solutions we build.',
 }
 

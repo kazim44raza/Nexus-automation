@@ -5,17 +5,14 @@ import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import { formatDateShort } from '@/lib/utils'
 
 export const metadata: Metadata = {
-  title: 'Blog — AI Automation Insights | Nexus Automation',
+  title: 'Blog — AI Automation Insights',
   description: 'Expert articles on AI chatbots, voice agents, business automation, and lead generation for SMB owners.',
 }
 
 const posts = [
-  { slug: 'how-ai-chatbots-recover-lost-leads', title: 'How AI Chatbots Recover the Leads You\'re Losing After Hours', excerpt: 'Most businesses lose 35-40% of their potential leads simply because no one answered the phone or chat after 5PM. Here\'s how AI fixes that.', date: '2025-06-01', readingTime: 5, tags: ['AI Chatbots', 'Lead Generation'] },
-  { slug: 'ai-voice-agents-vs-traditional-receptionist', title: 'AI Voice Agents vs. Traditional Receptionists: What the Numbers Say', excerpt: 'A detailed cost comparison between hiring a receptionist and deploying an AI voice agent — including hidden costs most businesses miss.', date: '2025-05-22', readingTime: 7, tags: ['Voice Agents', 'ROI'] },
-  { slug: 'appointment-booking-automation-healthcare', title: 'How Healthcare Practices Are Cutting No-Shows by 60% With AI', excerpt: 'Patient no-shows cost the average medical practice $150,000 per year. Here\'s the exact automation system that\'s changing that.', date: '2025-05-15', readingTime: 6, tags: ['Healthcare', 'Appointments'] },
-  { slug: 'lead-qualification-small-business', title: '5 Lead Qualification Mistakes That Cost Small Businesses Fortune', excerpt: 'Most small businesses are burning sales hours on leads that were never going to close. These 5 automation fixes change everything.', date: '2025-05-08', readingTime: 5, tags: ['Lead Qualification', 'Sales'] },
-  { slug: 'workflow-automation-real-estate', title: 'The Complete Real Estate Automation Playbook for 2025', excerpt: 'How top-performing real estate teams are using AI to qualify every lead, schedule every showing, and follow up automatically.', date: '2025-04-30', readingTime: 8, tags: ['Real Estate', 'Automation'] },
-  { slug: 'crm-automation-integration', title: 'Why Your CRM Is Worthless Without Automation', excerpt: 'A CRM only as good as the data in it. Most CRMs are graveyard of leads no one followed up with. Automation changes the equation.', date: '2025-04-22', readingTime: 6, tags: ['CRM', 'Automation'] },
+  { slug: 'how-we-build-reliable-voice-agents', title: 'How We Build Voice Agents That Don\'t Hallucinate', excerpt: 'The problem with most AI voice agents is they are given too much freedom. Here is our exact framework for scoping voice workflows to prevent errors.', date: '2025-06-01', readingTime: 6, tags: ['Engineering', 'Voice AI'] },
+  { slug: 'why-we-prefer-n8n', title: 'Why We Prefer n8n over Zapier for Core Business Workflows', excerpt: 'Zapier is great for simple triggers, but when you are managing multi-step AI logic and complex data routing, n8n offers the control engineers need.', date: '2025-05-22', readingTime: 8, tags: ['Technical', 'Plumbing'] },
+  { slug: 'automation-is-data-not-chat', title: 'Automation is About Moving Data, Not Just Chatting', excerpt: 'A chatbot that can talk is a toy. A chatbot that can query your database, update a CRM record, and trigger a calendar invite is a business system.', date: '2025-05-15', readingTime: 5, tags: ['Systems', 'Strategy'] },
 ]
 
 export default function BlogPage() {

@@ -68,7 +68,7 @@ export default function ProductStories() {
                       <Phone className="w-5 h-5 text-emerald-600" />
                     </div>
                     <div>
-                      <div className="font-semibold text-slate-900">Sarah M.</div>
+                      <div className="font-semibold text-slate-900">Inbound Caller</div>
                       <div className="text-xs text-emerald-600 flex items-center gap-1">
                         <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" /> Active Call — 0:42
                       </div>
@@ -152,7 +152,7 @@ export default function ProductStories() {
                   <div className="flex justify-end pt-2">
                     <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-violet-50 border border-violet-100 rounded-full shadow-sm">
                       <Target className="w-3.5 h-3.5 text-violet-600" />
-                      <span className="text-xs font-semibold text-violet-700">Score: 85/100</span>
+                      <span className="text-xs font-semibold text-violet-700">Qualified Lead</span>
                     </div>
                   </div>
                 </div>

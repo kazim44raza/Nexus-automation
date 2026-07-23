@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import CustomerSupportClient from './client';
 
 export const metadata: Metadata = {
-  title: 'AI Customer Support Command Centre | Nexus Automation',
+  title: 'AI Customer Support Command Centre',
   description: 'Resolve routine requests instantly. Escalate the rest intelligently. AI-powered customer support that handles common questions across every channel.',
 };
 

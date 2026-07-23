@@ -10,7 +10,7 @@ const services = [
     description: 'Deploy intelligent chatbots that handle customer inquiries, qualify leads, and book appointments around the clock.',
     href: '/services/chatbots',
     color: 'text-primary bg-primary/10',
-    metrics: '40% more leads',
+    metrics: '24/7 lead capture',
   },
   {
     icon: Mic,
@@ -26,7 +26,7 @@ const services = [
     description: 'Connect your tools and automate repetitive workflows — from CRM updates to email sequences and reporting.',
     href: '/services/business-automation',
     color: 'text-accent bg-accent/10',
-    metrics: '70% less manual work',
+    metrics: 'Reduced data entry',
   },
   {
     icon: Target,
@@ -34,23 +34,23 @@ const services = [
     description: 'Automatically score and route leads so your team only speaks with prospects who are ready to buy.',
     href: '/services/lead-qualification',
     color: 'text-warm bg-warm/10',
-    metrics: '3x sales efficiency',
+    metrics: 'Automated routing',
   },
   {
     icon: Calendar,
     title: 'Appointment Booking',
-    description: 'Intelligent scheduling that syncs with your calendar, sends reminders, and cuts no-shows by 60%.',
+    description: 'Intelligent scheduling that syncs with your calendar, sends reminders, and manages cancellations automatically.',
     href: '/services/appointment-booking',
     color: 'text-sky-600 bg-sky-500/10',
-    metrics: '60% fewer no-shows',
+    metrics: 'Automated reminders',
   },
   {
     icon: HeadphonesIcon,
     title: 'Customer Support',
-    description: 'Automate 80% of support tickets with an AI that understands your products and escalates when needed.',
+    description: 'Automate routine support tickets with an AI that understands your products and escalates when needed.',
     href: '/services/customer-support',
     color: 'text-rose-600 bg-rose-500/10',
-    metrics: '80% auto-resolved',
+    metrics: 'Instant resolution',
   },
 ]
 

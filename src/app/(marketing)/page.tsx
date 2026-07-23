@@ -10,9 +10,10 @@ import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
 import NexusHub3D from '@/components/marketing/hero/NexusHub3D'
+import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
 
 export const metadata: Metadata = {
-  title: 'Nexus Automation — AI Automation Agency | Chatbots, Voice Agents & Workflow Automation',
+  title: { absolute: 'Nexus Automation — AI Automation Agency | Chatbots, Voice Agents & Workflow Automation' },
   description: 'We build AI chatbots, voice agents, and automation systems that capture leads, book appointments, and follow up 24/7. Book a free demo.',
 }
 
@@ -78,6 +79,7 @@ export default function HomePage() {
       </section>
 
       <IntegrationStrip />
+      <HumanFocusSection />
       <LiveActivity />
       <ProductStories />
       <BeforeAfter />

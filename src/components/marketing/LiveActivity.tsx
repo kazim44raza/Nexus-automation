@@ -8,12 +8,12 @@ import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 import { DemoDisclaimer } from '@/components/ui/DemoDisclaimer';
 
 const MOCK_EVENTS = [
-  { id: 1, text: "New call answered — Dr. Smith Dental", color: "bg-cyan-500" },
-  { id: 2, text: "Lead qualified — HomeEdge Realty", color: "bg-violet-500" },
+  { id: 1, text: "New call answered — Sample dental practice", color: "bg-cyan-500" },
+  { id: 2, text: "Lead qualified — Website lead", color: "bg-violet-500" },
   { id: 3, text: "Appointment confirmed — 2:30 PM today", color: "bg-emerald-500" },
-  { id: 4, text: "Follow-up sent — Bright Smile Dental", color: "bg-amber-500" },
-  { id: 5, text: "CRM updated — Foster & Associates", color: "bg-blue-500" },
-  { id: 6, text: "Missed call recovered — FitLife Studio", color: "bg-cyan-500" }
+  { id: 4, text: "Follow-up sent — Returning customer", color: "bg-amber-500" },
+  { id: 5, text: "CRM updated — Consultation request", color: "bg-blue-500" },
+  { id: 6, text: "Missed call recovered — After-hours caller", color: "bg-cyan-500" }
 ];
 
 export default function LiveActivity() {

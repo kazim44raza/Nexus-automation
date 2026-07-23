@@ -47,11 +47,11 @@ export function ChatbotsClient() {
             transition={{ duration: 0.7 }}
           >
             <h1 className="text-5xl md:text-6xl font-semibold tracking-tight font-manrope mb-6 text-slate-900">
-              Intelligent Chat <br />
-              <span className="text-blue-600">Spatial Workflows</span>
+              Automated Chat <br />
+              <span className="text-blue-600">Lead Qualification</span>
             </h1>
             <p className="text-xl text-slate-600 max-w-lg">
-              Automate customer journeys with context-aware chatbots that search knowledge bases, score leads, and update your CRM instantly.
+              Capture visitor information, answer routine questions, score leads automatically, and book appointments directly into your calendar.
             </p>
           </motion.div>
 
@@ -134,7 +134,7 @@ export function ChatbotsClient() {
                   >
                     <div className="w-8 h-8 rounded-full bg-blue-100 flex-shrink-0" />
                     <div className="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
-                      Hi there! How can I help you optimize your workflows today?
+                      Hi there! I can help you find property information or schedule a viewing. What are you looking for today?
                     </div>
                   </motion.div>
 
@@ -144,7 +144,7 @@ export function ChatbotsClient() {
                     className="flex justify-end space-x-2"
                   >
                     <div className="bg-blue-600 text-white p-3 rounded-2xl rounded-tr-none text-sm">
-                      I need help integrating my CRM.
+                      I'd like to schedule a viewing for 123 Maple Street.
                     </div>
                   </motion.div>
 
@@ -159,7 +159,7 @@ export function ChatbotsClient() {
                         <Database size={12} />
                         <span>Searching Knowledge Base...</span>
                       </div>
-                      I can help with that. We support Salesforce and HubSpot natively. Which one do you use?
+                      I can help with that. 123 Maple Street is available for viewings this week. Let's get that scheduled for you.
                     </div>
                   </motion.div>
                   

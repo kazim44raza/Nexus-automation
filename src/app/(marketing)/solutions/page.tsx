@@ -5,7 +5,7 @@ import { SolutionsGrid } from '@/components/marketing/SolutionsGrid'
 import { InteractiveSystemMap } from './client'
 
 export const metadata: Metadata = {
-  title: 'AI Automation Solutions | Nexus Automation',
+  title: 'AI Automation Solutions',
   description: 'Find the right automation system for your business. Explore our library of AI automation solutions for lead capture, appointment booking, and more.',
 }
 
