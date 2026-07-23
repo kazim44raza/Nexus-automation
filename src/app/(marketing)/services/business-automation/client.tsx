@@ -71,11 +71,11 @@ export default function BusinessAutomationClient() {
         </div>
 
         {/* Node Canvas Hero */}
-        <div className="relative w-full h-[600px] bg-[#161616] rounded-[32px] border border-slate-800 overflow-hidden flex items-center justify-center p-8 mb-24">
+        <div className="relative w-full h-[600px] bg-[#161616] rounded-[32px] border border-slate-800 overflow-x-auto overflow-y-hidden mb-24 hide-scrollbar">
            {/* Background Grid */}
-           <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
+           <div className="absolute inset-0 opacity-[0.03] min-w-[800px]" style={{ backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)', backgroundSize: '24px 24px' }}></div>
            
-           <div className="relative w-full h-full max-w-4xl mx-auto">
+           <div className="relative w-full h-full min-w-[800px] max-w-4xl mx-auto p-8">
              {/* Lines */}
              <svg className="absolute inset-0 w-full h-full pointer-events-none" style={{ overflow: 'visible' }}>
                <defs>
