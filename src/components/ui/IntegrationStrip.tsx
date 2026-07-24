@@ -19,7 +19,7 @@ export function IntegrationStrip() {
         {[...tools, ...tools].map((tool, index) => (
           <div 
             key={`${tool}-${index}`}
-            className="flex items-center justify-center px-4 py-2 bg-bg-surface rounded-full shadow-sm border border-border text-sm font-medium text-text-muted whitespace-nowrap"
+            className="flex items-center justify-center px-4 py-2 bg-bg-surface rounded-full shadow-sm border border-border text-sm font-medium text-text-secondary whitespace-nowrap"
           >
             {tool}
           </div>

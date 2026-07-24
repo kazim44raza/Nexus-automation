@@ -50,8 +50,8 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-bg-base/90 backdrop-blur-xl border-b border-border shadow-sm py-2'
-            : 'bg-bg-base/50 backdrop-blur-md border-b border-transparent py-4'
+            ? 'bg-[#F6F7FA]/95 backdrop-blur-xl border-b border-border shadow-sm py-2'
+            : 'bg-[#F6F7FA]/50 backdrop-blur-md border-b border-transparent py-4'
         )}
       >
         <nav className="page-container flex items-center justify-between h-14">
