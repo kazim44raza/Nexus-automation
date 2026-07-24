@@ -44,21 +44,23 @@ export function Navbar() {
     setMobileServicesOpen(false) 
   }, [pathname])
 
+  const isContactTop = pathname === '/contact' && !scrolled;
+
   return (
     <>
       <header
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-[#F6F7FA]/95 backdrop-blur-xl border-b border-border shadow-sm py-2'
-            : 'bg-[#F6F7FA]/50 backdrop-blur-md border-b border-transparent py-4'
+            ? 'bg-bg-base/90 backdrop-blur-xl border-b border-border shadow-sm py-2'
+            : 'bg-bg-base/50 backdrop-blur-md border-b border-transparent py-4'
         )}
       >
         <nav className="page-container flex items-center justify-between h-14">
           {/* Logo */}
           <Link href="/" className="group flex-shrink-0">
             <Logo
-              variant="dark"
+              variant={isContactTop ? "light" : "dark"}
               size={44}
               className="transition-transform duration-200 group-hover:scale-[1.03]"
             />
@@ -74,7 +76,11 @@ export function Navbar() {
             >
               <button className={cn(
                 'px-4 py-2 text-sm font-medium rounded-lg flex items-center gap-1.5 transition-colors',
-                pathname.startsWith('/services') ? 'text-accent' : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
+                pathname.startsWith('/services') 
+                  ? 'text-accent' 
+                  : isContactTop 
+                    ? 'text-gray-300 hover:text-white hover:bg-white/10'
+                    : 'text-gray-600 hover:text-gray-900 hover:bg-gray-50'
               )}>
                 Services <ChevronDown className={cn('w-4 h-4 transition-transform duration-200', servicesOpen && 'rotate-180')} />
               </button>
@@ -123,7 +129,11 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   'px-4 py-2 text-sm transition-colors rounded-lg',
-                  pathname === link.href ? 'text-accent font-medium' : 'text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-50'
+                  pathname === link.href 
+                    ? 'text-accent font-medium' 
+                    : isContactTop 
+                      ? 'text-gray-300 font-medium hover:text-white hover:bg-white/10'
+                      : 'text-gray-600 font-medium hover:text-gray-900 hover:bg-gray-50'
                 )}
               >
                 {link.label}
@@ -141,7 +151,10 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-gray-600 hover:text-gray-900 transition-colors"
+            className={cn(
+              "lg:hidden p-2 transition-colors",
+              isContactTop ? "text-gray-300 hover:text-white" : "text-gray-600 hover:text-gray-900"
+            )}
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

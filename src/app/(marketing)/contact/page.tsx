@@ -17,12 +17,12 @@ export default function ContactPage() {
 
   return (
     <>
-      <section className="bg-bg-base pt-32 pb-20 relative overflow-hidden border-b border-border">
+      <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
         <div className="relative page-container text-center max-w-2xl mx-auto z-10">
           <AnimatedSection>
-            <h1 className="heading-display text-text-primary mb-4">Let's map your automation opportunities</h1>
-            <p className="text-lg text-text-secondary">Get a free strategy audit. We'll identify where you're losing time and how AI can fix it.</p>
+            <h1 className="heading-display text-white mb-4">Let's map your automation opportunities</h1>
+            <p className="text-lg text-white/55">Get a free strategy audit. We'll identify where you're losing time and how AI can fix it.</p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
