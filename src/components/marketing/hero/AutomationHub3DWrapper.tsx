@@ -1,7 +1,8 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import AutomationHub3D from './AutomationHub3D';
+import { useState, useEffect, lazy, Suspense } from 'react';
+
+const AutomationHub3D = lazy(() => import('./AutomationHub3D'));
 
 export function AutomationHub3DWrapper() {
   const [mounted, setMounted] = useState(false);
@@ -12,5 +13,9 @@ export function AutomationHub3DWrapper() {
 
   if (!mounted) return null;
   
-  return <AutomationHub3D />;
+  return (
+    <Suspense fallback={null}>
+      <AutomationHub3D />
+    </Suspense>
+  );
 }
