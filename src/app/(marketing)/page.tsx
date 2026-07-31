@@ -6,7 +6,7 @@ import { HowItWorks } from '@/components/marketing/HowItWorks'
 import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
-import AutomationHub3D from '@/components/marketing/hero/AutomationHub3D'
+import AutomationHub3DDynamic from '@/components/marketing/hero/AutomationHub3DDynamic'
 import LiveActivity from '@/components/marketing/LiveActivity'
 import BeforeAfter from '@/components/marketing/BeforeAfter'
 import { IndustrySelector } from '@/components/marketing/IndustrySelector'
@@ -73,7 +73,7 @@ export default function HomePage() {
 
             {/* Right Visual */}
             <div className="lg:col-span-7 relative h-[500px] sm:h-[600px] lg:h-[750px] w-full flex items-center justify-center order-1 lg:order-2">
-              <AutomationHub3D />
+              <AutomationHub3DDynamic />
             </div>
           </div>
         </div>
