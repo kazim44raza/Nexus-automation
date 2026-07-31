@@ -90,10 +90,10 @@ export function IndustryShowcase() {
               key={ind.slug}
               onClick={() => setActiveIdx(idx)}
               className={`w-full text-left p-5 rounded-2xl transition-all duration-300 flex items-start gap-4 ${
-                isActive ? 'bg-white shadow-md border border-border' : 'hover:bg-black/5 border border-transparent'
+                isActive ? 'bg-bg-surface shadow-md border border-border' : 'hover:bg-bg-alt border border-transparent'
               }`}
             >
-              <div className={`mt-1 p-2 rounded-xl shrink-0 transition-colors ${isActive ? 'bg-text-primary text-white' : 'bg-black/5 text-text-secondary'}`}>
+              <div className={`mt-1 p-2 rounded-xl shrink-0 transition-colors ${isActive ? 'bg-text-primary text-bg-base' : 'bg-bg-alt text-text-secondary'}`}>
                 <Icon className="w-5 h-5" />
               </div>
               <div>
@@ -127,13 +127,13 @@ export function IndustryShowcase() {
               <div className="flex-1 flex flex-col justify-center space-y-6">
                 {activeInd.workflow.map((step, i) => (
                   <div key={i} className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center font-bold text-text-primary shadow-sm z-10 relative">
+                    <div className="w-10 h-10 rounded-full bg-bg-surface border border-border flex items-center justify-center font-bold text-text-primary shadow-sm z-10 relative">
                       {i + 1}
                       {i < activeInd.workflow.length - 1 && (
                         <div className="absolute top-10 left-1/2 w-px h-8 bg-border -translate-x-1/2" />
                       )}
                     </div>
-                    <div className="bg-white border border-border rounded-xl p-4 shadow-sm flex-1">
+                    <div className="bg-bg-surface border border-border rounded-xl p-4 shadow-sm flex-1">
                       <p className="font-medium text-text-primary">{step.step}</p>
                     </div>
                   </div>

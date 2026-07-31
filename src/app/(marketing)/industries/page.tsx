@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
-import { FloatingObjects } from '@/components/shared/FloatingObjects'
 import { IndustryShowcase } from './client'
 
 export const metadata: Metadata = {
@@ -13,7 +12,6 @@ export default function IndustriesPage() {
   return (
     <>
       <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
-        <FloatingObjects count={5} className="opacity-40" />
         <div className="absolute inset-0 bg-dot-pattern opacity-10" />
         <div className="relative z-10 page-container text-center max-w-3xl mx-auto">
           <AnimatedSection>
@@ -28,7 +26,7 @@ export default function IndustriesPage() {
         <div className="page-container max-w-7xl mx-auto">
           <IndustryShowcase />
 
-          <AnimatedSection className="mt-32 text-center max-w-2xl mx-auto p-12 rounded-3xl bg-white border border-border shadow-sm">
+          <AnimatedSection className="mt-32 text-center max-w-2xl mx-auto p-12 rounded-3xl bg-bg-surface border border-border shadow-sm">
             <h3 className="heading-md text-text-primary mb-4">Don&apos;t see your industry?</h3>
             <p className="text-text-secondary mb-8 text-lg">We build custom automation systems tailored to any unique operational workflow.</p>
             <Link href="/contact" className="btn-primary">

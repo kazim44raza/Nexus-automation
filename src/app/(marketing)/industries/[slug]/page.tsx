@@ -4,7 +4,6 @@ import Image from 'next/image'
 import { notFound } from 'next/navigation'
 import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
-import { FloatingObjects } from '@/components/shared/FloatingObjects'
 import { ContactForm } from '@/components/marketing/ContactForm'
 
 const industries = {
@@ -194,7 +193,6 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
   return (
     <>
       <section className="relative bg-bg-base pt-32 pb-20 overflow-hidden border-b border-border">
-        <FloatingObjects count={5} className="opacity-30" />
         <div className="absolute inset-0 bg-dot-pattern opacity-[0.03]" />
         <div className="relative z-10 page-container">
           <div className="max-w-3xl">
@@ -211,7 +209,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
       </section>
 
       {/* Editorial split layout with workflow diorama */}
-      <section className="section-py bg-white border-b border-border">
+      <section className="section-py bg-bg-alt border-b border-border">
         <div className="page-container">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <AnimatedSection direction="left">
@@ -222,9 +220,9 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                 <div className="absolute top-4 bottom-4 left-5 w-px bg-border" />
                 {industry.workflow.map((item, idx) => (
                   <div key={idx} className="relative flex items-start gap-6">
-                    <div className={`w-10 h-10 rounded-full border-4 border-white shrink-0 flex items-center justify-center shadow-sm relative z-10 
+                    <div className={`w-10 h-10 rounded-full border-4 border-bg-alt shrink-0 flex items-center justify-center shadow-sm relative z-10 
                       ${item.type === 'input' ? 'bg-bg-alt text-text-secondary' : 
-                        item.type === 'ai' ? 'bg-text-primary text-white' : 
+                        item.type === 'ai' ? 'bg-text-primary text-bg-base' : 
                         item.type === 'system' ? 'bg-border text-text-secondary' : 'bg-accent text-white'}`}
                     >
                       {idx + 1}
@@ -257,7 +255,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
                  )}
                  <div className="grid grid-cols-1 gap-6">
                    {industry.stats.map((stat, index) => (
-                   <div key={index} className="bg-white border border-border p-8 rounded-3xl shadow-sm text-center">
+                   <div key={index} className="bg-bg-surface border border-border p-8 rounded-3xl shadow-sm text-center">
                      <div className="text-gradient font-bold text-5xl mb-2">{stat.value}</div>
                      <p className="font-bold text-text-primary text-lg mb-1">{stat.label}</p>
                      <p className="text-text-secondary">{stat.context}</p>
@@ -272,7 +270,7 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
 
       <section className="section-py bg-bg-base">
         <div className="page-container">
-          <div className="max-w-4xl mx-auto bg-white border border-border rounded-3xl p-8 md:p-12 shadow-sm text-center">
+          <div className="max-w-4xl mx-auto bg-bg-surface border border-border rounded-3xl p-8 md:p-12 shadow-sm text-center">
             <span className="badge-accent mb-4 inline-flex">Get Started</span>
             <h2 className="heading-lg text-text-primary mb-4">Ready to automate your {industry.title.toLowerCase()} workflows?</h2>
             <p className="text-lg text-text-secondary mb-8 max-w-2xl mx-auto">Book a short call and we&apos;ll show you the most practical ways to implement this system for your team.</p>

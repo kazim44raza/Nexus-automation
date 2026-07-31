@@ -3,259 +3,127 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import Link from 'next/link';
-import {
-  Phone,
-  MessageSquare,
-  Workflow,
-  ArrowRight,
-  MessageCircle,
-  Target,
-  Calendar,
-  Headset,
-  Database,
-  RefreshCw,
-  Bot
-} from 'lucide-react';
-import { SectionHeading } from '@/components/ui/SectionHeading';
-
-const capabilities = [
-  { icon: MessageCircle, label: "WhatsApp Automation" },
-  { icon: Target, label: "Lead Qualification" },
-  { icon: Calendar, label: "Appointment Booking" },
-  { icon: Headset, label: "Customer Support" },
-  { icon: Database, label: "CRM Sync" },
-  { icon: RefreshCw, label: "Automated Follow-Up" }
-];
+import { ArrowRight } from 'lucide-react';
+import { AnimatedSection } from '@/components/shared/AnimatedSection';
 
 export default function ProductStories() {
   return (
-    <section className="flex flex-col w-full">
+    <section className="flex flex-col w-full bg-bg-base border-t border-border">
       
       {/* Story 1: Voice Agents */}
-      <div className="section-py section-light overflow-hidden">
+      <div className="section-py overflow-hidden">
         <div className="page-container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-lg"
-            >
-              <div className="text-sm font-bold tracking-wider text-cyan-600 uppercase mb-4">AI Voice Agents</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Turn every incoming call into a handled conversation.
-              </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Our AI voice agents answer calls instantly, qualify leads through natural conversation, book appointments directly into your calendar, and escalate to your team when needed.
-              </p>
-              <Link href="/services/voice-agents" className="btn-primary inline-flex items-center gap-2">
-                Explore Voice Agents <ArrowRight className="w-4 h-4" />
-              </Link>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative"
-            >
-              <div className="card bg-white p-6 rounded-2xl shadow-xl border border-slate-100 max-w-sm mx-auto">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 bg-emerald-100 rounded-full flex items-center justify-center">
-                      <Phone className="w-5 h-5 text-emerald-600" />
-                    </div>
-                    <div>
-                      <div className="font-semibold text-slate-900">Inbound Caller</div>
-                      <div className="text-xs text-emerald-600 flex items-center gap-1">
-                        <span className="w-1.5 h-1.5 bg-emerald-500 rounded-full animate-pulse" /> Active Call — 0:42
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div className="h-16 flex items-center justify-center gap-1 mb-6">
-                  {[...Array(20)].map((_, i) => (
-                    <motion.div
-                      key={i}
-                      className="w-1 bg-cyan-400 rounded-full"
-                      animate={{ height: ['20%', '80%', '40%', '100%', '30%'] }}
-                      transition={{ duration: 1.5, repeat: Infinity, delay: Math.random(), ease: "easeInOut" }}
-                    />
-                  ))}
-                </div>
-
-                <div className="bg-slate-50 p-4 rounded-xl border border-slate-100 mb-4">
-                  <p className="text-sm text-slate-600 italic">"I'd like to schedule a cleaning for next week."</p>
-                </div>
-
-                <div className="flex gap-2">
-                  <span className="text-xs font-medium px-2.5 py-1 bg-violet-50 text-violet-700 rounded-md border border-violet-100">Intent: Booking</span>
-                  <span className="text-xs font-medium px-2.5 py-1 bg-emerald-50 text-emerald-700 rounded-md border border-emerald-100">Sentiment: Positive</span>
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <AnimatedSection className="order-2 md:order-1">
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-bg-alt border border-border">
+                {/* Abstract visualization replacing the fake UI */}
+                <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-bg-surface via-bg-base to-bg-base mix-blend-screen opacity-50" />
+                <div className="absolute inset-0 flex items-center justify-center">
+                   <div className="w-48 h-48 rounded-full border border-primary/20 flex items-center justify-center relative">
+                     <div className="w-32 h-32 rounded-full border border-primary/40 flex items-center justify-center">
+                       <div className="w-16 h-16 rounded-full bg-primary/10 shadow-[0_0_30px_rgba(180,135,91,0.2)] animate-pulse" />
+                     </div>
+                     <div className="absolute inset-0 rounded-full border border-primary/10 rotate-45 scale-[1.1]" />
+                     <div className="absolute inset-0 rounded-full border border-primary/10 -rotate-45 scale-[1.2]" />
+                   </div>
                 </div>
               </div>
-            </motion.div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="order-1 md:order-2">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-text-muted mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Voice Infrastructure
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-text-primary tracking-tight mb-6 leading-tight">
+                Turn every inbound call into a handled conversation.
+              </h2>
+              <p className="text-lg text-text-secondary mb-10 leading-relaxed font-light">
+                Our voice agents answer instantly, qualify leads through natural conversation, and book appointments directly into your calendar. Zero hold times, absolute precision.
+              </p>
+              <Link href="/services/voice-agents" className="btn-primary inline-flex items-center gap-2">
+                Explore Voice Architecture <ArrowRight className="w-4 h-4" />
+              </Link>
+            </AnimatedSection>
           </div>
         </div>
       </div>
 
       {/* Story 2: Chatbots */}
-      <div className="section-py bg-slate-50 overflow-hidden">
+      <div className="section-py bg-bg-alt overflow-hidden border-y border-border">
         <div className="page-container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
             
-            <motion.div 
-              initial={{ opacity: 0, x: -40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative order-2 md:order-1"
-            >
-              <div className="card bg-white rounded-2xl shadow-xl border border-slate-200 overflow-hidden max-w-sm mx-auto">
-                <div className="bg-slate-100 px-4 py-2 flex items-center gap-2 border-b border-slate-200">
-                  <div className="flex gap-1.5">
-                    <div className="w-2.5 h-2.5 rounded-full bg-rose-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
-                    <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
-                  </div>
-                  <div className="bg-white text-[10px] text-slate-400 mx-auto px-4 py-1 rounded-md shadow-sm">azorvin.com</div>
-                </div>
-                
-                <div className="p-4 space-y-4">
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-cyan-100 flex-shrink-0 flex items-center justify-center">
-                      <MessageSquare className="w-4 h-4 text-cyan-600" />
-                    </div>
-                    <div className="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
-                      Hi! How can I help you today?
-                    </div>
-                  </div>
-                  
-                  <div className="flex gap-3 flex-row-reverse">
-                    <div className="w-8 h-8 rounded-full bg-slate-200 flex-shrink-0" />
-                    <div className="bg-cyan-600 text-white p-3 rounded-2xl rounded-tr-none text-sm">
-                      I need help automating my appointment booking
-                    </div>
-                  </div>
-
-                  <div className="flex gap-3">
-                    <div className="w-8 h-8 rounded-full bg-cyan-100 flex-shrink-0 flex items-center justify-center">
-                      <MessageSquare className="w-4 h-4 text-cyan-600" />
-                    </div>
-                    <div className="bg-slate-100 p-3 rounded-2xl rounded-tl-none text-sm text-slate-700">
-                      I can help with that! What industry is your business in?
-                    </div>
-                  </div>
-
-                  <div className="flex justify-end pt-2">
-                    <div className="inline-flex items-center gap-1.5 px-3 py-1.5 bg-violet-50 border border-violet-100 rounded-full shadow-sm">
-                      <Target className="w-3.5 h-3.5 text-violet-600" />
-                      <span className="text-xs font-semibold text-violet-700">Qualified Lead</span>
-                    </div>
-                  </div>
-                </div>
+            <AnimatedSection className="order-1">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-text-muted mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Text & Chat Systems
               </div>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-lg order-1 md:order-2"
-            >
-              <div className="text-sm font-bold tracking-wider text-cyan-600 uppercase mb-4">AI Chatbots</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Convert website visitors while their interest is highest.
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-text-primary tracking-tight mb-6 leading-tight">
+                Capture intent while interest is highest.
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Deploy intelligent chatbots that engage visitors, answer business-specific questions, capture lead information, and schedule consultations — all without human intervention.
+              <p className="text-lg text-text-secondary mb-10 leading-relaxed font-light">
+                Deploy intelligent systems that engage visitors, answer complex business-specific questions, and capture lead information autonomously.
               </p>
               <Link href="/services/chatbots" className="btn-primary inline-flex items-center gap-2">
-                Explore Chatbots <ArrowRight className="w-4 h-4" />
+                Explore Chat Systems <ArrowRight className="w-4 h-4" />
               </Link>
-            </motion.div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="order-2">
+              <div className="relative aspect-[4/3] w-full rounded-xl overflow-hidden bg-bg-base border border-border flex flex-col justify-end p-8">
+                {/* Abstract Text representation */}
+                <div className="w-full space-y-4">
+                  <div className="w-3/4 h-8 bg-bg-surface rounded-md border border-border ml-auto" />
+                  <div className="w-1/2 h-8 bg-bg-alt rounded-md border border-border" />
+                  <div className="w-2/3 h-8 bg-bg-surface rounded-md border border-border ml-auto" />
+                  <div className="w-3/4 h-8 bg-bg-alt rounded-md border border-border" />
+                  <div className="w-1/3 h-12 bg-primary/10 rounded-md border border-primary/20 mt-4" />
+                </div>
+              </div>
+            </AnimatedSection>
 
           </div>
         </div>
       </div>
 
       {/* Story 3: Automation */}
-      <div className="section-py section-light overflow-hidden">
+      <div className="section-py overflow-hidden">
         <div className="page-container">
-          <div className="grid md:grid-cols-2 gap-12 items-center">
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="max-w-lg"
-            >
-              <div className="text-sm font-bold tracking-wider text-cyan-600 uppercase mb-4">Business Automation</div>
-              <h2 className="text-3xl md:text-4xl font-bold text-slate-900 mb-6">
-                Connect your tools and eliminate repetitive work.
+          <div className="grid md:grid-cols-2 gap-12 lg:gap-20 items-center">
+            <AnimatedSection className="order-2 md:order-1">
+              <div className="relative aspect-square w-full rounded-xl overflow-hidden bg-bg-alt border border-border flex items-center justify-center p-8">
+                {/* Abstract connection representation */}
+                <div className="grid grid-cols-2 gap-8 w-full max-w-sm">
+                  {[...Array(4)].map((_, i) => (
+                     <div key={i} className="aspect-square rounded-xl bg-bg-surface border border-border shadow-inner relative">
+                       {i !== 3 && <div className="absolute top-1/2 -right-10 w-10 h-[1px] bg-border" />}
+                       {i === 0 && <div className="absolute -bottom-10 left-1/2 w-[1px] h-10 bg-border" />}
+                       <div className="absolute inset-0 flex items-center justify-center">
+                         <div className="w-2 h-2 rounded-full bg-text-muted" />
+                       </div>
+                     </div>
+                  ))}
+                </div>
+              </div>
+            </AnimatedSection>
+
+            <AnimatedSection delay={0.2} className="order-1 md:order-2">
+              <div className="inline-flex items-center gap-2 text-xs uppercase tracking-widest font-semibold text-text-muted mb-6">
+                <span className="w-2 h-2 rounded-full bg-primary" />
+                Business Workflows
+              </div>
+              <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-medium text-text-primary tracking-tight mb-6 leading-tight">
+                Connect your tools. Eliminate manual entry.
               </h2>
-              <p className="text-lg text-slate-600 mb-8 leading-relaxed">
-                Build intelligent workflows that connect your CRM, calendar, email, messaging, and team tools into one coordinated system that runs automatically.
+              <p className="text-lg text-text-secondary mb-10 leading-relaxed font-light">
+                Build intelligent workflows that connect your CRM, calendar, email, and internal tools into one cohesive, automated system.
               </p>
               <Link href="/services/business-automation" className="btn-primary inline-flex items-center gap-2">
                 Explore Automation <ArrowRight className="w-4 h-4" />
               </Link>
-            </motion.div>
-
-            <motion.div 
-              initial={{ opacity: 0, x: 40 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              className="relative py-12"
-            >
-              <div className="relative max-w-sm mx-auto h-[280px]">
-                {/* Connecting Lines */}
-                <svg className="absolute inset-0 w-full h-full" style={{ zIndex: 0 }}>
-                  <path d="M 60 40 L 160 80 L 260 40 L 260 160 L 160 220 L 60 160 Z" fill="none" stroke="#e2e8f0" strokeWidth="2" strokeDasharray="4 4" />
-                  <circle r="4" fill="#0ea5e9">
-                    <animateMotion dur="4s" repeatCount="indefinite" path="M 60 40 L 160 80 L 260 40 L 260 160 L 160 220 L 60 160 Z" />
-                  </circle>
-                </svg>
-
-                {/* Nodes */}
-                {[
-                  { icon: Target, label: 'Form', x: 20, y: 10 },
-                  { icon: Database, label: 'CRM', x: 120, y: 50 },
-                  { icon: MessageSquare, label: 'Email', x: 220, y: 10 },
-                  { icon: Calendar, label: 'Calendar', x: 220, y: 130 },
-                  { icon: Workflow, label: 'Slack', x: 120, y: 190 },
-                  { icon: Bot, label: 'AI', x: 20, y: 130 },
-                ].map((node, i) => (
-                  <motion.div
-                    key={i}
-                    className="absolute bg-white border border-slate-200 shadow-sm rounded-lg p-2 flex flex-col items-center justify-center gap-1 w-20 h-16 z-10"
-                    style={{ left: node.x, top: node.y }}
-                    animate={{ y: [0, -4, 0] }}
-                    transition={{ duration: 3, repeat: Infinity, delay: i * 0.4 }}
-                  >
-                    <node.icon className="w-5 h-5 text-cyan-600" />
-                    <span className="text-[10px] font-medium text-slate-600">{node.label}</span>
-                  </motion.div>
-                ))}
-              </div>
-            </motion.div>
+            </AnimatedSection>
           </div>
-        </div>
-      </div>
-
-      {/* Capability Chips */}
-      <div className="pb-16 bg-white border-b border-slate-100">
-        <div className="page-container flex flex-wrap justify-center gap-3">
-          {capabilities.map((cap, i) => (
-            <div key={i} className="inline-flex items-center gap-2 px-4 py-2 bg-slate-50 border border-slate-200 rounded-full text-sm font-medium text-slate-700 hover:bg-slate-100 hover:border-slate-300 transition-colors cursor-default shadow-sm">
-              <cap.icon className="w-4 h-4 text-cyan-600" />
-              {cap.label}
-            </div>
-          ))}
         </div>
       </div>
 

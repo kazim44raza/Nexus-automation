@@ -30,7 +30,7 @@ export function HowItWorks() {
   const containerRef = useRef<HTMLDivElement>(null);
   
   return (
-    <section className="section-py bg-surface">
+    <section className="section-py bg-bg-base border-t border-border">
       <div className="page-container" ref={containerRef}>
         <SectionHeading 
           eyebrow="Our Process" 
@@ -40,9 +40,9 @@ export function HowItWorks() {
         
         <div className="mt-16 relative">
           {/* Connecting line desktop */}
-          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[2px] bg-gray-200">
+          <div className="hidden md:block absolute top-12 left-[10%] right-[10%] h-[1px] bg-border">
             <motion.div 
-              className="absolute top-0 left-0 h-full bg-accent"
+              className="absolute top-0 left-0 h-full bg-primary"
               initial={{ width: "0%" }}
               whileInView={{ width: "100%" }}
               viewport={{ once: true, margin: "-100px" }}
@@ -50,7 +50,7 @@ export function HowItWorks() {
             />
             {/* Animated dot */}
             <motion.div
-              className="absolute top-1/2 -translate-y-1/2 w-3 h-3 rounded-full bg-accent shadow-[0_0_10px_rgba(6,182,212,0.5)]"
+              className="absolute top-1/2 -translate-y-1/2 w-2 h-2 rounded-full bg-primary shadow-[0_0_8px_rgba(180,135,91,0.5)]"
               initial={{ left: "0%" }}
               whileInView={{ left: "100%" }}
               viewport={{ once: true, margin: "-100px" }}
@@ -59,9 +59,9 @@ export function HowItWorks() {
           </div>
           
           {/* Connecting line mobile */}
-          <div className="md:hidden absolute top-0 bottom-0 left-6 w-[2px] bg-gray-200">
+          <div className="md:hidden absolute top-0 bottom-0 left-6 w-[1px] bg-border">
              <motion.div 
-              className="absolute top-0 left-0 w-full bg-accent"
+              className="absolute top-0 left-0 w-full bg-primary"
               initial={{ height: "0%" }}
               whileInView={{ height: "100%" }}
               viewport={{ once: true, margin: "-100px" }}
@@ -80,25 +80,25 @@ export function HowItWorks() {
                 className="relative pl-16 md:pl-0 md:text-center"
               >
                 {/* Mobile icon/circle */}
-                <div className="md:hidden absolute left-0 top-0 w-12 h-12 bg-white rounded-full border-2 border-gray-100 flex items-center justify-center z-10 shadow-sm">
-                  <stage.icon className="w-5 h-5 text-accent" />
+                <div className="md:hidden absolute left-0 top-0 w-12 h-12 bg-bg-surface rounded-xl border border-border flex items-center justify-center z-10 shadow-sm">
+                  <stage.icon className="w-5 h-5 text-primary" />
                 </div>
                 
                 {/* Desktop icon/circle */}
-                <div className="hidden md:flex mx-auto w-24 h-24 bg-white rounded-full border-4 border-gray-50 items-center justify-center relative z-10 shadow-sm mb-6">
-                  <stage.icon className="w-10 h-10 text-accent" />
+                <div className="hidden md:flex mx-auto w-24 h-24 bg-bg-surface rounded-xl border border-border items-center justify-center relative z-10 shadow-sm mb-6">
+                  <stage.icon className="w-10 h-10 text-primary" />
                 </div>
                 
                 {/* Large Background Number */}
-                <div className="hidden md:block absolute -top-8 left-1/2 -translate-x-1/2 text-9xl font-bold text-accent/5 select-none -z-10">
+                <div className="hidden md:block absolute -top-8 left-1/2 -translate-x-1/2 text-9xl font-display font-bold text-primary/5 select-none -z-10">
                   0{stage.id}
                 </div>
                 
-                <h3 className="heading-md mb-3">
-                  <span className="md:hidden text-accent mr-2">0{stage.id}.</span>
+                <h3 className="text-xl sm:text-2xl font-display font-medium tracking-tight text-text-primary mb-3">
+                  <span className="md:hidden text-primary mr-2">0{stage.id}.</span>
                   {stage.title}
                 </h3>
-                <p className="text-secondary">{stage.description}</p>
+                <p className="text-text-secondary font-light">{stage.description}</p>
               </motion.div>
             ))}
           </div>

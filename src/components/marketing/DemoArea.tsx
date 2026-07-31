@@ -48,20 +48,20 @@ function VoiceDemo() {
   };
 
   return (
-    <div className="max-w-2xl mx-auto bg-gray-900 rounded-2xl border border-gray-800 p-6 md:p-8">
+    <div className="max-w-2xl mx-auto bg-bg-surface rounded-xl border border-border p-6 md:p-8 shadow-xl">
       <div className="flex flex-col md:flex-row items-center justify-between gap-6 mb-8">
         <div className="flex items-center gap-4">
           <button 
             onClick={togglePlay}
             className={`w-14 h-14 rounded-full flex items-center justify-center transition-all ${
-              isPlaying ? 'bg-red-500/20 text-red-500 hover:bg-red-500/30' : 'bg-accent/20 text-accent hover:bg-accent/30'
+              isPlaying ? 'bg-bg-alt text-text-primary hover:bg-bg-base border border-border' : 'bg-primary/10 text-primary hover:bg-primary/20 border border-primary/20'
             }`}
           >
             {isPlaying ? <Square className="w-5 h-5 fill-current" /> : <Play className="w-6 h-6 fill-current ml-1" />}
           </button>
           <div>
-            <h4 className="text-white font-medium">Inbound Call</h4>
-            <p className="text-gray-400 text-sm font-mono">{formatTime(duration)}</p>
+            <h4 className="text-text-primary font-medium tracking-tight">Inbound Call</h4>
+            <p className="text-text-muted text-sm font-mono">{formatTime(duration)}</p>
           </div>
         </div>
 
@@ -70,7 +70,7 @@ function VoiceDemo() {
           {[...Array(12)].map((_, i) => (
             <motion.div
               key={i}
-              className="w-1.5 bg-accent rounded-full"
+              className="w-1.5 bg-primary rounded-full"
               animate={{ 
                 height: isPlaying ? [10, Math.random() * 30 + 10, 10] : 4 
               }}
@@ -84,7 +84,7 @@ function VoiceDemo() {
         </div>
       </div>
 
-      <div className="space-y-4 min-h-[250px] bg-gray-950 p-4 rounded-xl border border-gray-800 overflow-hidden">
+      <div className="space-y-4 min-h-[250px] bg-bg-base p-6 rounded-xl border border-border overflow-hidden">
         <AnimatePresence>
           {transcript.slice(0, visibleLines).map((line, i) => (
             <motion.div
@@ -93,9 +93,9 @@ function VoiceDemo() {
               animate={{ opacity: 1, y: 0 }}
               className={`flex flex-col ${line.speaker === 'Caller' ? 'items-end' : 'items-start'}`}
             >
-              <span className="text-xs text-gray-500 mb-1">{line.speaker}</span>
-              <div className={`px-4 py-2 rounded-2xl max-w-[85%] text-sm ${
-                line.speaker === 'Caller' ? 'bg-gray-800 text-gray-200 rounded-tr-sm' : 'bg-accent/20 text-accent-light rounded-tl-sm'
+              <span className="text-xs text-text-muted mb-1 font-medium tracking-wide uppercase">{line.speaker}</span>
+              <div className={`px-4 py-2.5 rounded-2xl max-w-[85%] text-sm font-light ${
+                line.speaker === 'Caller' ? 'bg-bg-surface text-text-primary rounded-tr-sm border border-border' : 'bg-primary/10 text-text-primary rounded-tl-sm border border-primary/20'
               }`}>
                 {line.text}
               </div>
@@ -106,7 +106,7 @@ function VoiceDemo() {
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              className="flex items-center gap-2 text-gray-500 text-sm p-2"
+              className="flex items-center gap-2 text-text-muted text-sm p-2 font-mono"
             >
               <Loader2 className="w-4 h-4 animate-spin" />
               Listening...
@@ -116,10 +116,10 @@ function VoiceDemo() {
       </div>
 
       <div className="mt-6 flex flex-wrap gap-3">
-        <div className="bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium text-gray-300">
+        <div className="bg-bg-alt border border-border px-3 py-1.5 rounded-md text-xs font-mono text-text-secondary tracking-wide">
           Intent: Booking
         </div>
-        <div className="bg-gray-800 px-3 py-1.5 rounded-md text-xs font-medium text-gray-300">
+        <div className="bg-bg-alt border border-border px-3 py-1.5 rounded-md text-xs font-mono text-text-secondary tracking-wide">
           Confidence: 98%
         </div>
       </div>
@@ -143,18 +143,18 @@ function ChatDemo() {
   };
 
   return (
-    <div className="max-w-md mx-auto bg-gray-900 rounded-2xl border border-gray-800 overflow-hidden shadow-2xl">
-      <div className="bg-gray-800 px-4 py-3 flex items-center gap-3 border-b border-gray-700">
-        <div className="w-8 h-8 rounded-full bg-accent flex items-center justify-center text-white">
+    <div className="max-w-md mx-auto bg-bg-surface rounded-xl border border-border overflow-hidden shadow-2xl">
+      <div className="bg-bg-alt px-4 py-3 flex items-center gap-3 border-b border-border">
+        <div className="w-8 h-8 rounded-full bg-primary/10 border border-primary/20 flex items-center justify-center text-primary">
           <MessageSquare className="w-4 h-4" />
         </div>
         <div>
-          <h4 className="text-white text-sm font-medium">Azorvin Assistant</h4>
-          <p className="text-green-400 text-xs">Online</p>
+          <h4 className="text-text-primary text-sm font-medium tracking-tight">Azorvin Assistant</h4>
+          <p className="text-primary text-xs flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" /> Online</p>
         </div>
       </div>
       
-      <div className="p-4 h-[350px] overflow-y-auto space-y-4 bg-gray-950">
+      <div className="p-4 h-[350px] overflow-y-auto space-y-4 bg-bg-base">
         {messages.map((msg, i) => (
           <motion.div
             key={i}
@@ -162,8 +162,8 @@ function ChatDemo() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             className={`flex ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
-            <div className={`px-4 py-2 rounded-2xl max-w-[85%] text-sm ${
-              msg.role === 'user' ? 'bg-accent text-white rounded-tr-sm' : 'bg-gray-800 text-gray-200 rounded-tl-sm'
+            <div className={`px-4 py-2.5 rounded-2xl max-w-[85%] text-sm font-light border ${
+              msg.role === 'user' ? 'bg-primary/10 border-primary/20 text-text-primary rounded-tr-sm' : 'bg-bg-surface border-border text-text-primary rounded-tl-sm'
             }`}>
               {msg.text}
             </div>
@@ -181,7 +181,7 @@ function ChatDemo() {
               <button
                 key={opt}
                 onClick={() => handleOption(opt)}
-                className="bg-gray-800 hover:bg-gray-700 text-gray-200 text-xs px-4 py-2 rounded-full border border-gray-700 transition-colors"
+                className="bg-bg-surface hover:bg-bg-alt text-text-primary text-xs px-4 py-2 rounded-full border border-border transition-colors shadow-sm"
               >
                 {opt}
               </button>
@@ -190,10 +190,10 @@ function ChatDemo() {
         )}
       </div>
       
-      <div className="p-3 bg-gray-900 border-t border-gray-800">
-        <div className="bg-gray-950 rounded-full border border-gray-700 flex items-center px-4 py-2">
-          <span className="text-gray-500 text-sm flex-1">Type a message...</span>
-          <ArrowRight className="w-4 h-4 text-gray-500" />
+      <div className="p-3 bg-bg-alt border-t border-border">
+        <div className="bg-bg-base rounded-full border border-border flex items-center px-4 py-2">
+          <span className="text-text-muted text-sm flex-1 font-light">Type a message...</span>
+          <ArrowRight className="w-4 h-4 text-text-muted" />
         </div>
       </div>
     </div>
@@ -223,33 +223,33 @@ function WorkflowDemo() {
     <div className="max-w-4xl mx-auto py-12 px-4">
       <div className="flex flex-col md:flex-row items-center justify-between gap-4 md:gap-0 relative">
         {/* Connecting line */}
-        <div className="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gray-800 -translate-y-1/2 z-0" />
-        <div className="md:hidden absolute left-1/2 top-0 h-full w-1 bg-gray-800 -translate-x-1/2 z-0" />
+        <div className="hidden md:block absolute top-1/2 left-0 w-full h-[1px] bg-border -translate-y-1/2 z-0" />
+        <div className="md:hidden absolute left-1/2 top-0 h-full w-[1px] bg-border -translate-x-1/2 z-0" />
 
         {nodes.map((node) => {
           const isActive = activeNode === node.id;
           const isPast = activeNode > node.id;
           
           return (
-            <div key={node.id} className="relative z-10 flex flex-col items-center gap-3 bg-gray-950 p-2">
+            <div key={node.id} className="relative z-10 flex flex-col items-center gap-3 bg-bg-base p-2">
               <motion.div
                 animate={{
-                  backgroundColor: isActive ? 'rgb(6 182 212 / 0.2)' : isPast ? 'rgb(6 182 212 / 0.1)' : 'rgb(31 41 55)',
-                  borderColor: isActive || isPast ? 'rgb(6 182 212)' : 'rgb(55 65 81)',
+                  backgroundColor: isActive ? 'rgba(180, 135, 91, 0.1)' : 'var(--color-bg-surface)',
+                  borderColor: isActive || isPast ? 'var(--color-primary)' : 'var(--color-border)',
                   scale: isActive ? 1.1 : 1,
                 }}
-                className="w-12 h-12 rounded-xl border-2 flex items-center justify-center shadow-lg transition-colors"
+                className="w-12 h-12 rounded-xl border flex items-center justify-center shadow-lg transition-colors bg-bg-surface"
               >
                 {isActive && (
                   <motion.div 
                     layoutId="activeDot"
-                    className="w-3 h-3 bg-accent rounded-full shadow-[0_0_10px_rgba(6,182,212,1)]" 
+                    className="w-2 h-2 bg-primary rounded-full shadow-[0_0_8px_rgba(180,135,91,0.8)]" 
                   />
                 )}
-                {isPast && !isActive && <div className="w-2 h-2 bg-accent rounded-full opacity-50" />}
+                {isPast && !isActive && <div className="w-1.5 h-1.5 bg-primary rounded-full opacity-50" />}
               </motion.div>
-              <span className={`text-xs font-medium whitespace-nowrap px-2 py-1 rounded-md ${
-                isActive ? 'text-accent bg-accent/10' : 'text-gray-500'
+              <span className={`text-xs font-mono whitespace-nowrap px-2 py-1 rounded-md border ${
+                isActive ? 'text-primary bg-primary/10 border-primary/20' : 'text-text-muted border-transparent'
               }`}>
                 {node.label}
               </span>
@@ -258,9 +258,9 @@ function WorkflowDemo() {
         })}
       </div>
       
-      <div className="mt-16 bg-gray-800 h-2 rounded-full overflow-hidden max-w-md mx-auto">
+      <div className="mt-16 bg-bg-surface h-[2px] w-full max-w-md mx-auto">
         <motion.div 
-          className="h-full bg-accent"
+          className="h-full bg-primary"
           animate={{ width: `${(activeNode / nodes.length) * 100}%` }}
           transition={{ duration: 0.3 }}
         />
@@ -273,49 +273,45 @@ export function DemoArea() {
   const [activeTab, setActiveTab] = useState<'voice' | 'chat' | 'workflow'>('voice');
 
   return (
-    <section className="section-py bg-gray-950 section-dark overflow-hidden">
+    <section className="section-py bg-bg-base overflow-hidden border-t border-border">
       <div className="page-container">
         <SectionHeading 
-          eyebrow="Try It" 
-          title="Experience the AI in action" 
-          description="Interact with our live automation demos below to see exactly how the AI responds and processes information."
-          align="center" 
-          dark={true}
+          eyebrow="Interactive" 
+          title="Experience the architecture" 
+          description="See exactly how the systems respond and process information."
+          align="center"
         />
 
         <div className="mt-12">
           {/* Tabs */}
           <div className="flex justify-center mb-12">
-            <div className="flex items-center bg-gray-900 rounded-full p-1 border border-gray-800">
+            <div className="flex items-center bg-bg-surface rounded-full p-1 border border-border">
               <button
                 onClick={() => setActiveTab('voice')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeTab === 'voice' ? 'bg-gray-800 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'
+                  activeTab === 'voice' ? 'bg-bg-alt text-text-primary shadow-sm border border-border' : 'text-text-secondary hover:text-text-primary border border-transparent'
                 }`}
               >
                 <Phone className="w-4 h-4" />
-                <span className="hidden sm:inline">Listen to Voice Agent</span>
-                <span className="sm:hidden">Voice</span>
+                <span className="hidden sm:inline">Voice</span>
               </button>
               <button
                 onClick={() => setActiveTab('chat')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeTab === 'chat' ? 'bg-gray-800 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'
+                  activeTab === 'chat' ? 'bg-bg-alt text-text-primary shadow-sm border border-border' : 'text-text-secondary hover:text-text-primary border border-transparent'
                 }`}
               >
                 <MessageSquare className="w-4 h-4" />
-                <span className="hidden sm:inline">Try AI Chatbot</span>
-                <span className="sm:hidden">Chat</span>
+                <span className="hidden sm:inline">Chat</span>
               </button>
               <button
                 onClick={() => setActiveTab('workflow')}
                 className={`flex items-center gap-2 px-6 py-2.5 rounded-full text-sm font-medium transition-all ${
-                  activeTab === 'workflow' ? 'bg-gray-800 text-white shadow-sm' : 'text-gray-400 hover:text-gray-200'
+                  activeTab === 'workflow' ? 'bg-bg-alt text-text-primary shadow-sm border border-border' : 'text-text-secondary hover:text-text-primary border border-transparent'
                 }`}
               >
                 <Workflow className="w-4 h-4" />
-                <span className="hidden sm:inline">View Workflow</span>
-                <span className="sm:hidden">Workflow</span>
+                <span className="hidden sm:inline">Workflow</span>
               </button>
             </div>
           </div>
@@ -338,7 +334,7 @@ export function DemoArea() {
           </div>
           
           <div className="mt-8 text-center">
-            <p className="text-gray-500 text-sm">Interactive demonstration — actual AI responses may vary</p>
+            <p className="text-text-muted text-xs font-mono uppercase tracking-widest">Interactive demonstration — responses generated dynamically</p>
           </div>
         </div>
       </div>

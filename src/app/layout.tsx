@@ -1,15 +1,19 @@
 import type { Metadata } from 'next'
-import { Inter, Manrope } from 'next/font/google'
+import { Instrument_Sans, Newsreader } from 'next/font/google'
 import './globals.css'
+import { Navbar } from '@/components/marketing/Navbar'
+import { Footer } from '@/components/marketing/Footer'
 
-const inter = Inter({
+const instrumentSans = Instrument_Sans({ 
   subsets: ['latin'],
   variable: '--font-body',
+  display: 'swap',
 })
 
-const manrope = Manrope({
+const newsreader = Newsreader({ 
   subsets: ['latin'],
   variable: '--font-display',
+  display: 'swap',
 })
 
 const getSiteUrl = () => {
@@ -67,7 +71,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${inter.variable} ${manrope.variable} antialiased bg-bg-base text-text-primary overflow-x-hidden min-h-screen flex flex-col`} suppressHydrationWarning>
+      <body className={`${instrumentSans.variable} ${newsreader.variable} antialiased bg-bg-base text-text-primary overflow-x-hidden min-h-screen flex flex-col`} suppressHydrationWarning>
         {children}
       </body>
     </html>
