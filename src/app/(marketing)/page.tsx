@@ -7,7 +7,6 @@ import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
 import AutomationHub3D from '@/components/marketing/hero/AutomationHub3D'
-import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
 import LiveActivity from '@/components/marketing/LiveActivity'
 import BeforeAfter from '@/components/marketing/BeforeAfter'
 import { IndustrySelector } from '@/components/marketing/IndustrySelector'
@@ -54,30 +53,21 @@ export default function HomePage() {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
             {/* Left Content */}
             <div className="lg:col-span-5 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left pt-10 lg:pt-0 flex flex-col items-center lg:items-start order-2 lg:order-1">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-border bg-bg-surface text-text-secondary text-xs uppercase tracking-widest font-semibold mb-8">
-                <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-                Intelligent Infrastructure
-              </div>
-              
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-medium tracking-tight text-text-primary leading-[1.05] mb-8">
-                Automation systems that keep business moving.
+              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-medium tracking-tight text-text-primary leading-[1.05] mb-8 mt-12">
+                Automation that answers customers and completes the work behind the conversation.
               </h1>
               
               <p className="text-lg text-text-secondary mb-10 max-w-xl font-light leading-relaxed">
-                Azorvin engineers voice agents, chatbots, and connected workflows that operate with precision—qualifying leads and driving growth without the overhead.
+                Azorvin builds voice, messaging and workflow systems that capture inquiries, qualify leads, schedule appointments, update business tools and hand complex cases to your team.
               </p>
               
               <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto justify-center lg:justify-start">
                 <Link href="/contact" className="btn-primary">
                   Book a Consultation
                 </Link>
-                <Link href="/solutions" className="btn-ghost">
-                  Explore Architecture
+                <Link href="/solutions" className="btn-secondary">
+                  See How It Works
                 </Link>
-              </div>
-              
-              <div className="text-xs text-text-muted font-mono uppercase tracking-wider">
-                <p>Built for scale · Zero-latency ops · Custom logic</p>
               </div>
             </div>
 
@@ -90,14 +80,13 @@ export default function HomePage() {
       </section>
 
       <IntegrationStrip />
-      <HumanFocusSection />
-      <ProcessSection />
-      <LiveActivity />
-      <ProductStories />
       <BeforeAfter />
-      <HowItWorks />
-      <IndustrySelector />
+      <LiveActivity />
       <DemoArea />
+      <HowItWorks />
+      <ProcessSection />
+      <IndustrySelector />
+      <ProductStories />
       <FAQSection />
       <CTASection />
     </div>

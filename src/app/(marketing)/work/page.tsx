@@ -18,13 +18,13 @@ const cases = [
     challenge: 'After-hours calls going to voicemail, resulting in lost patient opportunities and high no-show rates.', 
     solution: 'AI Voice Agent + Appointment Booking System', 
     metrics: [
-      { label: 'Projected New Patients', value: '+23/mo' },
-      { label: 'Call Answer Rate', value: '100%' },
-      { label: 'No-show Reduction', value: '15%' }
+      { label: 'Patient Acquisition', value: 'Volume' },
+      { label: 'Response Time', value: 'Seconds' },
+      { label: 'No-show Rate', value: 'Reduction' }
     ],
     color: 'bg-primary',
     iconColor: 'text-primary',
-    bgLight: 'bg-primary/10 border border-primary/20',
+    bgLight: 'bg-bg-alt border border-border',
     workflow: [
       'Patient calls at 9 PM',
       'AI schedules visit in EMR',
@@ -39,13 +39,13 @@ const cases = [
     challenge: 'Agents spending hours manually qualifying cold leads and scheduling viewings.', 
     solution: 'AI Lead Qualification + CRM Automation', 
     metrics: [
-      { label: 'Extra Closings', value: '+8/qtr' },
-      { label: 'Auto-qualified', value: '73%' },
-      { label: 'Time Saved', value: '8+ hrs/wk' }
+      { label: 'Agent Bandwidth', value: 'Freed' },
+      { label: 'Lead Velocity', value: 'Increased' },
+      { label: 'Data Accuracy', value: 'Verified' }
     ],
     color: 'bg-accent',
     iconColor: 'text-accent',
-    bgLight: 'bg-accent/10 border border-accent/20',
+    bgLight: 'bg-bg-alt border border-border',
     workflow: [
       'Zillow lead submitted',
       'AI SMS confirms budget',
@@ -60,13 +60,13 @@ const cases = [
     challenge: 'Customer support team overwhelmed with repetitive questions about shipping and returns.', 
     solution: 'AI Customer Support Agent', 
     metrics: [
-      { label: 'Cost Reduction', value: '65%' },
-      { label: 'Auto-resolution', value: '79%' },
-      { label: 'CSAT Score', value: '+18%' }
+      { label: 'Ticket Deflection', value: 'Maximized' },
+      { label: 'CSAT Score', value: 'Measured' },
+      { label: 'Human Handoff', value: 'Seamless' }
     ],
-    color: 'bg-mint',
-    iconColor: 'text-mint',
-    bgLight: 'bg-mint/10 border border-mint/20',
+    color: 'bg-text-secondary',
+    iconColor: 'text-text-secondary',
+    bgLight: 'bg-bg-alt border border-border',
     workflow: [
       'Customer asks "Where is order?"',
       'AI queries Shopify data',
@@ -81,13 +81,13 @@ const cases = [
     challenge: 'Slow follow-up times causing trial members to lose interest and go to competitors.', 
     solution: 'AI Chatbot + Lead Nurture Automation', 
     metrics: [
-      { label: 'Trial Conversion', value: '2x' },
-      { label: 'Manual Follow-up', value: '0 hrs' },
-      { label: 'Projected MRR', value: '+$34k' }
+      { label: 'Trial Booking', value: 'Automated' },
+      { label: 'Follow-up Lag', value: 'Eliminated' },
+      { label: 'Show Rate', value: 'Optimized' }
     ],
     color: 'bg-primary',
     iconColor: 'text-primary',
-    bgLight: 'bg-primary/10 border border-primary/20',
+    bgLight: 'bg-bg-alt border border-border',
     workflow: [
       'IG DM inquiry on price',
       'AI answers & offers trial',

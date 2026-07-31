@@ -1,7 +1,6 @@
 import { Navbar } from '@/components/marketing/Navbar'
 import { Footer } from '@/components/marketing/Footer'
 import { ChatbotWidget } from '@/components/marketing/ChatbotWidget'
-import { WhatsAppButton } from '@/components/marketing/WhatsAppButton'
 import { CursorGlow } from '@/components/shared/CursorGlow'
 
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
@@ -12,7 +11,6 @@ export default function MarketingLayout({ children }: { children: React.ReactNod
       <main>{children}</main>
       <Footer />
       <ChatbotWidget />
-      <WhatsAppButton />
     </>
   )
 }

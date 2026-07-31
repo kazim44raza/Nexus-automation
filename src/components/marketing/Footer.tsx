@@ -40,7 +40,7 @@ export function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <Link href="/" className="inline-flex mb-6 hover:opacity-90 transition-opacity">
-              <Logo variant="light" size={48} />
+              <Logo variant="light" />
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-8 max-w-xs font-display">
               Automation systems that keep business moving.

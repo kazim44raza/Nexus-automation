@@ -50,8 +50,8 @@ export function Navbar() {
         className={cn(
           'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
           scrolled
-            ? 'bg-bg-surface/80 backdrop-blur-xl border-b border-border shadow-sm py-3'
-            : 'bg-bg-base/40 backdrop-blur-md border-b border-transparent py-5'
+            ? 'bg-bg-surface/95 backdrop-blur-sm border-b border-border shadow-sm py-4'
+            : 'bg-transparent border-b border-transparent py-6'
         )}
       >
         <nav className="page-container flex items-center justify-between h-14">
@@ -59,7 +59,6 @@ export function Navbar() {
           <Link href="/" className="group flex-shrink-0">
             <Logo
               variant="light"
-              size={40}
               className="transition-transform duration-200 group-hover:opacity-90"
             />
           </Link>
@@ -137,7 +136,7 @@ export function Navbar() {
 
           {/* CTA */}
           <div className="hidden lg:flex items-center">
-            <Link href="/contact" className="btn-secondary">
+            <Link href="/contact" className="btn-primary">
               Book a Consultation
             </Link>
           </div>

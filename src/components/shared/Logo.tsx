@@ -55,14 +55,12 @@ function RobotMark({ size }: { size: number }) {
  * if it's missing or fails to load it shows a clean inline robot mark, so
  * the UI never shows a broken image — even on pre-hydration load failures.
  */
-export function Logo({ variant = 'dark', size = 36, showWordmark = true, className }: LogoProps) {
+export function Logo({ variant = 'dark', showWordmark = true, className }: Omit<LogoProps, 'size'>) {
   const [useFallback, setUseFallback] = useState(false)
   const imgRef = useRef<HTMLImageElement>(null)
   const retried = useRef(false)
 
   function handleError() {
-    // A just-added static file can momentarily 404 in dev. Retry once with a
-    // cache-bust before giving up to the inline fallback.
     if (!retried.current && imgRef.current) {
       retried.current = true
       imgRef.current.src = `/logo.png?v=${Date.now()}`
@@ -72,29 +70,27 @@ export function Logo({ variant = 'dark', size = 36, showWordmark = true, classNa
   }
 
   return (
-    <span className={cn('flex items-center gap-2.5', className)}>
+    <span className={cn('flex items-center gap-3', className)}>
       {useFallback ? (
-        <RobotMark size={size} />
+        <div className="h-7 md:h-9 w-auto flex-shrink-0 flex items-center">
+          <RobotMark size={32} />
+        </div>
       ) : (
-        // eslint-disable-next-line @next/next/no-img-element
+        /* eslint-disable-next-line @next/next/no-img-element */
         <img
           ref={imgRef}
           src="/logo.png"
           alt="Azorvin logo"
-          height={size}
           onError={handleError}
           onLoad={() => setUseFallback(false)}
-          className="object-contain object-left flex-shrink-0"
-          style={{ height: size, width: 'auto' }}
+          className="h-7 md:h-9 w-auto object-contain object-left flex-shrink-0 m-0 p-0"
         />
       )}
-      {/* At navbar sizes the text inside the circular badge is too small to
-          read, so always pair the mark with a clear text wordmark. */}
       {showWordmark && (
         <span
           className={cn(
-            'font-display font-extrabold tracking-tight leading-none',
-            variant === 'light' ? 'text-white' : 'text-text-primary'
+            'font-display font-medium tracking-tight leading-none text-xl md:text-2xl',
+            variant === 'light' ? 'text-text-primary' : 'text-text-primary'
           )}
         >
           Azorvin

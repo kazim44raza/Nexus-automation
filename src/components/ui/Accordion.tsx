@@ -28,7 +28,7 @@ export function Accordion({ items, className }: AccordionProps) {
         return (
           <div
             key={i}
-            className="border-b border-gray-200 last:border-0"
+            className="border-b border-border last:border-0"
           >
             <button
               id={headerId}
@@ -37,10 +37,10 @@ export function Accordion({ items, className }: AccordionProps) {
               onClick={() => setOpenIndex(isOpen ? null : i)}
               className="w-full flex items-center justify-between py-5 text-left group focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:rounded"
             >
-              <span className="font-semibold text-gray-900 group-hover:text-primary transition-colors text-lg pr-8">
+              <span className="font-semibold text-text-primary group-hover:text-primary transition-colors text-lg pr-8">
                 {item.question}
               </span>
-              <span className="flex-shrink-0 text-gray-400 group-hover:text-primary transition-colors relative w-5 h-5 flex items-center justify-center">
+              <span className="flex-shrink-0 text-text-muted group-hover:text-primary transition-colors relative w-5 h-5 flex items-center justify-center">
                 <Minus className={cn("absolute inset-0 w-5 h-5 transition-transform duration-300", isOpen ? "rotate-0 scale-100" : "rotate-90 scale-0")} />
                 <Plus className={cn("absolute inset-0 w-5 h-5 transition-transform duration-300", isOpen ? "rotate-90 scale-0" : "rotate-0 scale-100")} />
               </span>
@@ -57,7 +57,7 @@ export function Accordion({ items, className }: AccordionProps) {
                   transition={{ duration: 0.3, ease: [0.04, 0.62, 0.23, 0.98] }}
                   className="overflow-hidden"
                 >
-                  <p className="pb-5 text-gray-600 leading-relaxed">
+                  <p className="pb-5 text-text-secondary leading-relaxed">
                     {item.answer}
                   </p>
                 </motion.div>
