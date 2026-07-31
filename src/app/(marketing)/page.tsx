@@ -6,7 +6,7 @@ import { HowItWorks } from '@/components/marketing/HowItWorks'
 import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
-import { AutomationHub3DWrapper } from '@/components/marketing/hero/AutomationHub3DWrapper'
+import AutomationHub3D from '@/components/marketing/hero/AutomationHub3D'
 import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
 
 export const metadata: Metadata = {
@@ -79,7 +79,7 @@ export default function HomePage() {
 
             {/* Right Visual */}
             <div className="lg:col-span-7 relative h-[500px] sm:h-[600px] lg:h-[750px] w-full flex items-center justify-center order-1 lg:order-2">
-              <AutomationHub3DWrapper />
+              <AutomationHub3D />
             </div>
           </div>
         </div>
