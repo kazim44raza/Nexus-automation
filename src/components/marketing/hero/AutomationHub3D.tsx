@@ -32,7 +32,7 @@ const panels: PanelConfig[] = [
   { id: 'step7', icon: Bell, label: '7. Team Notified', angle: 230, radius: 160, delay: 1.2 },
 ];
 
-export default function NexusHub3D() {
+export default function AutomationHub3D() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
   const prefersReducedMotion = useReducedMotion();

@@ -42,7 +42,7 @@ export function AdminSidebar({ user }: AdminSidebarProps) {
         </div>
         {!collapsed && (
           <span className="font-display font-extrabold text-text-primary text-sm leading-tight">
-            Nexus<br/>Admin
+            Azorvin<br/>Admin
           </span>
         )}
         <button

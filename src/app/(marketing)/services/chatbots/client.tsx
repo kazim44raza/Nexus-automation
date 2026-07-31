@@ -118,7 +118,7 @@ export function ChatbotsClient() {
                     <MessageCircle size={20} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-sm">Nexus Support</h3>
+                    <h3 className="font-semibold text-sm">Azorvin Support</h3>
                     <p className="text-xs text-blue-200">Online</p>
                   </div>
                 </div>

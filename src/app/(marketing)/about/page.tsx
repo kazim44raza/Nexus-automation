@@ -43,13 +43,13 @@ export default function AboutPage() {
               <h2 className="heading-lg text-text-primary mb-6">Why Azorvin exists</h2>
               <div className="prose prose-lg prose-neutral dark:prose-invert">
                 <p className="text-text-secondary leading-relaxed mb-4">
-                  My name is Ahmed, and I started Azorvin after noticing a frustrating gap in the market. Service businesses were drowning in missed calls, scattered leads, and repetitive admin work. Meanwhile, the tech industry was pushing "AI" as a magic wand without building the necessary plumbing to make it useful.
+                  Most service businesses we talk to have the same story. They&apos;re good at what they do — great, even — but they&apos;re losing leads because nobody picked up the phone at 7pm, or because a follow-up email never went out, or because their CRM is a mess of half-entered contacts.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-4">
-                  I personally design and build these systems. I don't believe in generic templates. Instead, I map out exactly how your business operates—where data goes, who needs to be notified, and what software you already use—and I build custom pipelines that connect your Voice Agents and Chatbots directly into your CRM and calendar.
+                  We started Azorvin because we kept seeing the same gap. The AI tools existed, but nobody was wiring them into actual business workflows. Chatbots that couldn&apos;t book appointments. Voice agents that couldn&apos;t update your CRM. Automations that broke the moment something didn&apos;t match a template.
                 </p>
                 <p className="text-text-secondary leading-relaxed">
-                  We operate as a remote-first technical partner. When you work with us, you aren't handed off to a massive account management team. You work directly with the people building your automation.
+                  So that&apos;s what we do. We sit down with you, understand how your operations actually run — not how they&apos;re supposed to run on paper — and build systems that plug directly into the tools you already use. No generic setups. No dashboards you&apos;ll never open. Just automation that works quietly in the background while your team focuses on the work that matters.
                 </p>
               </div>
             </AnimatedSection>

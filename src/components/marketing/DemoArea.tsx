@@ -149,7 +149,7 @@ function ChatDemo() {
           <MessageSquare className="w-4 h-4" />
         </div>
         <div>
-          <h4 className="text-white text-sm font-medium">Nexus Assistant</h4>
+          <h4 className="text-white text-sm font-medium">Azorvin Assistant</h4>
           <p className="text-green-400 text-xs">Online</p>
         </div>
       </div>

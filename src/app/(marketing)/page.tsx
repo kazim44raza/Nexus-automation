@@ -9,7 +9,7 @@ import { IndustrySelector } from '@/components/marketing/IndustrySelector'
 import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
-import NexusHub3D from '@/components/marketing/hero/NexusHub3D'
+import AutomationHub3D from '@/components/marketing/hero/AutomationHub3D'
 import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
 
 export const metadata: Metadata = {
@@ -72,7 +72,7 @@ export default function HomePage() {
 
             {/* Right Visual */}
             <div className="relative h-[400px] sm:h-[500px] lg:h-[600px] w-full flex items-center justify-center order-1 lg:order-2">
-              <NexusHub3D />
+              <AutomationHub3D />
             </div>
           </div>
         </div>

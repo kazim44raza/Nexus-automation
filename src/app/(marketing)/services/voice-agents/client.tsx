@@ -140,7 +140,7 @@ export function VoiceAgentsClient() {
                 <p className="text-sm text-slate-400 mb-1">Live Transcript</p>
                 <div className="space-y-2 text-sm">
                   <p className="text-slate-300">"Yes, I'm looking for a solution to automate our customer service."</p>
-                  <p className="text-blue-400">"I'd be happy to show you how Nexus can help. Would you like to schedule a quick demo?"</p>
+                  <p className="text-blue-400">"I'd be happy to show you how Azorvin can help. Would you like to schedule a quick demo?"</p>
                 </div>
               </div>
 

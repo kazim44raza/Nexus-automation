@@ -18,7 +18,7 @@ export function HumanFocusSection() {
                 Your team focuses on the customer in front of them.
               </h2>
               <p className="text-lg text-secondary leading-relaxed max-w-lg mb-8">
-                While you deliver exceptional service in person, Nexus handles the incoming calls, messages, and follow-ups happening in the background. Stop choosing between answering the phone and helping the client at the desk.
+                While you deliver exceptional service in person, Azorvin handles the incoming calls, messages, and follow-ups happening in the background. Stop choosing between answering the phone and helping the client at the desk.
               </p>
               
               <ul className="space-y-4">
