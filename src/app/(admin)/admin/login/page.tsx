@@ -51,7 +51,7 @@ function LoginForm() {
               value={email}
               onChange={e => setEmail(e.target.value)}
               className="input-dark pl-10"
-              placeholder="admin@nexusautomation.ai"
+              placeholder="ahmed@azorvin.com"
               required
               autoComplete="email"
             />
@@ -99,7 +99,7 @@ export default function AdminLoginPage() {
             <div className="w-10 h-10 bg-primary rounded-xl flex items-center justify-center shadow-primary">
               <Zap className="w-5 h-5 text-white" />
             </div>
-            <span className="font-display font-bold text-white text-xl">Nexus Automation</span>
+            <span className="font-display font-bold text-white text-xl">Azorvin</span>
           </div>
           <p className="text-white/40 text-sm">Admin Portal</p>
         </div>
@@ -112,7 +112,7 @@ export default function AdminLoginPage() {
         </div>
 
         <p className="text-center text-white/20 text-xs mt-6">
-          Nexus Automation © {new Date().getFullYear()}
+          Azorvin © {new Date().getFullYear()}
         </p>
       </div>
     </div>

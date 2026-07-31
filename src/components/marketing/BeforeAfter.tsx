@@ -74,7 +74,7 @@ export default function BeforeAfter() {
             <div className="w-12 h-12 bg-emerald-100 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
               <CheckCircle className="w-6 h-6 text-emerald-600" />
             </div>
-            <h3 className="text-2xl font-semibold text-slate-900">With Nexus Automation</h3>
+            <h3 className="text-2xl font-semibold text-slate-900">With Azorvin</h3>
           </div>
           
           <ul className="space-y-5 relative z-10">

@@ -181,7 +181,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   if (!industry) return { title: 'Industry Not Found' }
 
   return {
-    title: `${industry.title} Automation — Nexus Automation`,
+    title: `${industry.title} Automation — Azorvin`,
     description: industry.description,
   }
 }

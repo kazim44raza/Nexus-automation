@@ -14,7 +14,7 @@ interface Message {
 const INITIAL_MESSAGE: Message = {
   id: 'welcome',
   role: 'assistant',
-  content: "Hi! I'm the Nexus AI assistant. I can help you understand how automation can grow your business. What would you like to know?",
+  content: "Hi! I'm the Azorvin AI assistant. I can help you understand how automation can grow your business. What would you like to know?",
 }
 
 export function ChatbotWidget() {
@@ -102,7 +102,7 @@ export function ChatbotWidget() {
                   <Bot className="w-4 h-4 text-white" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">Nexus AI Assistant</p>
+                  <p className="text-white font-semibold text-sm">Azorvin AI</p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
                     <span className="text-white/80 text-xs">Online now</span>
@@ -189,7 +189,7 @@ export function ChatbotWidget() {
             className="flex items-center gap-3 bg-gradient-to-r from-accent to-primary text-white px-5 py-3.5 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all"
           >
             <Bot className="w-5 h-5" />
-            <span className="text-sm font-semibold">Nexus AI Assistant</span>
+            <span className="text-sm font-semibold">Azorvin AI</span>
             <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
           </motion.button>
         )}

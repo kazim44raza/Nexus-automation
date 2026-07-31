@@ -46,9 +46,9 @@ export function Footer() {
               AI automation solutions that help businesses capture more leads, book more appointments, and scale without hiring.
             </p>
             <div className="space-y-4">
-              <a href="mailto:info@nexus-automation.tech" className="flex items-center gap-3 text-sm text-gray-500 hover:text-accent transition-colors font-medium">
+              <a href="mailto:hello@azorvin.com" className="flex items-center gap-3 text-sm text-gray-500 hover:text-accent transition-colors font-medium">
                 <Mail className="w-5 h-5 text-accent" />
-                info@nexus-automation.tech
+                hello@azorvin.com
               </a>
               <div className="flex items-center gap-3 text-sm text-gray-500 font-medium">
                 <MapPin className="w-5 h-5 text-accent" />
@@ -56,10 +56,10 @@ export function Footer() {
               </div>
             </div>
             <div className="flex items-center gap-4 mt-8">
-              <a href="https://www.linkedin.com/in/nexus-automation-2139b540a/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bqfr3Tu93S5%2BC0HcjyvFXOg%3D%3D" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
+              <a href="https://www.linkedin.com/in/azorvin-systems-2139b540a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
                 <Linkedin className="w-5 h-5" />
               </a>
-              <a href="https://www.instagram.com/nexus.automation_?igsh=ZjY1dmRmMGRtZXVl" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
+              <a href="https://www.instagram.com/azorvinsystems?igsh=ZjY1dmRmMGRtZXVl" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white border border-gray-200 shadow-sm flex items-center justify-center text-gray-500 hover:text-accent hover:border-accent hover:shadow-md transition-all">
                 <Instagram className="w-5 h-5" />
               </a>
             </div>
@@ -113,7 +113,7 @@ export function Footer() {
       <div className="border-t border-gray-200 relative z-10 bg-white/50">
         <div className="page-container py-6 flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-gray-400 text-sm">
-            © {new Date().getFullYear()} Nexus Automation. All rights reserved.
+            © {new Date().getFullYear()} Azorvin. All rights reserved.
           </p>
           <div className="flex items-center gap-6">
             <Link href="/privacy" className="text-sm text-gray-400 hover:text-gray-600 transition-colors">Privacy</Link>

@@ -104,8 +104,8 @@ export default async function BlogPostPage({ params }: Props) {
     description: post.excerpt,
     datePublished: post.publishedAt?.toISOString(),
     dateModified: post.updatedAt.toISOString(),
-    author: { '@type': 'Organization', name: 'Nexus Automation' },
-    publisher: { '@type': 'Organization', name: 'Nexus Automation' },
+    author: { '@type': 'Organization', name: 'Azorvin' },
+    publisher: { '@type': 'Organization', name: 'Azorvin' },
     image: post.coverImage,
   }
 

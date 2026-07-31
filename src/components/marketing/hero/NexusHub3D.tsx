@@ -130,8 +130,8 @@ export default function NexusHub3D() {
               transition={{ duration: 2, repeat: Infinity }}
             />
           </div>
-          <span className="text-xs font-bold text-text-primary">
-            Nexus Core
+          <span className="text-xs font-bold text-text-primary text-center">
+            Connected<br/>Automation System
           </span>
         </motion.div>
 

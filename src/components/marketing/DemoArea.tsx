@@ -129,7 +129,7 @@ function VoiceDemo() {
 
 function ChatDemo() {
   const [messages, setMessages] = useState([
-    { role: 'bot', text: 'Hi! Welcome to Nexus Automation. What can I help you with today?' }
+    { role: 'bot', text: 'Hi! Welcome to Azorvin. What can I help you with today?' }
   ]);
   const [showOptions, setShowOptions] = useState(true);
 

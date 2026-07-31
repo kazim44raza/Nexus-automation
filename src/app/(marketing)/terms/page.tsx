@@ -1,8 +1,8 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Nexus Automation',
-  description: 'The terms that apply when you use the Nexus Automation website and services.',
+  title: 'Terms of Service — Azorvin',
+  description: 'The terms that apply when you use the Azorvin website and services.',
 }
 
 const sections = [
@@ -15,7 +15,7 @@ const sections = [
   {
     title: '2. Our Services',
     body: [
-      'Nexus Automation designs and builds AI automation systems — including chatbots, voice agents, and workflow automation — for businesses. Specific deliverables, timelines, and pricing for client projects are defined in a separate written agreement or proposal for each engagement.',
+      'Azorvin designs and builds AI automation systems — including chatbots, voice agents, and workflow automation — for businesses. Specific deliverables, timelines, and pricing for client projects are defined in a separate written agreement or proposal for each engagement.',
     ],
   },
   {
@@ -34,13 +34,13 @@ const sections = [
   {
     title: '5. Intellectual Property',
     body: [
-      'The content, design, and branding of this website belong to Nexus Automation and may not be copied or reused without permission. Ownership of work we build for clients is defined in each client agreement.',
+      'The content, design, and branding of this website belong to Azorvin and may not be copied or reused without permission. Ownership of work we build for clients is defined in each client agreement.',
     ],
   },
   {
     title: '6. Limitation of Liability',
     body: [
-      'This website is provided "as is." To the maximum extent permitted by law, Nexus Automation is not liable for indirect or consequential damages arising from use of this website.',
+      'This website is provided "as is." To the maximum extent permitted by law, Azorvin is not liable for indirect or consequential damages arising from use of this website.',
     ],
   },
   {
@@ -81,7 +81,7 @@ export default function TermsPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about these terms? Email us at <a href="mailto:info@nexus-automation.tech" className="text-accent hover:underline">info@nexus-automation.tech</a>.
+            Questions about these terms? Email us at <a href="mailto:hello@azorvin.com" className="text-accent hover:underline">hello@azorvin.com</a>.
           </p>
         </div>
       </section>

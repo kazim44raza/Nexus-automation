@@ -6,7 +6,7 @@ import { Mail, Clock, Globe, Calendar } from 'lucide-react'
 const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
 
 export const metadata: Metadata = {
-  title: 'Contact Nexus Automation — Book a Free Demo',
+  title: 'Contact Azorvin — Book a Free Automation Audit',
   description: 'Book a free strategy call or request an audit to map out the automation opportunities for your business.',
 }
 
@@ -58,7 +58,7 @@ export default function ContactPage() {
               <div className="card p-6 border border-border space-y-5">
                 <h3 className="heading-sm text-text-primary mb-2">Contact details</h3>
                 {[
-                  { icon: Mail, label: 'Email', value: 'info@nexus-automation.tech' },
+                  { icon: Mail, label: 'Email', value: 'hello@azorvin.com' },
                   { icon: Clock, label: 'Response time', value: 'Within 1 business day' },
                   { icon: Globe, label: 'Location', value: 'Remote-first, Worldwide' },
                 ].map((item, i) => (

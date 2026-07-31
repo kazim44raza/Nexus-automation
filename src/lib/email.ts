@@ -8,8 +8,8 @@ const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
   : absoluteUrl('/contact#contact-form')
 
 function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') } 
-const FROM = process.env.FROM_EMAIL ?? 'Nexus Automation <info@nexus-automation.tech>'
-const ADMIN = process.env.ADMIN_EMAIL ?? 'admin@nexusautomation.ai'
+const FROM = process.env.FROM_EMAIL ?? 'Azorvin <hello@azorvin.com>'
+const ADMIN = process.env.ADMIN_EMAIL ?? 'ahmed@azorvin.com'
 
 export async function sendLeadNotification(data: {
   name: string
@@ -59,15 +59,15 @@ export async function sendLeadWelcome(data: { name: string; email: string }) {
     html: `
       <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
         <div style="background: linear-gradient(135deg, #0284C7, #0369A1); padding: 32px; border-radius: 12px 12px 0 0; text-align: center;">
-          <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 800;">Nexus Automation</h1>
-          <p style="color: rgba(255,255,255,0.7); margin: 8px 0 0;">AI Automation Agency</p>
+          <h1 style="color: white; margin: 0; font-size: 24px; font-weight: 800;">Azorvin</h1>
+          <p style="color: rgba(255,255,255,0.7); margin: 8px 0 0;">AI Systems & Automation</p>
         </div>
         <div style="background: white; padding: 32px; border-radius: 0 0 12px 12px; border: 1px solid #E5E7EB; border-top: none;">
           <h2 style="color: #111827; font-size: 20px; margin: 0 0 16px;">We got your message, ${data.name.split(' ')[0]}!</h2>
           <p style="color: #6B7280; line-height: 1.6; margin: 0 0 16px;">Our team will review your inquiry and get back to you within <strong style="color: #111827;">1 business day</strong>.</p>
           <p style="color: #6B7280; line-height: 1.6; margin: 0 0 24px;">In the meantime, you can book a free discovery call directly on our calendar.</p>
           <a href="${bookingUrl}" style="background: #0284C7; color: white; padding: 12px 24px; border-radius: 8px; text-decoration: none; font-size: 14px; font-weight: 600; display: inline-block;">Book a Free Call →</a>
-          <p style="color: #9CA3AF; font-size: 12px; margin-top: 32px;">Nexus Automation · AI Automation Agency</p>
+          <p style="color: #9CA3AF; font-size: 12px; margin-top: 32px;">Azorvin · AI Systems & Automation</p>
         </div>
       </div>
     `,
@@ -86,7 +86,7 @@ export async function sendAppointmentConfirmation(data: {
   await getResend().emails.send({
     from: FROM,
     to: data.email,
-    subject: 'Appointment Confirmed — Nexus Automation',
+    subject: 'Appointment Confirmed — Azorvin',
     html: `
       <div style="font-family: Inter, sans-serif; max-width: 600px; margin: 0 auto; padding: 24px;">
         <div style="background: linear-gradient(135deg, #0891B2, #0E7490); padding: 32px; border-radius: 12px 12px 0 0; text-align: center;">
@@ -100,7 +100,7 @@ export async function sendAppointmentConfirmation(data: {
             ${data.time ? `<p style="margin: 8px 0 0; color: #111827;"><strong>Time:</strong> ${data.time}</p>` : ''}
             ${data.service ? `<p style="margin: 8px 0 0; color: #111827;"><strong>Service:</strong> ${data.service}</p>` : ''}
           </div>
-          <p style="color: #6B7280; font-size: 12px;">Nexus Automation · AI Automation Agency</p>
+          <p style="color: #6B7280; font-size: 12px;">Azorvin · AI Systems & Automation</p>
         </div>
       </div>
     `,

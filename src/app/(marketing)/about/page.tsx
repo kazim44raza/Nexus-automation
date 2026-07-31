@@ -5,8 +5,8 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/sha
 import { ArrowRight, Wrench, Search, Code2, Repeat, Server, ShieldCheck } from 'lucide-react'
 
 export const metadata: Metadata = {
-  title: 'About Nexus Automation | Genuine AI Automation',
-  description: 'Learn why Nexus Automation was founded and how we build practical, un-hyped automation systems for service businesses.',
+  title: 'About Azorvin | Genuine AI Automation',
+  description: 'Learn why Azorvin was founded and how we build practical, un-hyped automation systems for service businesses.',
 }
 
 export default function AboutPage() {
@@ -18,7 +18,7 @@ export default function AboutPage() {
           <AnimatedSection>
             <h1 className="heading-display text-white mb-6">Building practical automation, not hype.</h1>
             <p className="text-lg text-white/55 leading-relaxed">
-              We started Nexus Automation because too many businesses were being sold AI chatbots that didn't actually integrate with their operations or solve real problems.
+              We started Azorvin because too many businesses were being sold AI chatbots that didn't actually integrate with their operations or solve real problems.
             </p>
           </AnimatedSection>
         </div>
@@ -40,10 +40,10 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.2}>
-              <h2 className="heading-lg text-text-primary mb-6">Why Nexus exists</h2>
+              <h2 className="heading-lg text-text-primary mb-6">Why Azorvin exists</h2>
               <div className="prose prose-lg prose-neutral dark:prose-invert">
                 <p className="text-text-secondary leading-relaxed mb-4">
-                  My name is Kazim, and I started Nexus Automation after noticing a frustrating gap in the market. Service businesses were drowning in missed calls, scattered leads, and repetitive admin work. Meanwhile, the tech industry was pushing "AI" as a magic wand without building the necessary plumbing to make it useful.
+                  My name is Ahmed, and I started Azorvin after noticing a frustrating gap in the market. Service businesses were drowning in missed calls, scattered leads, and repetitive admin work. Meanwhile, the tech industry was pushing "AI" as a magic wand without building the necessary plumbing to make it useful.
                 </p>
                 <p className="text-text-secondary leading-relaxed mb-4">
                   I personally design and build these systems. I don't believe in generic templates. Instead, I map out exactly how your business operates—where data goes, who needs to be notified, and what software you already use—and I build custom pipelines that connect your Voice Agents and Chatbots directly into your CRM and calendar.

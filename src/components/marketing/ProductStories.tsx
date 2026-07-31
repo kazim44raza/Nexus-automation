@@ -120,7 +120,7 @@ export default function ProductStories() {
                     <div className="w-2.5 h-2.5 rounded-full bg-amber-400" />
                     <div className="w-2.5 h-2.5 rounded-full bg-emerald-400" />
                   </div>
-                  <div className="bg-white text-[10px] text-slate-400 mx-auto px-4 py-1 rounded-md shadow-sm">nexus-automation.tech</div>
+                  <div className="bg-white text-[10px] text-slate-400 mx-auto px-4 py-1 rounded-md shadow-sm">azorvin.com</div>
                 </div>
                 
                 <div className="p-4 space-y-4">

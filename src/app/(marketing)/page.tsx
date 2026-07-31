@@ -13,29 +13,29 @@ import NexusHub3D from '@/components/marketing/hero/NexusHub3D'
 import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Nexus Automation — AI Automation Agency | Chatbots, Voice Agents & Workflow Automation' },
+  title: { absolute: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation' },
   description: 'We build AI chatbots, voice agents, and automation systems that capture leads, book appointments, and follow up 24/7. Book a free demo.',
 }
 
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
-  name: 'Nexus Automation',
-  url: 'https://nexusautomation.ai',
-  description: 'AI automation agency specializing in chatbots, voice agents, and business workflow automation.',
+  name: 'Azorvin',
+  url: 'https://azorvin.com',
+  description: 'AI Systems & Automation specializing in chatbots, voice agents, and business workflow automation.',
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    email: 'info@nexus-automation.tech',
+    email: 'hello@azorvin.com',
   },
   sameAs: [],
   service: [
-    { '@type': 'Service', name: 'AI Chatbots', url: 'https://nexusautomation.ai/services/chatbots' },
-    { '@type': 'Service', name: 'Voice Agents', url: 'https://nexusautomation.ai/services/voice-agents' },
-    { '@type': 'Service', name: 'Business Automation', url: 'https://nexusautomation.ai/services/business-automation' },
-    { '@type': 'Service', name: 'Lead Qualification', url: 'https://nexusautomation.ai/services/lead-qualification' },
-    { '@type': 'Service', name: 'Appointment Booking', url: 'https://nexusautomation.ai/services/appointment-booking' },
-    { '@type': 'Service', name: 'Customer Support Automation', url: 'https://nexusautomation.ai/services/customer-support' },
+    { '@type': 'Service', name: 'AI Chatbots', url: 'https://azorvin.com/services/chatbots' },
+    { '@type': 'Service', name: 'Voice Agents', url: 'https://azorvin.com/services/voice-agents' },
+    { '@type': 'Service', name: 'Business Automation', url: 'https://azorvin.com/services/business-automation' },
+    { '@type': 'Service', name: 'Lead Qualification', url: 'https://azorvin.com/services/lead-qualification' },
+    { '@type': 'Service', name: 'Appointment Booking', url: 'https://azorvin.com/services/appointment-booking' },
+    { '@type': 'Service', name: 'Customer Support Automation', url: 'https://azorvin.com/services/customer-support' },
   ],
 }
 
@@ -55,7 +55,7 @@ export default function HomePage() {
                 Your AI team answers, qualifies and books — 24/7.
               </h1>
               <p className="text-lg text-secondary mb-10 max-w-xl">
-                Nexus Automation builds voice agents, chatbots and automated workflows that help businesses respond faster, capture more opportunities and operate without repetitive manual work.
+                Azorvin builds voice agents, chatbots and connected automation systems that help service businesses respond faster, capture more opportunities and reduce repetitive work.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-8 w-full sm:w-auto justify-center lg:justify-start">
                 <Link href="/contact" className="btn-primary-lg">

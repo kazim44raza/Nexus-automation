@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
-const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai'
+const BASE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azorvin.com'
 
 const staticRoutes: MetadataRoute.Sitemap = [
   { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },

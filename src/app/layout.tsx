@@ -13,18 +13,18 @@ const manrope = Manrope({
 })
 
 const getSiteUrl = () => {
-  const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://nexusautomation.ai';
+  const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azorvin.com';
   return url.startsWith('http') ? url : `https://${url}`;
 };
 
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Nexus Automation — AI Automation Agency',
-    template: '%s | Nexus Automation',
+    default: 'Azorvin — AI Systems & Automation',
+    template: '%s | Azorvin',
   },
   description:
-    'Nexus Automation helps businesses capture more leads, book more appointments, and scale without hiring through AI chatbots, voice agents, and intelligent workflow automation.',
+    'Azorvin helps businesses capture more leads, book more appointments, and scale without hiring through AI chatbots, voice agents, and intelligent workflow automation.',
   keywords: [
     'AI automation agency',
     'AI chatbot',
@@ -37,21 +37,21 @@ export const metadata: Metadata = {
     'workflow automation',
     'customer support automation',
   ],
-  authors: [{ name: 'Nexus Automation' }],
-  creator: 'Nexus Automation',
+  authors: [{ name: 'Azorvin' }],
+  creator: 'Azorvin',
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://nexusautomation.ai',
-    siteName: 'Nexus Automation',
-    title: 'Nexus Automation — AI Automation Agency',
+    url: 'https://azorvin.com',
+    siteName: 'Azorvin',
+    title: 'Azorvin — AI Systems & Automation',
     description:
       'AI chatbots, voice agents, and business automation that respond instantly, qualify leads, and book appointments 24/7.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Nexus Automation' }],
+    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Azorvin' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Nexus Automation — AI Automation Agency',
+    title: 'Azorvin — AI Systems & Automation',
     description: 'AI-powered automation that grows your business 24/7.',
   },
   robots: {

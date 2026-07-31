@@ -102,7 +102,7 @@ export default function WhatsAppAutomationClient() {
                 </svg>
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-slate-900">Nexus AI</h3>
+                <h3 className="text-sm font-semibold text-slate-900">Azorvin AI</h3>
                 <p className="text-xs text-emerald-600">Online</p>
               </div>
             </div>

@@ -44,7 +44,7 @@ export default async function AdminDashboard() {
     <div>
       <div className="mb-8">
         <h1 className="heading-lg text-text-primary">Dashboard</h1>
-        <p className="text-text-secondary text-sm mt-1">Overview of your Nexus Automation platform</p>
+        <p className="text-text-secondary text-sm mt-1">Overview of your Azorvin platform</p>
       </div>
 
       {/* Stats */}

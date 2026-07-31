@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 const FALLBACK_NUMBER = '923303579530' // 0330 3579530 (PK) in international format
 const WHATSAPP_NUMBER = (process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || FALLBACK_NUMBER).replace(/[^0-9]/g, '')
-const PREFILLED_MESSAGE = "Hi Nexus Automation! I'd like to know more about your AI automation services."
+const PREFILLED_MESSAGE = "Hi Azorvin! I'd like to know more about your AI automation services."
 
 export function WhatsAppButton() {
   const [hovered, setHovered] = useState(false)

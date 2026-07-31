@@ -3,7 +3,7 @@ import { ArrowRight, Calendar, MessageCircle } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 
 const WHATSAPP_NUMBER = '923303579530'
-const PREFILLED_MESSAGE = "Hi Nexus Automation! I'd like to book a free automation audit."
+const PREFILLED_MESSAGE = "Hi Azorvin! I'd like to book a free automation audit."
 
 export function CTASection() {
   const whatsappHref = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(PREFILLED_MESSAGE)}`
