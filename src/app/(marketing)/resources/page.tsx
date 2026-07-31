@@ -16,7 +16,7 @@ const resources = [
     desc: 'Explore example workflows, before/after process views, and projected outcomes for healthcare, real estate, dental, legal, e-commerce, and fitness.', 
     color: 'text-accent bg-accent/10', 
     cta: 'View Scenarios',
-    link: '/case-studies'
+    link: '/work'
   },
   { 
     icon: <Lightbulb className="w-5 h-5" />, 

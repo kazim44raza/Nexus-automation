@@ -4,24 +4,29 @@
 
 @layer base {
   :root {
-    --color-bg-base: #0d0e0f;
-    --color-bg-alt: #141618;
-    --color-bg-surface: #1a1c1f;
-    --color-bg-dark: #0d0e0f;
-    --color-bg-dark-alt: #141618;
-    --color-text-primary: #e8e0d3;
-    --color-text-secondary: #aaa49a;
-    --color-text-muted: #77746f;
-    --color-text-on-dark: #e8e0d3;
-    --color-primary: #b4875b;
-    --color-primary-light: #c89a6b;
-    --color-accent: #7f8b78;
-    --color-accent-light: #8d655b;
-    --color-violet: #8d655b;
-    --color-mint: #7f8b78;
-    --color-warm: #b4875b;
-    --color-border: rgba(232, 224, 211, 0.12);
-    --color-border-dark: rgba(232, 224, 211, 0.12);
+    /* Dark Atelier / Operational Editorial */
+    --color-bg-base: #151411; /* bg-deep */
+    --color-bg-alt: #1b1916; /* bg-primary */
+    --color-bg-surface: #24211d; /* bg-elevated */
+    --color-bg-dark: #151411;
+    --color-bg-dark-alt: #1b1916;
+    
+    --color-text-primary: #f0eadf; /* text-primary-dark */
+    --color-text-secondary: #b9b1a5; /* text-secondary-dark */
+    --color-text-muted: #727b68; /* using sage for muted text */
+    --color-text-on-dark: #f0eadf;
+    
+    --color-primary: #a66f46; /* accent-copper */
+    --color-primary-light: #d8d0c3; /* surface-stone */
+    --color-accent: #925f4c; /* accent-clay */
+    --color-accent-light: #eee8dc; /* surface-paper */
+    
+    --color-violet: #925f4c; 
+    --color-mint: #727b68; /* sage */
+    --color-warm: #a66f46; /* copper */
+    
+    --color-border: rgba(239, 232, 220, 0.12); /* border-dark */
+    --color-border-dark: rgba(239, 232, 220, 0.08);
     --radius-sm: 8px;
     --radius-md: 12px;
     --radius-lg: 16px;

@@ -81,12 +81,11 @@ export function Logo({ variant = 'dark', size = 36, showWordmark = true, classNa
           ref={imgRef}
           src="/logo.png"
           alt="Azorvin logo"
-          width={size}
           height={size}
           onError={handleError}
           onLoad={() => setUseFallback(false)}
-          className="object-contain flex-shrink-0 rounded-xl"
-          style={{ width: size, height: size }}
+          className="object-contain object-left flex-shrink-0"
+          style={{ height: size, width: 'auto' }}
         />
       )}
       {/* At navbar sizes the text inside the circular badge is too small to

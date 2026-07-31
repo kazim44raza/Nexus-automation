@@ -8,12 +8,12 @@ import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 import { DemoDisclaimer } from '@/components/ui/DemoDisclaimer';
 
 const MOCK_EVENTS = [
-  { id: 1, text: "New call answered — Sample dental practice", color: "bg-cyan-500" },
-  { id: 2, text: "Lead qualified — Website lead", color: "bg-violet-500" },
-  { id: 3, text: "Appointment confirmed — 2:30 PM today", color: "bg-emerald-500" },
-  { id: 4, text: "Follow-up sent — Returning customer", color: "bg-amber-500" },
-  { id: 5, text: "CRM updated — Consultation request", color: "bg-blue-500" },
-  { id: 6, text: "Missed call recovered — After-hours caller", color: "bg-cyan-500" }
+  { id: 1, text: "New call answered — Sample dental practice", color: "bg-mint" },
+  { id: 2, text: "Lead qualified — Website lead", color: "bg-primary" },
+  { id: 3, text: "Appointment confirmed — 2:30 PM today", color: "bg-accent" },
+  { id: 4, text: "Follow-up sent — Returning customer", color: "bg-mint" },
+  { id: 5, text: "CRM updated — Consultation request", color: "bg-primary" },
+  { id: 6, text: "Missed call recovered — After-hours caller", color: "bg-accent" }
 ];
 
 export default function LiveActivity() {
@@ -34,10 +34,10 @@ export default function LiveActivity() {
   }, [eventIndex]);
 
   const metrics = [
-    { label: "Calls Answered", value: 847, icon: Phone, trend: "+12%", color: "text-cyan-500", bg: "bg-cyan-50" },
-    { label: "Leads Qualified", value: 312, icon: Target, trend: "+18%", color: "text-violet-500", bg: "bg-violet-50" },
-    { label: "Appointments Booked", value: 156, icon: Calendar, trend: "+24%", color: "text-emerald-500", bg: "bg-emerald-50" },
-    { label: "Avg Response", value: "<1s", icon: Zap, trend: "Real-time", color: "text-amber-500", bg: "bg-amber-50", isString: true }
+    { label: "Calls Answered", value: 847, icon: Phone, trend: "+12%", color: "text-primary", bg: "bg-primary/10" },
+    { label: "Leads Qualified", value: 312, icon: Target, trend: "+18%", color: "text-mint", bg: "bg-mint/10" },
+    { label: "Appointments Booked", value: 156, icon: Calendar, trend: "+24%", color: "text-accent", bg: "bg-accent/10" },
+    { label: "Avg Response", value: "<1s", icon: Zap, trend: "Real-time", color: "text-primary", bg: "bg-primary/10", isString: true }
   ];
 
   return (

@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation'
 import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { ContactForm } from '@/components/marketing/ContactForm'
+import { IndustryClientView } from './client'
 
 const industries = {
   healthcare: {
@@ -208,63 +209,10 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         </div>
       </section>
 
-      {/* Editorial split layout with workflow diorama */}
+      {/* Editorial split layout with bespoke client view */}
       <section className="section-py bg-bg-alt border-b border-border">
         <div className="page-container">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <AnimatedSection direction="left">
-              <h2 className="heading-lg text-text-primary mb-6">Example Workflow</h2>
-              <p className="text-lg text-text-secondary mb-10">See how automation handles a typical scenario from start to finish without human intervention.</p>
-              
-              <div className="space-y-6 relative">
-                <div className="absolute top-4 bottom-4 left-5 w-px bg-border" />
-                {industry.workflow.map((item, idx) => (
-                  <div key={idx} className="relative flex items-start gap-6">
-                    <div className={`w-10 h-10 rounded-full border-4 border-bg-alt shrink-0 flex items-center justify-center shadow-sm relative z-10 
-                      ${item.type === 'input' ? 'bg-bg-alt text-text-secondary' : 
-                        item.type === 'ai' ? 'bg-text-primary text-bg-base' : 
-                        item.type === 'system' ? 'bg-border text-text-secondary' : 'bg-accent text-white'}`}
-                    >
-                      {idx + 1}
-                    </div>
-                    <div className="bg-bg-base border border-border p-5 rounded-2xl flex-1 shadow-sm mt-[-4px]">
-                       <p className="font-medium text-text-primary">{item.step}</p>
-                       <p className="text-xs text-text-muted mt-2 uppercase tracking-wider font-semibold">
-                          {item.type === 'input' ? 'User Action' : item.type === 'ai' ? 'AI Assistant' : item.type === 'system' ? 'System Process' : 'Result'}
-                       </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </AnimatedSection>
-
-             <AnimatedSection direction="right" delay={0.2} className="relative">
-               <div className="absolute inset-0 bg-radial-gradient from-accent/10 to-transparent opacity-50 blur-3xl" />
-               <div className="flex flex-col gap-6 relative z-10">
-                 {/* Optional Human Context Image */}
-                 {/* @ts-ignore */}
-                 {('image' in industry) && (industry as any).image && (
-                   <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden shadow-sm border border-border">
-                     <Image 
-                       src={(industry as any).image as string} 
-                       alt={`${industry.title} workflow context`}
-                       fill
-                       className="object-cover"
-                     />
-                   </div>
-                 )}
-                 <div className="grid grid-cols-1 gap-6">
-                   {industry.stats.map((stat, index) => (
-                   <div key={index} className="bg-bg-surface border border-border p-8 rounded-3xl shadow-sm text-center">
-                     <div className="text-gradient font-bold text-5xl mb-2">{stat.value}</div>
-                     <p className="font-bold text-text-primary text-lg mb-1">{stat.label}</p>
-                     <p className="text-text-secondary">{stat.context}</p>
-                   </div>
-                 ))}
-                 </div>
-               </div>
-             </AnimatedSection>
-          </div>
+          <IndustryClientView slug={slug} industry={industry} />
         </div>
       </section>
 

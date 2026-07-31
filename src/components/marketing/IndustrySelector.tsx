@@ -80,7 +80,7 @@ export function IndustrySelector() {
   const [activeTab, setActiveTab] = useState(industries[0]);
 
   return (
-    <section className="section-py bg-bg-alt">
+    <section className="section-py bg-bg-base border-t border-border">
       <div className="page-container">
         <SectionHeading 
           eyebrow="Industries" 
@@ -95,10 +95,10 @@ export function IndustrySelector() {
               <button
                 key={industry.id}
                 onClick={() => setActiveTab(industry)}
-                className={`flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-medium transition-all ${
+                className={`flex items-center gap-2 px-5 py-2.5 rounded-full text-sm font-medium transition-all ${
                   activeTab.id === industry.id 
-                    ? 'bg-accent text-white shadow-md' 
-                    : 'bg-gray-100 text-gray-600 hover:bg-gray-200'
+                    ? 'bg-primary text-bg-base shadow-[0_0_15px_rgba(180,135,91,0.3)]' 
+                    : 'bg-bg-surface text-text-secondary border border-border hover:bg-bg-alt hover:text-text-primary'
                 }`}
               >
                 <industry.icon className="w-4 h-4" />
@@ -109,7 +109,7 @@ export function IndustrySelector() {
         </div>
 
         {/* Content Card */}
-        <div className="mt-8 max-w-5xl mx-auto">
+        <div className="mt-12 max-w-5xl mx-auto">
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab.id}
@@ -117,47 +117,47 @@ export function IndustrySelector() {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -10 }}
               transition={{ duration: 0.3 }}
-              className="bg-surface rounded-2xl shadow-xl overflow-hidden border border-gray-100"
+              className="bg-bg-surface rounded-2xl shadow-2xl overflow-hidden border border-border"
             >
               <div className="grid md:grid-cols-2">
                 {/* Left: Info */}
-                <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-gray-100">
-                  <div className="flex items-center gap-3 mb-6">
-                    <div className="w-12 h-12 bg-accent/10 rounded-xl flex items-center justify-center">
-                      <activeTab.icon className="w-6 h-6 text-accent" />
+                <div className="p-8 md:p-12 border-b md:border-b-0 md:border-r border-border">
+                  <div className="flex items-center gap-4 mb-8">
+                    <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-xl flex items-center justify-center">
+                      <activeTab.icon className="w-6 h-6 text-primary" />
                     </div>
-                    <h3 className="heading-md">{activeTab.name}</h3>
+                    <h3 className="text-3xl font-display font-medium text-text-primary tracking-tight">{activeTab.name}</h3>
                   </div>
 
-                  <div className="space-y-6">
+                  <div className="space-y-8">
                     <div>
-                      <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-3">
                         Common Customer Request
                       </p>
-                      <div className="bg-gray-50 rounded-2xl rounded-tl-sm p-4 text-gray-800 border border-gray-100 inline-block">
+                      <div className="bg-bg-alt rounded-2xl rounded-tl-sm p-4 text-text-primary border border-border inline-block italic font-light">
                         "{activeTab.request}"
                       </div>
                     </div>
 
                     <div>
-                      <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-3">
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-4">
                         AI Action
                       </p>
-                      <ul className="space-y-2">
+                      <ul className="space-y-3">
                         {activeTab.action.map((step, idx) => (
                           <li key={idx} className="flex items-start gap-3">
-                            <CheckCircle2 className="w-5 h-5 text-accent shrink-0 mt-0.5" />
-                            <span className="text-gray-700">{step}</span>
+                            <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                            <span className="text-text-secondary font-light">{step}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
 
-                    <div className="pt-4 border-t border-gray-100">
-                      <p className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+                    <div className="pt-6 border-t border-border">
+                      <p className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-2">
                         Operational Benefit
                       </p>
-                      <p className="text-gray-800 font-medium">
+                      <p className="text-text-primary font-medium">
                         {activeTab.benefit}
                       </p>
                     </div>
@@ -165,39 +165,39 @@ export function IndustrySelector() {
                 </div>
 
                 {/* Right: Mock UI Preview */}
-                <div className="p-8 md:p-12 bg-gray-50 flex items-center justify-center relative overflow-hidden">
-                  <div className="absolute inset-0 opacity-40 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-accent/20 via-transparent to-transparent"></div>
+                <div className="p-8 md:p-12 bg-bg-alt flex items-center justify-center relative overflow-hidden">
+                  <div className="absolute inset-0 opacity-20 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/30 via-transparent to-transparent pointer-events-none"></div>
                   
-                  <div className="relative w-full max-w-sm bg-white rounded-2xl shadow-lg border border-gray-200 overflow-hidden">
-                    <div className="px-4 py-3 border-b border-gray-100 bg-gray-50/80 backdrop-blur flex items-center gap-3">
-                      <div className="w-8 h-8 bg-accent rounded-full flex items-center justify-center text-white">
+                  <div className="relative w-full max-w-sm bg-bg-surface rounded-2xl shadow-xl border border-border overflow-hidden">
+                    <div className="px-4 py-3 border-b border-border bg-bg-surface/80 backdrop-blur flex items-center gap-3">
+                      <div className="w-8 h-8 bg-primary/20 border border-primary/30 rounded-full flex items-center justify-center text-primary">
                         <MessageSquare className="w-4 h-4" />
                       </div>
                       <div>
-                        <p className="text-sm font-semibold">AI Assistant</p>
-                        <p className="text-xs text-green-500 font-medium">Online</p>
+                        <p className="text-sm font-semibold text-text-primary">AI Assistant</p>
+                        <p className="text-xs text-mint font-medium flex items-center gap-1.5"><span className="w-1.5 h-1.5 rounded-full bg-mint animate-pulse" /> Online</p>
                       </div>
                     </div>
-                    <div className="p-4 space-y-4 h-64 overflow-y-auto">
+                    <div className="p-4 space-y-5 h-72 overflow-y-auto">
                       <div className="flex justify-end">
-                        <div className="bg-accent text-white px-4 py-2 rounded-2xl rounded-tr-sm text-sm max-w-[85%]">
+                        <div className="bg-primary text-bg-base px-4 py-3 rounded-2xl rounded-tr-sm text-sm max-w-[85%] font-medium">
                           {activeTab.request}
                         </div>
                       </div>
                       
-                      <div className="flex gap-2">
-                        <div className="w-6 h-6 rounded-full bg-accent/10 flex items-center justify-center shrink-0 mt-1">
-                           <MessageSquare className="w-3 h-3 text-accent" />
+                      <div className="flex gap-3">
+                        <div className="w-7 h-7 rounded-full bg-bg-alt border border-border flex items-center justify-center shrink-0 mt-1">
+                           <MessageSquare className="w-3 h-3 text-text-muted" />
                         </div>
                         <div className="space-y-2 max-w-[85%]">
-                          <div className="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-tl-sm text-sm">
+                          <div className="bg-bg-alt border border-border text-text-primary px-4 py-3 rounded-2xl rounded-tl-sm text-sm">
                             I can help with that. Let me check the schedule for you.
                           </div>
                           <motion.div 
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 0.5 }}
-                            className="bg-gray-100 text-gray-800 px-4 py-2 rounded-2xl rounded-tl-sm text-sm"
+                            className="bg-bg-alt border border-border text-text-primary px-4 py-3 rounded-2xl rounded-tl-sm text-sm"
                           >
                             I found an opening that works. Would you like me to book it?
                           </motion.div>
@@ -206,13 +206,13 @@ export function IndustrySelector() {
                             initial={{ opacity: 0 }}
                             animate={{ opacity: 1 }}
                             transition={{ delay: 1 }}
-                            className="flex flex-col gap-1 mt-2"
+                            className="flex flex-col gap-2 mt-3"
                           >
-                            <button className="text-xs bg-white border border-accent text-accent py-1.5 px-3 rounded-full font-medium hover:bg-accent/5 transition-colors w-full text-left flex justify-between items-center">
+                            <button className="text-xs bg-bg-surface border border-primary/50 text-primary py-2 px-4 rounded-full font-medium hover:bg-primary/10 transition-colors w-full text-left flex justify-between items-center">
                               Yes, book it
                               <ArrowRight className="w-3 h-3" />
                             </button>
-                            <button className="text-xs bg-white border border-gray-200 text-gray-600 py-1.5 px-3 rounded-full font-medium hover:bg-gray-50 transition-colors w-full text-left">
+                            <button className="text-xs bg-bg-surface border border-border text-text-secondary py-2 px-4 rounded-full font-medium hover:bg-bg-alt transition-colors w-full text-left">
                               See other times
                             </button>
                           </motion.div>

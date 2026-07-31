@@ -8,6 +8,10 @@ import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
 import AutomationHub3D from '@/components/marketing/hero/AutomationHub3D'
 import { HumanFocusSection } from '@/components/marketing/HumanFocusSection'
+import LiveActivity from '@/components/marketing/LiveActivity'
+import BeforeAfter from '@/components/marketing/BeforeAfter'
+import { IndustrySelector } from '@/components/marketing/IndustrySelector'
+import { ProcessSection } from '@/components/marketing/ProcessSection'
 
 export const metadata: Metadata = {
   title: { absolute: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation' },
@@ -86,11 +90,13 @@ export default function HomePage() {
       </section>
 
       <IntegrationStrip />
-      
-      {/* We strip out LiveActivity, BeforeAfter, and IndustrySelector to break the "SaaS template" feel */}
       <HumanFocusSection />
-      <HowItWorks />
+      <ProcessSection />
+      <LiveActivity />
       <ProductStories />
+      <BeforeAfter />
+      <HowItWorks />
+      <IndustrySelector />
       <DemoArea />
       <FAQSection />
       <CTASection />

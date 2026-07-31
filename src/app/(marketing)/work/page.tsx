@@ -22,9 +22,9 @@ const cases = [
       { label: 'Call Answer Rate', value: '100%' },
       { label: 'No-show Reduction', value: '15%' }
     ],
-    color: 'bg-blue-500',
-    iconColor: 'text-blue-500',
-    bgLight: 'bg-blue-50',
+    color: 'bg-primary',
+    iconColor: 'text-primary',
+    bgLight: 'bg-primary/10 border border-primary/20',
     workflow: [
       'Patient calls at 9 PM',
       'AI schedules visit in EMR',
@@ -43,9 +43,9 @@ const cases = [
       { label: 'Auto-qualified', value: '73%' },
       { label: 'Time Saved', value: '8+ hrs/wk' }
     ],
-    color: 'bg-amber-500',
-    iconColor: 'text-amber-500',
-    bgLight: 'bg-amber-50',
+    color: 'bg-accent',
+    iconColor: 'text-accent',
+    bgLight: 'bg-accent/10 border border-accent/20',
     workflow: [
       'Zillow lead submitted',
       'AI SMS confirms budget',
@@ -64,9 +64,9 @@ const cases = [
       { label: 'Auto-resolution', value: '79%' },
       { label: 'CSAT Score', value: '+18%' }
     ],
-    color: 'bg-pink-500',
-    iconColor: 'text-pink-500',
-    bgLight: 'bg-pink-50',
+    color: 'bg-mint',
+    iconColor: 'text-mint',
+    bgLight: 'bg-mint/10 border border-mint/20',
     workflow: [
       'Customer asks "Where is order?"',
       'AI queries Shopify data',
@@ -85,9 +85,9 @@ const cases = [
       { label: 'Manual Follow-up', value: '0 hrs' },
       { label: 'Projected MRR', value: '+$34k' }
     ],
-    color: 'bg-green-500',
-    iconColor: 'text-green-500',
-    bgLight: 'bg-green-50',
+    color: 'bg-primary',
+    iconColor: 'text-primary',
+    bgLight: 'bg-primary/10 border border-primary/20',
     workflow: [
       'IG DM inquiry on price',
       'AI answers & offers trial',
@@ -100,17 +100,17 @@ const cases = [
 export default function CaseStudiesPage() {
   return (
     <>
-      <section className="bg-bg-dark pt-32 pb-20 relative overflow-hidden">
-        <FloatingObjects count={5} className="opacity-30" />
-        <div className="absolute inset-0 bg-dot-pattern opacity-10" />
+      <section className="bg-bg-base pt-32 pb-20 relative overflow-hidden border-b border-border">
+        <FloatingObjects count={5} className="opacity-10" />
+        <div className="absolute inset-0 bg-dot-pattern opacity-5" />
         <div className="relative z-10 page-container text-center max-w-4xl mx-auto">
           <AnimatedSection>
-            <span className="badge-accent mb-6 inline-flex bg-white/10 text-white border-white/20">Visual Portfolio</span>
-            <h1 className="heading-display text-white mb-6">Explore demo implementations and concept workflows</h1>
-            <p className="text-xl text-white/70 max-w-2xl mx-auto">See how we map out AI automation systems before writing a single line of code. Review example scenarios and projected outcomes.</p>
+            <span className="mb-6 inline-flex bg-bg-surface text-text-secondary border border-border px-3 py-1 rounded-sm text-xs font-semibold tracking-widest uppercase">Visual Portfolio</span>
+            <h1 className="font-display font-medium text-5xl md:text-7xl leading-[1.05] mb-8 text-text-primary tracking-tight">Explore demo implementations and concept workflows</h1>
+            <p className="text-xl text-text-secondary max-w-2xl mx-auto font-light leading-relaxed">See how we map out AI automation systems before writing a single line of code. Review example scenarios and projected outcomes.</p>
           </AnimatedSection>
         </div>
-        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-bg-base to-transparent" />
+        <div className="absolute bottom-0 inset-x-0 h-32 bg-gradient-to-t from-bg-base to-transparent pointer-events-none" />
       </section>
 
       <section className="section-py bg-bg-base">
@@ -156,17 +156,17 @@ export default function CaseStudiesPage() {
 
                 <div className="flex-1 w-full">
                   <AnimatedSection direction={i % 2 === 0 ? 'right' : 'left'} delay={0.2}>
-                    <div className="bg-white border border-border rounded-3xl p-8 shadow-sm relative overflow-hidden">
+                    <div className="bg-bg-surface border border-border rounded-3xl p-8 shadow-2xl relative overflow-hidden">
                       <div className={`absolute top-0 left-0 w-2 h-full ${cs.color}`} />
                       
-                      <h4 className="font-bold text-text-primary mb-6 flex items-center gap-2">
-                        System Workflow
+                      <h4 className="font-display text-xl font-medium text-text-primary mb-6 flex items-center gap-2">
+                        System Architecture
                       </h4>
                       <div className="space-y-4 relative mb-10">
                         <div className="absolute top-2 bottom-2 left-3.5 w-px bg-border" />
                         {cs.workflow.map((step, stepIdx) => (
                           <div key={stepIdx} className="relative flex items-center gap-4">
-                            <div className={`w-7 h-7 rounded-full bg-white border-2 flex items-center justify-center relative z-10 text-xs font-bold ${stepIdx === 0 ? 'border-border text-text-muted' : `border-transparent ${cs.color} text-white`}`}>
+                            <div className={`w-7 h-7 rounded-full bg-bg-surface border-2 flex items-center justify-center relative z-10 text-xs font-bold ${stepIdx === 0 ? 'border-border text-text-muted' : `border-transparent ${cs.color} text-bg-base`}`}>
                               {stepIdx + 1}
                             </div>
                             <p className="text-sm font-medium text-text-primary">{step}</p>
@@ -174,12 +174,12 @@ export default function CaseStudiesPage() {
                         ))}
                       </div>
 
-                      <div className="bg-bg-alt rounded-2xl p-5 border border-border">
-                         <h4 className="text-xs font-bold text-text-muted uppercase tracking-wider mb-4">Projected Outcomes</h4>
+                      <div className="bg-bg-alt rounded-2xl p-6 border border-border">
+                         <h4 className="text-xs font-semibold text-text-muted uppercase tracking-widest mb-4">Projected Outcomes</h4>
                          <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                             {cs.metrics.map((m, mIdx) => (
                               <div key={mIdx}>
-                                <div className={`text-xl font-bold mb-1 ${cs.iconColor}`}>{m.value}</div>
+                                <div className={`text-2xl font-display font-medium mb-1 ${cs.iconColor}`}>{m.value}</div>
                                 <div className="text-xs text-text-secondary leading-tight">{m.label}</div>
                               </div>
                             ))}
@@ -194,13 +194,13 @@ export default function CaseStudiesPage() {
         </div>
       </section>
 
-      <section className="section-py bg-white border-t border-border">
+      <section className="section-py bg-bg-alt border-t border-border">
          <div className="page-container max-w-4xl mx-auto text-center">
            <AnimatedSection>
-             <h2 className="heading-lg text-text-primary mb-6">Ready to see a custom workflow for your business?</h2>
-             <p className="text-lg text-text-secondary mb-8">We build interactive maps and ROI projections before you commit to any development.</p>
+             <h2 className="font-display font-medium text-4xl text-text-primary mb-6 tracking-tight">Ready to see a custom workflow for your business?</h2>
+             <p className="text-lg text-text-secondary mb-8 font-light max-w-2xl mx-auto">We build interactive architecture maps and ROI projections before you commit to any development.</p>
              <Link href="/contact" className="btn-primary">
-               Request a Workflow Map
+               Request Architecture Map
              </Link>
            </AnimatedSection>
          </div>

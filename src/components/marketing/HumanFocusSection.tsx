@@ -41,48 +41,48 @@ export function HumanFocusSection() {
           {/* Right Visual */}
           <div className="relative order-1 lg:order-2">
             <AnimatedSection delay={0.2}>
-              <div className="relative rounded-xl overflow-hidden aspect-[4/3] border border-border">
+              <div className="relative rounded-xl overflow-visible md:overflow-hidden aspect-square sm:aspect-video border border-border">
                 {/* Monochrome overlay for the premium dark aesthetic */}
-                <div className="absolute inset-0 bg-bg-base/20 mix-blend-multiply z-10 pointer-events-none" />
+                <div className="absolute inset-0 bg-bg-base/40 mix-blend-multiply z-10 pointer-events-none" />
                 <Image
                   src="/images/receptionist_scene.jpg"
                   alt="Professional reception environment"
                   fill
-                  className="object-cover grayscale-[30%] opacity-90"
+                  className="object-cover object-[70%_center] grayscale-[20%] opacity-90 rounded-xl"
                   sizes="(max-width: 768px) 100vw, 50vw"
                 />
                 
                 {/* Subtle UI Overlay 1 */}
                 <motion.div 
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
+                  initial={{ opacity: 0, x: 20 }}
+                  whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 0.6, duration: 0.6 }}
-                  className="absolute bottom-6 left-6 bg-bg-surface/90 backdrop-blur-md border border-border p-4 rounded-xl shadow-xl flex items-center gap-4 max-w-[280px] z-20"
+                  className="absolute bottom-4 -right-2 sm:-right-6 md:right-6 bg-bg-surface/95 backdrop-blur-md border border-border p-3 sm:p-4 rounded-xl shadow-xl flex items-center gap-3 sm:gap-4 max-w-[240px] sm:max-w-[280px] z-20"
                 >
-                  <div className="w-10 h-10 bg-bg-alt rounded-lg flex items-center justify-center flex-shrink-0 border border-border">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-bg-alt rounded-lg flex items-center justify-center flex-shrink-0 border border-border">
                     <PhoneCall className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-text-primary">Call Processed</p>
-                    <p className="text-xs text-text-muted">Automated lead qualification</p>
+                    <p className="text-xs sm:text-sm font-medium text-text-primary">Call Processed</p>
+                    <p className="text-[10px] sm:text-xs text-text-muted">Automated lead qualification</p>
                   </div>
                 </motion.div>
 
                 {/* Subtle UI Overlay 2 */}
                 <motion.div 
-                  initial={{ opacity: 0, x: 20 }}
+                  initial={{ opacity: 0, x: -20 }}
                   whileInView={{ opacity: 1, x: 0 }}
                   viewport={{ once: true }}
                   transition={{ delay: 1.2, duration: 0.6 }}
-                  className="absolute top-6 right-6 bg-bg-surface/90 backdrop-blur-md border border-border p-4 rounded-xl shadow-xl flex items-center gap-4 max-w-[280px] z-20"
+                  className="absolute top-4 -left-2 sm:-left-6 md:left-6 bg-bg-surface/95 backdrop-blur-md border border-border p-3 sm:p-4 rounded-xl shadow-xl flex items-center gap-3 sm:gap-4 max-w-[240px] sm:max-w-[280px] z-20"
                 >
-                  <div className="w-10 h-10 bg-bg-alt rounded-lg flex items-center justify-center flex-shrink-0 border border-border">
+                  <div className="w-8 h-8 sm:w-10 sm:h-10 bg-bg-alt rounded-lg flex items-center justify-center flex-shrink-0 border border-border">
                     <CalendarCheck className="w-4 h-4 text-primary" />
                   </div>
                   <div>
-                    <p className="text-sm font-medium text-text-primary">Schedule Updated</p>
-                    <p className="text-xs text-text-muted">Appointment confirmed</p>
+                    <p className="text-xs sm:text-sm font-medium text-text-primary">Schedule Updated</p>
+                    <p className="text-[10px] sm:text-xs text-text-muted">Appointment confirmed</p>
                   </div>
                 </motion.div>
               </div>
