@@ -85,7 +85,7 @@ export function Logo({ variant = 'dark', size = 36, showWordmark = true, classNa
           height={size}
           onError={handleError}
           onLoad={() => setUseFallback(false)}
-          className="object-contain flex-shrink-0"
+          className="object-contain flex-shrink-0 rounded-xl"
           style={{ width: size, height: size }}
         />
       )}
