@@ -4,47 +4,53 @@
 
 @layer base {
   :root {
-    /* Azorvin Operational Objects */
-    --color-bg-base: #11120F; /* bg-primary */
-    --color-bg-alt: #181915; /* bg-secondary */
-    --color-bg-surface: #20211C; /* bg-elevated */
-    --color-bg-light: #E9E3D8; /* surface-light */
-    --color-bg-light-alt: #D8D0C3; /* surface-light-secondary */
-    
+    /* Azorvin Operational Objects — High Contrast Edition */
+    --color-bg-base: #11120F;
+    --color-bg-alt: #181915;
+    --color-bg-surface: #20211C;
+    --color-bg-light: #E9E3D8;
+    --color-bg-light-alt: #D8D0C3;
+
     --color-bg-dark: #11120F;
     --color-bg-dark-alt: #181915;
-    
-    --color-text-primary: #F2EEE6; /* text-dark-primary */
-    --color-text-secondary: #BEB7AB; /* text-dark-secondary */
-    --color-text-muted: #918B81; /* text-dark-muted */
-    --color-text-on-dark: #F2EEE6;
-    
+
+    /* Text — WCAG AA compliant on dark backgrounds */
+    --color-text-primary: #F4F0E8;   /* near-white warm — 16:1 on bg-base */
+    --color-text-secondary: #CEC8BC; /* warm grey — 8:1 on bg-base */
+    --color-text-muted: #A09990;     /* for captions/metadata — 5:1 on bg-base */
+    --color-text-on-dark: #F4F0E8;
+
     --color-text-light-primary: #1C1B18;
-    --color-text-light-secondary: #5E5951;
-    
-    --color-primary: #B8774F; /* accent-primary (warm copper) */
-    --color-primary-hover: #CA8960; /* accent-hover */
-    --color-accent: #79806D; /* accent-secondary (sage/stone) */
-    
-    --color-violet: #79806D; /* Forbidden, alias to accent */
-    --color-mint: #79806D; /* Alias to accent */
-    --color-warm: #B8774F; /* Alias to primary */
-    
-    --color-border: rgba(242, 238, 230, 0.14); /* border-dark */
-    --color-border-dark: rgba(242, 238, 230, 0.14);
-    --color-border-light: rgba(28, 27, 24, 0.14);
-    
+    --color-text-light-secondary: #4A4540;
+
+    /* Accent — warm copper */
+    --color-primary: #C4834F;        /* slightly brighter copper for legibility */
+    --color-primary-hover: #D4956A;
+    --color-accent: #B8774F;         /* alias — same copper family */
+
+    /* Eyebrow label color — warm & visible */
+    --color-eyebrow: #C4834F;
+
+    --color-violet: #A08060;
+    --color-mint: #8FA88A;           /* muted sage — legible as a success tone */
+    --color-warm: #C4834F;
+
+    /* Borders — more visible */
+    --color-border: rgba(242, 238, 230, 0.20);
+    --color-border-dark: rgba(242, 238, 230, 0.20);
+    --color-border-light: rgba(28, 27, 24, 0.18);
+
     --radius-sm: 4px;
     --radius-md: 8px;
     --radius-lg: 10px;
     --radius-xl: 12px;
     --radius-full: 9999px;
-    
-    --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.2);
-    --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.3);
-    --shadow-lg: 0 8px 30px rgba(0, 0, 0, 0.4);
-    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.5);
-    --shadow-glow: none; /* Forbidden */
+
+    --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.3);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.4);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.5);
+    --shadow-xl: 0 20px 60px rgba(0, 0, 0, 0.6);
+    --shadow-glow: none;
   }
 
   html {
@@ -126,7 +132,10 @@
   }
 
   .text-gradient-warm {
-    color: var(--color-primary);
+    background: linear-gradient(135deg, #C4834F 0%, #E0A870 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
   }
 
   .btn-primary {
