@@ -8,21 +8,16 @@ interface LogoProps {
   showWordmark?: boolean
 }
 
-/**
- * Azorvin logo — original logo.png in a rounded dark badge.
- * Badge is tall enough to show the full hexagon mark without cropping.
- */
 export function Logo({ variant = 'dark', showWordmark = true, className }: LogoProps) {
   return (
     <span className={cn('flex items-center gap-2.5', className)}>
       <span
-        className="flex-shrink-0 flex items-center justify-center rounded-xl overflow-hidden"
+        className="flex-shrink-0 rounded-xl overflow-hidden"
         style={{
-          width: 44,
-          height: 48,
+          width: 42,
+          height: 42,
           background: '#020A18',
           border: '1px solid rgba(34,211,238,0.15)',
-          padding: 4,
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -31,9 +26,9 @@ export function Logo({ variant = 'dark', showWordmark = true, className }: LogoP
           alt="Azorvin"
           style={{
             width: '100%',
-            height: '100%',
-            objectFit: 'contain',
-            objectPosition: 'center',
+            height: '150%',
+            objectFit: 'cover',
+            objectPosition: 'center 15%',
             display: 'block',
           }}
         />
