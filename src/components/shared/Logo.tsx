@@ -9,21 +9,20 @@ interface LogoProps {
 }
 
 /**
- * Azorvin logo — original logo.png displayed inside a rounded dark badge.
- * The container background (#020A18) matches the PNG's own dark navy background
- * so it looks clean and intentional — no white edges, no bleed.
+ * Azorvin logo — original logo.png in a rounded dark badge.
+ * Badge is tall enough to show the full hexagon mark without cropping.
  */
 export function Logo({ variant = 'dark', showWordmark = true, className }: LogoProps) {
   return (
     <span className={cn('flex items-center gap-2.5', className)}>
-      {/* Rounded dark badge containing the logo PNG */}
       <span
         className="flex-shrink-0 flex items-center justify-center rounded-xl overflow-hidden"
         style={{
-          width: 40,
-          height: 40,
+          width: 44,
+          height: 48,
           background: '#020A18',
           border: '1px solid rgba(34,211,238,0.15)',
+          padding: 4,
         }}
       >
         {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -31,10 +30,11 @@ export function Logo({ variant = 'dark', showWordmark = true, className }: LogoP
           src="/logo.png"
           alt="Azorvin"
           style={{
-            width: '90%',
-            height: '90%',
+            width: '100%',
+            height: '100%',
             objectFit: 'contain',
             objectPosition: 'center',
+            display: 'block',
           }}
         />
       </span>
