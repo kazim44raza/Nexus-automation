@@ -8,43 +8,18 @@ interface LogoProps {
   showWordmark?: boolean
 }
 
-export function Logo({ variant = 'dark', showWordmark = true, className }: LogoProps) {
+export function Logo({ variant = 'dark', className }: LogoProps) {
   return (
-    <span className={cn('flex items-center gap-2.5', className)}>
+    <span className={cn('flex items-center', className)}>
       <span
-        className="flex-shrink-0 rounded-xl overflow-hidden"
-        style={{
-          width: 24,
-          height: 24,
-          background: '#020A18',
-          border: '1px solid rgba(34,211,238,0.15)',
-        }}
+        className={cn(
+          'font-display font-semibold tracking-tight leading-none',
+          'text-xl md:text-2xl',
+          variant === 'light' ? 'text-text-primary' : 'text-[#1C1B18]'
+        )}
       >
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src="/logo.png"
-          alt="Azorvin"
-          style={{
-            width: '100%',
-            height: '150%',
-            objectFit: 'cover',
-            objectPosition: 'center 15%',
-            display: 'block',
-          }}
-        />
+        Azorvin
       </span>
-
-      {showWordmark && (
-        <span
-          className={cn(
-            'font-display font-semibold tracking-tight leading-none',
-            'text-xl md:text-2xl',
-            variant === 'light' ? 'text-text-primary' : 'text-[#1C1B18]'
-          )}
-        >
-          Azorvin
-        </span>
-      )}
     </span>
   )
 }
