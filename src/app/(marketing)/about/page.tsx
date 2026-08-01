@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
@@ -132,7 +132,7 @@ export default function AboutPage() {
           <AnimatedSection>
             <h2 className="font-display text-4xl md:text-5xl text-text-primary mb-8">Ready to solve operational bottlenecks?</h2>
             <p className="text-text-secondary mb-12 text-xl font-light">Let's look at your current manual processes and see if a custom automation system makes sense.</p>
-            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-text-primary text-bg-base hover:bg-white transition-colors duration-300 font-medium tracking-wide text-sm uppercase">
+            <Link href="/contact" className="inline-flex items-center gap-2 px-8 py-4 bg-text-primary text-bg-base hover:bg-bg-surface transition-colors duration-300 font-medium tracking-wide text-sm uppercase">
               Book a technical discovery <ArrowRight className="w-4 h-4" />
             </Link>
           </AnimatedSection>

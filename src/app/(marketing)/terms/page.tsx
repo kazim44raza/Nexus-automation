@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: 'Terms of Service — Azorvin',
@@ -68,7 +68,7 @@ export default function TermsPage() {
         </div>
       </section>
 
-      <section className="section-py-sm bg-white">
+      <section className="section-py-sm bg-bg-surface">
         <div className="page-container max-w-3xl space-y-10 pb-12">
           {sections.map((s) => (
             <div key={s.title}>

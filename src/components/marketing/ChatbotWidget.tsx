@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState, useRef, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
@@ -92,35 +92,35 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[calc(100vw-2rem)] sm:w-[360px] bg-white rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[520px]"
+            className="w-[calc(100vw-2rem)] sm:w-[360px] bg-bg-surface rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[520px]"
             style={{ height: '520px' }}
           >
             {/* Header */}
             <div className="bg-gradient-to-r from-accent to-primary p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 bg-white/20 rounded-xl flex items-center justify-center">
-                  <Bot className="w-4 h-4 text-white" />
+                <div className="w-8 h-8 bg-bg-surface/20 rounded-xl flex items-center justify-center">
+                  <Bot className="w-4 h-4 text-text-primary" />
                 </div>
                 <div>
-                  <p className="text-white font-semibold text-sm">Azorvin AI</p>
+                  <p className="text-text-primary font-semibold text-sm">Azorvin AI</p>
                   <div className="flex items-center gap-1.5">
                     <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
-                    <span className="text-white/80 text-xs">Online now</span>
+                    <span className="text-text-primary/80 text-xs">Online now</span>
                   </div>
                 </div>
               </div>
               <div className="flex items-center gap-1">
-                <button onClick={() => setMinimized(true)} className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/20 transition-colors">
+                <button onClick={() => setMinimized(true)} className="p-1.5 rounded-lg text-text-primary/80 hover:text-text-primary hover:bg-bg-surface/20 transition-colors">
                   <Minimize2 className="w-3.5 h-3.5" />
                 </button>
-                <button onClick={() => setOpen(false)} className="p-1.5 rounded-lg text-white/80 hover:text-white hover:bg-white/20 transition-colors">
+                <button onClick={() => setOpen(false)} className="p-1.5 rounded-lg text-text-primary/80 hover:text-text-primary hover:bg-bg-surface/20 transition-colors">
                   <X className="w-3.5 h-3.5" />
                 </button>
               </div>
             </div>
 
             {/* Messages */}
-            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-white">
+            <div className="flex-1 overflow-y-auto p-4 space-y-3 bg-bg-surface">
               {messages.map(msg => (
                 <div
                   key={msg.id}
@@ -134,7 +134,7 @@ export function ChatbotWidget() {
                   <div className={cn(
                     'max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed',
                     msg.role === 'user'
-                      ? 'bg-gradient-to-r from-accent to-primary text-white rounded-tr-sm shadow-sm'
+                      ? 'bg-gradient-to-r from-accent to-primary text-text-primary rounded-tr-sm shadow-sm'
                       : 'bg-gray-100 text-gray-900 rounded-tl-sm'
                   )}>
                     {msg.content || (
@@ -151,7 +151,7 @@ export function ChatbotWidget() {
             </div>
 
             {/* Input */}
-            <div className="p-3 border-t border-gray-100 bg-white">
+            <div className="p-3 border-t border-gray-100 bg-bg-surface">
               <form
                 onSubmit={e => { e.preventDefault(); sendMessage() }}
                 className="flex items-center gap-2"
@@ -168,7 +168,7 @@ export function ChatbotWidget() {
                 <button
                   type="submit"
                   disabled={!input.trim() || loading}
-                  className="w-11 h-11 bg-accent text-white rounded-xl flex items-center justify-center hover:bg-accent/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 shadow-sm"
+                  className="w-11 h-11 bg-accent text-text-primary rounded-xl flex items-center justify-center hover:bg-accent/90 transition-colors disabled:opacity-40 disabled:cursor-not-allowed flex-shrink-0 shadow-sm"
                 >
                   {loading ? <Loader2 className="w-4 h-4 animate-spin" /> : <Send className="w-4 h-4" />}
                 </button>
@@ -186,7 +186,7 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.9 }}
             onClick={() => setMinimized(false)}
-            className="flex items-center gap-3 bg-gradient-to-r from-accent to-primary text-white px-5 py-3.5 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all"
+            className="flex items-center gap-3 bg-gradient-to-r from-accent to-primary text-text-primary px-5 py-3.5 rounded-2xl shadow-lg cursor-pointer hover:shadow-xl transition-all"
           >
             <Bot className="w-5 h-5" />
             <span className="text-sm font-semibold">Azorvin AI</span>
@@ -200,7 +200,7 @@ export function ChatbotWidget() {
         onClick={() => { setOpen(!open); setMinimized(false) }}
         whileHover={{ scale: 1.05 }}
         whileTap={{ scale: 0.95 }}
-        className="w-14 h-14 bg-gradient-to-r from-accent to-primary text-white rounded-full shadow-lg hover:shadow-xl flex items-center justify-center relative transition-shadow"
+        className="w-14 h-14 bg-gradient-to-r from-accent to-primary text-text-primary rounded-full shadow-lg hover:shadow-xl flex items-center justify-center relative transition-shadow"
         aria-label="Open chat"
       >
         <AnimatePresence mode="wait">

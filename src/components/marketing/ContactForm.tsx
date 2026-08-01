@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 
 import { useState } from 'react'
 import { useForm } from 'react-hook-form'
@@ -44,7 +44,7 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-16 bg-white rounded-2xl shadow-sm border border-gray-100 px-6">
+      <div className="text-center py-16 bg-bg-surface rounded-2xl shadow-sm border border-gray-100 px-6">
         <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
           <CheckCircle2 className="w-10 h-10 text-green-500" />
         </div>
@@ -54,7 +54,7 @@ export function ContactForm() {
     )
   }
 
-  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-white text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-gray-400"
+  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-bg-surface text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-gray-400"
   const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5"
 
   return (
@@ -111,7 +111,7 @@ export function ContactForm() {
         {errors.message && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.message.message}</p>}
       </div>
 
-      <button type="submit" disabled={isSubmitting} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-accent to-primary text-white font-semibold py-4 px-8 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.01] transition-all disabled:opacity-50 disabled:pointer-events-none text-lg">
+      <button type="submit" disabled={isSubmitting} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-accent to-primary text-text-primary font-semibold py-4 px-8 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.01] transition-all disabled:opacity-50 disabled:pointer-events-none text-lg">
         {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending…</> : <><Send className="w-5 h-5" /> Send Message</>}
       </button>
 

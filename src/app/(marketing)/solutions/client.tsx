@@ -93,19 +93,19 @@ export function InteractiveSystemMap() {
               onClick={() => setActiveGoal(goal.id)}
               className={`flex items-center gap-2 px-5 py-3 rounded-full text-sm font-medium transition-all duration-300 ${
                 isActive 
-                  ? 'bg-text-primary text-white shadow-lg scale-105' 
-                  : 'bg-white text-text-secondary border border-border hover:border-text-muted hover:bg-bg-alt'
+                  ? 'bg-primary text-bg-base shadow-lg scale-105' 
+                  : 'bg-bg-surface text-text-secondary border border-border hover:border-text-muted hover:bg-bg-alt'
               }`}
             >
-              <Icon className={`w-4 h-4 ${isActive ? 'text-white' : 'text-text-muted'}`} />
+              <Icon className={`w-4 h-4 ${isActive ? 'text-bg-base' : 'text-text-muted'}`} />
               {goal.label}
             </button>
           )
         })}
       </div>
 
-      {/* System Map Diorama */}
-      <div className="bg-white rounded-3xl border border-border shadow-sm p-8 md:p-12 min-h-[400px] relative overflow-hidden">
+      {/* System Map */}
+      <div className="bg-bg-surface rounded-2xl border border-border shadow-xl p-8 md:p-12 min-h-[400px] relative overflow-hidden">
         <div className="absolute top-0 right-0 p-32 bg-radial-gradient from-accent/5 to-transparent opacity-50" />
         
         <AnimatePresence mode="wait">
@@ -135,7 +135,7 @@ export function InteractiveSystemMap() {
                     transition={{ duration: 0.4, delay: idx * 0.1 }}
                     className="bg-bg-base border border-border rounded-2xl p-6 relative group hover:-translate-y-1 transition-transform duration-300"
                   >
-                    <div className="w-8 h-8 rounded-full bg-text-primary text-white flex items-center justify-center font-bold text-sm mb-4 mx-auto md:mx-0">
+                    <div className="w-8 h-8 rounded-full bg-primary text-bg-base flex items-center justify-center font-bold text-sm mb-4 mx-auto md:mx-0">
                       {step.id}
                     </div>
                     <h4 className="font-bold text-text-primary mb-2 text-center md:text-left">{step.title}</h4>

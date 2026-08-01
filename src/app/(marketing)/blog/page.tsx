@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
@@ -28,14 +28,14 @@ export default function BlogPage() {
         </div>
       </section>
 
-      <section className="section-py bg-white">
+      <section className="section-py bg-bg-surface">
         <div className="page-container">
           <StaggerContainer className="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {posts.map(post => (
               <StaggerItem key={post.slug}>
-                <Link href={`/blog/${post.slug}`} className="card card-hover p-0 overflow-hidden h-full flex flex-col group block bg-white">
+                <Link href={`/blog/${post.slug}`} className="card card-hover p-0 overflow-hidden h-full flex flex-col group block bg-bg-surface">
                   <div className="h-40 bg-bg-alt flex items-center justify-center border-b border-border">
-                    <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
+                    <div className="w-12 h-12 bg-bg-surface rounded-2xl flex items-center justify-center shadow-sm">
                       <span className="text-2xl">📝</span>
                     </div>
                   </div>

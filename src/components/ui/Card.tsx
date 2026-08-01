@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+﻿import { cn } from '@/lib/utils'
 import { forwardRef } from 'react'
 
 type CardVariant = 'default' | 'elevated' | 'outlined' | 'dark'
@@ -16,10 +16,10 @@ const paddingMap = {
 }
 
 const variantMap: Record<CardVariant, string> = {
-  default: 'bg-white shadow-sm border border-gray-200',
-  elevated: 'bg-white shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300',
-  outlined: 'bg-white border-2 border-gray-200',
-  dark: 'bg-gray-900 text-white border border-gray-800',
+  default: 'bg-bg-surface shadow-sm border border-gray-200',
+  elevated: 'bg-bg-surface shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300',
+  outlined: 'bg-bg-surface border-2 border-gray-200',
+  dark: 'bg-gray-900 text-text-primary border border-gray-800',
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(

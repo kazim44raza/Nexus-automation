@@ -1,4 +1,4 @@
-import type { Metadata } from 'next'
+﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { Download, BookOpen, Video, Calculator, ArrowRight, Lightbulb } from 'lucide-react'
@@ -54,8 +54,8 @@ export default function ResourcesPage() {
         <div className="absolute inset-0 bg-dot-pattern opacity-20" />
         <div className="relative page-container text-center max-w-2xl mx-auto z-10">
           <AnimatedSection>
-            <h1 className="heading-display text-white mb-4">Automation Resources</h1>
-            <p className="text-lg text-white/60">Workflows, interactive maps, and tools to help you understand how AI automation can scale your operations.</p>
+            <h1 className="heading-display text-text-primary mb-4">Automation Resources</h1>
+            <p className="text-lg text-text-primary/60">Workflows, interactive maps, and tools to help you understand how AI automation can scale your operations.</p>
           </AnimatedSection>
         </div>
         <div className="absolute bottom-0 inset-x-0 h-20 bg-gradient-to-t from-bg-base to-transparent" />
@@ -66,7 +66,7 @@ export default function ResourcesPage() {
           <StaggerContainer className="grid sm:grid-cols-2 gap-8 max-w-4xl mx-auto">
             {resources.map((r, i) => (
               <StaggerItem key={i}>
-                <div className="card card-hover p-8 h-full flex flex-col bg-white border border-border rounded-3xl shadow-sm">
+                <div className="card card-hover p-8 h-full flex flex-col bg-bg-surface border border-border rounded-3xl shadow-sm">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-6 ${r.color}`}>{r.icon}</div>
                   <span className="text-xs font-bold text-text-muted uppercase tracking-wider mb-3">{r.type}</span>
                   <h2 className="heading-md text-text-primary mb-3">{r.title}</h2>

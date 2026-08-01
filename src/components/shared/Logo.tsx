@@ -9,20 +9,36 @@ interface LogoProps {
 }
 
 /**
- * Uses the original /logo.png.
- * mix-blend-mode: screen removes the dark navy background of the PNG
- * so only the silver + cyan mark is visible on dark site backgrounds.
+ * Azorvin logo — original logo.png displayed inside a rounded dark badge.
+ * The container background (#020A18) matches the PNG's own dark navy background
+ * so it looks clean and intentional — no white edges, no bleed.
  */
 export function Logo({ variant = 'dark', showWordmark = true, className }: LogoProps) {
   return (
-    <span className={cn('flex items-center gap-2', className)}>
-      {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src="/logo.png"
-        alt="Azorvin"
-        className="h-8 md:h-10 w-auto flex-shrink-0"
-        style={{ mixBlendMode: 'screen' }}
-      />
+    <span className={cn('flex items-center gap-2.5', className)}>
+      {/* Rounded dark badge containing the logo PNG */}
+      <span
+        className="flex-shrink-0 flex items-center justify-center rounded-xl overflow-hidden"
+        style={{
+          width: 40,
+          height: 40,
+          background: '#020A18',
+          border: '1px solid rgba(34,211,238,0.15)',
+        }}
+      >
+        {/* eslint-disable-next-line @next/next/no-img-element */}
+        <img
+          src="/logo.png"
+          alt="Azorvin"
+          style={{
+            width: '90%',
+            height: '90%',
+            objectFit: 'contain',
+            objectPosition: 'center',
+          }}
+        />
+      </span>
+
       {showWordmark && (
         <span
           className={cn(

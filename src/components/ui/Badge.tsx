@@ -1,4 +1,4 @@
-import { cn } from '@/lib/utils'
+﻿import { cn } from '@/lib/utils'
 
 type BadgeVariant = 'primary' | 'accent' | 'warm' | 'neutral' | 'dark'
 
@@ -14,7 +14,7 @@ const variantMap: Record<BadgeVariant, string> = {
   accent: 'badge-accent',
   warm: 'badge-warm',
   neutral: 'badge-neutral',
-  dark: 'badge bg-white/10 text-white/80',
+  dark: 'badge bg-bg-surface/10 text-text-primary/80',
 }
 
 export function Badge({ variant = 'neutral', children, className, dot }: BadgeProps) {
@@ -27,7 +27,7 @@ export function Badge({ variant = 'neutral', children, className, dot }: BadgePr
           variant === 'accent' && 'bg-accent',
           variant === 'warm' && 'bg-warm',
           variant === 'neutral' && 'bg-text-muted',
-          variant === 'dark' && 'bg-white/50',
+          variant === 'dark' && 'bg-bg-surface/50',
         )} />
       )}
       {children}
