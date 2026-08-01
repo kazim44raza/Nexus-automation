@@ -14,8 +14,8 @@ export function Logo({ variant = 'dark', showWordmark = true, className }: LogoP
       <span
         className="flex-shrink-0 rounded-xl overflow-hidden"
         style={{
-          width: 28,
-          height: 28,
+          width: 24,
+          height: 24,
           background: '#020A18',
           border: '1px solid rgba(34,211,238,0.15)',
         }}
