@@ -2,11 +2,13 @@
 import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { Download, BookOpen, Video, Calculator, ArrowRight, Lightbulb } from 'lucide-react'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Resources — Automation Guides & Tools',
-  description: 'Free guides, calculators, and resources to help you understand AI automation for your business.',
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'Business Automation Guides & Resources',
+  description: 'Explore workflow scenarios and practical guides for evaluating voice, messaging, booking, and business automation projects.',
+  path: '/resources',
+})
 
 const resources = [
   { 

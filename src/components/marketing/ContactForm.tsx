@@ -61,39 +61,39 @@ export function ContactForm() {
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelClass}>Full Name *</label>
-          <input {...register('name')} className={cn(inputClass, errors.name && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="Your name" />
-          {errors.name && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.name.message}</p>}
+          <label htmlFor="contact-name" className={labelClass}>Full Name *</label>
+          <input id="contact-name" {...register('name')} aria-invalid={Boolean(errors.name)} aria-describedby={errors.name ? 'contact-name-error' : undefined} className={cn(inputClass, errors.name && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="Your name" />
+          {errors.name && <p id="contact-name-error" className="text-red-500 text-xs mt-1.5 font-medium">{errors.name.message}</p>}
         </div>
         <div>
-          <label className={labelClass}>Email Address *</label>
-          <input {...register('email')} type="email" className={cn(inputClass, errors.email && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="you@company.com" />
-          {errors.email && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.email.message}</p>}
-        </div>
-      </div>
-
-      <div className="grid sm:grid-cols-2 gap-5">
-        <div>
-          <label className={labelClass}>Phone</label>
-          <input {...register('phone')} type="tel" className={inputClass} placeholder="+1 (555) 000-0000" />
-        </div>
-        <div>
-          <label className={labelClass}>Business Name</label>
-          <input {...register('businessName')} className={inputClass} placeholder="Your company" />
+          <label htmlFor="contact-email" className={labelClass}>Email Address *</label>
+          <input id="contact-email" {...register('email')} type="email" aria-invalid={Boolean(errors.email)} aria-describedby={errors.email ? 'contact-email-error' : undefined} className={cn(inputClass, errors.email && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="you@company.com" />
+          {errors.email && <p id="contact-email-error" className="text-red-500 text-xs mt-1.5 font-medium">{errors.email.message}</p>}
         </div>
       </div>
 
       <div className="grid sm:grid-cols-2 gap-5">
         <div>
-          <label className={labelClass}>Industry</label>
-          <select {...register('industry')} className={inputClass}>
+          <label htmlFor="contact-phone" className={labelClass}>Phone</label>
+          <input id="contact-phone" {...register('phone')} type="tel" className={inputClass} placeholder="+1 (555) 000-0000" />
+        </div>
+        <div>
+          <label htmlFor="contact-business" className={labelClass}>Business Name</label>
+          <input id="contact-business" {...register('businessName')} className={inputClass} placeholder="Your company" />
+        </div>
+      </div>
+
+      <div className="grid sm:grid-cols-2 gap-5">
+        <div>
+          <label htmlFor="contact-industry" className={labelClass}>Industry</label>
+          <select id="contact-industry" {...register('industry')} className={inputClass}>
             <option value="">Select your industry</option>
             {industries.map(i => <option key={i} value={i}>{i}</option>)}
           </select>
         </div>
         <div>
-          <label className={labelClass}>Service Interest</label>
-          <select {...register('serviceInterest')} className={inputClass}>
+          <label htmlFor="contact-service" className={labelClass}>Service Interest</label>
+          <select id="contact-service" {...register('serviceInterest')} className={inputClass}>
             <option value="">What are you looking for?</option>
             {services.map(s => <option key={s} value={s}>{s}</option>)}
           </select>
@@ -101,14 +101,14 @@ export function ContactForm() {
       </div>
 
       <div>
-        <label className={labelClass}>Current Challenges</label>
-        <input {...register('challenges')} className={inputClass} placeholder="e.g. Missing calls after hours, manual follow-ups taking too long..." />
+        <label htmlFor="contact-challenges" className={labelClass}>Current Challenges</label>
+        <input id="contact-challenges" {...register('challenges')} className={inputClass} placeholder="e.g. Missing calls after hours, manual follow-ups taking too long..." />
       </div>
 
       <div>
-        <label className={labelClass}>Message *</label>
-        <textarea {...register('message')} rows={4} className={cn(inputClass, "resize-none", errors.message && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="Tell us about your business and what you're hoping to automate..." />
-        {errors.message && <p className="text-red-500 text-xs mt-1.5 font-medium">{errors.message.message}</p>}
+        <label htmlFor="contact-message" className={labelClass}>Message *</label>
+        <textarea id="contact-message" {...register('message')} rows={4} aria-invalid={Boolean(errors.message)} aria-describedby={errors.message ? 'contact-message-error' : undefined} className={cn(inputClass, "resize-none", errors.message && "border-red-500 focus:ring-red-500/30 focus:border-red-500")} placeholder="Tell us about your business and what you're hoping to automate..." />
+        {errors.message && <p id="contact-message-error" className="text-red-500 text-xs mt-1.5 font-medium">{errors.message.message}</p>}
       </div>
 
       <button type="submit" disabled={isSubmitting} className="w-full inline-flex items-center justify-center gap-2 bg-gradient-to-r from-accent to-primary text-text-primary font-semibold py-4 px-8 rounded-xl shadow-md hover:shadow-lg hover:scale-[1.01] transition-all disabled:opacity-50 disabled:pointer-events-none text-lg">

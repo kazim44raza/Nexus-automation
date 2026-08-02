@@ -117,6 +117,7 @@ Preferred Time: ${formData.preferredTime}
                     <button
                       key={option}
                       type="button"
+                      aria-pressed={formData.services.includes(option)}
                       onClick={() => toggleService(option)}
                       className={`p-3 text-sm rounded-xl border text-left transition-all ${formData.services.includes(option) ? 'border-primary bg-primary/5 text-primary font-medium' : 'border-border bg-bg-base text-text-secondary hover:border-text-muted'}`}
                     >
@@ -133,6 +134,7 @@ Preferred Time: ${formData.preferredTime}
               <div>
                 <h3 className="heading-sm text-text-primary mb-4">What challenges are you experiencing?</h3>
                 <textarea
+                  aria-label="Current business challenges"
                   name="challenges"
                   value={formData.challenges}
                   onChange={handleChange}
@@ -149,27 +151,27 @@ Preferred Time: ${formData.preferredTime}
               <h3 className="heading-sm text-text-primary mb-2">Business details</h3>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="label">Full Name *</label>
-                  <input type="text" name="name" required value={formData.name} onChange={handleChange} className="input" />
+                  <label htmlFor="request-name" className="label">Full Name *</label>
+                  <input id="request-name" type="text" name="name" required value={formData.name} onChange={handleChange} className="input" />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="label">Email *</label>
-                  <input type="email" name="email" required value={formData.email} onChange={handleChange} className="input" />
+                  <label htmlFor="request-email" className="label">Email *</label>
+                  <input id="request-email" type="email" name="email" required value={formData.email} onChange={handleChange} className="input" />
                 </div>
               </div>
               <div className="grid md:grid-cols-2 gap-4">
                 <div className="space-y-1.5">
-                  <label className="label">Phone</label>
-                  <input type="tel" name="phone" value={formData.phone} onChange={handleChange} className="input" />
+                  <label htmlFor="request-phone" className="label">Phone</label>
+                  <input id="request-phone" type="tel" name="phone" value={formData.phone} onChange={handleChange} className="input" />
                 </div>
                 <div className="space-y-1.5">
-                  <label className="label">Business Name</label>
-                  <input type="text" name="businessName" value={formData.businessName} onChange={handleChange} className="input" />
+                  <label htmlFor="request-business" className="label">Business Name</label>
+                  <input id="request-business" type="text" name="businessName" value={formData.businessName} onChange={handleChange} className="input" />
                 </div>
               </div>
               <div className="space-y-1.5">
-                <label className="label">Industry</label>
-                <select name="industry" value={formData.industry} onChange={handleChange} className="input">
+                <label htmlFor="request-industry" className="label">Industry</label>
+                <select id="request-industry" name="industry" value={formData.industry} onChange={handleChange} className="input">
                   <option value="">Select industry...</option>
                   {industries.map(ind => <option key={ind} value={ind}>{ind}</option>)}
                 </select>
@@ -190,8 +192,8 @@ Preferred Time: ${formData.preferredTime}
                   ))}
                 </div>
                 <div className="space-y-1.5 mt-4">
-                  <label className="label">Preferred time to connect (Optional)</label>
-                  <select name="preferredTime" value={formData.preferredTime} onChange={handleChange} className="input">
+                  <label htmlFor="request-time" className="label">Preferred time to connect (Optional)</label>
+                  <select id="request-time" name="preferredTime" value={formData.preferredTime} onChange={handleChange} className="input">
                     <option value="">Any time</option>
                     <option value="Morning">Morning</option>
                     <option value="Afternoon">Afternoon</option>

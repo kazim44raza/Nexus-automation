@@ -18,7 +18,7 @@ export default function WhatsAppAutomationClient() {
           <div className="inline-block px-4 py-1 rounded-full border border-border bg-bg-surface text-text-secondary text-sm tracking-widest uppercase">
             Conversational Commerce
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+          <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight">
             Conversations that keep moving. <br />
             <span className="text-accent">Right in WhatsApp.</span>
           </h1>

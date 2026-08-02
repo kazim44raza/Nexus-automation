@@ -4,11 +4,13 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { FloatingObjects } from '@/components/shared/FloatingObjects'
 import { ArrowRight, CheckCircle2, TrendingUp, Zap, Clock, UserCheck } from 'lucide-react'
 import { DemoDisclaimer } from '@/components/ui/DemoDisclaimer'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Portfolio & Demo Implementations',
-  description: 'Explore example automation systems and projected outcomes across different industries. These demonstrate the types of solutions we build.',
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'Automation Workflow Concepts & Demo Implementations',
+  description: 'Review clearly labelled concept workflows that show how voice, lead, booking, and support automation systems can be structured.',
+  path: '/work',
+})
 
 const cases = [
   { 
@@ -106,7 +108,7 @@ export default function CaseStudiesPage() {
         <div className="relative z-10 page-container text-center max-w-4xl mx-auto">
           <AnimatedSection>
             <span className="mb-6 inline-flex bg-bg-surface text-text-secondary border border-border px-3 py-1 rounded-sm text-xs font-semibold tracking-widest uppercase">Visual Portfolio</span>
-            <h1 className="font-display font-medium text-5xl md:text-7xl leading-[1.05] mb-8 text-text-primary tracking-tight">Explore demo implementations and concept workflows</h1>
+            <h1 className="font-display font-medium text-4xl sm:text-5xl md:text-7xl leading-[1.05] mb-8 text-text-primary tracking-tight">Explore demo implementations and concept workflows</h1>
             <p className="text-xl text-text-secondary max-w-2xl mx-auto font-light leading-relaxed">See how we map out AI automation systems before writing a single line of code. Review example scenarios and projected outcomes.</p>
           </AnimatedSection>
         </div>

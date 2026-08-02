@@ -1,9 +1,12 @@
 ﻿import type { Metadata } from 'next'
 
-export const metadata: Metadata = {
-  title: 'Terms of Service — Azorvin',
+import { createPageMetadata } from '@/lib/seo'
+
+export const metadata: Metadata = createPageMetadata({
+  title: 'Terms of Service',
   description: 'The terms that apply when you use the Azorvin website and services.',
-}
+  path: '/terms',
+})
 
 const sections = [
   {

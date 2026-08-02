@@ -5,6 +5,7 @@ import { prisma } from '@/lib/prisma'
 import { formatDate } from '@/lib/utils'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import Link from 'next/link'
+import { createPageMetadata } from '@/lib/seo'
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -74,15 +75,24 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPost(slug)
   if (!post) return { title: 'Post Not Found' }
 
+  const title = post.seoTitle ?? post.title
+  const description = post.seoDescription ?? post.excerpt ?? 'Read the latest Azorvin automation article.'
+  const metadata = createPageMetadata({
+    title,
+    description,
+    path: `/blog/${slug}`,
+    image: post.coverImage ?? undefined,
+    type: 'article',
+  })
+
   return {
-    title: post.seoTitle ?? post.title,
-    description: post.seoDescription ?? post.excerpt ?? undefined,
+    ...metadata,
     openGraph: {
+      ...metadata.openGraph,
       title: post.title,
-      description: post.excerpt ?? undefined,
+      description,
       type: 'article',
       publishedTime: post.publishedAt?.toISOString(),
-      images: post.coverImage ? [{ url: post.coverImage }] : [],
     },
   }
 }
@@ -107,6 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
     author: { '@type': 'Organization', name: 'Azorvin' },
     publisher: { '@type': 'Organization', name: 'Azorvin' },
     image: post.coverImage,
+    mainEntityOfPage: `https://azorvin.com/blog/${slug}`,
   }
 
   return (

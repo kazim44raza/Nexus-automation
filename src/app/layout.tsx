@@ -24,11 +24,11 @@ const getSiteUrl = () => {
 export const metadata: Metadata = {
   metadataBase: new URL(getSiteUrl()),
   title: {
-    default: 'Azorvin — AI Systems & Automation',
+    default: 'Azorvin — Voice, Messaging & Workflow Systems',
     template: '%s | Azorvin',
   },
   description:
-    'Azorvin helps businesses capture more leads, book more appointments, and scale without hiring through AI chatbots, voice agents, and intelligent workflow automation.',
+    'Azorvin designs practical voice, messaging, booking, and workflow systems for service businesses, with clear human handoffs and operational controls.',
   keywords: [
     'AI automation agency',
     'AI chatbot',
@@ -48,15 +48,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://azorvin.com',
     siteName: 'Azorvin',
-    title: 'Azorvin — AI Systems & Automation',
+    title: 'Azorvin — Voice, Messaging & Workflow Systems',
     description:
-      'AI chatbots, voice agents, and business automation that respond instantly, qualify leads, and book appointments 24/7.',
-    images: [{ url: '/og-image.png', width: 1200, height: 630, alt: 'Azorvin' }],
+      'Practical voice, messaging, booking, and workflow systems for service businesses.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Azorvin — Voice, Messaging & Workflow Systems' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Azorvin — AI Systems & Automation',
-    description: 'AI-powered automation that grows your business 24/7.',
+    title: 'Azorvin — Voice, Messaging & Workflow Systems',
+    description: 'Practical voice, messaging, booking, and workflow systems for service businesses.',
   },
   robots: {
     index: true,

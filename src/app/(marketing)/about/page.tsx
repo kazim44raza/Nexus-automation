@@ -3,11 +3,13 @@ import Link from 'next/link'
 import Image from 'next/image'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { ArrowRight } from 'lucide-react'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'About Azorvin | Genuine AI Automation',
+export const metadata: Metadata = createPageMetadata({
+  title: 'About Our Automation Design Approach',
   description: 'Learn why Azorvin was founded and how we build practical, un-hyped automation systems for service businesses.',
-}
+  path: '/about',
+})
 
 export default function AboutPage() {
   return (
@@ -15,7 +17,7 @@ export default function AboutPage() {
       <section className="bg-bg-base pt-40 pb-24 relative overflow-hidden">
         <div className="page-container max-w-5xl mx-auto">
           <AnimatedSection>
-            <h1 className="font-display text-5xl md:text-7xl tracking-tight text-text-primary mb-8 leading-[1.1] max-w-3xl">
+            <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-tight text-text-primary mb-8 leading-[1.1] max-w-3xl">
               Building practical automation, <span className="text-primary">not hype.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed max-w-2xl font-light">

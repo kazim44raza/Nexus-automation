@@ -38,7 +38,7 @@ export function ChatbotsClient() {
                 <GitMerge className="w-4 h-4" />
                 <span>Context-Aware Routing</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-tight">
                 Automated <br/>
                 <span className="text-text-secondary">conversational workflows.</span>
               </h1>

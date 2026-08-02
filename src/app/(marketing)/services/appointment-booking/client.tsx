@@ -49,7 +49,7 @@ export default function AppointmentBookingClient() {
               <CalendarCheck className="w-4 h-4 text-mint" />
               <span className="text-sm font-medium text-text-secondary tracking-wide uppercase">Smart Scheduling</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-text-primary tracking-tight mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-text-primary tracking-tight mb-8">
               The lifecycle of a booking, <span className="text-transparent bg-clip-text bg-gradient-to-r from-mint to-primary">carefully connected.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-12 max-w-2xl mx-auto">

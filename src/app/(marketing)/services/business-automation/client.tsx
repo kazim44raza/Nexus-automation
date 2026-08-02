@@ -38,7 +38,7 @@ export default function BusinessAutomationClient() {
               <Zap className="w-4 h-4 text-primary" />
               <span className="text-sm font-medium text-text-secondary tracking-wide uppercase">Business Automation</span>
             </div>
-            <h1 className="text-5xl md:text-7xl font-display font-bold text-text-primary tracking-tight mb-8">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-display font-bold text-text-primary tracking-tight mb-8">
               Orchestrate your entire <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">business logic.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-12 max-w-2xl mx-auto">

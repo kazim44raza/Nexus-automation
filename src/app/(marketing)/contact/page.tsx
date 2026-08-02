@@ -2,13 +2,15 @@ import type { Metadata } from 'next'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { MultiStepContactForm } from '@/components/marketing/MultiStepContactForm'
 import { Mail, Clock, Globe, Calendar } from 'lucide-react'
+import { createPageMetadata } from '@/lib/seo'
 
 const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
 
-export const metadata: Metadata = {
-  title: 'Contact Azorvin — Book a Free Automation Audit',
-  description: 'Book a free strategy call or request an audit to map out the automation opportunities for your business.',
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'Automation Discovery Call',
+  description: 'Tell us where calls, messages, bookings, or handoffs are getting stuck. We will review the workflow and discuss a practical next step.',
+  path: '/contact',
+})
 
 export default function ContactPage() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
@@ -32,7 +34,7 @@ export default function ContactPage() {
         <div className="page-container max-w-6xl mx-auto">
           <div className="grid lg:grid-cols-[1fr,400px] gap-12 items-start">
             <AnimatedSection direction="left">
-              <div id="contact-form" className="card p-8 border border-border">
+              <div id="contact-form" className="card border border-border p-5 sm:p-8">
                 <MultiStepContactForm />
               </div>
             </AnimatedSection>

@@ -12,34 +12,34 @@ import { CinematicHero } from '@/components/marketing/home/CinematicHero'
 export const metadata: Metadata = {
   title: { absolute: 'Azorvin — Voice, Messaging & Workflow Systems' },
   description: 'Azorvin helps service teams handle calls, messages, bookings, and routine handoffs without losing the human judgment each request needs.',
+  alternates: { canonical: '/' },
 }
 
-const organizationSchema = {
+const websiteSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Organization',
-  name: 'Azorvin',
-  url: 'https://azorvin.com',
-  description: 'AI Systems & Automation specializing in chatbots, voice agents, and business workflow automation.',
-  contactPoint: {
-    '@type': 'ContactPoint',
-    contactType: 'customer service',
-    email: 'ahmed@azorvin.com',
-  },
-  sameAs: [],
-  service: [
-    { '@type': 'Service', name: 'AI Chatbots', url: 'https://azorvin.com/services/chatbots' },
-    { '@type': 'Service', name: 'Voice Agents', url: 'https://azorvin.com/services/voice-agents' },
-    { '@type': 'Service', name: 'Business Automation', url: 'https://azorvin.com/services/business-automation' },
-    { '@type': 'Service', name: 'Lead Qualification', url: 'https://azorvin.com/services/lead-qualification' },
-    { '@type': 'Service', name: 'Appointment Booking', url: 'https://azorvin.com/services/appointment-booking' },
-    { '@type': 'Service', name: 'Customer Support Automation', url: 'https://azorvin.com/services/customer-support' },
+  '@graph': [
+    {
+      '@type': 'WebSite',
+      '@id': 'https://azorvin.com/#website',
+      name: 'Azorvin',
+      url: 'https://azorvin.com',
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://azorvin.com/#organization',
+      name: 'Azorvin',
+      url: 'https://azorvin.com',
+      logo: 'https://azorvin.com/logo.png',
+      description: 'Voice, messaging, booking, and workflow system design for service businesses.',
+      email: 'ahmed@azorvin.com',
+    },
   ],
 }
 
 export default function HomePage() {
   return (
     <div className="home-cinema min-h-screen">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }} />
 
       <CinematicHero />
 

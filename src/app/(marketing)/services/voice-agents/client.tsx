@@ -35,7 +35,7 @@ export default function VoiceAgentsClient() {
                 <Zap className="w-4 h-4" />
                 <span>Natural turn-taking</span>
               </div>
-              <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-tight">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-tight">
                 Never miss <br/>
                 <span className="text-text-secondary">another phone call.</span>
               </h1>

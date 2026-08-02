@@ -18,7 +18,7 @@ export default function CustomerSupportClient() {
           <div className="inline-block px-4 py-1 mb-6 rounded-full border border-border bg-bg-surface text-text-secondary text-sm tracking-widest uppercase">
             Autonomous Support
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-8">
             Resolve routine issues. <br />
             <span className="text-mint italic">Without losing the human.</span>
           </h1>

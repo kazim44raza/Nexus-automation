@@ -3,11 +3,13 @@ import Link from 'next/link'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { ArrowRight, Clock, Calendar } from 'lucide-react'
 import { formatDateShort } from '@/lib/utils'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Blog — AI Automation Insights',
-  description: 'Expert articles on AI chatbots, voice agents, business automation, and lead generation for SMB owners.',
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'Voice, Messaging & Workflow Automation Journal',
+  description: 'Practical articles about reliable voice agents, business workflow automation, system design, and responsible AI implementation.',
+  path: '/blog',
+})
 
 const posts = [
   { slug: 'how-we-build-reliable-voice-agents', title: 'How We Build Voice Agents That Don\'t Hallucinate', excerpt: 'The problem with most AI voice agents is they are given too much freedom. Here is our exact framework for scoping voice workflows to prevent errors.', date: '2025-06-01', readingTime: 6, tags: ['Engineering', 'Voice AI'] },

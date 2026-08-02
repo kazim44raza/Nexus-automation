@@ -2,11 +2,13 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { IndustryShowcase } from './client'
+import { createPageMetadata } from '@/lib/seo'
 
-export const metadata: Metadata = {
-  title: 'Industry Solutions',
-  description: 'AI automation solutions purpose-built for healthcare, dental, real estate, legal, fitness, home services, and e-commerce.',
-}
+export const metadata: Metadata = createPageMetadata({
+  title: 'Workflow Automation by Industry',
+  description: 'Explore practical workflow automation patterns for healthcare, dental, real estate, legal, fitness, automotive, home services, e-commerce, and professional services.',
+  path: '/industries',
+})
 
 export default function IndustriesPage() {
   return (

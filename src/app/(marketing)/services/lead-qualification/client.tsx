@@ -18,7 +18,7 @@ export default function LeadQualificationClient() {
           <div className="inline-block px-4 py-1 mb-6 rounded-full border border-border bg-bg-surface text-text-secondary text-sm tracking-widest uppercase">
             Intelligent Lead Qualification
           </div>
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
+          <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold tracking-tight mb-8">
             Filter the Noise. <br />
             <span className="text-primary italic">Capture the Signal.</span>
           </h1>

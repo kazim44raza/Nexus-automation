@@ -6,6 +6,7 @@ import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { ContactForm } from '@/components/marketing/ContactForm'
 import { IndustryClientView } from './client'
+import { createPageMetadata } from '@/lib/seo'
 
 const industries = {
   healthcare: {
@@ -180,10 +181,12 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
   const industry = getIndustry(slug)
   if (!industry) return { title: 'Industry Not Found' }
 
-  return {
-    title: `${industry.title} Automation — Azorvin`,
+  return createPageMetadata({
+    title: `${industry.title} Workflow Automation`,
     description: industry.description,
-  }
+    path: `/industries/${slug}`,
+    image: 'image' in industry ? industry.image : '/opengraph-image',
+  })
 }
 
 export default async function IndustryPage({ params }: { params: Promise<{ slug: string }> }) {
