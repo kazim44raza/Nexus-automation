@@ -57,11 +57,11 @@ export function CinematicHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          From conversation to completed action.
+          Keep customer requests moving.
         </motion.h1>
 
         <div className="home-hero__foot">
-          <p>AI systems for service businesses</p>
+          <p>Voice, messaging, and workflow systems for service teams</p>
           <ul aria-label="Azorvin capabilities">
             <li>Voice</li>
             <li>Messaging</li>

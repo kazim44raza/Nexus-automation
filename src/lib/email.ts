@@ -8,7 +8,7 @@ const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
   : absoluteUrl('/contact#contact-form')
 
 function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') } 
-const FROM = process.env.FROM_EMAIL ?? 'Azorvin <hello@azorvin.com>'
+const FROM = process.env.FROM_EMAIL ?? 'Azorvin <ahmed@azorvin.com>'
 const ADMIN = process.env.ADMIN_EMAIL ?? 'ahmed@azorvin.com'
 
 export async function sendLeadNotification(data: {

@@ -81,7 +81,7 @@ export default function TermsPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about these terms? Email us at <a href="mailto:hello@azorvin.com" className="text-accent hover:underline">hello@azorvin.com</a>.
+            Questions about these terms? Email us at <a href="mailto:ahmed@azorvin.com" className="text-accent hover:underline">ahmed@azorvin.com</a>.
           </p>
         </div>
       </section>

@@ -58,7 +58,7 @@ export default function ContactPage() {
               <div className="card p-6 border border-border space-y-5">
                 <h3 className="heading-sm text-text-primary mb-2">Contact details</h3>
                 {[
-                  { icon: Mail, label: 'Email', value: 'hello@azorvin.com' },
+                  { icon: Mail, label: 'Email', value: 'ahmed@azorvin.com' },
                   { icon: Clock, label: 'Response time', value: 'Within 1 business day' },
                   { icon: Globe, label: 'Location', value: 'Remote-first, Worldwide' },
                 ].map((item, i) => (

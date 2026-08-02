@@ -74,8 +74,8 @@ export function Footer() {
 
         <div className="flex flex-col gap-6 pt-8 text-sm sm:flex-row sm:items-center sm:justify-between">
           <div className="flex flex-wrap items-center gap-3">
-            <a href="mailto:hello@azorvin.com" className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap font-medium text-text-primary transition-colors hover:text-primary">
-              <Mail className="h-4 w-4" aria-hidden="true" /> hello@azorvin.com
+            <a href="mailto:ahmed@azorvin.com" className="inline-flex min-h-11 items-center gap-2 whitespace-nowrap font-medium text-text-primary transition-colors hover:text-primary">
+              <Mail className="h-4 w-4" aria-hidden="true" /> ahmed@azorvin.com
             </a>
             <a href="https://www.linkedin.com/in/azorvin-systems-2139b540a?utm_source=share_via&utm_content=profile&utm_medium=member_android" target="_blank" rel="noopener noreferrer" aria-label="Azorvin on LinkedIn" className="flex h-11 w-11 items-center justify-center rounded-lg border border-border transition-colors hover:border-primary hover:text-primary">
               <Linkedin className="h-4 w-4" />

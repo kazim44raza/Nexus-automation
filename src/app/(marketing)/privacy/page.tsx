@@ -42,7 +42,7 @@ const sections = [
     title: '5. Data Retention & Your Rights',
     body: [
       'We keep your information only as long as needed to serve you or as required by law.',
-      'You can request a copy of your data, ask us to correct it, or ask us to delete it at any time by emailing hello@azorvin.com.',
+      'You can request a copy of your data, ask us to correct it, or ask us to delete it at any time by emailing ahmed@azorvin.com.',
     ],
   },
   {
@@ -77,7 +77,7 @@ export default function PrivacyPage() {
             </div>
           ))}
           <p className="text-sm text-text-muted border-t border-border pt-6">
-            Questions about this policy? Email us at <a href="mailto:hello@azorvin.com" className="text-accent hover:underline">hello@azorvin.com</a>.
+            Questions about this policy? Email us at <a href="mailto:ahmed@azorvin.com" className="text-accent hover:underline">ahmed@azorvin.com</a>.
           </p>
         </div>
       </section>

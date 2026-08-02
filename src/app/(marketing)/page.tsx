@@ -10,8 +10,8 @@ import { ProcessSection } from '@/components/marketing/ProcessSection'
 import { CinematicHero } from '@/components/marketing/home/CinematicHero'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation' },
-  description: 'Azorvin designs chat, voice, and workflow systems around the way your team already works. Start with a practical conversation about where automation belongs.',
+  title: { absolute: 'Azorvin — Voice, Messaging & Workflow Systems' },
+  description: 'Azorvin helps service teams handle calls, messages, bookings, and routine handoffs without losing the human judgment each request needs.',
 }
 
 const organizationSchema = {
@@ -23,7 +23,7 @@ const organizationSchema = {
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'customer service',
-    email: 'hello@azorvin.com',
+    email: 'ahmed@azorvin.com',
   },
   sameAs: [],
   service: [
@@ -45,10 +45,10 @@ export default function HomePage() {
 
       <section className="home-intro">
         <div className="page-container home-intro__grid">
-          <h2>Automation is useful when the handoff is clear.</h2>
+          <h2>When the system is unsure, your team takes over.</h2>
           <div className="home-intro__copy">
             <p>
-              Azorvin connects calls, messages, calendars, CRMs, and internal steps around one practical goal: move a customer request forward without losing context or human judgment.
+              We connect phone, WhatsApp, calendars, and your CRM so a request can be captured, assigned, and followed up without copying details between tools. You decide what runs automatically and when a person steps in.
             </p>
             <div className="home-intro__actions">
               <Link href="/contact" className="home-button home-button--dark whitespace-nowrap">
@@ -73,13 +73,13 @@ export default function HomePage() {
             sizes="(min-width: 1024px) 66vw, 100vw"
             className="object-cover object-center"
           />
-          <figcaption>Systems designed around real work, not a generic demo.</figcaption>
+          <figcaption>A working session starts with your current process—not a product demo.</figcaption>
         </figure>
 
         <div className="home-photo-fold__copy">
-          <h2 id="home-operating-title">Built for the operating reality.</h2>
+          <h2 id="home-operating-title">We map the work before we automate it.</h2>
           <p>
-            We start with the conversation, the systems behind it, and the moments where a person should stay involved. Then we design the workflow, interfaces, and safeguards as one connected service.
+            We look at how enquiries arrive today: who answers, where details are recorded, what gets delayed, and which decisions must stay with your team. The workflow follows those answers.
           </p>
           <Link href="/about" className="home-text-link home-text-link--light whitespace-nowrap">
             How Azorvin works <ArrowUpRight aria-hidden="true" />
@@ -90,9 +90,9 @@ export default function HomePage() {
       <section className="home-principle">
         <div className="page-container home-principle__grid">
           <div className="home-principle__statement">
-            <h2>Engineering × judgment</h2>
+            <h2>Routine steps move. Decisions stay with people.</h2>
             <p>
-              The repeatable work can move automatically. Exceptions, sensitive decisions, and relationships stay visible to the people responsible for them.
+              Confirmations, reminders, routing, and data entry can run in the background. Pricing exceptions, sensitive conversations, and unclear requests reach the right person with the context attached.
             </p>
           </div>
           <figure className="home-principle__media">
@@ -110,15 +110,15 @@ export default function HomePage() {
       <section className="home-services" aria-labelledby="home-services-title">
         <div className="page-container">
           <div className="home-services__head">
-            <h2 id="home-services-title">What we design</h2>
-            <p>Different entry points. One connected operating system.</p>
+            <h2 id="home-services-title">Start where the work gets stuck.</h2>
+            <p>Missed calls, busy inboxes, or handoffs between tools—each can be a sensible first project.</p>
           </div>
 
           <div className="home-services__grid">
             <Link href="/services/voice-agents" className="home-service home-service--voice">
               <Image
-                src="/images/voice-agent-human-scene-v2.webp"
-                alt="A service professional reviewing a live voice-call workflow"
+                src="/images/homepage-voice-service-manager-v1.webp"
+                alt="A service manager handling a customer call while recording the next action"
                 fill
                 sizes="(min-width: 1024px) 58vw, 100vw"
                 className="object-cover"
@@ -126,7 +126,7 @@ export default function HomePage() {
               <span className="home-service__scrim" aria-hidden="true" />
               <span className="home-service__body">
                 <span>Voice systems</span>
-                <strong>Route routine calls without hiding the human exit.</strong>
+                <strong>Answer common calls, capture the reason, and pass complex ones to your team.</strong>
                 <ArrowUpRight aria-hidden="true" />
               </span>
             </Link>
@@ -142,7 +142,7 @@ export default function HomePage() {
               <span className="home-service__scrim" aria-hidden="true" />
               <span className="home-service__body">
                 <span>WhatsApp automation</span>
-                <strong>Turn messages into tracked work.</strong>
+                <strong>Reply, collect the details, and create the next task from one conversation.</strong>
                 <ArrowUpRight aria-hidden="true" />
               </span>
             </Link>
@@ -151,12 +151,12 @@ export default function HomePage() {
           <div className="home-service-index">
             <Link href="/services/business-automation">
               <span>Business automation</span>
-              <strong>Connect repeatable steps across the tools your team already uses.</strong>
+              <strong>Move bookings, form entries, and status updates between the tools you already use.</strong>
               <ArrowUpRight aria-hidden="true" />
             </Link>
             <Link href="/services/customer-support">
               <span>Customer support</span>
-              <strong>Collect context, answer approved questions, and escalate clearly.</strong>
+              <strong>Use approved answers for routine questions and route the rest with context.</strong>
               <ArrowUpRight aria-hidden="true" />
             </Link>
           </div>

@@ -4,35 +4,35 @@ import { AnimatedSection } from '@/components/shared/AnimatedSection'
 const faqs = [
   {
     question: "How quickly can you get an AI system live for my business?",
-    answer: "Most clients are live within 5–10 business days. Simple chatbot and missed-call recovery setups can be done in as little as 48 hours. Complex multi-system integrations may take 2–3 weeks. We'll give you a precise timeline during your discovery call."
+    answer: "The timeline depends on the number of channels, the systems being connected, the access available, and how much testing the workflow needs. After discovery, we provide a written scope and milestone schedule rather than promising a launch date before we understand the work."
   },
   {
     question: "Do I need technical knowledge to use these systems?",
-    answer: "None at all. We build, maintain, and manage everything for you. You'll have a simple dashboard to view leads, conversations, and performance metrics — no code required. Our team handles all the technical work."
+    answer: "You should not need to write code for day-to-day use. We document how to review conversations, update approved information, handle escalations, and contact us when something needs changing. The exact controls depend on the tools chosen for your project."
   },
   {
     question: "How much does it cost?",
-    answer: "Pricing depends on the services and complexity of your setup. Most clients invest between $500–$3,000/month for a complete automation stack. We offer flexible monthly plans and project-based engagements. Book a call and we'll give you an exact quote based on your needs and expected ROI."
+    answer: "Pricing is quoted after the scope is clear. The main factors are channels, integrations, conversation volume, testing requirements, and whether ongoing support is included. You receive a written breakdown before any work begins."
   },
   {
     question: "What tools and CRMs do you integrate with?",
-    answer: "We integrate with most major platforms including GoHighLevel, HubSpot, Salesforce, Zoho, Pipedrive, Calendly, Google Calendar, Microsoft Calendar, Twilio, Slack, Airtable, Zapier, Make, and many more. If you use a specific tool, ask us — chances are we've integrated it before."
+    answer: "We work with common CRM, calendar, phone, messaging, and workflow platforms. Compatibility depends on the API, webhook, and account access your specific plan provides, so we confirm each required connection during discovery before including it in the scope."
   },
   {
     question: "What AI model powers the chatbots and voice agents?",
-    answer: "We use a combination of leading AI models depending on the use case and your preferences — including GPT-4, Claude, Gemini, and Groq. All AI systems are trained on your specific business, products, and workflows to ensure they represent your brand accurately."
+    answer: "The model is selected for the job rather than used as a headline. Voice latency, reliability, data handling, language support, and running cost all matter. We keep model access on the server and document the vendors included in your proposed setup."
   },
   {
     question: "Is my customers' data secure?",
-    answer: "Absolutely. We follow industry-standard security practices, and all data is encrypted in transit and at rest. For healthcare clients, we build HIPAA-compliant workflows. For all clients, we sign data processing agreements and ensure your customer data is never used for AI training."
+    answer: "Security requirements are part of the scope. We minimise access, validate data on the server, keep credentials out of client code, and agree what should be stored. Regulatory compliance is never assumed; if your work is regulated, we verify the required vendors, contracts, and controls before building."
   },
   {
     question: "What happens if the AI can't answer something?",
-    answer: "We always build in escalation paths. If the AI encounters a question it can't handle, it will collect the customer's details and notify your team immediately. You define the escalation thresholds — we make sure nothing falls through the cracks."
+    answer: "We define the limits before launch. Depending on the situation, the system can ask a clarifying question, collect contact details, or route the conversation to a person with the available context. Your team agrees the escalation rules during testing."
   },
   {
     question: "Do you provide ongoing support after launch?",
-    answer: "Yes. All plans include ongoing monitoring, optimization, and support. You'll have access to a dedicated account manager and our support team. We proactively monitor performance and make adjustments to improve results over time."
+    answer: "Support and monitoring are defined in the proposal. A project can include a handover, an agreed review period, or ongoing maintenance. We state the response route, review cadence, and included changes before you commit."
   },
 ]
 
@@ -49,10 +49,10 @@ export function FAQSection() {
                 FAQ
               </span>
               <h2 className="font-display text-3xl md:text-4xl font-medium tracking-tight text-text-primary mb-4 leading-tight">
-                Common questions, honest answers
+                Questions worth asking before a build
               </h2>
               <p className="text-text-secondary text-lg font-light">
-                Everything you need to know about our automation services, pricing, and timelines.
+                Straight answers about scope, access, pricing, security, and what happens when automation reaches its limit.
               </p>
             </AnimatedSection>
           </div>

@@ -3,21 +3,21 @@ import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/sha
 const steps = [
   {
     number: '01',
-    title: 'Discovery & Audit',
-    description: "We map your current workflows, identify where leads are being lost, and design the automation architecture that fits your specific business.",
-    duration: 'Scoped together',
+    title: 'Map the current process',
+    description: "We follow a real request from first contact to completion, noting every tool, handoff, delay, and decision that must stay with your team.",
+    duration: 'Scope first',
   },
   {
     number: '02',
-    title: 'Build & Integrate',
-    description: "Our team builds your AI systems, integrates them with your existing tools (CRM, calendar, phone), and trains them on your business knowledge.",
-    duration: 'Milestone-based',
+    title: 'Build and test the handoffs',
+    description: "We connect the agreed systems, test ordinary and difficult cases, and confirm what your team receives when automation reaches its limit.",
+    duration: 'Tested together',
   },
   {
     number: '03',
-    title: 'Launch & Optimize',
-    description: "We deploy, monitor performance, and refine the workflow on the review cadence agreed for your project.",
-    duration: 'Ongoing',
+    title: 'Launch with a review plan',
+    description: "We document ownership, failure paths, and the checks needed after launch. Any ongoing monitoring or support is agreed before the project begins.",
+    duration: 'Review agreed',
   },
 ]
 
@@ -28,12 +28,12 @@ export function ProcessSection() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
           {/* Left: text */}
           <AnimatedSection direction="left">
-            <span className="section-eyebrow">How It Works</span>
+            <span className="section-eyebrow">How a project runs</span>
             <h2 className="section-title mt-3">
-        A clear path from audit to launch
+              First understand the work. Then automate it.
             </h2>
             <p className="section-desc mt-4">
-              The timeline depends on integrations, access, and risk. We define the stages, owners, and acceptance criteria before build work begins.
+              The schedule depends on the systems involved and the access available. You receive a written scope, responsibilities, and acceptance checks before build work starts.
             </p>
           </AnimatedSection>
 
