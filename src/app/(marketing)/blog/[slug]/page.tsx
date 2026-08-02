@@ -168,8 +168,8 @@ export default async function BlogPostPage({ params }: Props) {
         {/* CTA */}
         <div className="mt-16 p-8 bg-bg-alt border border-border rounded-2xl text-center shadow-sm">
           <h3 className="heading-md text-text-primary mb-2">Ready to automate your business?</h3>
-          <p className="text-text-secondary mb-6">Book a free 30-minute strategy call with our automation experts.</p>
-          <Link href="/contact" className="btn-primary">Book a Free Demo</Link>
+<p className="text-text-secondary mb-6">Talk through your workflow with our automation team and leave with clear next steps.</p>
+<Link href="/contact" className="btn-primary">Start a Conversation</Link>
         </div>
       </article>
     </>

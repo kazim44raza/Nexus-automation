@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function CustomerSupportClient() {
@@ -18,11 +19,11 @@ export default function CustomerSupportClient() {
             Autonomous Support
           </div>
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-8">
-            Resolve Issues. <br />
-            <span className="text-mint italic">Without Human Intervention.</span>
+            Resolve routine issues. <br />
+            <span className="text-mint italic">Without losing the human.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-text-secondary mb-16">
-            Our autonomous AI support agent plugs directly into your ticketing system, instantly resolving common inquiries, processing refunds, and troubleshooting issues.
+            Add a carefully scoped support layer to your ticketing system for common questions, account lookups, and triage—with approval gates for sensitive actions.
           </p>
         </motion.div>
 
@@ -32,28 +33,23 @@ export default function CustomerSupportClient() {
 
       {/* Features Section */}
       <section className="py-24 px-6 bg-bg-surface border-y border-border mt-12">
-        <div className="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-center">
+        <div className="max-w-7xl mx-auto grid lg:grid-cols-[0.85fr_1.15fr] gap-12 items-center">
+          <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] border border-border">
+            <Image src="/images/support_agent_scene.jpg" alt="A customer-support specialist working at a desk with a headset" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/80 via-transparent to-transparent" />
+            <p className="absolute bottom-6 left-6 right-6 text-sm text-white/80">Automation handles repetition; specialists keep the difficult conversations.</p>
+          </div>
           <div>
             <h2 className="text-3xl font-semibold mb-6">Empower your team to handle complex problems.</h2>
             <p className="text-text-secondary text-lg mb-8">Let AI handle the repetitive tickets so your human agents can focus on high-touch interactions that build loyalty.</p>
             <ul className="space-y-4">
-              {['24/7 Instant Resolutions', 'Multi-Language Support', 'Seamless CRM Integration', 'Zero Hallucinations Guarantee'].map((item, i) => (
+              {['Approved-source answers', 'Language options matched to your audience', 'Ticket and CRM context', 'Human review for sensitive actions'].map((item, i) => (
                 <li key={i} className="flex items-center gap-3 text-text-primary">
                   <div className="w-1.5 h-1.5 rounded-full bg-accent" />
                   {item}
                 </li>
               ))}
             </ul>
-          </div>
-          <div className="grid grid-cols-2 gap-4">
-            <div className="bg-bg-alt p-6 rounded-xl border border-border flex flex-col justify-center items-center text-center h-48">
-              <span className="text-4xl font-light text-mint mb-2">98%</span>
-              <span className="text-sm text-text-secondary uppercase tracking-widest">Resolution Rate</span>
-            </div>
-            <div className="bg-bg-alt p-6 rounded-xl border border-border flex flex-col justify-center items-center text-center h-48 mt-8">
-              <span className="text-4xl font-light text-primary mb-2">&lt; 1s</span>
-              <span className="text-sm text-text-secondary uppercase tracking-widest">Response Time</span>
-            </div>
           </div>
         </div>
       </section>
@@ -80,7 +76,7 @@ function TicketingUI() {
           <div className="w-3 h-3 rounded-full bg-text-muted/30" />
           <div className="w-3 h-3 rounded-full bg-text-muted/30" />
         </div>
-        <div className="text-text-muted font-mono ml-4">Ticket #9928 - Late Delivery Request</div>
+        <div className="text-text-muted font-mono ml-4">Illustrative flow · Late delivery request</div>
       </div>
 
       <div className="flex flex-col md:flex-row h-[500px]">
@@ -138,7 +134,7 @@ function TicketingUI() {
                 className="flex items-center gap-3 text-mint ml-12"
               >
                 <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
-                <span className="text-xs font-mono">Carrier delay detected. Policy allows 15% partial refund or cancel. Executing refund API call.</span>
+                <span className="text-xs font-mono">Carrier delay detected. Preparing the policy-approved options for review.</span>
               </motion.div>
             )}
           </AnimatePresence>
@@ -155,7 +151,7 @@ function TicketingUI() {
                 <div className="w-8 h-8 rounded-full bg-primary/20 border border-primary flex items-center justify-center text-primary flex-shrink-0 text-xs font-bold">AI</div>
                 <div className="bg-bg-alt border border-primary/30 p-4 rounded-xl rounded-tr-none">
                   <p className="text-text-primary">Hello! I've checked the status of #ORD-5542 with our shipping partner. It appears there is a localized weather delay, and it's now scheduled for delivery tomorrow.</p>
-                  <p className="mt-2 text-text-primary">I sincerely apologize for the inconvenience. As per our guarantee, I have automatically issued a $15.00 credit to your original payment method for the delay.</p>
+                  <p className="mt-2 text-text-primary">I’m sorry for the inconvenience. I can prepare the eligible credit for a support specialist to approve.</p>
                   <p className="mt-2 text-text-primary">Is there anything else I can help you with?</p>
                 </div>
               </motion.div>

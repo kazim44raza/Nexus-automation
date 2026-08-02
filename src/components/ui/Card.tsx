@@ -16,10 +16,10 @@ const paddingMap = {
 }
 
 const variantMap: Record<CardVariant, string> = {
-  default: 'bg-bg-surface shadow-sm border border-gray-200',
-  elevated: 'bg-bg-surface shadow-md border border-gray-100 hover:shadow-xl hover:-translate-y-1 transition-all duration-300',
-  outlined: 'bg-bg-surface border-2 border-gray-200',
-  dark: 'bg-gray-900 text-text-primary border border-gray-800',
+    default: 'bg-bg-surface shadow-sm border border-border',
+    elevated: 'bg-bg-surface shadow-md border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300',
+    outlined: 'bg-bg-surface border border-border',
+    dark: 'bg-bg-alt text-text-primary border border-border',
 }
 
 export const Card = forwardRef<HTMLDivElement, CardProps>(
@@ -58,7 +58,7 @@ CardTitle.displayName = 'CardTitle'
 
 export const CardDescription = forwardRef<HTMLParagraphElement, React.HTMLAttributes<HTMLParagraphElement>>(
   ({ className, ...props }, ref) => (
-    <p ref={ref} className={cn('text-sm text-gray-500', className)} {...props} />
+    <p ref={ref} className={cn('text-sm text-text-secondary', className)} {...props} />
   )
 )
 CardDescription.displayName = 'CardDescription'
@@ -72,7 +72,7 @@ CardContent.displayName = 'CardContent'
 
 export const CardFooter = forwardRef<HTMLDivElement, React.HTMLAttributes<HTMLDivElement>>(
   ({ className, ...props }, ref) => (
-    <div ref={ref} className={cn('flex items-center pt-4 mt-4 border-t border-gray-100', className)} {...props} />
+    <div ref={ref} className={cn('flex items-center pt-4 mt-4 border-t border-border', className)} {...props} />
   )
 )
 CardFooter.displayName = 'CardFooter'

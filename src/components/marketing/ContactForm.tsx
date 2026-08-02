@@ -44,18 +44,18 @@ export function ContactForm() {
 
   if (submitted) {
     return (
-      <div className="text-center py-16 bg-bg-surface rounded-2xl shadow-sm border border-gray-100 px-6">
-        <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mx-auto mb-6">
-          <CheckCircle2 className="w-10 h-10 text-green-500" />
+      <div className="text-center py-16 bg-bg-surface rounded-2xl shadow-sm border border-border px-6">
+        <div className="w-20 h-20 bg-accent/10 rounded-full flex items-center justify-center mx-auto mb-6">
+          <CheckCircle2 className="w-10 h-10 text-accent" />
         </div>
-        <h3 className="font-geist text-2xl font-bold text-gray-900 mb-3">Message received!</h3>
-        <p className="text-gray-500 text-lg">We&apos;ll get back to you within 1 business day. Check your email for a confirmation.</p>
+        <h3 className="text-2xl font-bold text-text-primary mb-3">Message received.</h3>
+        <p className="text-text-secondary text-lg">We&apos;ll get back to you within 1 business day.</p>
       </div>
     )
   }
 
-  const inputClass = "w-full px-4 py-3 rounded-lg border border-gray-200 bg-bg-surface text-gray-900 focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-gray-400"
-  const labelClass = "block text-sm font-semibold text-gray-700 mb-1.5"
+  const inputClass = "w-full px-4 py-3 rounded-lg border border-border bg-bg-alt text-text-primary focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all placeholder:text-text-muted"
+  const labelClass = "block text-sm font-semibold text-text-secondary mb-1.5"
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
@@ -115,7 +115,7 @@ export function ContactForm() {
         {isSubmitting ? <><Loader2 className="w-5 h-5 animate-spin" /> Sending…</> : <><Send className="w-5 h-5" /> Send Message</>}
       </button>
 
-      <p className="text-center text-sm text-gray-500">We typically respond within 4 hours during business days.</p>
+      <p className="text-center text-sm text-text-muted">We typically respond within 4 hours during business days.</p>
     </form>
   )
 }

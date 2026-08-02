@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function LeadQualificationClient() {
@@ -22,12 +23,25 @@ export default function LeadQualificationClient() {
             <span className="text-primary italic">Capture the Signal.</span>
           </h1>
           <p className="max-w-2xl mx-auto text-lg text-text-secondary mb-12">
-            Our AI engine analyzes every incoming inquiry in real-time, extracting intent, company data, and urgency to prioritize your most valuable prospects instantly.
+            Build a consistent first-pass qualification process that captures intent, context, and urgency before a lead reaches the right person.
           </p>
         </motion.div>
 
         {/* Scoring Matrix Visual */}
         <ScoringMatrix />
+      </section>
+
+      <section className="px-6 pb-24 max-w-7xl mx-auto">
+        <div className="grid items-stretch gap-8 lg:grid-cols-[0.75fr_1.25fr]">
+          <div className="flex flex-col justify-center rounded-[2rem] border border-border bg-bg-surface p-8 lg:p-10">
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Judgment stays human</span>
+            <h2 className="mt-5 font-display text-3xl font-semibold">A score is a routing aid, not a verdict.</h2>
+            <p className="mt-4 leading-relaxed text-text-secondary">Your team defines the criteria, reviews edge cases, and can see why a lead was prioritized.</p>
+          </div>
+          <div className="relative min-h-[380px] overflow-hidden rounded-[2rem] border border-border">
+            <Image src="/images/crm_workflow.jpg" alt="A team member reviewing a CRM workflow and lead pipeline" fill sizes="(min-width: 1024px) 60vw, 100vw" className="object-cover" />
+          </div>
+        </div>
       </section>
 
       {/* Workflow Section */}
@@ -38,9 +52,9 @@ export default function LeadQualificationClient() {
             <p className="text-text-muted">A seamless pipeline from inquiry to qualified opportunity.</p>
           </div>
           <div className="grid md:grid-cols-3 gap-8">
-            <WorkflowStep num="01" title="Data Enrichment" desc="Automatically appending firmographic data to every inbound lead before it even hits your CRM." />
-            <WorkflowStep num="02" title="Intent Scoring" desc="Analyzing the context of the inquiry to assign a behavioral intent score from 1 to 100." />
-            <WorkflowStep num="03" title="Instant Routing" desc="Sending high-value leads directly to your closers, while nurturing the rest automatically." />
+            <WorkflowStep num="01" title="Context Enrichment" desc="Add relevant business context from the sources you approve before the lead reaches your CRM." />
+            <WorkflowStep num="02" title="Intent Scoring" desc="Apply your qualification criteria to the inquiry and retain the reasoning for review." />
+            <WorkflowStep num="03" title="Clear Routing" desc="Send priority leads to the right owner and place the remainder into an agreed follow-up path." />
           </div>
         </div>
       </section>
@@ -68,6 +82,7 @@ function ScoringMatrix() {
   return (
     <div className="w-full max-w-4xl mx-auto bg-bg-surface border border-border rounded-xl p-8 shadow-2xl relative overflow-hidden">
       <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-bg-surface via-primary to-bg-surface opacity-50" />
+      <div className="mb-6 text-left text-xs font-semibold uppercase tracking-[0.2em] text-text-muted">Illustrative scoring model</div>
       
       <div className="flex flex-col md:flex-row gap-12 items-center">
         {/* Left Side: Incoming Lead */}

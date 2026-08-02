@@ -15,8 +15,8 @@ const beforeItems = [
 ];
 
 const afterItems = [
-  "Every call answered instantly by AI",
-  "Leads engaged in under 1 second",
+  "Defined call coverage and overflow routing",
+  "New inquiries enter a clear response queue",
   "Contacts auto-synced to your CRM",
   "All tools connected in one workflow",
   "Automated follow-up sequences",
@@ -29,8 +29,8 @@ export default function BeforeAfter() {
       <div className="page-container">
         <SectionHeading 
           eyebrow="The Difference"
-          title="Before and after automation"
-          description="See the tangible impact of implementing AI-driven automation systems across your core business operations."
+          title="What a connected workflow changes"
+          description="A practical comparison of fragmented operations and a deliberately connected process—not a promise of identical results."
           align="center"
         />
 
@@ -77,7 +77,7 @@ export default function BeforeAfter() {
               <div className="w-12 h-12 bg-primary/10 border border-primary/20 rounded-full flex items-center justify-center flex-shrink-0 shadow-sm">
                 <CheckCircle className="w-6 h-6 text-primary" />
               </div>
-              <h3 className="text-2xl font-display font-medium text-text-primary tracking-tight">With Azorvin</h3>
+              <h3 className="text-2xl font-display font-medium text-text-primary tracking-tight">With a Connected System</h3>
             </div>
             
             <ul className="space-y-6 relative z-10">

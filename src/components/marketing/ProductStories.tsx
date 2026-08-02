@@ -48,7 +48,7 @@ export default function ProductStories() {
                 Turn every inbound call into a handled conversation.
               </h2>
               <p className="text-lg text-text-secondary mb-8 leading-relaxed font-light">
-                Our voice agents answer calls instantly, qualify leads through natural conversation, book appointments directly into your calendar, and escalate to your team when needed.
+                Voice workflows can cover routine calls, collect qualification context, offer available appointments, and escalate to your team when judgment is needed.
               </p>
               <Link href="/services/voice-agents" className="btn-primary inline-flex items-center gap-2">
                 Explore Voice Agents <ArrowRight className="w-4 h-4" />
@@ -175,7 +175,7 @@ export default function ProductStories() {
                 Capture intent while interest is highest.
               </h2>
               <p className="text-lg text-text-secondary mb-8 leading-relaxed font-light">
-                Deploy intelligent chatbots that engage visitors, answer business-specific questions, capture lead information, and schedule consultations — all without human intervention.
+                Build chat assistants that answer from approved business sources, capture lead information, offer scheduling paths, and make human handoff obvious.
               </p>
               <Link href="/services/chatbots" className="btn-primary inline-flex items-center gap-2">
                 Explore Chat Systems <ArrowRight className="w-4 h-4" />

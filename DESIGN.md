@@ -1,46 +1,82 @@
-# Azorvin Design System
+# Design — Azorvin
 
-This document acts as the contract for the Azorvin design overhaul, incorporating UI/UX Pro Max and Hallmark principles.
+This is the locked visual system for the Azorvin website. Every marketing, service, industry, content, and admin page should extend this system rather than inventing a new theme.
 
-## Core Creative Direction
-A premium, dark, dimensional SaaS website with an editorial sensibility. The experience must feel sophisticated, controlled, precise, technically advanced, and human-made.
-**Theme:** Graphite, obsidian, warm ivory, aged bronze, muted sage.
-**Avoid:** Cyan, neon blue, electric blue, AI-purple gradients, pure white backgrounds, rainbow gradients, glowing borders, generic glassmorphism.
+## Genre
 
-## Colour Tokens
-- `--background-primary`: `#0d0e0f`
-- `--background-secondary`: `#141618`
-- `--surface-primary`: `#1a1c1f`
-- `--surface-elevated`: `#222529`
-- `--border-subtle`: `rgba(232, 224, 211, 0.12)`
-- `--text-primary`: `#e8e0d3`
-- `--text-secondary`: `#aaa49a`
-- `--text-muted`: `#77746f`
-- `--accent-primary`: `#b4875b`
-- `--accent-primary-hover`: `#c89a6b`
-- `--accent-secondary`: `#7f8b78`
-- `--accent-tertiary`: `#8d655b`
+Modern-minimal with a human service-studio voice. The site should feel engineered, composed, and trustworthy—not like a generic AI product template.
+
+## Macrostructure family
+
+- Marketing pages: Split Studio and Photographic Fold. Pair every technical claim with human or operational context.
+- Service and industry pages: alternating proof-led modules with different visual compositions per route.
+- Content pages: Long Document with restrained typography and minimal motion.
+- Admin pages: Workbench; function first, no decorative enrichment.
+
+## Theme
+
+- Ink base: `#07111f`
+- Deep navy surface: `#0b1b30`
+- Raised navy surface: `#102641`
+- Primary signal: `#3b9bff`
+- Cyan highlight: `#18d4e8`
+- Primary text: `#f4f9ff`
+- Secondary text: `#b7c8dc`
+- Muted text: `#7890aa`
+- Rules: translucent cool-blue hairlines only
+
+Blue is a signal, not wallpaper. Cyan/electric blue should occupy less than ten percent of a viewport. No purple, green, rainbow gradients, aurora blobs, glowing card borders, or decorative glassmorphism.
 
 ## Typography
-- **Primary / UI / Navigation:** Instrument Sans
-- **Editorial Emphasis / Selected Details:** Newsreader (Serif)
-- **Rules:** Clear distinction between scales, clamp() for responsiveness, excellent line lengths, tight headings, no cramped body copy, no giant text eating the mobile viewport, no gradient text.
 
-## Layout & Composition
-- Asymmetrical grids, strong alignment, controlled negative space, alternating visual rhythms.
-- Use layered sections with subtle depth instead of repetitive rounded bento cards.
-- Restrained radius system (mix of square and lightly softened elements).
+- Display: Space Grotesk, 500–650, roman
+- Body and UI: Instrument Sans, 400–650
+- Mono: system monospace only for technical labels
+- Headings use compact line-height and balanced wrapping. No italic words in headings and no gradient text.
+- The Azorvin wordmark is uppercase Instrument Sans with deliberate tracking; it never uses the display serif treatment.
 
-## 3D Art Direction
-- **Concept:** Sculptural automation architecture. Dark mineral/anodised-metal modules, warm translucent surfaces, fine mechanical connections, restrained illuminated paths.
-- **Rules:** No robots, brains, glowing spheres, cyan holograms, or matrix backgrounds.
-- **Tech:** Three.js / React Three Fiber / Drei.
+## Spacing and shape
 
-## Motion System
-- Smooth, restrained, physical, slightly cinematic.
-- **Timings:** Micro-interactions (140–220ms), Component transitions (250–450ms), Section reveals (500–850ms).
-- **Rules:** No bouncing icons, excessive parallax, long intros, scroll hijacking, or repetitive fade-up effects.
+- Spacious 4-point scale with varied section rhythm.
+- Primary containers share one max-width.
+- Cards use 12–18px radii only when they communicate grouping. Images can use asymmetric corner treatment.
+- Clickable text never wraps.
 
-## Anti-AI Check
-- Remove all blue/purple gradients, cyan glows, floating chatbot bubbles, and meaningless line icons.
-- Ensure copy is direct, calm, credible, and specific ("Automation systems that keep business moving").
+## Motion
+
+- One cursor-reactive object per viewport maximum.
+- Cursor response belongs to a meaningful product/brand object, never a trailing glow.
+- UI transitions: 150–260ms using exponential ease-out.
+- Section motion is selective; the page should settle immediately.
+- `prefers-reduced-motion` disables parallax, looping motion, and transforms.
+
+## Imagery
+
+- Use real, candid human photography with natural light and asymmetric crops.
+- Photography shows consultation, collaboration, support, and operations—not posed “AI people.”
+- Technical visuals explain a real workflow and must be labeled as examples when they contain illustrative data.
+- No invented client logos, testimonials, metrics, reviews, or case-study outcomes.
+
+## Logo
+
+- Use `/azorvin-mark.png`, the isolated transparent emblem derived from the supplied master artwork.
+- Always render with `object-contain` and equal internal padding. Never crop, mask, stretch, or place it in a competing tile.
+- Pair with the uppercase AZORVIN wordmark in navigation and footer.
+
+## CTA voice
+
+- Primary: electric-blue/cyan signal fill, dark ink text, compact radius.
+- Secondary: visible cool-blue border, transparent background.
+- Copy is practical: “Book a consultation”, “See the system”, “Start a conversation”.
+
+## What every page must share
+
+- Logo treatment, typography, colour restraint, focus states, CTA voice, spacing rhythm, and truthful copy.
+- Security and functional behaviour remain unchanged unless a page-specific task explicitly updates them.
+
+## What pages may vary
+
+- Hero composition, image crop, workflow visualization, section order, and proof format.
+- Service pages should not be colour-swapped copies of one template.
+
+/* Hallmark · genre: modern-minimal · macrostructure-family: Split Studio · design-system: DESIGN.md · designed-as-app */

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { Mic, Zap, BarChart, PhoneCall, BrainCircuit, Activity, Clock } from 'lucide-react';
 
@@ -32,14 +33,14 @@ export default function VoiceAgentsClient() {
             >
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-bg-surface border border-border text-primary text-sm font-medium mb-6">
                 <Zap className="w-4 h-4" />
-                <span>Sub-800ms Latency</span>
+                <span>Natural turn-taking</span>
               </div>
               <h1 className="text-5xl md:text-6xl font-medium tracking-tight text-text-primary leading-tight">
                 Never miss <br/>
                 <span className="text-text-secondary">another phone call.</span>
               </h1>
               <p className="mt-6 text-lg text-text-muted leading-relaxed max-w-lg">
-                Deploy highly capable conversational AI voice agents that handle inbound support, outbound dispatch, and complex routing with unparalleled speed and natural prosody.
+                Design voice workflows for inbound support, qualification, booking, and routing—with clear escalation paths and a voice that fits your business.
               </p>
             </motion.div>
             
@@ -49,12 +50,12 @@ export default function VoiceAgentsClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap gap-4"
             >
-              <button className="px-6 py-3 bg-primary text-bg-base rounded-md font-medium hover:opacity-90 transition-opacity">
-                Deploy Voice Agent
-              </button>
-              <button className="px-6 py-3 bg-bg-surface border border-border text-text-primary rounded-md font-medium hover:bg-bg-alt transition-colors">
-                Listen to Samples
-              </button>
+              <a href="/contact" className="inline-flex min-h-11 items-center px-6 py-3 bg-primary text-bg-base rounded-md font-medium hover:opacity-90 transition-opacity">
+                Plan a voice workflow
+              </a>
+              <a href="#workflow" className="inline-flex min-h-11 items-center px-6 py-3 bg-bg-surface border border-border text-text-primary rounded-md font-medium hover:bg-bg-alt transition-colors">
+                See the call flow
+              </a>
             </motion.div>
           </div>
 
@@ -79,7 +80,7 @@ export default function VoiceAgentsClient() {
                   </div>
                 </div>
                 <div className="text-xs font-mono text-primary bg-bg-base px-2 py-1 rounded border border-border">
-                  {agentState === 'processing' ? 'Lat: 420ms' : 'Lat: 210ms'}
+                  {agentState === 'processing' ? 'Checking context' : 'Call connected'}
                 </div>
               </div>
 
@@ -121,7 +122,7 @@ export default function VoiceAgentsClient() {
                   <span className="text-sm text-text-primary font-medium capitalize">
                     {agentState === 'listening' && 'User Speaking...'}
                     {agentState === 'processing' && 'Navigating Interruption...'}
-                    {agentState === 'speaking' && 'Agent Synthesizing...'}
+                    {agentState === 'speaking' && 'Preparing response...'}
                   </span>
                 </div>
               </div>
@@ -130,18 +131,30 @@ export default function VoiceAgentsClient() {
         </div>
       </section>
 
+      <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
+        <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-border">
+          <Image src="/images/voice_agent_scene.jpg" alt="A receptionist speaking with a visitor while a voice-assistant workflow is visible nearby" fill priority sizes="(min-width: 1280px) 1200px, 100vw" className="object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-r from-bg-base/90 via-bg-base/35 to-transparent" />
+          <div className="relative flex min-h-[420px] max-w-xl flex-col justify-end p-8 lg:p-12">
+            <span className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">The handoff matters</span>
+            <h2 className="font-display text-3xl font-semibold">A useful voice agent knows when a person should take the call.</h2>
+            <p className="mt-4 text-text-secondary">We define scope, fallback behavior, consent language, call logging, and the context your team receives at transfer.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Features Section */}
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
         <div className="mb-12">
-          <h2 className="text-3xl font-medium text-text-primary mb-4">Unmatched Capabilities</h2>
-          <p className="text-text-muted max-w-2xl text-lg">Beyond standard voice bots, our agents handle nuance, interruptions, and complex integrations.</p>
+          <h2 className="text-3xl font-medium text-text-primary mb-4">Designed around the whole call</h2>
+          <p className="text-text-muted max-w-2xl text-lg">The useful details are in pacing, interruptions, integrations, and what happens after the caller hangs up.</p>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {[
-            { icon: Clock, title: "Ultra-low latency", desc: "Sub-800ms response times for conversational naturalness." },
+            { icon: Clock, title: "Response pacing", desc: "Conversation timing is tuned for natural turn-taking and clear recovery." },
             { icon: Activity, title: "Interruption handling", desc: "Seamless turn-taking and dynamic interruption recovery." },
-            { icon: PhoneCall, title: "VoIP integrations", desc: "Direct SIP trunking and integration into existing infra." },
-            { icon: BarChart, title: "Post-call logging", desc: "Instant transcription, summarization, and CRM sync." },
+            { icon: PhoneCall, title: "VoIP integrations", desc: "Connect compatible telephony providers and existing call-routing infrastructure." },
+            { icon: BarChart, title: "Post-call logging", desc: "Prepare transcripts, summaries, and agreed CRM updates after a call." },
           ].map((feature, i) => (
             <motion.div 
               key={i}
@@ -160,7 +173,7 @@ export default function VoiceAgentsClient() {
       </section>
 
       {/* Workflow Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section id="workflow" className="max-w-7xl mx-auto px-6 lg:px-8 scroll-mt-28">
         <div className="bg-bg-surface border border-border rounded-2xl p-8 lg:p-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-primary/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           
@@ -170,10 +183,10 @@ export default function VoiceAgentsClient() {
             <div className="absolute left-4 top-0 bottom-0 w-px bg-border hidden md:block" />
             <div className="space-y-12">
               {[
-                { step: "01", title: "Inbound Call Connected", desc: "Agent answers within rings, initiating with custom brand greeting.", icon: PhoneCall },
+                { step: "01", title: "Inbound Call Connected", desc: "The configured call path begins with an approved brand greeting.", icon: PhoneCall },
                 { step: "02", title: "Intent & Entity Extraction", desc: "System listens, handles interruptions, and extracts key entities in real-time.", icon: BrainCircuit },
-                { step: "03", title: "Action Execution", desc: "Agent performs database lookups, books appointments, or routes the call instantly.", icon: Zap },
-                { step: "04", title: "Post-Call Processing", desc: "Detailed summary and action items are immediately pushed to your CRM.", icon: BarChart },
+                { step: "03", title: "Action Execution", desc: "The workflow can perform approved lookups, offer appointments, or route the call.", icon: Zap },
+                { step: "04", title: "Post-Call Processing", desc: "A summary and agreed action items can be added to your CRM for review.", icon: BarChart },
               ].map((item, i) => (
                 <motion.div 
                   key={i}

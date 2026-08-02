@@ -92,11 +92,11 @@ export function ChatbotWidget() {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.9, y: 20 }}
             transition={{ duration: 0.2, ease: [0.16, 1, 0.3, 1] }}
-            className="w-[calc(100vw-2rem)] sm:w-[360px] bg-bg-surface rounded-2xl shadow-xl border border-gray-200 overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[520px]"
+            className="w-[calc(100vw-2rem)] sm:w-[360px] bg-bg-surface rounded-2xl shadow-xl border border-border overflow-hidden flex flex-col max-h-[85vh] sm:max-h-[520px]"
             style={{ height: '520px' }}
           >
             {/* Header */}
-            <div className="bg-gradient-to-r from-accent to-primary p-4 flex items-center justify-between">
+            <div className="bg-gradient-to-r from-primary to-accent p-4 flex items-center justify-between">
               <div className="flex items-center gap-3">
                 <div className="w-8 h-8 bg-bg-surface/20 rounded-xl flex items-center justify-center">
                   <Bot className="w-4 h-4 text-text-primary" />
@@ -104,7 +104,7 @@ export function ChatbotWidget() {
                 <div>
                   <p className="text-text-primary font-semibold text-sm">Azorvin AI</p>
                   <div className="flex items-center gap-1.5">
-                    <span className="w-1.5 h-1.5 bg-green-400 rounded-full animate-pulse" />
+                    <span className="w-1.5 h-1.5 bg-accent rounded-full animate-pulse" />
                     <span className="text-text-primary/80 text-xs">Online now</span>
                   </div>
                 </div>
@@ -135,13 +135,13 @@ export function ChatbotWidget() {
                     'max-w-[80%] rounded-2xl px-3.5 py-2.5 text-sm leading-relaxed',
                     msg.role === 'user'
                       ? 'bg-gradient-to-r from-accent to-primary text-text-primary rounded-tr-sm shadow-sm'
-                      : 'bg-gray-100 text-gray-900 rounded-tl-sm'
+                      : 'bg-bg-alt text-text-secondary rounded-tl-sm border border-border'
                   )}>
                     {msg.content || (
-                      <span className="flex items-center gap-1 text-gray-400">
-                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:0ms]" />
-                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:150ms]" />
-                        <span className="w-1.5 h-1.5 bg-gray-400 rounded-full animate-bounce [animation-delay:300ms]" />
+                  <span className="flex items-center gap-1 text-text-muted">
+                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:0ms]" />
+                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:150ms]" />
+                        <span className="w-1.5 h-1.5 bg-text-muted rounded-full animate-bounce [animation-delay:300ms]" />
                       </span>
                     )}
                   </div>
@@ -151,7 +151,7 @@ export function ChatbotWidget() {
             </div>
 
             {/* Input */}
-            <div className="p-3 border-t border-gray-100 bg-bg-surface">
+            <div className="p-3 border-t border-border bg-bg-surface">
               <form
                 onSubmit={e => { e.preventDefault(); sendMessage() }}
                 className="flex items-center gap-2"
@@ -162,7 +162,7 @@ export function ChatbotWidget() {
                   value={input}
                   onChange={e => setInput(e.target.value)}
                   placeholder="Ask me anything…"
-                  className="w-full px-4 py-2.5 bg-gray-50 border border-gray-200 rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all text-gray-900 placeholder:text-gray-400"
+                  className="w-full px-4 py-2.5 bg-bg-alt border border-border rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-accent/30 focus:border-accent transition-all text-text-primary placeholder:text-text-muted"
                   disabled={loading}
                 />
                 <button
@@ -190,7 +190,7 @@ export function ChatbotWidget() {
           >
             <Bot className="w-5 h-5" />
             <span className="text-sm font-semibold">Azorvin AI</span>
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse" />
+            <span className="w-2 h-2 bg-accent rounded-full animate-pulse" />
           </motion.button>
         )}
       </AnimatePresence>

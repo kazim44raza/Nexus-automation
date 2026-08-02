@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 
 export default function WhatsAppAutomationClient() {
@@ -18,19 +19,19 @@ export default function WhatsAppAutomationClient() {
             Conversational Commerce
           </div>
           <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
-            Sell Automatically. <br />
-            <span className="text-accent italic">Right in WhatsApp.</span>
+            Conversations that keep moving. <br />
+            <span className="text-accent">Right in WhatsApp.</span>
           </h1>
           <p className="text-lg text-text-secondary max-w-xl leading-relaxed">
-            Turn the world's most popular messaging app into an autonomous sales channel. Our AI agents can answer product questions, handle objections, and process payments entirely within WhatsApp.
+            Give customers a useful path from first message to a clear next step. We design WhatsApp workflows for common questions, lead capture, order updates, and human handoff.
           </p>
-          <div className="flex gap-4">
-            <button className="px-6 py-3 bg-text-primary text-bg-base font-medium rounded-lg hover:bg-text-secondary transition-colors">
-              Book a Demo
-            </button>
-            <button className="px-6 py-3 bg-bg-surface border border-border text-text-primary font-medium rounded-lg hover:border-text-muted transition-colors">
-              View Capabilities
-            </button>
+          <div className="flex flex-wrap gap-4">
+            <a href="/contact" className="inline-flex min-h-11 items-center px-6 py-3 bg-text-primary text-bg-base font-medium rounded-lg hover:bg-text-secondary transition-colors">
+              Plan the workflow
+            </a>
+            <a href="#capabilities" className="inline-flex min-h-11 items-center px-6 py-3 bg-bg-surface border border-border text-text-primary font-medium rounded-lg hover:border-text-muted transition-colors">
+              View capabilities
+            </a>
           </div>
         </motion.div>
 
@@ -44,11 +45,34 @@ export default function WhatsAppAutomationClient() {
           <WhatsAppMockup />
         </motion.div>
       </section>
+
+      <section className="px-6 pb-24 max-w-7xl mx-auto">
+        <div className="grid overflow-hidden rounded-[2rem] border border-border bg-bg-surface lg:grid-cols-[1.15fr_0.85fr]">
+          <div className="relative min-h-[360px] lg:min-h-[520px]">
+            <Image
+              src="/images/whatsapp-workspace.png"
+              alt="A small-business owner managing customer messages from a phone and laptop"
+              fill
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              className="object-cover"
+            />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/75 via-transparent to-transparent" />
+            <p className="absolute bottom-5 left-5 right-5 max-w-md text-sm text-white/80">
+              Designed for the person who still needs to see, approve, and take over the conversation.
+            </p>
+          </div>
+          <div className="flex flex-col justify-center p-8 lg:p-12">
+            <span className="mb-5 text-xs font-semibold uppercase tracking-[0.22em] text-accent">Human context</span>
+            <h2 className="font-display text-3xl font-semibold leading-tight lg:text-4xl">Automation should shorten the queue, not hide the customer.</h2>
+            <p className="mt-5 leading-relaxed text-text-secondary">We map the messages that can be handled safely, define when a teammate should step in, and preserve the full conversation so nobody starts from zero.</p>
+          </div>
+        </div>
+      </section>
       
       {/* Workflow text */}
-      <section className="py-20 px-6 border-t border-border bg-bg-surface text-center mt-12">
+      <section id="capabilities" className="py-20 px-6 border-t border-border bg-bg-surface text-center mt-12 scroll-mt-28">
         <h2 className="text-3xl font-semibold mb-6">Drive Engagement Where Customers Actually Look</h2>
-        <p className="text-text-secondary max-w-2xl mx-auto">Skip the crowded email inboxes. WhatsApp boasts a 98% open rate, allowing your AI to engage customers instantly with personalized follow-ups, abandoned cart recovery, and VIP concierge services.</p>
+        <p className="text-text-secondary max-w-2xl mx-auto">Use the channel your customers already choose for product questions, follow-ups, booking links, and service updates—with clear consent and an obvious path to a person.</p>
       </section>
     </div>
   );
@@ -66,9 +90,9 @@ function WhatsAppMockup() {
 
   const messages = [
     { sender: 'user', text: "Hey! Do you have the Midnight Chair in stock?", time: "10:14 AM" },
-    { sender: 'bot', text: "Hello! 👋 Yes, we have 3 Midnight Chairs left in stock at our Downtown warehouse.", time: "10:14 AM" },
+    { sender: 'bot', text: "Hello — yes, we have 3 Midnight Chairs left in stock at our Downtown warehouse.", time: "10:14 AM" },
     { sender: 'user', text: "Awesome. How long does delivery take to Brooklyn?", time: "10:15 AM" },
-    { sender: 'bot', text: "Standard delivery to Brooklyn takes 2 days. However, since you're inquiring today, I can upgrade you to free next-day delivery. 🚀", time: "10:15 AM" },
+    { sender: 'bot', text: "Standard delivery to Brooklyn takes 2 days. I can show the available delivery options before checkout.", time: "10:15 AM" },
     { sender: 'bot', text: "Would you like me to send a checkout link to secure one now?", time: "10:15 AM", isAction: true },
   ];
 
@@ -87,7 +111,7 @@ function WhatsAppMockup() {
         </div>
         <div>
           <div className="text-[#e9edef] font-medium text-sm">Azorvin Concierge</div>
-          <div className="text-[#8696a0] text-xs">bot • always online</div>
+          <div className="text-[#8696a0] text-xs">assistant · human handoff available</div>
         </div>
       </div>
 
@@ -100,9 +124,9 @@ function WhatsAppMockup() {
               initial={{ opacity: 0, y: 10, scale: 0.95 }}
               animate={{ opacity: 1, y: 0, scale: 1 }}
               className={`max-w-[85%] rounded-lg p-2 text-[13px] relative shadow-sm ${
-                msg.sender === 'user' 
-                  ? "bg-[#005c4b] text-[#e9edef] self-end rounded-tr-none" 
-                  : "bg-[#202c33] text-[#e9edef] self-start rounded-tl-none"
+                msg.sender === 'user'
+                  ? "bg-[#202c33] text-[#e9edef] self-end rounded-tr-none"
+                  : "bg-[#005c4b] text-[#e9edef] self-start rounded-tl-none"
               }`}
             >
               <span className="leading-relaxed">{msg.text}</span>

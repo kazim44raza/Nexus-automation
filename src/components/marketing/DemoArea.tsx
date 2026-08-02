@@ -120,7 +120,7 @@ function VoiceDemo() {
           Intent: Booking
         </div>
         <div className="bg-bg-alt border border-border px-3 py-1.5 rounded-md text-xs font-mono text-text-secondary tracking-wide">
-          Confidence: 98%
+          Source: booking policy
         </div>
       </div>
     </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { Instrument_Sans, Newsreader } from 'next/font/google'
+import { Instrument_Sans, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/marketing/Navbar'
 import { Footer } from '@/components/marketing/Footer'
@@ -10,7 +10,7 @@ const instrumentSans = Instrument_Sans({
   display: 'swap',
 })
 
-const newsreader = Newsreader({ 
+const spaceGrotesk = Space_Grotesk({
   subsets: ['latin'],
   variable: '--font-display',
   display: 'swap',
@@ -71,7 +71,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
-      <body className={`${instrumentSans.variable} ${newsreader.variable} antialiased bg-bg-base text-text-primary overflow-x-hidden min-h-screen flex flex-col`} suppressHydrationWarning>
+      <body className={`${instrumentSans.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary overflow-x-clip min-h-screen flex flex-col`} suppressHydrationWarning>
         {children}
       </body>
     </html>

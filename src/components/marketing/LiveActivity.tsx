@@ -4,7 +4,6 @@ import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, Target, Calendar, Zap } from 'lucide-react';
 import { SectionHeading } from '@/components/ui/SectionHeading';
-import { AnimatedCounter } from '@/components/ui/AnimatedCounter';
 import { DemoDisclaimer } from '@/components/ui/DemoDisclaimer';
 
 const MOCK_EVENTS = [
@@ -34,19 +33,19 @@ export default function LiveActivity() {
   }, [eventIndex]);
 
   const metrics = [
-    { label: "Calls Answered", value: 847, icon: Phone, trend: "+12%", color: "text-primary", bg: "bg-primary/10" },
-    { label: "Leads Qualified", value: 312, icon: Target, trend: "+18%", color: "text-mint", bg: "bg-mint/10" },
-    { label: "Appointments Booked", value: 156, icon: Calendar, trend: "+24%", color: "text-accent", bg: "bg-accent/10" },
-    { label: "Avg Response", value: "<1s", icon: Zap, trend: "Real-time", color: "text-primary", bg: "bg-primary/10", isString: true }
+    { label: "Call intake", value: "Mapped", icon: Phone, trend: "Example", color: "text-primary", bg: "bg-primary/10" },
+    { label: "Lead routing", value: "Queued", icon: Target, trend: "Example", color: "text-mint", bg: "bg-mint/10" },
+    { label: "Calendar handoff", value: "Ready", icon: Calendar, trend: "Example", color: "text-accent", bg: "bg-accent/10" },
+    { label: "Team escalation", value: "Visible", icon: Zap, trend: "Example", color: "text-primary", bg: "bg-primary/10" }
   ];
 
   return (
     <section className="w-full section-py bg-bg-dark text-text-on-dark border-y border-border-dark">
       <div className="page-container">
         <SectionHeading 
-          eyebrow="Live Demo"
-          title="Your business activity, managed by AI"
-          description="See how our automation systems work in real-time to handle interactions and update your tools seamlessly."
+          eyebrow="Interactive Preview"
+          title="See the operating layer before you build it"
+          description="Explore an illustrative workflow showing how calls, leads, appointments, and handoffs can move through one connected system."
           align="center"
           dark={true}
         />
@@ -79,7 +78,7 @@ export default function LiveActivity() {
                     </span>
                   </div>
                   <div className="text-2xl font-bold text-text-on-dark mb-1">
-                    {metric.isString ? metric.value : <AnimatedCounter value={metric.value as number} duration={2000} />}
+                    {metric.value}
                   </div>
                   <div className="text-sm text-text-muted">{metric.label}</div>
                 </div>

@@ -5,18 +5,18 @@ const steps = [
     number: '01',
     title: 'Discovery & Audit',
     description: "We map your current workflows, identify where leads are being lost, and design the automation architecture that fits your specific business.",
-    duration: '1–2 days',
+    duration: 'Scoped together',
   },
   {
     number: '02',
     title: 'Build & Integrate',
     description: "Our team builds your AI systems, integrates them with your existing tools (CRM, calendar, phone), and trains them on your business knowledge.",
-    duration: '3–10 days',
+    duration: 'Milestone-based',
   },
   {
     number: '03',
     title: 'Launch & Optimize',
-    description: "We deploy, monitor performance, and continuously refine. You get weekly reports and a dedicated account manager available when you need us.",
+    description: "We deploy, monitor performance, and refine the workflow on the review cadence agreed for your project.",
     duration: 'Ongoing',
   },
 ]
@@ -30,10 +30,10 @@ export function ProcessSection() {
           <AnimatedSection direction="left">
             <span className="section-eyebrow">How It Works</span>
             <h2 className="section-title mt-3">
-              Up and running in under 2 weeks
+        A clear path from audit to launch
             </h2>
             <p className="section-desc mt-4">
-              No long implementations. No complex onboarding. We move fast and you start seeing results before month one is over.
+              The timeline depends on integrations, access, and risk. We define the stages, owners, and acceptance criteria before build work begins.
             </p>
           </AnimatedSection>
 

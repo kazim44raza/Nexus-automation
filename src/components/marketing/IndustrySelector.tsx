@@ -40,7 +40,7 @@ const industries = [
     icon: Home,
     request: "I saw the listing on Oak Street — is it still available?",
     action: ["Confirms availability", "Qualifies buyer interest", "Schedules viewing", "Notifies agent"],
-    benefit: "Instant lead response before competitors"
+    benefit: "A consistent response and routing path for every listing inquiry"
   },
   {
     id: 'homeservices',

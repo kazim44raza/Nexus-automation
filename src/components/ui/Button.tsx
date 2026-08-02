@@ -19,10 +19,10 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<Variant, string> = {
-  primary: 'bg-gradient-to-r from-accent to-primary text-white shadow-md hover:shadow-lg hover:scale-[1.02]',
-  secondary: 'bg-transparent border-2 border-gray-200 text-gray-700 hover:border-accent hover:bg-accent/5 hover:text-accent',
-  ghost: 'bg-transparent text-gray-600 hover:bg-gray-100 hover:text-gray-900',
-  dark: 'bg-gray-900 text-white hover:bg-gray-800 shadow-sm',
+    primary: 'bg-gradient-to-r from-primary to-accent text-[#03101e] shadow-md hover:shadow-lg hover:-translate-y-0.5',
+    secondary: 'bg-transparent border border-border text-text-primary hover:border-primary hover:bg-primary/5 hover:text-primary',
+    ghost: 'bg-transparent text-text-secondary hover:bg-bg-surface hover:text-text-primary',
+    dark: 'bg-bg-alt text-text-primary hover:bg-bg-surface shadow-sm',
 }
 
 const sizeClasses: Record<Size, string> = {

@@ -20,7 +20,7 @@ export function CTASection() {
         <AnimatedSection>
           <span className="inline-flex items-center gap-2 border border-border bg-bg-surface rounded-full px-4 py-1.5 text-xs font-semibold text-text-muted tracking-wide uppercase mb-8 shadow-sm">
             <span className="w-1.5 h-1.5 rounded-full bg-primary animate-pulse" />
-            Free Discovery Call — No Commitment
+        Introductory conversation — No commitment
           </span>
           
           <h2 className="font-display text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight text-text-primary mb-6 leading-[1.1]">
@@ -41,7 +41,7 @@ export function CTASection() {
             </a>
           </div>
           
-          <p className="text-text-muted text-xs font-mono uppercase tracking-widest mt-10">No sales pressure · 30-minute consultation · Actionable architecture</p>
+      <p className="text-text-muted text-xs font-mono uppercase tracking-widest mt-10">No sales pressure · Practical consultation · Clear next steps</p>
         </AnimatedSection>
       </div>
     </section>

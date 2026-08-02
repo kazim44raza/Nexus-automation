@@ -16,7 +16,7 @@ export default function AboutPage() {
         <div className="page-container max-w-5xl mx-auto">
           <AnimatedSection>
             <h1 className="font-display text-5xl md:text-7xl tracking-tight text-text-primary mb-8 leading-[1.1] max-w-3xl">
-              Building practical automation, <span className="text-text-muted italic">not hype.</span>
+              Building practical automation, <span className="text-primary">not hype.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed max-w-2xl font-light">
               We started Azorvin because too many businesses were being sold AI chatbots that didn't actually integrate with their operations or solve real problems.
@@ -32,10 +32,10 @@ export default function AboutPage() {
             <AnimatedSection className="md:col-span-5 md:sticky top-24">
               <div className="relative aspect-[3/4] overflow-hidden bg-bg-elevated border border-border/50">
                 <Image 
-                  src="/images/founder_workspace.jpg" 
-                  alt="Founder's workspace showing automation nodes"
+                  src="/images/human-collaboration.jpg"
+                  alt="Two business professionals discussing a workflow together"
                   fill
-                  className="object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-700"
+                  className="object-cover object-[58%_center] saturate-[0.78] transition-[filter] duration-300 hover:saturate-100"
                 />
                 <div className="absolute inset-0 border border-text-primary/10" />
               </div>

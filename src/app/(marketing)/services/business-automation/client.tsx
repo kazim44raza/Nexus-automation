@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Box, Cpu, Database, MessageSquare, Workflow, Zap, CheckCircle, Network, Layers, Command } from 'lucide-react';
 
@@ -41,26 +42,26 @@ export default function BusinessAutomationClient() {
               Orchestrate your entire <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-accent">business logic.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-12 max-w-2xl mx-auto">
-              Connect triggers to AI decisions and automated actions. Replace manual data entry with reliable, intelligent workflows that operate autonomously.
+              Connect triggers, decision points, approvals, and actions. Reduce repetitive data entry with workflows your team can inspect and control.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-4 bg-primary text-bg-base rounded-full font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
-                Start Automating
-              </button>
-              <button className="px-8 py-4 bg-bg-surface text-text-primary rounded-full font-medium border border-border hover:bg-bg-alt transition-colors w-full sm:w-auto">
-                View Case Studies
-              </button>
+              <a href="/contact" className="inline-flex min-h-12 items-center justify-center px-8 py-4 bg-primary text-bg-base rounded-full font-medium hover:bg-primary/90 transition-colors w-full sm:w-auto">
+                Map a workflow
+              </a>
+              <a href="#pipeline" className="inline-flex min-h-12 items-center justify-center px-8 py-4 bg-bg-surface text-text-primary rounded-full font-medium border border-border hover:bg-bg-alt transition-colors w-full sm:w-auto">
+                See the pipeline
+              </a>
             </div>
           </motion.div>
         </div>
       </section>
 
       {/* Interactive Pipeline Visualization */}
-      <section className="py-24 bg-bg-alt border-y border-border">
+      <section id="pipeline" className="py-24 bg-bg-alt border-y border-border scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 text-center">
-            <h2 className="text-3xl font-display font-bold text-text-primary mb-4">Autonomous Data Pipelines</h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">Watch data flow instantly from lead capture through AI qualification, CRM updates, and team notifications.</p>
+            <h2 className="text-3xl font-display font-bold text-text-primary mb-4">Visible Data Pipelines</h2>
+            <p className="text-text-secondary max-w-2xl mx-auto">Follow an illustrative path from lead capture through qualification, CRM updates, and team notifications.</p>
           </div>
 
           <div className="relative max-w-5xl mx-auto bg-bg-base rounded-2xl border border-border p-8 md:p-16 overflow-hidden">
@@ -147,6 +148,19 @@ export default function BusinessAutomationClient() {
         </div>
       </section>
 
+      <section className="bg-bg-base py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
+          <div className="lg:order-2 relative min-h-[430px] overflow-hidden rounded-[2rem] border border-border">
+            <Image src="/images/business_automation_scene.jpg" alt="An operations professional reviewing a business workflow at her desk" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          </div>
+          <div className="lg:order-1">
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Operations, made legible</span>
+            <h2 className="mt-5 font-display text-3xl font-semibold text-text-primary lg:text-4xl">The best automation is understandable on a difficult day.</h2>
+            <p className="mt-5 leading-relaxed text-text-secondary">We document triggers, owners, failure paths, approvals, and audit events so the workflow is a dependable part of operations—not a black box.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
       <section className="py-24 bg-bg-base">
         <div className="max-w-7xl mx-auto px-6">
@@ -165,7 +179,7 @@ export default function BusinessAutomationClient() {
               {
                 icon: Layers,
                 title: "Legacy Integrations",
-                desc: "Connect modern SaaS tools with legacy CRMs and ERPs seamlessly."
+                desc: "Connect modern SaaS tools with compatible legacy CRMs and ERPs through defined interfaces."
               },
               {
                 icon: Command,
@@ -175,7 +189,7 @@ export default function BusinessAutomationClient() {
               {
                 icon: Workflow,
                 title: "Error Handling",
-                desc: "Robust retry logic and fallback paths ensure your processes never break."
+                desc: "Use retry logic, alerts, and fallback paths to make failures visible and recoverable."
               },
               {
                 icon: CheckCircle,

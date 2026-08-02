@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 import { MessageSquare, Database, Users, GitMerge, FileText, CheckCircle2, Bot } from 'lucide-react';
 
@@ -52,12 +53,12 @@ export function ChatbotsClient() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="flex flex-wrap gap-4"
             >
-              <button className="px-6 py-3 bg-text-primary text-bg-base rounded-md font-medium hover:opacity-90 transition-opacity">
-                Build a Chatbot
-              </button>
-              <button className="px-6 py-3 bg-bg-surface border border-border text-text-primary rounded-md font-medium hover:bg-bg-alt transition-colors">
-                View Documentation
-              </button>
+              <a href="/contact" className="inline-flex min-h-11 items-center px-6 py-3 bg-text-primary text-bg-base rounded-md font-medium hover:opacity-90 transition-opacity">
+                Plan a chat assistant
+              </a>
+              <a href="#process" className="inline-flex min-h-11 items-center px-6 py-3 bg-bg-surface border border-border text-text-primary rounded-md font-medium hover:bg-bg-alt transition-colors">
+                View the process
+              </a>
             </motion.div>
           </div>
 
@@ -141,10 +142,16 @@ export function ChatbotsClient() {
           <h2 className="text-3xl font-medium text-text-primary mb-4">Intelligent Infrastructure</h2>
           <p className="text-text-muted max-w-2xl text-lg">Robust chat experiences driven by custom knowledge bases and real-time API integrations.</p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 gap-6 lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="relative min-h-[420px] overflow-hidden rounded-2xl border border-border">
+            <Image src="/images/chatbot_owner_scene.jpg" alt="A business owner reviewing customer inquiries on a desktop computer" fill sizes="(min-width: 1024px) 42vw, 100vw" className="object-cover" />
+            <div className="absolute inset-0 bg-gradient-to-t from-bg-base/85 via-transparent to-transparent" />
+            <p className="absolute bottom-6 left-6 right-6 text-sm text-white/80">The assistant handles the first pass; your team keeps visibility and control.</p>
+          </div>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2">
           {[
             { icon: MessageSquare, title: "Natural understanding", desc: "Context-aware LLM processing of user intent." },
-            { icon: Database, title: "Knowledge Retrieval", desc: "Instantly queries your approved proprietary data." },
+            { icon: Database, title: "Knowledge Retrieval", desc: "Uses your approved business sources to prepare grounded answers." },
             { icon: Users, title: "Lead Qualification", desc: "Automatic CRM ingestion of verified contact details." },
             { icon: GitMerge, title: "Human Handoff", desc: "Seamless transition to live agents with full context." },
           ].map((feature, i) => (
@@ -161,11 +168,12 @@ export function ChatbotsClient() {
               <p className="text-sm text-text-muted leading-relaxed">{feature.desc}</p>
             </motion.div>
           ))}
+          </div>
         </div>
       </section>
 
       {/* Workflow Section */}
-      <section className="max-w-7xl mx-auto px-6 lg:px-8">
+      <section id="process" className="max-w-7xl mx-auto px-6 lg:px-8 scroll-mt-28">
         <div className="bg-bg-surface border border-border rounded-2xl p-8 lg:p-12 relative overflow-hidden">
           <div className="absolute top-0 right-0 w-64 h-64 bg-mint/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2" />
           

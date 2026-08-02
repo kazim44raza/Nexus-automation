@@ -3,7 +3,7 @@ import CustomerSupportClient from './client';
 
 export const metadata: Metadata = {
   title: 'AI Customer Support Command Centre',
-  description: 'Resolve routine requests instantly. Escalate the rest intelligently. AI-powered customer support that handles common questions across every channel.',
+  description: 'Triage routine requests, use approved sources, and hand sensitive or complex issues to your support team with full context.',
 };
 
 export default function CustomerSupportPage() {

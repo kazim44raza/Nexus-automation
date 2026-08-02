@@ -48,13 +48,13 @@ export function Navbar() {
     <>
       <header
         className={cn(
-          'fixed top-0 left-0 right-0 z-50 transition-all duration-300',
+          'fixed left-0 right-0 top-3 z-50 px-3 transition-[transform,opacity] duration-300 sm:top-4 sm:px-4',
           scrolled
-            ? 'bg-bg-surface/95 backdrop-blur-sm border-b border-border shadow-sm py-4'
-            : 'bg-transparent border-b border-transparent py-6'
+            ? 'translate-y-0'
+            : 'translate-y-0'
         )}
       >
-        <nav className="page-container flex items-center justify-between h-14">
+        <nav className="mx-auto flex h-16 max-w-7xl items-center justify-between rounded-2xl border border-border bg-bg-base/92 px-4 shadow-lg backdrop-blur-xl sm:px-5 lg:px-6">
           {/* Logo */}
           <Link href="/" className="group flex-shrink-0">
             <Logo
@@ -64,7 +64,7 @@ export function Navbar() {
           </Link>
 
           {/* Desktop Nav */}
-          <div className="hidden lg:flex items-center gap-2">
+          <div className="hidden lg:flex items-center gap-1">
             {/* Services mega-menu */}
             <div
               className="relative"
@@ -72,7 +72,7 @@ export function Navbar() {
               onMouseLeave={() => setServicesOpen(false)}
             >
               <button className={cn(
-                'px-4 py-2 text-sm font-medium flex items-center gap-1.5 transition-colors',
+                'min-h-11 cursor-pointer px-3 py-2 text-sm font-medium flex items-center gap-1.5 transition-colors whitespace-nowrap',
                 pathname.startsWith('/services') 
                   ? 'text-primary' 
                   : 'text-text-secondary hover:text-text-primary'
@@ -123,7 +123,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  'px-4 py-2 text-sm transition-colors',
+                  'min-h-11 px-3 py-2 text-sm inline-flex items-center transition-colors whitespace-nowrap',
                   pathname === link.href 
                     ? 'text-primary font-medium' 
                     : 'text-text-secondary font-medium hover:text-text-primary'
@@ -144,7 +144,7 @@ export function Navbar() {
           {/* Mobile hamburger */}
           <button
             onClick={() => setMobileOpen(!mobileOpen)}
-            className="lg:hidden p-2 text-text-secondary hover:text-text-primary transition-colors"
+            className="lg:hidden min-h-11 min-w-11 cursor-pointer p-2 text-text-secondary hover:text-text-primary transition-colors"
             aria-label="Toggle menu"
           >
             {mobileOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}

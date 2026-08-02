@@ -6,7 +6,7 @@ import { HowItWorks } from '@/components/marketing/HowItWorks'
 import { DemoArea } from '@/components/marketing/DemoArea'
 import { FAQSection } from '@/components/marketing/FAQSection'
 import { CTASection } from '@/components/marketing/CTASection'
-import AutomationHub3DDynamic from '@/components/marketing/hero/AutomationHub3DDynamic'
+import { HeroStudio } from '@/components/marketing/hero/HeroStudio'
 import LiveActivity from '@/components/marketing/LiveActivity'
 import BeforeAfter from '@/components/marketing/BeforeAfter'
 import { IndustrySelector } from '@/components/marketing/IndustrySelector'
@@ -14,7 +14,7 @@ import { ProcessSection } from '@/components/marketing/ProcessSection'
 
 export const metadata: Metadata = {
   title: { absolute: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation' },
-  description: 'We build AI chatbots, voice agents, and automation systems that capture leads, book appointments, and follow up 24/7. Book a free demo.',
+  description: 'Azorvin designs chat, voice, and workflow systems around the way your team already works. Start with a practical conversation about where automation belongs.',
 }
 
 const organizationSchema = {
@@ -44,37 +44,32 @@ export default function HomePage() {
     <div className="bg-bg-base min-h-screen">
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }} />
       
-      {/* Hero Section */}
-      <section className="relative w-full min-h-[90vh] flex items-center overflow-hidden pt-24 pb-16">
-        {/* Subtle noise texture */}
-        <div className="absolute inset-0 z-0 opacity-20 pointer-events-none mix-blend-overlay" style={{ backgroundImage: 'url("/noise.png")' }} />
-        
-        <div className="page-container relative z-10 w-full">
-          <div className="grid lg:grid-cols-12 gap-12 lg:gap-8 items-center">
-            {/* Left Content */}
-            <div className="lg:col-span-5 max-w-2xl mx-auto lg:mx-0 text-center lg:text-left pt-10 lg:pt-0 flex flex-col items-center lg:items-start order-2 lg:order-1">
-              <h1 className="text-5xl sm:text-6xl lg:text-7xl font-display font-medium tracking-tight text-text-primary leading-[1.05] mb-8 mt-12">
-                Automation that answers customers and completes the work behind the conversation.
+      <section className="relative overflow-hidden pb-20 pt-32 sm:pt-36 lg:pb-28 lg:pt-40">
+        <div className="page-container relative z-10">
+          <div className="grid min-w-0 gap-12 lg:grid-cols-[minmax(0,0.92fr)_minmax(0,1.08fr)] lg:items-center lg:gap-16">
+            <div className="min-w-0 max-w-2xl">
+              <h1 className="mb-7 max-w-[12ch] break-words font-display text-[clamp(3rem,6vw,5.8rem)] font-medium leading-[0.98] tracking-[-0.045em] text-text-primary">
+                The customer conversation is only the beginning.
               </h1>
-              
-              <p className="text-lg text-text-secondary mb-10 max-w-xl font-light leading-relaxed">
-                Azorvin builds voice, messaging and workflow systems that capture inquiries, qualify leads, schedule appointments, update business tools and hand complex cases to your team.
+              <p className="mb-9 max-w-xl text-lg leading-relaxed text-text-secondary sm:text-xl">
+                Azorvin connects voice, messaging, calendars, CRMs, and internal workflows so an inquiry can become a completed action—with your team in control.
               </p>
-              
-              <div className="flex flex-col sm:flex-row gap-4 mb-10 w-full sm:w-auto justify-center lg:justify-start">
-                <Link href="/contact" className="btn-primary">
-                  Book a Consultation
+              <div className="mb-10 flex flex-col gap-3 sm:flex-row">
+                <Link href="/contact" className="btn-primary whitespace-nowrap">
+                  Book a consultation
                 </Link>
-                <Link href="/solutions" className="btn-secondary">
-                  See How It Works
+                <Link href="/solutions" className="btn-secondary whitespace-nowrap">
+                  See the system
                 </Link>
+              </div>
+              <div className="grid max-w-xl grid-cols-2 gap-x-8 gap-y-3 border-t border-border pt-5 text-sm text-text-secondary sm:grid-cols-4">
+                {['Voice', 'Messaging', 'Workflows', 'Human handoff'].map(item => (
+                  <span key={item} className="whitespace-nowrap">{item}</span>
+                ))}
               </div>
             </div>
 
-            {/* Right Visual */}
-            <div className="lg:col-span-7 relative h-[500px] sm:h-[600px] lg:h-[750px] w-full flex items-center justify-center order-1 lg:order-2">
-              <AutomationHub3DDynamic />
-            </div>
+            <HeroStudio />
           </div>
         </div>
       </section>

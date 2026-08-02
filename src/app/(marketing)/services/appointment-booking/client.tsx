@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Calendar, Clock, User, CheckCircle2, Mail, CalendarCheck, Sparkles, RefreshCcw, Bell } from 'lucide-react';
 
@@ -49,18 +50,18 @@ export default function AppointmentBookingClient() {
               <span className="text-sm font-medium text-text-secondary tracking-wide uppercase">Smart Scheduling</span>
             </div>
             <h1 className="text-5xl md:text-7xl font-display font-bold text-text-primary tracking-tight mb-8">
-              The lifecycle of a booking, <span className="text-transparent bg-clip-text bg-gradient-to-r from-mint to-primary">fully automated.</span>
+              The lifecycle of a booking, <span className="text-transparent bg-clip-text bg-gradient-to-r from-mint to-primary">carefully connected.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed mb-12 max-w-2xl mx-auto">
-              From the first inquiry to post-meeting follow-ups. Handle rescheduling, waitlists, and no-shows gracefully without lifting a finger.
+              Connect the first inquiry, calendar availability, reminders, rescheduling, and follow-up without removing your team from the process.
             </p>
             <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
-              <button className="px-8 py-4 bg-mint text-bg-base rounded-full font-medium hover:bg-mint/90 transition-colors w-full sm:w-auto">
+              <a href="#features" className="inline-flex min-h-12 items-center justify-center px-8 py-4 bg-mint text-bg-base rounded-full font-medium hover:bg-mint/90 transition-colors w-full sm:w-auto">
                 Explore Features
-              </button>
-              <button className="px-8 py-4 bg-bg-surface text-text-primary rounded-full font-medium border border-border hover:bg-bg-alt transition-colors w-full sm:w-auto">
-                Book a Demo
-              </button>
+              </a>
+              <a href="/contact" className="inline-flex min-h-12 items-center justify-center px-8 py-4 bg-bg-surface text-text-primary rounded-full font-medium border border-border hover:bg-bg-alt transition-colors w-full sm:w-auto">
+                Discuss your calendar
+              </a>
             </div>
           </motion.div>
         </div>
@@ -71,7 +72,7 @@ export default function AppointmentBookingClient() {
         <div className="max-w-7xl mx-auto px-6">
           <div className="mb-16 text-center">
             <h2 className="text-3xl font-display font-bold text-text-primary mb-4">Real-time Availability Sync</h2>
-            <p className="text-text-secondary max-w-2xl mx-auto">Watch as availability is instantly updated and automated confirmations are dispatched without human intervention.</p>
+            <p className="text-text-secondary max-w-2xl mx-auto">See how availability, calendar holds, CRM context, and confirmations can move through one controlled workflow.</p>
           </div>
 
           <div className="max-w-4xl mx-auto bg-bg-base border border-border rounded-3xl overflow-hidden shadow-2xl">
@@ -183,8 +184,21 @@ export default function AppointmentBookingClient() {
         </div>
       </section>
 
+      <section className="bg-bg-base py-24">
+        <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[1.2fr_0.8fr] lg:items-center">
+          <div className="relative min-h-[430px] overflow-hidden rounded-[2rem] border border-border">
+            <Image src="/images/receptionist_scene.jpg" alt="A receptionist coordinating a visitor and an appointment at the front desk" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+          </div>
+          <div>
+            <span className="text-xs font-semibold uppercase tracking-[0.22em] text-primary">Designed around the front desk</span>
+            <h2 className="mt-5 font-display text-3xl font-semibold text-text-primary lg:text-4xl">The calendar is only one part of the booking.</h2>
+            <p className="mt-5 leading-relaxed text-text-secondary">A complete flow carries the reason for the visit, the right staff member, reminders, changes, and anything the team needs before the customer arrives.</p>
+          </div>
+        </div>
+      </section>
+
       {/* Features Grid */}
-      <section className="py-24 bg-bg-base">
+      <section id="features" className="py-24 bg-bg-base scroll-mt-28">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
             {[
