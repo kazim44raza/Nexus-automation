@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
     author: { '@type': 'Organization', name: 'Azorvin' },
     publisher: { '@type': 'Organization', name: 'Azorvin' },
     image: post.coverImage,
-    mainEntityOfPage: `https://azorvin.com/blog/${slug}`,
+    mainEntityOfPage: `https://www.azorvin.com/blog/${slug}`,
   }
 
   return (

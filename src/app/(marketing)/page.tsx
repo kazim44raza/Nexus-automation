@@ -20,16 +20,16 @@ const websiteSchema = {
   '@graph': [
     {
       '@type': 'WebSite',
-      '@id': 'https://azorvin.com/#website',
+      '@id': 'https://www.azorvin.com/#website',
       name: 'Azorvin',
-      url: 'https://azorvin.com',
+      url: 'https://www.azorvin.com',
     },
     {
       '@type': 'Organization',
-      '@id': 'https://azorvin.com/#organization',
+      '@id': 'https://www.azorvin.com/#organization',
       name: 'Azorvin',
-      url: 'https://azorvin.com',
-      logo: 'https://azorvin.com/logo.png',
+      url: 'https://www.azorvin.com',
+      logo: 'https://www.azorvin.com/logo.png',
       description: 'Voice, messaging, booking, and workflow system design for service businesses.',
       email: 'ahmed@azorvin.com',
     },

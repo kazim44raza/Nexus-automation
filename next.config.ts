@@ -43,6 +43,12 @@ const nextConfig: NextConfig = {
   },
   async redirects() {
     return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'azorvin.com' }],
+        destination: 'https://www.azorvin.com/:path*',
+        permanent: true,
+      },
       // /services has no index page — send visitors to the solutions overview
       { source: '/services', destination: '/solutions', permanent: false },
       { source: '/services/whatsapp', destination: '/services/whatsapp-automation', permanent: true },

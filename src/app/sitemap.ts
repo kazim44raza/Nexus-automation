@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next'
 import { prisma } from '@/lib/prisma'
 
-const BASE_URL = (process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azorvin.com').replace(/\/$/, '')
+const BASE_URL = 'https://www.azorvin.com'
 
 const industrySlugs = [
   'healthcare', 'dental', 'real-estate', 'legal', 'fitness', 'automotive',

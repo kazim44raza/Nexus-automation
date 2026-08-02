@@ -16,13 +16,10 @@ const spaceGrotesk = Space_Grotesk({
   display: 'swap',
 })
 
-const getSiteUrl = () => {
-  const url = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://azorvin.com';
-  return url.startsWith('http') ? url : `https://${url}`;
-};
+const SITE_URL = 'https://www.azorvin.com'
 
 export const metadata: Metadata = {
-  metadataBase: new URL(getSiteUrl()),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: 'Azorvin — Voice, Messaging & Workflow Systems',
     template: '%s | Azorvin',
@@ -46,7 +43,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://azorvin.com',
+    url: 'https://www.azorvin.com',
     siteName: 'Azorvin',
     title: 'Azorvin — Voice, Messaging & Workflow Systems',
     description:
