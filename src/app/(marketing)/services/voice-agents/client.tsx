@@ -132,10 +132,10 @@ export default function VoiceAgentsClient() {
       </section>
 
       <section className="max-w-7xl mx-auto px-6 lg:px-8 mb-32">
-        <div className="relative min-h-[420px] overflow-hidden rounded-[2rem] border border-border">
-          <Image src="/images/voice_agent_scene.jpg" alt="A receptionist speaking with a visitor while a voice-assistant workflow is visible nearby" fill priority sizes="(min-width: 1280px) 1200px, 100vw" className="object-cover" />
+        <div className="relative min-h-[480px] overflow-hidden rounded-[2rem] border border-border lg:min-h-[540px]">
+          <Image src="/images/voice-agent-human-scene-v2.webp" alt="A service professional reviewing a live voice-call workflow on the edge of her monitor" fill priority sizes="(min-width: 1280px) 1200px, 100vw" className="object-cover object-center" />
           <div className="absolute inset-0 bg-gradient-to-r from-bg-base/90 via-bg-base/35 to-transparent" />
-          <div className="relative flex min-h-[420px] max-w-xl flex-col justify-end p-8 lg:p-12">
+          <div className="relative flex min-h-[480px] max-w-xl flex-col justify-end p-8 lg:min-h-[540px] lg:p-12">
             <span className="mb-4 text-xs font-semibold uppercase tracking-[0.22em] text-primary">The handoff matters</span>
             <h2 className="font-display text-3xl font-semibold">A useful voice agent knows when a person should take the call.</h2>
             <p className="mt-4 text-text-secondary">We define scope, fallback behavior, consent language, call logging, and the context your team receives at transfer.</p>
