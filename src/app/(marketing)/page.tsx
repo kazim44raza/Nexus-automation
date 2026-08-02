@@ -97,8 +97,8 @@ export default function HomePage() {
           </div>
           <figure className="home-principle__media">
             <Image
-              src="/images/business_automation_scene.jpg"
-              alt="A team reviewing an automated business workflow"
+              src="/images/business-automation-human-scene-v2.webp"
+              alt="An operations professional reviewing a visual business workflow on her monitor"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"
               className="object-cover"
@@ -117,8 +117,8 @@ export default function HomePage() {
           <div className="home-services__grid">
             <Link href="/services/voice-agents" className="home-service home-service--voice">
               <Image
-                src="/images/voice_agent_scene.jpg"
-                alt="A service professional handling a customer call"
+                src="/images/voice-agent-human-scene-v2.webp"
+                alt="A service professional reviewing a live voice-call workflow"
                 fill
                 sizes="(min-width: 1024px) 58vw, 100vw"
                 className="object-cover"
