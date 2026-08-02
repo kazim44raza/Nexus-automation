@@ -1,0 +1,24 @@
+:root {
+  --home-ink: #07111f;
+  --home-graphite: #101820;
+  --home-graphite-raised: #18232d;
+  --home-paper: #e9e5de;
+  --home-paper-deep: #d8d0c4;
+  --home-paper-ink: #111820;
+  --home-paper-muted: #4d5a64;
+  --home-metal: #c4ae88;
+  --home-signal: #3b9bff;
+  --home-signal-soft: #9cc9f4;
+  --home-line-dark: rgba(239, 246, 252, 0.18);
+  --home-line-light: rgba(17, 24, 32, 0.2);
+  --home-scrim: rgba(4, 10, 16, 0.62);
+  --home-scrim-deep: rgba(4, 10, 16, 0.9);
+  --home-glass: rgba(7, 17, 31, 0.72);
+  --home-focus: #8dd7ff;
+  --color-accent-ink: #03101e;
+  --duration-fast: 120ms;
+  --duration-ui: 200ms;
+  --duration-reveal: 500ms;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-in: cubic-bezier(0.7, 0, 0.84, 0);
+}

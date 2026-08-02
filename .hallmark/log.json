@@ -6,5 +6,13 @@
     "theme": "Azorvin Cobalt",
     "enrichment": "photographic fold plus cursor-reactive brand object",
     "brief": "Azorvin multi-page SaaS redesign"
+  },
+  {
+    "date": "2026-08-02",
+    "scope": "homepage",
+    "macrostructure": "Marquee Hero",
+    "theme": "Azorvin cinematic",
+    "enrichment": "full-bleed human photography plus cursor-responsive brand object",
+    "brief": "Adapt supplied cinematic landing-page reference to Azorvin"
   }
 ]

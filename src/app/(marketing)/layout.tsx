@@ -7,8 +7,9 @@ import { WhatsAppButton } from '@/components/marketing/WhatsAppButton'
 export default function MarketingLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <a href="#main-content" className="skip-link">Skip to main content</a>
       <Navbar />
-      <main><PageTheme>{children}</PageTheme></main>
+      <main id="main-content"><PageTheme>{children}</PageTheme></main>
       <Footer />
       <WhatsAppButton />
       <ChatbotWidget />

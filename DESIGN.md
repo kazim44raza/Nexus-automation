@@ -79,4 +79,13 @@ Blue is a signal, not wallpaper. Cyan/electric blue should occupy less than ten 
 - Hero composition, image crop, workflow visualization, section order, and proof format.
 - Service pages should not be colour-swapped copies of one template.
 
+## Homepage cinematic composition
+
+- The homepage uses a Marquee Hero with a left-biased statement over real human photography.
+- Warm paper and graphite bands add human warmth without abandoning the shared ink-and-blue system.
+- The supplied cinematic video reference informs pacing only; production media remains self-hosted and performance-conscious.
+- One cursor-responsive Azorvin emblem is the only 3D interaction in the opening viewport.
+- Navigation uses a full-width N1b structure; the footer closes with an Ft1 masthead.
+- Homepage semantic aliases and motion timings are exported in `/tokens.css`.
+
 /* Hallmark · genre: modern-minimal · macrostructure-family: Split Studio · design-system: DESIGN.md · designed-as-app */
