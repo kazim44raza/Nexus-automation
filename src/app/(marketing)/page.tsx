@@ -97,7 +97,7 @@ export default function HomePage() {
           </div>
           <figure className="home-principle__media">
             <Image
-              src="/images/business-automation-human-scene-v2.webp"
+              src="/images/business-automation-human-scene-v3.webp"
               alt="An operations professional reviewing a visual business workflow on her monitor"
               fill
               sizes="(min-width: 1024px) 50vw, 100vw"

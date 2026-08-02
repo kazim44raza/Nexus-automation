@@ -151,7 +151,7 @@ export default function BusinessAutomationClient() {
       <section className="bg-bg-base py-24">
         <div className="mx-auto grid max-w-7xl gap-10 px-6 lg:grid-cols-[0.8fr_1.2fr] lg:items-center">
           <div className="lg:order-2 relative min-h-[430px] overflow-hidden rounded-[2rem] border border-border">
-            <Image src="/images/business-automation-human-scene-v2.webp" alt="An operations professional reviewing a visual business workflow on her monitor" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
+            <Image src="/images/business-automation-human-scene-v3.webp" alt="An operations professional reviewing a visual business workflow on her monitor" fill sizes="(min-width: 1024px) 58vw, 100vw" className="object-cover" />
           </div>
           <div className="lg:order-1">
             <span className="text-xs font-semibold uppercase tracking-[0.22em] text-accent">Operations, made legible</span>
