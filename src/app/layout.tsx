@@ -21,7 +21,7 @@ const SITE_URL = 'https://www.azorvin.com'
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: 'Azorvin | AI Automation Systems for Service Businesses',
+    default: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation',
     template: '%s | Azorvin',
   },
   description:
@@ -54,15 +54,15 @@ export const metadata: Metadata = {
     locale: 'en_US',
     url: 'https://www.azorvin.com',
     siteName: 'Azorvin',
-    title: 'Azorvin | AI Automation Systems for Service Businesses',
+    title: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation',
     description:
-      'Azorvin designs practical voice, messaging, booking, CRM, and workflow automation for service businesses.',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Azorvin AI automation systems' }],
+      'Azorvin builds AI chatbots, voice agents, WhatsApp automation, appointment booking, and workflow systems for service businesses.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Azorvin AI systems and automation' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Azorvin | AI Automation Systems for Service Businesses',
-    description: 'Azorvin designs practical voice, messaging, booking, CRM, and workflow automation for service businesses.',
+    title: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation',
+    description: 'Azorvin builds AI chatbots, voice agents, WhatsApp automation, appointment booking, and workflow systems for service businesses.',
   },
   robots: {
     index: true,

@@ -10,8 +10,8 @@ import { ProcessSection } from '@/components/marketing/ProcessSection'
 import { CinematicHero } from '@/components/marketing/home/CinematicHero'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Azorvin | AI Automation Systems for Service Businesses' },
-  description: 'Azorvin is an AI automation systems company helping service businesses handle calls, messages, bookings, CRM updates, and routine workflows.',
+  title: { absolute: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation' },
+  description: 'Azorvin builds AI chatbots, voice agents, WhatsApp automation, appointment booking, and workflow systems for service businesses.',
   alternates: { canonical: '/' },
 }
 
@@ -51,6 +51,44 @@ const websiteSchema = {
         'https://www.linkedin.com/in/azorvin-systems-2139b540a',
         'https://www.instagram.com/azorvinsystems/',
       ],
+      knowsAbout: [
+        'AI chatbots',
+        'AI voice agents',
+        'WhatsApp automation',
+        'appointment booking automation',
+        'lead qualification',
+        'CRM automation',
+        'business workflow automation',
+      ],
+      hasOfferCatalog: {
+        '@type': 'OfferCatalog',
+        name: 'Azorvin AI automation services',
+        itemListElement: [
+          ['AI Chatbots', '/services/chatbots'],
+          ['AI Voice Agents', '/services/voice-agents'],
+          ['WhatsApp Automation', '/services/whatsapp-automation'],
+          ['Business Workflow Automation', '/services/business-automation'],
+          ['Appointment Booking Automation', '/services/appointment-booking'],
+          ['Lead Qualification Automation', '/services/lead-qualification'],
+        ].map(([name, path]) => ({
+          '@type': 'Offer',
+          itemOffered: {
+            '@type': 'Service',
+            name,
+            url: `https://www.azorvin.com${path}`,
+            provider: { '@id': 'https://www.azorvin.com/#organization' },
+          },
+        })),
+      },
+    },
+    {
+      '@type': 'WebPage',
+      '@id': 'https://www.azorvin.com/#webpage',
+      url: 'https://www.azorvin.com/',
+      name: 'Azorvin — AI Systems & Automation',
+      description: 'AI chatbots, voice agents, WhatsApp automation, appointment booking, and workflow systems for service businesses.',
+      isPartOf: { '@id': 'https://www.azorvin.com/#website' },
+      about: { '@id': 'https://www.azorvin.com/#organization' },
     },
   ],
 }
