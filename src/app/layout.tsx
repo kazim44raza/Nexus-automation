@@ -56,7 +56,7 @@ export const metadata: Metadata = {
     title: 'Azorvin — AI Systems & Automation | Chatbots, Voice Agents & Workflow Automation',
     description:
       'Azorvin builds AI chatbots, voice agents, WhatsApp automation, appointment booking, and workflow systems for service businesses.',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'Azorvin AI systems and automation' }],
+    images: [{ url: '/azorvin-logo-master.jpg', width: 1448, height: 1086, alt: 'Official Azorvin logo' }],
   },
   twitter: {
     card: 'summary_large_image',

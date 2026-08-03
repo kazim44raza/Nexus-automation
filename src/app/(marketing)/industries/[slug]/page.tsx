@@ -185,7 +185,7 @@ export async function generateMetadata({ params }: { params: Promise<{ slug: str
     title: `${industry.title} Workflow Automation`,
     description: industry.description,
     path: `/industries/${slug}`,
-    image: 'image' in industry ? industry.image : '/opengraph-image',
+    image: 'image' in industry ? industry.image : '/azorvin-logo-master.jpg',
   })
 }
 

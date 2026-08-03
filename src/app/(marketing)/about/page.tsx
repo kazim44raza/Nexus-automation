@@ -34,10 +34,13 @@ const aboutSchema = {
       disambiguatingDescription: 'Azorvin is the AI systems and business automation company operating at azorvin.com.',
       logo: {
         '@type': 'ImageObject',
-        url: 'https://www.azorvin.com/favicon-512.png',
-        width: 512,
-        height: 512,
+        url: 'https://www.azorvin.com/azorvin-logo-master.jpg',
+        contentUrl: 'https://www.azorvin.com/azorvin-logo-master.jpg',
+        width: 1448,
+        height: 1086,
+        caption: 'Official Azorvin logo',
       },
+      image: 'https://www.azorvin.com/azorvin-logo-master.jpg',
       email: 'ahmed@azorvin.com',
       sameAs: [
         'https://www.linkedin.com/in/azorvin-systems-2139b540a',
@@ -84,6 +87,19 @@ export default function AboutPage() {
                 <p className="mt-5 max-w-md leading-relaxed text-text-secondary">
                   On this website, Azorvin refers to the technology company operating at <span className="font-medium text-text-primary">azorvin.com</span>.
                 </p>
+                <figure className="mt-8 overflow-hidden rounded-xl border border-border bg-bg-base">
+                  <Image
+                    src="/azorvin-logo-master.jpg"
+                    alt="Official Azorvin logo with metallic silver and cyan architectural mark"
+                    width={1448}
+                    height={1086}
+                    sizes="(min-width: 1024px) 32vw, 100vw"
+                    className="h-auto w-full"
+                  />
+                  <figcaption className="border-t border-border px-4 py-3 text-xs uppercase tracking-[0.14em] text-text-muted">
+                    Official Azorvin identity
+                  </figcaption>
+                </figure>
               </div>
 
               <dl className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
