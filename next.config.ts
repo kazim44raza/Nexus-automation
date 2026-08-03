@@ -51,6 +51,10 @@ const nextConfig: NextConfig = {
       },
       // /services has no index page — send visitors to the solutions overview
       { source: '/favicon.ico', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
+      { source: '/favicon-48.png', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
+      { source: '/favicon-192.png', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
+      { source: '/favicon-512.png', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
+      { source: '/azorvin-mark.png', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
       { source: '/services', destination: '/solutions', permanent: false },
       { source: '/services/whatsapp', destination: '/services/whatsapp-automation', permanent: true },
     ]

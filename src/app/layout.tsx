@@ -3,6 +3,7 @@ import { Instrument_Sans, Space_Grotesk } from 'next/font/google'
 import './globals.css'
 import { Navbar } from '@/components/marketing/Navbar'
 import { Footer } from '@/components/marketing/Footer'
+import { BrowserCacheRefresh } from '@/components/shared/BrowserCacheRefresh'
 
 const instrumentSans = Instrument_Sans({ 
   subsets: ['latin'],
@@ -59,7 +60,7 @@ export const metadata: Metadata = {
   robots: {
     index: true,
     follow: true,
-    googleBot: { index: true, follow: true, 'max-image-preview': 'large', 'max-snippet': -1 },
+    googleBot: { index: true, follow: true, 'max-image-preview': 'none', 'max-snippet': -1 },
   },
   verification: {
     google: process.env.GOOGLE_SITE_VERIFICATION || 'O3iWN_QcC3ZMLRmW8ZKWz51DADc3fjSW57u0UVF-bTg',
@@ -73,6 +74,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <link rel="icon" href="/favicon.svg?v=azorvin-blank-4" type="image/svg+xml" sizes="any" />
       </head>
       <body className={`${instrumentSans.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary overflow-x-clip min-h-screen flex flex-col`} suppressHydrationWarning>
+        <BrowserCacheRefresh />
         {children}
       </body>
     </html>
