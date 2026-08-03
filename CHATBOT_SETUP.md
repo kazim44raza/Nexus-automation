@@ -1,7 +1,7 @@
 # Nexus AI Chatbot Integration Setup
 
 ## Overview
-A sophisticated AI chatbot has been integrated into your Nexus Automation website. The chatbot appears as a floating widget in the bottom-right corner of every page and uses OpenAI's GPT-4 API to provide intelligent, contextual responses about your services.
+A sophisticated AI chatbot has been integrated into the Azorvin website. The chatbot appears as a floating widget in the bottom-right corner of every page and uses the configured AI provider to give contextual responses about your services.
 
 ## Files Created
 
@@ -268,7 +268,7 @@ content: "Hi! 👋 I'm Nexus AI Assistant. I'm here to help you with our automat
 For questions about this chatbot setup, refer to:
 - OpenAI API Documentation: https://platform.openai.com/docs/api-reference/chat
 - Next.js API Routes: https://nextjs.org/docs/api-routes/introduction
-- Your Nexus Automation team for service-specific updates
+- Your Azorvin team for service-specific updates
 
 ---
 

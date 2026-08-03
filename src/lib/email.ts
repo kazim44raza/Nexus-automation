@@ -1,11 +1,8 @@
 import { Resend } from 'resend'
 import { absoluteUrl } from './utils'
 
-const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
 const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
-const bookingUrl = calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL
-  ? calendlyUrl
-  : absoluteUrl('/contact#contact-form')
+const bookingUrl = calendlyUrl || absoluteUrl('/contact#contact-form')
 
 function getResend() { return new Resend(process.env.RESEND_API_KEY ?? 'placeholder') } 
 const FROM = process.env.FROM_EMAIL ?? 'Azorvin <ahmed@azorvin.com>'

@@ -4,25 +4,104 @@ import Image from 'next/image'
 import { AnimatedSection, StaggerContainer, StaggerItem } from '@/components/shared/AnimatedSection'
 import { ArrowRight } from 'lucide-react'
 import { createPageMetadata } from '@/lib/seo'
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About Azorvin — AI Automation Systems Company',
-  description: 'Learn about Azorvin, an AI automation systems company building practical voice, messaging, CRM, and workflow solutions for service businesses.',
+  title: 'What Is Azorvin? AI Systems & Automation Company',
+  description: 'Azorvin is an AI systems and business automation company building chatbots, voice agents, WhatsApp, CRM, booking, and workflow systems for service businesses.',
   path: '/about',
 })
+
+const aboutSchema = {
+  '@context': 'https://schema.org',
+  '@graph': [
+    {
+      '@type': 'AboutPage',
+      '@id': 'https://www.azorvin.com/about#webpage',
+      url: 'https://www.azorvin.com/about',
+      name: 'What Is Azorvin?',
+      description: 'Official company profile for Azorvin, an AI systems and business automation company.',
+      isPartOf: { '@id': 'https://www.azorvin.com/#website' },
+      mainEntity: { '@id': 'https://www.azorvin.com/#organization' },
+    },
+    {
+      '@type': 'Organization',
+      '@id': 'https://www.azorvin.com/#organization',
+      name: 'Azorvin',
+      alternateName: ['Azorvin AI', 'Azorvin Systems'],
+      url: 'https://www.azorvin.com/',
+      description: 'Azorvin is an AI systems and business automation company for service businesses.',
+      disambiguatingDescription: 'Azorvin is the AI systems and business automation company operating at azorvin.com.',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.azorvin.com/favicon-512.png',
+        width: 512,
+        height: 512,
+      },
+      email: 'ahmed@azorvin.com',
+      sameAs: [
+        'https://www.linkedin.com/in/azorvin-systems-2139b540a',
+        'https://www.instagram.com/azorvinsystems/',
+      ],
+      knowsAbout: [
+        'AI chatbots',
+        'AI voice agents',
+        'WhatsApp automation',
+        'appointment booking automation',
+        'CRM automation',
+        'business workflow automation',
+      ],
+    },
+  ],
+}
 
 export default function AboutPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(aboutSchema) }} />
+
       <section className="bg-bg-base pt-40 pb-24 relative overflow-hidden">
         <div className="page-container max-w-5xl mx-auto">
           <AnimatedSection>
+            <Breadcrumbs items={[{ name: 'Home', path: '/' }, { name: 'About Azorvin', path: '/about' }]} />
             <h1 className="font-display text-4xl sm:text-5xl md:text-7xl tracking-tight text-text-primary mb-8 leading-[1.1] max-w-3xl">
-              Building practical automation, <span className="text-primary">not hype.</span>
+              What is <span className="text-primary">Azorvin?</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed max-w-2xl font-light">
-              Azorvin is an AI automation systems company for service businesses. We started it because too many teams were being sold chatbots that didn&apos;t integrate with their operations or solve real problems.
+              Azorvin is an AI systems and business automation company for service businesses. We build chatbots, voice agents, WhatsApp, booking, CRM, and workflow systems around the way a team actually operates.
             </p>
+          </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="border-y border-border/40 bg-bg-alt py-16" aria-labelledby="azorvin-profile-title">
+        <div className="page-container max-w-6xl mx-auto">
+          <AnimatedSection>
+            <div className="grid gap-10 lg:grid-cols-[0.8fr_1.2fr] lg:items-start">
+              <div>
+                <p className="mb-3 text-sm font-semibold uppercase tracking-[0.18em] text-primary">Official company profile</p>
+                <h2 id="azorvin-profile-title" className="font-display text-3xl md:text-4xl text-text-primary">Azorvin at a glance</h2>
+                <p className="mt-5 max-w-md leading-relaxed text-text-secondary">
+                  On this website, Azorvin refers to the technology company operating at <span className="font-medium text-text-primary">azorvin.com</span>.
+                </p>
+              </div>
+
+              <dl className="grid gap-px overflow-hidden border border-border bg-border sm:grid-cols-2">
+                {[
+                  ['Company', 'Azorvin'],
+                  ['Category', 'AI systems and business automation'],
+                  ['Built for', 'Service businesses and operational teams'],
+                  ['Core work', 'Chat, voice, WhatsApp, booking, CRM, and workflows'],
+                  ['Human role', 'Review, judgment, exceptions, and sensitive decisions'],
+                  ['Official contact', 'ahmed@azorvin.com'],
+                ].map(([term, detail]) => (
+                  <div key={term} className="bg-bg-base p-6">
+                    <dt className="text-xs font-semibold uppercase tracking-[0.14em] text-text-muted">{term}</dt>
+                    <dd className="mt-2 leading-relaxed text-text-primary">{detail}</dd>
+                  </div>
+                ))}
+              </dl>
+            </div>
           </AnimatedSection>
         </div>
       </section>
@@ -43,7 +122,7 @@ export default function AboutPage() {
               </div>
             </AnimatedSection>
             <AnimatedSection delay={0.2} className="md:col-span-7 pt-12">
-              <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-12">Why Azorvin exists</h2>
+              <h2 className="font-display text-3xl md:text-4xl text-text-primary mb-12">Why the company exists</h2>
               <div className="space-y-8 text-lg font-light">
                 <p className="text-text-secondary leading-relaxed">
                   Most service businesses we talk to have the same story. They&apos;re good at what they do — great, even — but they&apos;re losing leads because nobody picked up the phone at 7pm, or because a follow-up email never went out, or because their CRM is a mess of half-entered contacts.

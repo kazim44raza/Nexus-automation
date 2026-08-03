@@ -4,8 +4,6 @@ import { MultiStepContactForm } from '@/components/marketing/MultiStepContactFor
 import { Mail, Clock, Globe, Calendar } from 'lucide-react'
 import { createPageMetadata } from '@/lib/seo'
 
-const DEFAULT_CALENDLY_URL = 'https://calendly.com/nexus-automation'
-
 export const metadata: Metadata = createPageMetadata({
   title: 'Automation Discovery Call',
   description: 'Tell us where calls, messages, bookings, or handoffs are getting stuck. We will review the workflow and discuss a practical next step.',
@@ -14,7 +12,7 @@ export const metadata: Metadata = createPageMetadata({
 
 export default function ContactPage() {
   const calendlyUrl = process.env.NEXT_PUBLIC_CALENDLY_URL?.trim()
-  const hasCalendlyBookingLink = Boolean(calendlyUrl && calendlyUrl !== DEFAULT_CALENDLY_URL)
+  const hasCalendlyBookingLink = Boolean(calendlyUrl)
   const bookingHref = hasCalendlyBookingLink ? calendlyUrl : '#contact-form'
 
   return (

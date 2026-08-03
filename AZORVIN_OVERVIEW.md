@@ -1,8 +1,8 @@
-# Nexus Automation: Complete Overview
+# Azorvin: Complete Overview
 
-## What is Nexus Automation?
+## What is Azorvin?
 
-Nexus Automation is an **AI-powered business automation platform** that helps companies stop losing leads, respond instantly to customer inquiries, and automate repetitive workflows. We provide intelligent AI agents (chatbots and voice systems) combined with seamless business automation to drive growth and increase revenue.
+Azorvin is an **AI systems and business automation company** that helps service teams respond to enquiries, coordinate bookings, and reduce repetitive work. We design chat, voice, messaging, and workflow systems with clear human handoffs.
 
 Our mission is to enable businesses of all sizes to **work smarter, not harder** — by deploying AI that never sleeps and automating processes that would otherwise require costly human labor.
 
@@ -145,7 +145,7 @@ Automated scheduling converts conversations into confirmed appointments, reducin
 Eliminate repetitive tasks like data entry, follow-ups, and scheduling. Free your team to focus on closing deals and growing revenue.
 
 ### **Increase Revenue**
-More leads captured, more appointments booked, more deals closed. Our clients see an **average 40% increase in qualified leads** and higher conversion rates.
+The goal is to capture enquiries reliably, book appropriate appointments, and give the team cleaner information for each next step. Results depend on the existing process, traffic, integrations, and how the system is used.
 
 ### **Work 24/7**
 Your AI automation system works every hour of every day. Holidays, weekends, after hours — it never stops generating business.
@@ -169,7 +169,7 @@ We deploy your system, monitor performance, and continuously optimize your AI ag
 
 ## Industries We Serve
 
-Nexus Automation works across virtually every industry:
+Azorvin works with service businesses across industries including:
 
 ### **E-Commerce**
 - Product recommendations and upsells
@@ -247,13 +247,13 @@ Engage customers where they are: website chat, phone, SMS, WhatsApp, email, Face
 
 ---
 
-## Why Choose Nexus Automation?
+## Why Choose Azorvin?
 
 ### **Proven Results**
-- **40% increase** in qualified leads on average
-- **Up to 60% reduction** in appointment no-shows
-- **Up to 80% recovery** of missed lead opportunities
-- **70% reduction** in manual administrative work
+- Faster first responses to new enquiries
+- Fewer missed calls and forgotten follow-ups
+- Clearer appointment reminders and handoffs
+- Less repetitive data entry and administration
 
 ### **Fast Implementation**
 From discovery to launch in days, not months. You'll see results quickly.
@@ -275,7 +275,7 @@ One AI system that handles chat, voice, SMS, WhatsApp, email, and more.
 
 ---
 
-## The Nexus Automation Advantage
+## The Azorvin Approach
 
 **Traditional approach**: Hire more support staff, spend time on manual tasks, miss leads after hours, keep customers waiting.
 
@@ -306,7 +306,7 @@ The process is simple:
 
 **Ready to transform your business with AI automation?**
 
-- **Request a Demo**: See Nexus Automation in action with a custom demo
+- **Start a Conversation**: Review a real workflow with the Azorvin team
 - **Schedule a Consultation**: Talk to our team about your specific needs
 - **Support**: Dedicated support throughout implementation and beyond
 - **Email**: support@nexusautomation.com
@@ -317,7 +317,7 @@ The process is simple:
 
 Businesses that embrace AI automation are capturing more leads, converting higher rates, and growing faster than their competitors. Don't let your business fall behind.
 
-**Nexus Automation: Never miss a lead. Never stop growing.**
+**Azorvin: practical AI systems, designed around real operations.**
 
 ---
 

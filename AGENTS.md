@@ -1,4 +1,4 @@
-# Nexus Automation — Project Rules
+# Azorvin — Project Rules
 
 Next.js 15 (App Router) · TypeScript · Prisma/PostgreSQL · NextAuth v5 · Tailwind · Vercel AI SDK.
 

@@ -22,7 +22,7 @@ const websiteSchema = {
       '@type': 'WebSite',
       '@id': 'https://www.azorvin.com/#website',
       name: 'Azorvin',
-      alternateName: ['Azorvin Systems', 'azorvin.com'],
+      alternateName: ['Azorvin AI', 'Azorvin Systems', 'azorvin.com'],
       url: 'https://www.azorvin.com/',
       publisher: { '@id': 'https://www.azorvin.com/#organization' },
     },
@@ -30,7 +30,7 @@ const websiteSchema = {
       '@type': 'Organization',
       '@id': 'https://www.azorvin.com/#organization',
       name: 'Azorvin',
-      alternateName: 'Azorvin Systems',
+      alternateName: ['Azorvin AI', 'Azorvin Systems'],
       url: 'https://www.azorvin.com/',
       logo: {
         '@type': 'ImageObject',
@@ -40,6 +40,7 @@ const websiteSchema = {
         height: 512,
       },
       description: 'Azorvin is an AI automation systems company that designs voice, messaging, booking, CRM, and workflow systems for service businesses.',
+      disambiguatingDescription: 'Azorvin is the AI systems and business automation company operating at azorvin.com.',
       email: 'ahmed@azorvin.com',
       contactPoint: {
         '@type': 'ContactPoint',

@@ -16,7 +16,7 @@ const explore = [
   ['Solutions', '/solutions'],
   ['Industries', '/industries'],
   ['Work', '/work'],
-  ['About', '/about'],
+  ['About Azorvin', '/about'],
   ['Blog', '/blog'],
   ['Resources', '/resources'],
 ]

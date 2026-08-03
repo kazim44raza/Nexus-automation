@@ -5,7 +5,7 @@ import { randomBytes } from 'crypto'
 const prisma = new PrismaClient()
 
 async function main() {
-  const email = process.env.ADMIN_EMAIL ?? 'admin@nexusautomation.ai'
+  const email = process.env.ADMIN_EMAIL ?? 'ahmed@azorvin.com'
   // SECURITY: never ship a hardcoded default password — this repo is public.
   // If ADMIN_PASSWORD isn't set, generate a random one and print it once.
   const generated = !process.env.ADMIN_PASSWORD
@@ -19,7 +19,7 @@ async function main() {
     create: {
       email,
       password: hashed,
-      name: 'Nexus Admin',
+      name: 'Azorvin Admin',
       role: 'ADMIN',
     },
   })
@@ -37,8 +37,8 @@ async function main() {
     skipDuplicates: true,
     data: [
       {
-        title: 'About Nexus Automation',
-        content: 'Nexus Automation is a premium AI automation agency that helps businesses grow by automating their sales, support, and operational workflows. We specialize in AI chatbots, voice agents, lead qualification, appointment booking, and business process automation.',
+        title: 'About Azorvin',
+        content: 'Azorvin is an AI systems and automation company for service businesses. We design AI chatbots, voice agents, lead qualification, appointment booking, and business workflow automation with clear human handoffs.',
         category: 'Company',
         active: true,
         priority: 10,
@@ -52,7 +52,7 @@ async function main() {
       },
       {
         title: 'Pricing and Getting Started',
-        content: 'We offer custom pricing based on your business needs and scale. The best way to get started is to book a free 30-minute discovery call where we analyze your current workflows and identify automation opportunities. Most clients see ROI within 30-60 days.',
+        content: 'We provide custom pricing based on the workflow, integrations, volume, and support required. The best way to start is a discovery call where we review the current process and identify a practical first automation project.',
         category: 'Pricing',
         active: true,
         priority: 8,
