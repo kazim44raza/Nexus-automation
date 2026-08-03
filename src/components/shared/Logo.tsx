@@ -18,7 +18,6 @@ export function Logo({ variant = 'dark', className }: LogoProps) {
         width={44}
         height={44}
         className="h-9 w-9 shrink-0 object-contain md:h-10 md:w-10"
-        priority
       />
       <span className={cn('font-body text-sm font-semibold uppercase leading-none tracking-[0.28em] md:text-[15px]', variant === 'light' ? 'text-text-primary' : 'text-text-light-primary')}>
         Azorvin

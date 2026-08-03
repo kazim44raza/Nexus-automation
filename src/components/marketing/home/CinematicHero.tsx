@@ -45,20 +45,20 @@ export function CinematicHero() {
         className="home-hero__mark"
         aria-hidden="true"
         style={reducedMotion ? undefined : { rotateX, rotateY, transformStyle: 'preserve-3d' }}
+        initial={reducedMotion ? false : { opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ duration: 0.24, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
       >
         <Image src="/azorvin-mark.png" alt="" width={156} height={156} className="h-full w-full object-contain" />
       </motion.div>
 
       <div className="home-hero__content page-container">
-        <motion.h1
+        <h1
           id="home-hero-title"
           className="home-hero__title"
-          initial={reducedMotion ? false : { opacity: 0, y: 14 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
           Azorvin builds AI systems that keep customer requests moving.
-        </motion.h1>
+        </h1>
 
         <div className="home-hero__foot">
           <p>AI chatbots, voice agents, WhatsApp, and workflow automation for service teams</p>
