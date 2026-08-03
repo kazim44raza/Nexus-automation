@@ -10,8 +10,8 @@ import { ProcessSection } from '@/components/marketing/ProcessSection'
 import { CinematicHero } from '@/components/marketing/home/CinematicHero'
 
 export const metadata: Metadata = {
-  title: { absolute: 'Azorvin — Voice, Messaging & Workflow Systems' },
-  description: 'Azorvin helps service teams handle calls, messages, bookings, and routine handoffs without losing the human judgment each request needs.',
+  title: { absolute: 'Azorvin | AI Automation Systems for Service Businesses' },
+  description: 'Azorvin is an AI automation systems company helping service businesses handle calls, messages, bookings, CRM updates, and routine workflows.',
   alternates: { canonical: '/' },
 }
 
@@ -22,16 +22,35 @@ const websiteSchema = {
       '@type': 'WebSite',
       '@id': 'https://www.azorvin.com/#website',
       name: 'Azorvin',
-      url: 'https://www.azorvin.com',
+      alternateName: ['Azorvin Systems', 'azorvin.com'],
+      url: 'https://www.azorvin.com/',
+      publisher: { '@id': 'https://www.azorvin.com/#organization' },
     },
     {
       '@type': 'Organization',
       '@id': 'https://www.azorvin.com/#organization',
       name: 'Azorvin',
-      url: 'https://www.azorvin.com',
-      logo: 'https://www.azorvin.com/logo.png',
-      description: 'Voice, messaging, booking, and workflow system design for service businesses.',
+      alternateName: 'Azorvin Systems',
+      url: 'https://www.azorvin.com/',
+      logo: {
+        '@type': 'ImageObject',
+        url: 'https://www.azorvin.com/logo.png',
+        contentUrl: 'https://www.azorvin.com/logo.png',
+        width: 200,
+        height: 200,
+      },
+      description: 'Azorvin is an AI automation systems company that designs voice, messaging, booking, CRM, and workflow systems for service businesses.',
       email: 'ahmed@azorvin.com',
+      contactPoint: {
+        '@type': 'ContactPoint',
+        email: 'ahmed@azorvin.com',
+        contactType: 'sales and customer support',
+        availableLanguage: ['English'],
+      },
+      sameAs: [
+        'https://www.linkedin.com/in/azorvin-systems-2139b540a',
+        'https://www.instagram.com/azorvinsystems/',
+      ],
     },
   ],
 }

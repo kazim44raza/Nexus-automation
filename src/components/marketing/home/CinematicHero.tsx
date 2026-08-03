@@ -57,11 +57,11 @@ export function CinematicHero() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, ease: [0.16, 1, 0.3, 1] }}
         >
-          Keep customer requests moving.
+          Azorvin keeps customer requests moving.
         </motion.h1>
 
         <div className="home-hero__foot">
-          <p>Voice, messaging, and workflow systems for service teams</p>
+          <p>Practical voice, messaging, and workflow automation for service teams</p>
           <ul aria-label="Azorvin capabilities">
             <li>Voice</li>
             <li>Messaging</li>

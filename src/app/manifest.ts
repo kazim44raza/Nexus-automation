@@ -4,7 +4,7 @@ export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'Azorvin',
     short_name: 'Azorvin',
-    description: 'Voice, messaging, booking, and workflow systems for service businesses.',
+    description: 'Azorvin AI automation systems for service businesses.',
     start_url: '/',
     display: 'standalone',
     background_color: '#07111e',

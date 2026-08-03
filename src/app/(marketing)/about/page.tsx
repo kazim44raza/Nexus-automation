@@ -6,8 +6,8 @@ import { ArrowRight } from 'lucide-react'
 import { createPageMetadata } from '@/lib/seo'
 
 export const metadata: Metadata = createPageMetadata({
-  title: 'About Our Automation Design Approach',
-  description: 'Learn why Azorvin was founded and how we build practical, un-hyped automation systems for service businesses.',
+  title: 'About Azorvin — AI Automation Systems Company',
+  description: 'Learn about Azorvin, an AI automation systems company building practical voice, messaging, CRM, and workflow solutions for service businesses.',
   path: '/about',
 })
 
@@ -21,7 +21,7 @@ export default function AboutPage() {
               Building practical automation, <span className="text-primary">not hype.</span>
             </h1>
             <p className="text-xl text-text-secondary leading-relaxed max-w-2xl font-light">
-              We started Azorvin because too many businesses were being sold AI chatbots that didn't actually integrate with their operations or solve real problems.
+              Azorvin is an AI automation systems company for service businesses. We started it because too many teams were being sold chatbots that didn&apos;t integrate with their operations or solve real problems.
             </p>
           </AnimatedSection>
         </div>
