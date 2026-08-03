@@ -43,12 +43,10 @@ export const metadata: Metadata = {
   creator: 'Azorvin',
   icons: {
     icon: [
+      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
       { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-      { url: '/favicon-512.png', sizes: '512x512', type: 'image/png' },
-      { url: '/favicon.svg', type: 'image/svg+xml' },
     ],
     shortcut: '/favicon.ico',
-    apple: [{ url: '/favicon-192.png', sizes: '192x192', type: 'image/png' }],
   },
   openGraph: {
     type: 'website',
