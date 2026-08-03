@@ -6,6 +6,7 @@ import { formatDate } from '@/lib/utils'
 import { ArrowLeft, Clock, Calendar } from 'lucide-react'
 import Link from 'next/link'
 import { createPageMetadata } from '@/lib/seo'
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 
 interface Props { params: Promise<{ slug: string }> }
 
@@ -127,6 +128,10 @@ export default async function BlogPostPage({ params }: Props) {
       {/* Hero */}
       <section className="bg-bg-base pt-32 pb-12 border-b border-border">
         <div className="page-container max-w-3xl">
+          <Breadcrumbs items={[
+            { name: 'Blog', path: '/blog' },
+            { name: post.title, path: `/blog/${slug}` },
+          ]} />
           <Link href="/blog" className="inline-flex items-center gap-2 text-text-muted hover:text-accent text-sm font-medium transition-colors mb-8">
             <ArrowLeft className="w-4 h-4" /> Back to Blog
           </Link>

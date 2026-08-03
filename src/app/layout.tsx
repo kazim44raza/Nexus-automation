@@ -40,6 +40,11 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Azorvin' }],
   creator: 'Azorvin',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+    shortcut: '/favicon.svg',
+    apple: [{ url: '/logo.png', sizes: '200x200', type: 'image/png' }],
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',

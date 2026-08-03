@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title">
+  <title id="title">Azorvin</title>
+  <rect width="96" height="96" rx="20" fill="#06111f"/>
+  <path d="M12 31 39 11v74L12 65Z" fill="#d9e1e7"/>
+  <path d="m57 11 27 20v34L57 85Z" fill="#17c8df"/>
+  <path d="m44 37 6-9 5 9v23l-5 9-6-9Z" fill="#75eef2"/>
+</svg>

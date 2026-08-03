@@ -8,42 +8,41 @@ const industrySlugs = [
   'home-services', 'ecommerce', 'professional-services',
 ]
 
-const fallbackBlogSlugs = [
-  'how-we-build-reliable-voice-agents',
-  'why-we-prefer-n8n',
-  'automation-is-data-not-chat',
+const fallbackBlogPosts = [
+  { slug: 'how-we-build-reliable-voice-agents', updatedAt: '2025-06-01' },
+  { slug: 'why-we-prefer-n8n', updatedAt: '2025-05-22' },
+  { slug: 'automation-is-data-not-chat', updatedAt: '2025-05-15' },
 ]
 
 const staticRoutes: MetadataRoute.Sitemap = [
-  { url: BASE_URL, lastModified: new Date(), changeFrequency: 'weekly', priority: 1 },
-  { url: `${BASE_URL}/services/chatbots`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/voice-agents`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/business-automation`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/lead-qualification`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/appointment-booking`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/customer-support`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/services/whatsapp-automation`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-  { url: `${BASE_URL}/solutions`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-  { url: `${BASE_URL}/industries`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-  { url: `${BASE_URL}/work`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
-  { url: `${BASE_URL}/about`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-  { url: `${BASE_URL}/contact`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.7 },
-  { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.7 },
-  { url: `${BASE_URL}/resources`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.6 },
-  { url: `${BASE_URL}/privacy`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
-  { url: `${BASE_URL}/terms`, lastModified: new Date(), changeFrequency: 'yearly', priority: 0.3 },
+  { url: BASE_URL, changeFrequency: 'weekly', priority: 1 },
+  { url: `${BASE_URL}/services/chatbots`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/voice-agents`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/business-automation`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/lead-qualification`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/appointment-booking`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/customer-support`, changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/services/whatsapp-automation`, changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/solutions`, changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/industries`, changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/work`, changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/about`, changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE_URL}/contact`, changeFrequency: 'monthly', priority: 0.7 },
+  { url: `${BASE_URL}/blog`, changeFrequency: 'weekly', priority: 0.7 },
+  { url: `${BASE_URL}/resources`, changeFrequency: 'monthly', priority: 0.6 },
+  { url: `${BASE_URL}/privacy`, changeFrequency: 'yearly', priority: 0.3 },
+  { url: `${BASE_URL}/terms`, changeFrequency: 'yearly', priority: 0.3 },
   ...industrySlugs.map(slug => ({
     url: `${BASE_URL}/industries/${slug}`,
-    lastModified: new Date(),
     changeFrequency: 'monthly' as const,
     priority: 0.7,
   })),
 ]
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  let blogEntries: MetadataRoute.Sitemap = fallbackBlogSlugs.map(slug => ({
-    url: `${BASE_URL}/blog/${slug}`,
-    lastModified: new Date(),
+  let blogEntries: MetadataRoute.Sitemap = fallbackBlogPosts.map(post => ({
+    url: `${BASE_URL}/blog/${post.slug}`,
+    lastModified: new Date(post.updatedAt),
     changeFrequency: 'monthly' as const,
     priority: 0.65,
   }))

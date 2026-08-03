@@ -1,12 +1,12 @@
 import type { Metadata } from 'next'
-import Link from 'next/link'
 import Image from 'next/image'
 import { notFound } from 'next/navigation'
-import { Calendar, CheckCircle2, ArrowRight } from 'lucide-react'
+import { Calendar, CheckCircle2 } from 'lucide-react'
 import { AnimatedSection } from '@/components/shared/AnimatedSection'
 import { ContactForm } from '@/components/marketing/ContactForm'
 import { IndustryClientView } from './client'
 import { createPageMetadata } from '@/lib/seo'
+import { Breadcrumbs } from '@/components/seo/Breadcrumbs'
 
 const industries = {
   healthcare: {
@@ -201,9 +201,10 @@ export default async function IndustryPage({ params }: { params: Promise<{ slug:
         <div className="relative z-10 page-container">
           <div className="max-w-3xl">
             <AnimatedSection>
-              <Link href="/industries" className="text-sm font-medium text-text-muted hover:text-text-primary transition-colors flex items-center gap-1 mb-6">
-                <ArrowRight className="w-4 h-4 rotate-180" /> Back to Industries
-              </Link>
+              <Breadcrumbs items={[
+                { name: 'Industries', path: '/industries' },
+                { name: industry.title, path: `/industries/${slug}` },
+              ]} />
               <span className="badge-accent mb-4 inline-flex">{industry.tag}</span>
               <h1 className="heading-display text-text-primary mb-5 leading-tight">{industry.headline}</h1>
               <p className="text-xl text-text-secondary leading-relaxed max-w-2xl">{industry.description}</p>
