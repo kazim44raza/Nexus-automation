@@ -70,7 +70,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
-        <link rel="icon" href="/favicon.ico?v=azorvin-blank-3" type="image/svg+xml" sizes="any" />
+        <link rel="icon" href="/favicon.svg?v=azorvin-blank-4" type="image/svg+xml" sizes="any" />
       </head>
       <body className={`${instrumentSans.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary overflow-x-clip min-h-screen flex flex-col`} suppressHydrationWarning>
         {children}

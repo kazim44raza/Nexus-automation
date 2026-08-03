@@ -10,22 +10,8 @@ import { authConfig } from '@/lib/auth.config'
  */
 const { auth } = NextAuth(authConfig)
 
-const TRANSPARENT_ICON = '<svg xmlns="http://www.w3.org/2000/svg" width="1" height="1" viewBox="0 0 1 1"></svg>'
-
 export default auth((req) => {
   const { pathname } = req.nextUrl
-
-  if (pathname === '/favicon.ico') {
-    return new NextResponse(TRANSPARENT_ICON, {
-      headers: {
-        'Content-Type': 'image/svg+xml; charset=utf-8',
-        'Cache-Control': 'no-store, no-cache, must-revalidate, max-age=0',
-        Pragma: 'no-cache',
-        Expires: '0',
-      },
-    })
-  }
-
   const isAdminPage = pathname.startsWith('/admin') && !pathname.startsWith('/admin/login')
   const isAdminApi = pathname.startsWith('/api/admin')
 
@@ -42,5 +28,5 @@ export default auth((req) => {
 })
 
 export const config = {
-  matcher: ['/favicon.ico', '/admin/:path*', '/api/admin/:path*'],
+  matcher: ['/admin/:path*', '/api/admin/:path*'],
 }

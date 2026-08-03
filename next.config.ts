@@ -50,6 +50,7 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       // /services has no index page — send visitors to the solutions overview
+      { source: '/favicon.ico', destination: '/favicon.svg?v=azorvin-blank-4', permanent: false },
       { source: '/services', destination: '/solutions', permanent: false },
       { source: '/services/whatsapp', destination: '/services/whatsapp-automation', permanent: true },
     ]
