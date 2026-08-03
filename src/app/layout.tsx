@@ -41,13 +41,6 @@ export const metadata: Metadata = {
   ],
   authors: [{ name: 'Azorvin' }],
   creator: 'Azorvin',
-  icons: {
-    icon: [
-      { url: '/favicon-48.png', sizes: '48x48', type: 'image/png' },
-      { url: '/favicon.ico', sizes: '48x48', type: 'image/x-icon' },
-    ],
-    shortcut: '/favicon.ico',
-  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
@@ -76,6 +69,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+      <head>
+        <link rel="icon" href="data:," />
+      </head>
       <body className={`${instrumentSans.variable} ${spaceGrotesk.variable} antialiased bg-bg-base text-text-primary overflow-x-clip min-h-screen flex flex-col`} suppressHydrationWarning>
         {children}
       </body>

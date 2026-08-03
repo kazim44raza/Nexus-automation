@@ -58,7 +58,7 @@ export function HeroStudio() {
           className="absolute right-5 top-5 flex h-28 w-28 items-center justify-center rounded-2xl border border-white/20 bg-bg-base/80 p-5 backdrop-blur-md sm:h-36 sm:w-36"
           style={reducedMotion ? undefined : { rotateX, rotateY, transformStyle: 'preserve-3d' }}
         >
-          <Image src="/favicon-512.png" alt="" width={112} height={112} className="h-full w-full object-contain" />
+          <Image src="/azorvin-symbol-master.png" alt="" width={112} height={112} className="h-full w-full object-contain" />
         </motion.div>
 
         <figcaption className="absolute inset-x-5 bottom-5 rounded-2xl border border-white/15 bg-bg-base/90 p-4 backdrop-blur-md sm:p-5">

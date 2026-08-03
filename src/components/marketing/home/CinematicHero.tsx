@@ -49,7 +49,7 @@ export function CinematicHero() {
         animate={{ opacity: 1 }}
         transition={{ duration: 0.24, delay: 0.12, ease: [0.16, 1, 0.3, 1] }}
       >
-        <Image src="/favicon-512.png" alt="" width={156} height={156} className="h-full w-full object-contain" />
+        <Image src="/azorvin-symbol-master.png" alt="" width={156} height={156} className="h-full w-full object-contain" />
       </motion.div>
 
       <div className="home-hero__content page-container">

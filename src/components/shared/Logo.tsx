@@ -28,7 +28,7 @@ export function Logo({ variant = 'dark', className }: LogoProps) {
   return (
     <span className={cn('flex items-center gap-3', className)} aria-label="Azorvin">
       <Image
-        src="/favicon-512.png"
+        src="/azorvin-symbol-master.png"
         alt=""
         width={44}
         height={44}
